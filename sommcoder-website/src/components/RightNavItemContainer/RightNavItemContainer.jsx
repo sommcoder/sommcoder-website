@@ -8,4 +8,7 @@ export default function RightNavItemContainer() {
     </StyledRightNavItemContainer>
   );
 }
-const StyledRightNavItemContainer = styled.span``;
+const StyledRightNavItemContainer = styled.span`
+  width: 50%;
+  border: 1px dotted black;
+`;
