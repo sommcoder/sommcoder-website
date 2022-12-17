@@ -8,4 +8,10 @@ export default function NavBar() {
     </StyledNavBar>
   );
 }
-const StyledNavBar = styled.nav``;
+const StyledNavBar = styled.nav`
+  /* display: flex; */
+  position: sticky;
+  border-bottom: 1px solid black;
+  width: 100%;
+  height: 5rem;
+`;

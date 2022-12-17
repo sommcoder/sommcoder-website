@@ -1,13 +1,19 @@
 import NavBar from "./components/NavBar/NavBar";
 import HeroContainer from "./components/HeroContainer/HeroContainer";
 import CarouselContainer from "./components/CarouselContainer/CarouselContainer";
+import styled from "styled-components";
 
 export default function App() {
   return (
-    <div className="App">
+    <StyledApp className="App">
       <NavBar />
       <HeroContainer />
       <CarouselContainer />
-    </div>
+    </StyledApp>
   );
 }
+
+const StyledApp = styled.div`
+  width: 100%;
+  background-color: black;
+`;
