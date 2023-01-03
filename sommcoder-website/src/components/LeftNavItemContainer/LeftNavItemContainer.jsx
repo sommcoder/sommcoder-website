@@ -9,7 +9,8 @@ export default function LeftNavItemContainer() {
   );
 }
 const StyledLeftNavItemContainer = styled.span`
+  display: grid;
+  margin: auto;
+  justify-content: left;
   width: 100%;
-  display: flex;
-  border: 1px solid white;
 `;

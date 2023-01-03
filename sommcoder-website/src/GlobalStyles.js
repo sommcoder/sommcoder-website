@@ -8,7 +8,7 @@ const GlobalStyles = createGlobalStyle`${css`
 
   html {
     font-size: 67.5%;
-    background-color: #0a1a0d;
+    background-color: #506854;
     color: white;
   }
 
@@ -35,16 +35,26 @@ const GlobalStyles = createGlobalStyle`${css`
     position: relative;
 
     font-weight: 600;
-    font-size: 1.25rem;
+    font-size: 1rem;
     color: black;
 
-    border-radius: 10px;
     border: none;
     height: 3.5rem;
-    width: 10rem;
+    width: auto; // width of button adjusts based on text content
+    min-width: 6rem;
     padding: 0.5rem;
     text-align: center;
-    background-color: #af9bc4;
+    /* background-color: #af9bc4; */
+
+    border-radius: 10px;
+    background: linear-gradient(145deg, #bba6d2, #9e8cb0);
+    box-shadow: 20px 20px 60px #9584a7, -20px -20px 60px #c9b2e1;
+
+    &:active {
+      border-radius: 50px;
+      background: linear-gradient(145deg, #9e8cb0, #bba6d2);
+      box-shadow: 20px 20px 60px #9584a7, -20px -20px 60px #c9b2e1;
+    }
 
     padding: 0.5rem;
     text-align: center;

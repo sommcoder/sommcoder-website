@@ -9,7 +9,9 @@ export default function RightNavItemContainer() {
   );
 }
 const StyledRightNavItemContainer = styled.span`
+  display: grid;
+  justify-content: right;
+  /* align-items: end; */
   width: 100%;
-  display: flex;
-  border: 1px solid white;
+  margin: auto;
 `;
