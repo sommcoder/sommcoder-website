@@ -12,4 +12,11 @@ export default function HeroContainer() {
     </StyledHeroContainer>
   );
 }
-const StyledHeroContainer = styled.main``;
+const StyledHeroContainer = styled.main`
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 5% 40% 55%;
+  max-width: 100%;
+  min-height: 350px;
+  padding: 0.5rem;
+`;

@@ -1,4 +1,6 @@
 ﻿import styled from "styled-components";
+import LeftNavItemContainer from "../LeftNavItemContainer/LeftNavItemContainer";
+import RightNavItemContainer from "../RightNavItemContainer/RightNavItemContainer";
 
 export default function NavBar() {
   return (
@@ -9,9 +11,10 @@ export default function NavBar() {
   );
 }
 const StyledNavBar = styled.nav`
-  /* display: flex; */
   position: sticky;
-  border-bottom: 1px solid black;
-  width: 100%;
-  height: 5rem;
+  display: flex;
+  border-bottom: 1px solid white;
+  padding: 0.5rem;
+  max-width: 100%;
+  height: 7rem;
 `;

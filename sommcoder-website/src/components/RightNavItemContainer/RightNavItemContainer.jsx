@@ -9,6 +9,7 @@ export default function RightNavItemContainer() {
   );
 }
 const StyledRightNavItemContainer = styled.span`
-  width: 50%;
-  border: 1px dotted black;
+  width: 100%;
+  display: flex;
+  border: 1px solid white;
 `;

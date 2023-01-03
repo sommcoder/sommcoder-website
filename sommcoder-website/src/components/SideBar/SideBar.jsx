@@ -8,4 +8,6 @@ export default function SideBar() {
     </StyledSideBar>
   );
 }
-const StyledSideBar = styled.div``;
+const StyledSideBar = styled.div`
+  border: 1px solid white;
+`;

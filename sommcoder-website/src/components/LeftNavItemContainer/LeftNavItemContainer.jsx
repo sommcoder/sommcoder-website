@@ -8,4 +8,8 @@ export default function LeftNavItemContainer() {
     </StyledLeftNavItemContainer>
   );
 }
-const StyledLeftNavItemContainer = styled.span``;
+const StyledLeftNavItemContainer = styled.span`
+  width: 100%;
+  display: flex;
+  border: 1px solid white;
+`;

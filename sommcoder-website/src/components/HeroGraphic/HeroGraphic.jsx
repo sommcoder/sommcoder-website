@@ -3,4 +3,6 @@
 export default function HeroGraphic() {
   return <StyledHeroGraphic></StyledHeroGraphic>;
 }
-const StyledHeroGraphic = styled.svg``;
+const StyledHeroGraphic = styled.div`
+  border: 1px solid white;
+`;

@@ -1,6 +1,8 @@
 ﻿import styled from "styled-components";
 
 export default function HireMeBtn() {
-  return <StyledHireMeBtn></StyledHireMeBtn>;
+  return <StyledHireMeBtn>Hire Me!</StyledHireMeBtn>;
 }
-const StyledHireMeBtn = styled.button``;
+const StyledHireMeBtn = styled.button`
+  align-self: stretch;
+`;
