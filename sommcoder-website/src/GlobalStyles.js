@@ -33,29 +33,24 @@ const GlobalStyles = createGlobalStyle`${css`
   button {
     display: inline-block;
     position: relative;
-
     font-weight: 600;
     font-size: 1rem;
     color: black;
-
     border: none;
     height: 3.5rem;
     width: auto; // width of button adjusts based on text content
-    min-width: 6rem;
+    min-width: 7rem;
     padding: 0.5rem;
     text-align: center;
     /* background-color: #af9bc4; */
-
     border-radius: 10px;
     background: linear-gradient(145deg, #bba6d2, #9e8cb0);
     box-shadow: 20px 20px 60px #9584a7, -20px -20px 60px #c9b2e1;
-
     &:active {
       border-radius: 50px;
       background: linear-gradient(145deg, #9e8cb0, #bba6d2);
       box-shadow: 20px 20px 60px #9584a7, -20px -20px 60px #c9b2e1;
     }
-
     padding: 0.5rem;
     text-align: center;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07),

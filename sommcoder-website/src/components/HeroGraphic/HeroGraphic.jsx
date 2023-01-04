@@ -1,8 +1,25 @@
 ﻿import styled from "styled-components";
 
 export default function HeroGraphic() {
-  return <StyledHeroGraphic></StyledHeroGraphic>;
+  return (
+    <StyledHeroGraphic>
+      <img
+        height="200px"
+        width="200px"
+        alt="Wine Stain Graphic"
+        src="../../assets/wine-stain-1.svg"
+      />
+      <img
+        height="200px"
+        width="200px"
+        alt="Wine Stain Graphic 2"
+        src="../../assets/wine-stain-2.svg"
+      />
+    </StyledHeroGraphic>
+  );
 }
 const StyledHeroGraphic = styled.div`
-  border: 1px solid white;
+  align-self: center;
+  min-width: 50px;
+  min-height: 50px;
 `;
