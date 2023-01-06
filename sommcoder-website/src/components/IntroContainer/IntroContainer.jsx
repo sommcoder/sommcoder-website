@@ -13,10 +13,7 @@ export default function IntroContainer() {
   );
 }
 const StyledIntroContainer = styled.div`
+  display: grid;
   border: 1px solid white;
-  min-height: 50px;
-
-  @media (max-width: 768px) {
-    flex-wrap: wrap;
-  }
+  padding: 2rem;
 `;
