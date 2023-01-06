@@ -10,4 +10,6 @@ export default function SideBar() {
 }
 const StyledSideBar = styled.div`
   border: 1px solid white;
+  min-width: 50px;
+  max-width: 80px;
 `;

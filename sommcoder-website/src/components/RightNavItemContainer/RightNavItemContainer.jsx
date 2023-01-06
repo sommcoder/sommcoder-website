@@ -10,8 +10,7 @@ export default function RightNavItemContainer() {
 }
 const StyledRightNavItemContainer = styled.span`
   display: grid;
-  justify-content: right;
-  /* align-items: end; */
+  justify-items: right;
   width: 100%;
-  margin: auto;
+  align-items: right;
 `;

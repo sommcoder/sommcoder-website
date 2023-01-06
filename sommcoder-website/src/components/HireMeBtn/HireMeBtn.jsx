@@ -4,5 +4,6 @@ export default function HireMeBtn() {
   return <StyledHireMeBtn>Hire Me!</StyledHireMeBtn>;
 }
 const StyledHireMeBtn = styled.button`
-  margin: 0 auto;
+  justify-self: center;
+  margin-top: 2rem;
 `;

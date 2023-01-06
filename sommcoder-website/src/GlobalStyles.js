@@ -7,13 +7,18 @@ const GlobalStyles = createGlobalStyle`${css`
   }
 
   html {
-    font-size: 67.5%;
+    font-size: 67.5%; // now 1.6 rem should equal 16 pt font
     background-color: #506854;
     color: white;
   }
 
   body {
     max-width: 100%;
+    font-size: 1.6rem;
+  }
+
+  h5 {
+    font-size: 1.2rem;
   }
 
   div {
@@ -34,12 +39,12 @@ const GlobalStyles = createGlobalStyle`${css`
     display: inline-block;
     position: relative;
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 1.2rem;
     color: black;
     border: none;
     height: 3.5rem;
     width: auto; // width of button adjusts based on text content
-    min-width: 7rem;
+    min-width: 10rem;
     padding: 0.5rem;
     text-align: center;
     /* background-color: #af9bc4; */

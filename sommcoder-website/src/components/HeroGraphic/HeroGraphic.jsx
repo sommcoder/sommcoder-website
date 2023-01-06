@@ -19,7 +19,13 @@ export default function HeroGraphic() {
   );
 }
 const StyledHeroGraphic = styled.div`
-  align-self: center;
-  min-width: 50px;
-  min-height: 50px;
+  display: none;
+
+  // only visible on Tablet/Desktop
+  @media (min-width: 700px) {
+    display: inline-block;
+    align-self: center;
+    min-width: 50px;
+    min-height: 50px;
+  }
 `;
