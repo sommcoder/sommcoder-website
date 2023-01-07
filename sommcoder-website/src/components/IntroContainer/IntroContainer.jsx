@@ -14,6 +14,5 @@ export default function IntroContainer() {
 }
 const StyledIntroContainer = styled.div`
   display: grid;
-  border: 1px solid white;
   padding: 2rem;
 `;

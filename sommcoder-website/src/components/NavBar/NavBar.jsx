@@ -22,7 +22,7 @@ export default function NavBar() {
 }
 const StyledNavBar = styled.nav`
   position: sticky;
-  visibility: ${(props) => (props.isScrolling ? "visible" : "hidden")};
+  /* visibility: ${(props) => (props.isScrolling ? "visible" : "hidden")}; */
   top: 0px;
   z-index: 2;
   overflow-x: clip;
@@ -33,7 +33,7 @@ const StyledNavBar = styled.nav`
   height: 6rem;
   margin-bottom: 3rem;
   background: #324935;
-  box-shadow: 20px 20px 60px #2b3e2d, -20px -20px 60px #3a543d;
+  /* box-shadow: 20px 20px 0px #2b3e2d; */
   transition: 0.3s ease-in-out;
 
   // as the user scrolls we want to create a separation between nav bar and main elements
