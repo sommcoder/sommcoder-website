@@ -18,7 +18,7 @@ const GlobalStyles = createGlobalStyle`${css`
   }
 
   h5 {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
 
   div {
@@ -47,7 +47,6 @@ const GlobalStyles = createGlobalStyle`${css`
     min-width: 10rem;
     padding: 0.5rem;
     text-align: center;
-    /* background-color: #af9bc4; */
     border-radius: 10px;
     background: linear-gradient(145deg, #bba6d2, #9e8cb0);
     box-shadow: 20px 20px 60px #9584a7, -20px -20px 60px #c9b2e1;
