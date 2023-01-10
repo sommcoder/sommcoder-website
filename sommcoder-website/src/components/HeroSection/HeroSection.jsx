@@ -1,27 +1,27 @@
 ﻿import styled from "styled-components";
-import SideBar from "../SideBar/SideBar";
 import IntroContainer from "../IntroContainer/IntroContainer";
 import HeroGraphic from "../HeroGraphic/HeroGraphic";
 
-export default function HeroContainer() {
+export default function HeroSection() {
   return (
-    <StyledHeroContainer>
-      <SideBar />
+    <StyledHeroSection>
       <IntroContainer />
       <HeroGraphic />
-    </StyledHeroContainer>
+    </StyledHeroSection>
   );
 }
-const StyledHeroContainer = styled.main`
-  margin-top: 1rem;
+const StyledHeroSection = styled.span`
+  height: auto;
   display: grid;
-  grid-template-columns: 15% 85%;
+  grid-template-columns: 100%;
   max-width: 100%;
   min-height: 350px;
   padding: 0.5rem;
+  margin-top: 2rem;
 
-  @media (min-width: 700px) {
-    grid-template-columns: 10% 50% 40%;
+  @media (min-width: 850px) {
+    grid-template-columns: 60% 40%;
+    margin-top: 5rem;
   }
 
   // we should only generate the hero-graphic for Desktop, maybe find an alternative smaller image for mobile

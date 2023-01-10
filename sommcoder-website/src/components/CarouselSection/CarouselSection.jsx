@@ -1,7 +1,7 @@
 ﻿import styled from "styled-components";
 import CarouselItem from "../CarouselItem/CarouselItem";
 
-export default function CarouselContainer() {
+export default function CarouselSection() {
   // we should useEffect to fetch public git repositories and post them here. Or use React Query and query our server API!!!
 
   // we want to get an array so that we can map them to produce the number of CarouselItems needed WITH their content
@@ -43,7 +43,7 @@ export default function CarouselContainer() {
   ];
 
   return (
-    <StyledCarouselContainer>
+    <StyledCarouselSection>
       {items.map(({ thumbnail, title, short }, index) => (
         <CarouselItem
           thumbnail={thumbnail}
@@ -52,10 +52,10 @@ export default function CarouselContainer() {
           key={index}
         />
       ))}
-    </StyledCarouselContainer>
+    </StyledCarouselSection>
   );
 }
-const StyledCarouselContainer = styled.div`
+const StyledCarouselSection = styled.div`
   display: grid;
   margin: 5rem 2rem 5rem 2rem;
 

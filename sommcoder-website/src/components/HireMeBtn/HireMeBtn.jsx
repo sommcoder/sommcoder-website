@@ -5,5 +5,6 @@ export default function HireMeBtn() {
 }
 const StyledHireMeBtn = styled.button`
   justify-self: center;
-  margin-top: 2rem;
+  align-self: center;
+  grid-column: span 2;
 `;

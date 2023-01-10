@@ -1,6 +1,6 @@
 import NavBar from "./components/NavBar/NavBar";
-import HeroContainer from "./components/HeroContainer/HeroContainer";
-import CarouselContainer from "./components/CarouselContainer/CarouselContainer";
+import MainSection from "./components/MainSection/MainSection";
+import ProjectSection from "./components/ProjectSection/ProjectSection";
 import styled, { ThemeProvider } from "styled-components";
 import GlobalStyles from "./GlobalStyles";
 
@@ -11,8 +11,8 @@ export default function App() {
       <GlobalStyles />
       <StyledApp className="App">
         <NavBar />
-        <HeroContainer />
-        <CarouselContainer />
+        <MainSection />
+        <ProjectSection />
       </StyledApp>
     </ThemeProvider>
   );
