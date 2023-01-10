@@ -1,5 +1,6 @@
 ﻿import styled from "styled-components";
 import CarouselItem from "../CarouselItem/CarouselItem";
+import wordle from "../../assets/wordle.svg";
 
 export default function CarouselSection() {
   // we should useEffect to fetch public git repositories and post them here. Or use React Query and query our server API!!!
@@ -13,28 +14,31 @@ export default function CarouselSection() {
   // the long description will get passed to the Page only
   const items = [
     {
-      thumbnail: "",
+      thumbnail: wordle,
+      link: "https://sommcoder.github.io/Wordle-Clone-App/",
       title: "Wordle Clone",
-      short:
-        "This was Brian's first application he attempted to make. It uses vanilla JavaScript and jQuery to perform the core functionality of the popular game Wordle. It is a client-only SPA",
+      short: "A vanilla JavaScript and jQuery clone of the popular game Wordle",
       long: "",
     },
     {
       thumbnail: "",
+      link: "",
       title: "Mar-Key",
       short:
         "Allows employees of Paradise Theatre to more efficiently validate and determine what blocks they need to collect for their retro marquee display.",
       long: "Marquee keeps track of block counts, dynamically validates messages as they're entered, cross references the former display to the desired new display so that users can determine which blocks they need to retrieve and how many of each depending on which of the 3 marquees have received input",
     },
+    // {
+    //   thumbnail: "",
+    //   link: "",
+    //   title: "Grat-ify",
+    //   short:
+    //     "Grat-ify is a full-stack hospitality gratuity app that alleviates the need for users to handle gratuity distribution amongst their employees via spreadsheets.",
+    //   long: "After initial setup, Grat-ify allows users to upload csv files from their payroll and POS applications to quickly determine how much money each employee should receive from the gratuity pool based on the users specifications ",
+    // },
     {
       thumbnail: "",
-      title: "Grat-ify",
-      short:
-        "Grat-ify is a full-stack hospitality gratuity app that alleviates the need for users to handle gratuity distribution amongst their employees via spreadsheets.",
-      long: "After initial setup, Grat-ify allows users to upload csv files from their payroll and POS applications to quickly determine how much money each employee should receive from the gratuity pool based on the users specifications ",
-    },
-    {
-      thumbnail: "",
+      link: "",
       title: "Mass Photo Uploader - \n A Shopify App",
       short:
         "This is Brian's first Shopify app using the Node.js template, Shopify CLI 3.0, React, ",
@@ -44,12 +48,12 @@ export default function CarouselSection() {
 
   return (
     <StyledCarouselSection>
-      {items.map(({ thumbnail, title, short }, index) => (
+      {items.map(({ thumbnail, link, title, short }) => (
         <CarouselItem
           thumbnail={thumbnail}
           title={title}
           short={short}
-          key={index}
+          key={title}
         />
       ))}
     </StyledCarouselSection>

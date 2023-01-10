@@ -13,4 +13,5 @@ const StyledLeftNavItemContainer = styled.span`
   margin: auto;
   justify-content: left;
   width: 100%;
+  margin-left: 2rem;
 `;

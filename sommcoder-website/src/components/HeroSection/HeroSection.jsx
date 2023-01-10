@@ -14,10 +14,10 @@ const StyledHeroSection = styled.span`
   height: auto;
   display: grid;
   grid-template-columns: 100%;
-  max-width: 100%;
+  max-width: 1280px;
   min-height: 350px;
   padding: 0.5rem;
-  margin-top: 2rem;
+  margin: 2rem 1rem;
 
   @media (min-width: 850px) {
     grid-template-columns: 60% 40%;

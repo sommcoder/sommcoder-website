@@ -14,6 +14,8 @@ export default function ProjectSection() {
 }
 const StyledProjectSection = styled.div`
   display: grid;
+  grid-template-columns: auto;
+  max-width: 1280px;
 
   @media (min-width: 1280) {
     grid-template-columns: 2.5% auto 2.5%;

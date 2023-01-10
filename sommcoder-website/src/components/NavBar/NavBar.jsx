@@ -1,20 +1,20 @@
 ﻿import styled from "styled-components";
 import LeftNavItemContainer from "../LeftNavItemContainer/LeftNavItemContainer";
 import RightNavItemContainer from "../RightNavItemContainer/RightNavItemContainer";
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 
 export default function NavBar() {
-  const [isScrolling, setIsScrolling] = useState(true);
+  // const [isScrolling, setIsScrolling] = useState(true);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolling(window.scrollY > 0);
-    };
-    window.requestAnimationFrame(handleScroll);
-  }, []);
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     setIsScrolling(window.scrollY > 0);
+  //   };
+  //   window.requestAnimationFrame(handleScroll);
+  // }, []);
 
   return (
-    <StyledNavBar isScrolling={isScrolling}>
+    <StyledNavBar>
       <LeftNavItemContainer />
       <RightNavItemContainer />
     </StyledNavBar>

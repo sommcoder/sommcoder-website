@@ -50,11 +50,11 @@ const GlobalStyles = createGlobalStyle`${css`
     border-radius: 10px;
     background: linear-gradient(145deg, #bba6d2, #9e8cb0);
     box-shadow: 20px 20px 60px #9584a7, -20px -20px 60px #c9b2e1;
-    &:active {
+    /* &:active {
       border-radius: 50px;
       background: linear-gradient(145deg, #9e8cb0, #bba6d2);
       box-shadow: 20px 20px 60px #9584a7, -20px -20px 60px #c9b2e1;
-    }
+    } */
     padding: 0.5rem;
     text-align: center;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07),

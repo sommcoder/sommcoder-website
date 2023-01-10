@@ -38,6 +38,13 @@ should definitely make the intro image smaller for mobile!
   @media (max-width: 475px) {
     grid-column: span 2;
     justify-self: left;
+    max-height: 165px;
+    max-width: 165px;
+
+    img {
+      max-height: 120px;
+      max-width: 120px;
+    }
   }
 
   // when the screen is sub 500px, we will wrap this component to be adjacent to teh IntroDescription component and display: none on the HeroGraphic (completed)
