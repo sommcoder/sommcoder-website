@@ -4,7 +4,7 @@ export default function HireMeBtn() {
   return <StyledHireMeBtn>Hire Me!</StyledHireMeBtn>;
 }
 const StyledHireMeBtn = styled.button`
-  justify-self: center;
+  justify-self: left;
   align-self: center;
-  grid-column: span 2;
+  /* grid-column: span 2; */
 `;

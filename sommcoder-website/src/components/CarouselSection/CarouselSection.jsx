@@ -1,6 +1,7 @@
 ﻿import styled from "styled-components";
 import CarouselItem from "../CarouselItem/CarouselItem";
 import wordle from "../../assets/wordle.svg";
+import markey from "../../assets/mar-key.svg";
 
 export default function CarouselSection() {
   // we should useEffect to fetch public git repositories and post them here. Or use React Query and query our server API!!!
@@ -21,8 +22,8 @@ export default function CarouselSection() {
       long: "",
     },
     {
-      thumbnail: "",
-      link: "",
+      thumbnail: markey,
+      link: "https://github.com/sommcoder/Mar-Key",
       title: "Mar-Key",
       short:
         "Allows employees of Paradise Theatre to more efficiently validate and determine what blocks they need to collect for their retro marquee display.",

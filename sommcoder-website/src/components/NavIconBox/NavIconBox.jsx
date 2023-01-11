@@ -8,17 +8,21 @@ export default function NavIconBox({ link, image }) {
   );
 }
 const StyledNavIconBox = styled.a`
-  display: inline-block;
-  margin: 0rem 1rem;
+  display: none;
 
-  img {
-    height: 60px;
-    width: 60px;
-    filter: brightness(150%);
-  }
+  @media (min-width: 600px) {
+    display: inline-block;
+    margin: 0rem 1rem;
 
-  &:hover {
-    cursor: pointer;
-    filter: brightness(125%);
+    img {
+      height: 60px;
+      width: 60px;
+      filter: brightness(150%);
+    }
+
+    &:hover {
+      cursor: pointer;
+      filter: brightness(125%);
+    }
   }
 `;

@@ -7,7 +7,7 @@ import NavIconBox from "../NavIconBox/NavIconBox";
 import linkedin from "../../assets/linkedin.svg";
 import github from "../../assets/github.svg";
 
-export default function RightNavItemContainer() {
+export default function NavRightContainer() {
   const icons = [
     {
       name: "linked-in",
@@ -18,16 +18,16 @@ export default function RightNavItemContainer() {
   ];
 
   return (
-    <StyledRightNavItemContainer>
+    <StyledNavRightContainer>
       {icons.map(({ name, image, link }) => (
         <NavIconBox key={name} image={image} link={link} />
       ))}
       <DownloadBtn />
       <HamburgerMenu />
-    </StyledRightNavItemContainer>
+    </StyledNavRightContainer>
   );
 }
-const StyledRightNavItemContainer = styled.span`
+const StyledNavRightContainer = styled.span`
   display: flex;
   width: 100%;
   align-items: center;

@@ -17,11 +17,11 @@ const StyledHeroSection = styled.span`
   max-width: 1280px;
   min-height: 350px;
   padding: 0.5rem;
-  margin: 2rem 1rem;
+  margin: 2rem 1rem 1rem 1rem;
 
   @media (min-width: 850px) {
     grid-template-columns: 60% 40%;
-    margin-top: 5rem;
+    margin-top: 0rem;
   }
 
   // we should only generate the hero-graphic for Desktop, maybe find an alternative smaller image for mobile

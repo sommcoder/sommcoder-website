@@ -1,6 +1,6 @@
 ﻿import styled from "styled-components";
-import LeftNavItemContainer from "../LeftNavItemContainer/LeftNavItemContainer";
-import RightNavItemContainer from "../RightNavItemContainer/RightNavItemContainer";
+import NavLeftContainer from "../NavLeftContainer/NavLeftContainer";
+import NavRightContainer from "../NavRightContainer/NavRightContainer";
 // import { useState, useEffect } from "react";
 
 export default function NavBar() {
@@ -15,8 +15,8 @@ export default function NavBar() {
 
   return (
     <StyledNavBar>
-      <LeftNavItemContainer />
-      <RightNavItemContainer />
+      <NavLeftContainer />
+      <NavRightContainer />
     </StyledNavBar>
   );
 }

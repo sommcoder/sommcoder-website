@@ -1,14 +1,14 @@
 ﻿import styled from "styled-components";
 import Header from "../Header/Header";
 
-export default function LeftNavItemContainer() {
+export default function NavLeftContainer() {
   return (
-    <StyledLeftNavItemContainer>
+    <StyledNavLeftContainer>
       <Header />
-    </StyledLeftNavItemContainer>
+    </StyledNavLeftContainer>
   );
 }
-const StyledLeftNavItemContainer = styled.span`
+const StyledNavLeftContainer = styled.span`
   display: grid;
   margin: auto;
   justify-content: left;

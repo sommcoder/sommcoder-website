@@ -1,8 +1,8 @@
 ﻿import styled from "styled-components";
 
-export default function CarouselItem({ thumbnail, title, short }) {
+export default function CarouselItem({ thumbnail, title, link, short }) {
   return (
-    <StyledCarouselItem>
+    <StyledCarouselItem href={link}>
       <h3>{title}</h3>
       <img src={thumbnail} />
       <p>{short}</p>
@@ -15,7 +15,7 @@ export default function CarouselItem({ thumbnail, title, short }) {
 maybe we remove the titles and provide a tooltip instead??
  
 */
-const StyledCarouselItem = styled.span`
+const StyledCarouselItem = styled.a`
   display: grid;
   justify-items: center;
   text-align: center;
@@ -34,6 +34,10 @@ const StyledCarouselItem = styled.span`
   /*
   should adjust this  to a gif or short video asset!
   */
+
+  &:hover {
+    cursor: pointer;
+  }
 
   h3 {
     text-decoration: underline;
