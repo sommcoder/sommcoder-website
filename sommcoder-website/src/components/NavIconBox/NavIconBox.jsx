@@ -12,11 +12,12 @@ const StyledNavIconBox = styled.a`
 
   @media (min-width: 600px) {
     display: inline-block;
+
     margin: 0rem 1rem;
 
     img {
-      height: 60px;
-      width: 60px;
+      height: 55px;
+      width: 55px;
       filter: brightness(150%);
     }
 

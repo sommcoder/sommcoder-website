@@ -4,9 +4,9 @@ export default function IntroDescription() {
   return (
     <StyledIntroDescription>
       I'm a wine sommelier turned web developer based in Toronto, ON, Canada.
-      I'm a hospitality alumni with over 12 years of experience on the floor
-      from serving tables and running preshift to buying wine and liquor for
-      multi-outlet venues!
+      <br />
+      I'm a hospitality pro with over 12 years of experience. <br /> I
+      specialize in software integrations for Hospitality enterprices!
     </StyledIntroDescription>
   );
 }

@@ -20,7 +20,6 @@ const StyledHamburgerMenu = styled.span`
   cursor: pointer;
   padding: 0;
   box-sizing: border-box;
-  margin-right: 1rem;
 
   &:hover {
     filter: brightness(85%);

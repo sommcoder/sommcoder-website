@@ -28,7 +28,7 @@ const StyledNavBar = styled.nav`
   overflow-x: clip;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  padding: 0.5rem;
+  padding: 0.5rem 3rem 0.5rem 3rem;
   max-width: 100%;
   height: 6rem;
 

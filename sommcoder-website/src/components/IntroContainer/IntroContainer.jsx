@@ -1,19 +1,23 @@
 ﻿import styled from "styled-components";
 import IntroDescription from "../IntroDescription/IntroDescription";
-import IntroImage from "../IntroImage/IntroImage";
+// import IntroImage from "../IntroImage/IntroImage";
 import HireMeBtn from "../HireMeBtn/HireMeBtn";
 import IntroHeader from "../IntroHeader/IntroHeader";
 
-import wineDrip from "../../assets/wine-drips.svg";
-import wineDrip2 from "../../assets/wine-drips2.svg";
+import wineDrip from "../../assets/images/wine-drips.svg";
+import wineDrip2 from "../../assets/images/wine-drips2.svg";
+
+import { lazy } from "react";
+
+const IntroImage = lazy(() => import("../IntroImage/IntroImage"));
 
 export default function IntroContainer() {
   return (
     <StyledIntroContainer>
       <img
         style={{
-          height: "100px",
-          width: "100px",
+          "max-height": "100px",
+          "max-width": "100px",
           transform: "rotateX(180deg)",
           "grid-column": "span 2",
           "justify-self": "center",
@@ -23,17 +27,26 @@ export default function IntroContainer() {
         src={wineDrip}
       />
       <IntroHeader />
-      <IntroImage />
+
+      <IntroImage headshot="headshot" />
       <IntroDescription />
-      <img
+      <div
         style={{
-          height: "100px",
-          width: "100px",
-          transform: "rotateX(180deg)",
+          "grid-column": "span 2",
+          display: "grid",
+          "grid-template-columns": "1fr 1fr 1fr",
         }}
-        src={wineDrip2}
-      />
-      <HireMeBtn />
+      >
+        <img
+          style={{
+            "max-height": "100px",
+            "max-width": "100px",
+            transform: "rotateX(180deg)",
+          }}
+          src={wineDrip2}
+        />
+        <HireMeBtn />
+      </div>
     </StyledIntroContainer>
   );
 }
@@ -45,5 +58,10 @@ const StyledIntroContainer = styled.div`
 
   @media (max-width: 475px) {
     row-gap: 1.5rem;
+
+    img {
+      height: 90%;
+      width: 90%;
+    }
   }
 `;

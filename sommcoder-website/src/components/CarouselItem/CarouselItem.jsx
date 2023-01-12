@@ -1,8 +1,13 @@
 ﻿import styled from "styled-components";
 
 export default function CarouselItem({ thumbnail, title, link, short }) {
+  function linkToProject(e) {
+    e.preventDefault();
+    window.open(link, "_blank");
+  }
+
   return (
-    <StyledCarouselItem href={link}>
+    <StyledCarouselItem onClick={linkToProject} href={link}>
       <h3>{title}</h3>
       <img src={thumbnail} />
       <p>{short}</p>
@@ -19,12 +24,13 @@ const StyledCarouselItem = styled.a`
   display: grid;
   justify-items: center;
   text-align: center;
-  align-content: center;
 
-  grid-template-rows: auto auto auto;
+  grid-template-rows: auto auto 33%;
   row-gap: 1.5rem;
 
-  padding: 3rem;
+  padding: 2rem;
+  text-decoration: none;
+
   min-height: 100px;
   height: auto;
   border-radius: 50px;
@@ -37,15 +43,14 @@ const StyledCarouselItem = styled.a`
 
   &:hover {
     cursor: pointer;
-  }
-
-  h3 {
-    text-decoration: underline;
+    transition: 200ms ease-in-out;
+    transform: translateY(-2.5px);
   }
 
   img {
-    height: 250px;
-    width: 250px;
+    // needs to be this size otherwise the img bleeds out of the component and won't be centered as well
+    height: 220px;
+    width: 220px;
     border-radius: 10px;
   }
 `;

@@ -1,13 +1,21 @@
 ﻿import styled from "styled-components";
 import IntroContainer from "../IntroContainer/IntroContainer";
 import HeroGraphic from "../HeroGraphic/HeroGraphic";
+import LoadingEllipsis from "../LoadingEllipsis/LoadingEllipsis";
+
+import { Suspense } from "react";
 
 export default function HeroSection() {
   return (
-    <StyledHeroSection>
-      <IntroContainer />
-      <HeroGraphic />
-    </StyledHeroSection>
+    <>
+      <LoadingEllipsis />
+      {/* <StyledHeroSection> */}
+      {/* <Suspense fallback={<LoadingEllipsis />}>
+        <IntroContainer />
+        <HeroGraphic />
+      </Suspense> */}
+      {/* </StyledHeroSection> */}
+    </>
   );
 }
 const StyledHeroSection = styled.span`
@@ -16,8 +24,8 @@ const StyledHeroSection = styled.span`
   grid-template-columns: 100%;
   max-width: 1280px;
   min-height: 350px;
-  padding: 0.5rem;
-  margin: 2rem 1rem 1rem 1rem;
+
+  margin: 1rem 1rem 0rem 1rem;
 
   @media (min-width: 850px) {
     grid-template-columns: 60% 40%;

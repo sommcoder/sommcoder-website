@@ -8,17 +8,26 @@ const GlobalStyles = createGlobalStyle`${css`
 
   html {
     font-size: 67.5%; // now 1.6 rem should equal 16 pt font
-    background-color: #506854;
-    color: white;
+    height: 100%;
+    overflow: auto;
   }
 
   body {
+    height: 100%;
     max-width: 100%;
     font-size: 1.6rem;
+    background-color: #506854;
+    color: white;
+    font-family: "PT Serif", sans-serif;
   }
 
   h5 {
     font-size: 1.3rem;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
   }
 
   div {
@@ -36,6 +45,7 @@ const GlobalStyles = createGlobalStyle`${css`
   }
   // Want to make the button and overall shape of the web page look 3 dimensional and "textured" / wavy
   button {
+    font-family: "PT Serif", sans-serif;
     display: inline-block;
     position: relative;
     font-weight: 600;
@@ -66,6 +76,8 @@ const GlobalStyles = createGlobalStyle`${css`
     &:hover {
       cursor: pointer;
       filter: brightness(85%);
+      transition: 200ms ease-in-out;
+      transform: translateY(-2.5px);
     }
 
     @keyframes fadeInAnimation {

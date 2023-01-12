@@ -1,5 +1,5 @@
 ﻿import styled from "styled-components";
-import headshot from "../../assets/headshot.png";
+import headshot from "../../assets/images/headshot.png";
 
 export default function IntroImage() {
   return (
@@ -19,12 +19,6 @@ const StyledIntroImageBox = styled.span`
   background-color: pink;
   margin-left: 1rem;
 
-  /*
- 
-should definitely make the intro image smaller for mobile!
- 
-*/
-
   img {
     display: inline-block;
     height: 205px;
@@ -39,12 +33,10 @@ should definitely make the intro image smaller for mobile!
     justify-self: left;
     height: 165px;
     width: 165px;
-
+    margin-left: 0rem;
     img {
       height: 160px;
       width: 160px;
     }
   }
-
-  // when the screen is sub 500px, we will wrap this component to be adjacent to teh IntroDescription component and display: none on the HeroGraphic (completed)
 `;

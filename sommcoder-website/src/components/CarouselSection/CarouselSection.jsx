@@ -1,7 +1,7 @@
 ﻿import styled from "styled-components";
 import CarouselItem from "../CarouselItem/CarouselItem";
-import wordle from "../../assets/wordle.svg";
-import markey from "../../assets/mar-key.svg";
+import wordle from "../../assets/images/wordle.svg";
+import markey from "../../assets/images/mar-key.svg";
 
 export default function CarouselSection() {
   // we should useEffect to fetch public git repositories and post them here. Or use React Query and query our server API!!!
@@ -18,7 +18,8 @@ export default function CarouselSection() {
       thumbnail: wordle,
       link: "https://sommcoder.github.io/Wordle-Clone-App/",
       title: "Wordle Clone",
-      short: "A vanilla JavaScript and jQuery clone of the popular game Wordle",
+      short:
+        "A vanilla JavaScript and jQuery clone of the popular game Wordle. Brian's first app!",
       long: "",
     },
     {
@@ -26,7 +27,7 @@ export default function CarouselSection() {
       link: "https://github.com/sommcoder/Mar-Key",
       title: "Mar-Key",
       short:
-        "Allows employees of Paradise Theatre to more efficiently validate and determine what blocks they need to collect for their retro marquee display.",
+        "Allows users to determine how many letter blocks to collect for an analog marquee display with input validation based on the current display",
       long: "Marquee keeps track of block counts, dynamically validates messages as they're entered, cross references the former display to the desired new display so that users can determine which blocks they need to retrieve and how many of each depending on which of the 3 marquees have received input",
     },
     // {
@@ -40,7 +41,7 @@ export default function CarouselSection() {
     {
       thumbnail: "",
       link: "",
-      title: "Mass Photo Uploader - \n A Shopify App",
+      title: "Mass Photo Uploader",
       short:
         "This is Brian's first Shopify app using the Node.js template, Shopify CLI 3.0, React, ",
       long: "",
@@ -55,6 +56,7 @@ export default function CarouselSection() {
           title={title}
           short={short}
           key={title}
+          link={link}
         />
       ))}
     </StyledCarouselSection>
@@ -63,10 +65,9 @@ export default function CarouselSection() {
 const StyledCarouselSection = styled.div`
   display: grid;
   margin: 5rem 2rem 5rem 2rem;
-
   grid-row-gap: 2rem;
   grid-column-gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
 
   // Mobile users should just be able to scroll down through the projects, but Desktop users will have arrows and a proper Carousel setup to scroll through the CarouselItems
 

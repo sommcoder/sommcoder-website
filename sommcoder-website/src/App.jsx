@@ -1,6 +1,7 @@
 import NavBar from "./components/NavBar/NavBar";
 import HeroSection from "./components/HeroSection/HeroSection";
 import ProjectSection from "./components/ProjectSection/ProjectSection";
+import Footer from "./components/Footer/Footer";
 import styled, { ThemeProvider } from "styled-components";
 import GlobalStyles from "./GlobalStyles";
 
@@ -13,6 +14,7 @@ export default function App() {
         <NavBar />
         <HeroSection />
         <ProjectSection />
+        <Footer />
       </StyledApp>
     </ThemeProvider>
   );
