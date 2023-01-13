@@ -10,16 +10,12 @@ export default function CarouselItem({ thumbnail, title, link, short }) {
     <StyledCarouselItem onClick={linkToProject} href={link}>
       <h3>{title}</h3>
       <img src={thumbnail} />
+
       <p>{short}</p>
     </StyledCarouselItem>
   );
 }
 
-/*
- 
-maybe we remove the titles and provide a tooltip instead??
- 
-*/
 const StyledCarouselItem = styled.a`
   display: grid;
   justify-items: center;
@@ -48,9 +44,10 @@ const StyledCarouselItem = styled.a`
   }
 
   img {
-    // needs to be this size otherwise the img bleeds out of the component and won't be centered as well
-    height: 220px;
-    width: 220px;
+    max-height: 210px;
+    max-width: 210px;
+    height: auto;
+    width: auto;
     border-radius: 10px;
   }
 `;

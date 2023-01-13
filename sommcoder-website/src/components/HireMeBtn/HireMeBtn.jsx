@@ -2,10 +2,7 @@
 
 export default function HireMeBtn() {
   return (
-    <StyledHireMeBtn
-      href="mailto:brian.davies589@gmail.com?subject=General Inquiry"
-      style={{ "justify-self": "center", "align-self": "center" }}
-    >
+    <StyledHireMeBtn href="mailto:brian.davies589@gmail.com?subject=General Inquiry">
       <button>Hire Me!</button>
     </StyledHireMeBtn>
   );

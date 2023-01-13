@@ -2,9 +2,10 @@
 import CarouselItem from "../CarouselItem/CarouselItem";
 import wordle from "../../assets/images/wordle.svg";
 import markey from "../../assets/images/mar-key.svg";
+import sommcoder from "../../assets/images/sommcoder.svg";
 
 export default function CarouselSection() {
-  // we should useEffect to fetch public git repositories and post them here. Or use React Query and query our server API!!!
+  // we should useEffect to fetch public git repositories and post them here. Or use React Query and query our server API!!! Or are we gunna use Astro????
 
   // we want to get an array so that we can map them to produce the number of CarouselItems needed WITH their content
 
@@ -39,13 +40,21 @@ export default function CarouselSection() {
     //   long: "After initial setup, Grat-ify allows users to upload csv files from their payroll and POS applications to quickly determine how much money each employee should receive from the gratuity pool based on the users specifications ",
     // },
     {
-      thumbnail: "",
+      thumbnail: sommcoder,
       link: "",
-      title: "Mass Photo Uploader",
+      title: "SommCoder Website",
       short:
-        "This is Brian's first Shopify app using the Node.js template, Shopify CLI 3.0, React, ",
+        "This Website! The UI is built with React & styled-components and it is rendered using Astro to create this JAM stack website",
       long: "",
     },
+    // {
+    //   thumbnail: "",
+    //   link: "",
+    //   title: "Mass Photo Uploader",
+    //   short:
+    //     "This is Brian's first Shopify app using the Node.js template, Shopify CLI 3.0, React, ",
+    //   long: "",
+    // },
   ];
 
   return (
@@ -67,7 +76,8 @@ const StyledCarouselSection = styled.div`
   margin: 5rem 2rem 5rem 2rem;
   grid-row-gap: 2rem;
   grid-column-gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+  // min needs to be large enough to accommodate the px of the img tags in CarouselItem
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 
   // Mobile users should just be able to scroll down through the projects, but Desktop users will have arrows and a proper Carousel setup to scroll through the CarouselItems
 

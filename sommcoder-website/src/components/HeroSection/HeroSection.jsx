@@ -7,15 +7,12 @@ import { Suspense } from "react";
 
 export default function HeroSection() {
   return (
-    <>
-      <LoadingEllipsis />
-      {/* <StyledHeroSection> */}
-      {/* <Suspense fallback={<LoadingEllipsis />}>
+    <Suspense fallback={<LoadingEllipsis />}>
+      <StyledHeroSection>
         <IntroContainer />
         <HeroGraphic />
-      </Suspense> */}
-      {/* </StyledHeroSection> */}
-    </>
+      </StyledHeroSection>
+    </Suspense>
   );
 }
 const StyledHeroSection = styled.span`

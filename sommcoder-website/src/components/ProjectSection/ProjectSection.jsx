@@ -3,13 +3,18 @@ import CarouselArrowLeft from "../CarouselArrowLeft/CarouselArrowLeft";
 import CarouselArrowRight from "../CarouselArrowRight/CarouselArrowRight";
 import CarouselSection from "../CarouselSection/CarouselSection";
 
+import { Suspense } from "react";
+import LoadingEllipsis from "../LoadingEllipsis/LoadingEllipsis";
+
 export default function ProjectSection() {
   return (
-    <StyledProjectSection>
-      <CarouselArrowLeft />
-      <CarouselSection />
-      <CarouselArrowRight />
-    </StyledProjectSection>
+    <Suspense fallback={<LoadingEllipsis />}>
+      <StyledProjectSection>
+        <CarouselArrowLeft />
+        <CarouselSection />
+        <CarouselArrowRight />
+      </StyledProjectSection>
+    </Suspense>
   );
 }
 const StyledProjectSection = styled.div`

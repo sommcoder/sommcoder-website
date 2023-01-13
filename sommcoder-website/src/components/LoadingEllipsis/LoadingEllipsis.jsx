@@ -6,7 +6,7 @@ export default function LoadingEllipsis() {
   return (
     <StyledLoadingEllipsis>
       {circlesArr.map((i) => (
-        <span key={i} delay={i + 1}></span>
+        <span key={i}></span>
       ))}
     </StyledLoadingEllipsis>
   );
@@ -14,15 +14,10 @@ export default function LoadingEllipsis() {
 
 const loadingAnimation = keyframes`
     0% {
-      background: black;
+      background: white;
     }
-    25% {
-      background: transparent;
-    }
-    75% {
-      background: black;
-    }
-    75% {
+
+    100% {
       background: transparent;
     }
 `;
@@ -31,18 +26,24 @@ const StyledLoadingEllipsis = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+
   height: 250px;
   padding: 2rem;
 
   span {
-    margin: 0 0.1rem;
-    width: 5px;
-    height: 5px;
-    border: 2px solid black;
+    margin: 0 0.15rem;
+    width: 8px;
+    height: 8px;
+    border: 1px solid white;
     border-radius: 50%;
-    /* background: transparent; */
-    animation: linear ${(props) => (props.delay * 100).toString() + "ms"} 20
-      ${loadingAnimation};
+    // the duration needs to equal the sum of the nth-child elements being delayed ( 0.25 delay + 0.5 delay = 0.75 duration)
+    animation: 0.9s linear infinite ${loadingAnimation};
+  }
+
+  span:nth-child(2) {
+    animation-delay: 0.3s;
+  }
+  span:nth-child(3) {
+    animation-delay: 0.6s;
   }
 `;
