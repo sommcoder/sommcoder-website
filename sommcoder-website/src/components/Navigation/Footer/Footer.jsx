@@ -10,6 +10,7 @@ export default function Footer() {
 }
 const StyledFooter = styled.footer`
   z-index: 2;
+  width: 100%;
   display: flex;
   align-items: center;
   text-align: center;

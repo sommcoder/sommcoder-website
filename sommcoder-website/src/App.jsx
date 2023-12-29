@@ -15,7 +15,7 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <GlobalStyles />
       <StyledApp className="App">
-        <Overlay />
+        {/* <Overlay /> */}
         <NavBar />
         <HeroSection />
         <ProjectSection />
@@ -25,4 +25,7 @@ export default function App() {
   );
 }
 
-const StyledApp = styled.div``;
+const StyledApp = styled.div`
+  display: grid;
+  grid-template-rows: auto auto auto;
+`;

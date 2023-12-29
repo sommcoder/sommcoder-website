@@ -31,8 +31,8 @@ const StyledNavBar = styled.nav`
   padding: 0.5rem 3rem 0.5rem 3rem;
   max-width: 100%;
   height: 6rem;
-
-  background: #324935;
+  background-image: linear-gradient(to top right, #324935, #59755d);
+  /* background-color: #324935; */
   transition: 0.3s ease-in-out;
 
   // as the user scrolls we want to create a separation between nav bar and main elements

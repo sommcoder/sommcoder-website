@@ -44,7 +44,7 @@ export default function CarouselSection() {
       link: "",
       title: "SommCoder Website",
       short:
-        "This Website! The UI is built with React & styled-components and it is rendered using Astro to create this JAM stack website",
+        "This Website! The UI is built with React & styled-components and hosted on Google's Firebase",
       long: "",
     },
     // {
