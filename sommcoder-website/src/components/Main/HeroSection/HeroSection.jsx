@@ -1,7 +1,7 @@
 ﻿import styled from "styled-components";
 import IntroContainer from "../IntroContainer/IntroContainer";
 import HeroGraphic from "../HeroGraphic/HeroGraphic";
-import LoadingEllipsis from "../LoadingEllipsis/LoadingEllipsis";
+import LoadingEllipsis from "../../Utility/LoadingEllipsis/LoadingEllipsis";
 
 import { Suspense } from "react";
 
@@ -15,7 +15,7 @@ export default function HeroSection() {
     </Suspense>
   );
 }
-const StyledHeroSection = styled.span`
+const StyledHeroSection = styled.div`
   height: auto;
   display: grid;
   grid-template-columns: 100%;

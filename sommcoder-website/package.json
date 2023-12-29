@@ -9,8 +9,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "framer-motion": "^10.16.16",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.21.1",
     "react-social-icons": "^5.15.0",
     "styled-components": "^5.3.6"
   },
@@ -20,7 +22,7 @@
     "@vitejs/plugin-react": "^2.2.0",
     "vite": "^3.2.3"
   },
-  "description": "a portfolio website for web developer Brian Davies",
+  "description": "a portfolio website for Toronto-based react web developer Brian Davies",
   "main": "index.html",
   "author": "Brian Davies",
   "license": "ISC"

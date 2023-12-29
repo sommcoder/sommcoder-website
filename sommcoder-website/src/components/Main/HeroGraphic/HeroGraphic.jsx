@@ -1,5 +1,5 @@
 ﻿import styled from "styled-components";
-import wine from "../../assets/images/wine-stain.svg";
+import wine from "../../../assets/images/wine-stain.svg";
 
 export default function HeroGraphic() {
   return (

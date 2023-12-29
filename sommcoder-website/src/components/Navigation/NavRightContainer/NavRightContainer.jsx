@@ -4,8 +4,8 @@ import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
 import NavIconBox from "../NavIconBox/NavIconBox";
 
 // icons:
-import linkedin from "../../assets/images/linkedin.svg";
-import github from "../../assets/images/github.svg";
+import linkedin from "../../../assets/images/linkedin.svg";
+import github from "../../../assets/images/github.svg";
 
 export default function NavRightContainer() {
   const icons = [

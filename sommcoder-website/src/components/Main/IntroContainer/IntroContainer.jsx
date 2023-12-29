@@ -4,8 +4,8 @@ import IntroDescription from "../IntroDescription/IntroDescription";
 import HireMeBtn from "../HireMeBtn/HireMeBtn";
 import IntroHeader from "../IntroHeader/IntroHeader";
 
-import wineDrip from "../../assets/images/wine-drips.svg";
-import wineDrip2 from "../../assets/images/wine-drips2.svg";
+import wineDrip from "../../../assets/images/wine-drips.svg";
+import wineDrip2 from "../../../assets/images/wine-drips2.svg";
 
 import { lazy } from "react";
 

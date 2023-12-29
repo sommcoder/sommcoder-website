@@ -4,7 +4,7 @@ import CarouselArrowRight from "../CarouselArrowRight/CarouselArrowRight";
 import CarouselSection from "../CarouselSection/CarouselSection";
 
 import { Suspense } from "react";
-import LoadingEllipsis from "../LoadingEllipsis/LoadingEllipsis";
+import LoadingEllipsis from "../../Utility/LoadingEllipsis/LoadingEllipsis";
 
 export default function ProjectSection() {
   return (

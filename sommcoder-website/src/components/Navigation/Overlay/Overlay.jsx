@@ -8,7 +8,7 @@ export default function Overlay() {
     </StyledOverlay>
   );
 }
-const StyledOverlay = styled.div`
+const StyledOverlay = styled.nav`
   z-index: 5;
   position: fixed;
   background-color: #d4c6e4;
