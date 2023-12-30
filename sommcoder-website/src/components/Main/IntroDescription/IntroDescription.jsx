@@ -1,4 +1,4 @@
-﻿import styled from "styled-components";
+﻿import styled, { keyframes } from 'styled-components';
 
 export default function IntroDescription() {
   return (
@@ -6,7 +6,7 @@ export default function IntroDescription() {
       I'm a wine sommelier turned web developer based in Toronto, ON, Canada.
       <br />
       I'm a hospitality pro with over 12 years of experience. <br /> I
-      specialize in software integrations for Hospitality enterprices!
+      specialize in software integrations for Hospitality enterprises!
     </StyledIntroDescription>
   );
 }

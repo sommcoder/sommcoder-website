@@ -1,13 +1,20 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export default function IntroHeader() {
+  const typedAnimationArr =
+    'A FULL-STACK REACT DEVELOPER & SHOPIFY E-COMMERCE EXPERT'.split('');
+
+  setInterval(() => {}, 250);
+
+  // use this array to generate the characters
+
   return (
     <StyledIntroHeader>
       <h5>Hi There 👋, I'm</h5>
       <h1>
         BRIAN DAVIES<h5>(aka SOMMCODER)</h5>
       </h1>
-      <h4>A FULL-STACK REACT DEVELOPER & SHOPIFY E-COMMERCE EXPERT</h4>
+      <h4>{typedAnimationArr.map(char => char)}</h4>
     </StyledIntroHeader>
   );
 }
