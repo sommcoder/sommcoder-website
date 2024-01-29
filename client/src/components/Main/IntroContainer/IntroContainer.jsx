@@ -1,7 +1,7 @@
 ﻿import styled from "styled-components";
 import IntroDescription from "../IntroDescription/IntroDescription";
 // import IntroImage from "../IntroImage/IntroImage";
-import HireMeBtn from "../HireMeBtn/HireMeBtn";
+import ContactBtn from "../ContactBtn/ContactBtn";
 import IntroHeader from "../IntroHeader/IntroHeader";
 
 import wineDrip from "../../../assets/images/wine-drips.svg";
@@ -45,7 +45,7 @@ export default function IntroContainer() {
           }}
           src={wineDrip2}
         />
-        <HireMeBtn />
+        <ContactBtn />
       </div>
     </StyledIntroContainer>
   );

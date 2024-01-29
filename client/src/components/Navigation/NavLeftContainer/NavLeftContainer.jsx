@@ -24,7 +24,4 @@ const StyledNavLeftContainer = styled.span`
   margin: auto;
   justify-content: left;
   width: 100%;
-  &:hover {
-    cursor: pointer;
-  }
 `;

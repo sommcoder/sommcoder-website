@@ -39,6 +39,14 @@ export default function CarouselSection() {
     //     "Grat-ify is a full-stack hospitality gratuity app that alleviates the need for users to handle gratuity distribution amongst their employees via spreadsheets.",
     //   long: "After initial setup, Grat-ify allows users to upload csv files from their payroll and POS applications to quickly determine how much money each employee should receive from the gratuity pool based on the users specifications ",
     // },
+    // {
+    //   thumbnail: "",
+    //   link: "",
+    //   title: "Dashi",
+    //   short:
+    //     "Dashi is a Business Intelligence dashboard for the Hospitality industry",
+    //   long: "Allows users to populate standardized tables with data from csv, pdf, or image files using Google Cloud Platforms Document AI API. Using Optical Character Recognition, Document AI is able to extract headers, fields and important data from documents, users can then approve which fields they need. Users are able to begin daily sales reporting on their operation on the day they are oriented through intuitive drag and drop functionality.",
+    // },
     {
       thumbnail: sommcoder,
       link: "",
