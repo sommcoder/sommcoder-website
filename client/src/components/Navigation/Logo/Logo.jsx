@@ -1,9 +1,9 @@
 ﻿import styled from "styled-components";
 
-export default function Header() {
-  return <StyledHeader>SOMMCODER</StyledHeader>;
+export default function Logo() {
+  return <StyledLogo>SOMMCODER</StyledLogo>;
 }
-const StyledHeader = styled.header`
+const StyledLogo = styled.header`
   justify-content: center;
   font-family: "Major Mono Display", sans-serif;
   font-size: 2.5rem;

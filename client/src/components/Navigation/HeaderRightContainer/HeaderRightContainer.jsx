@@ -4,10 +4,10 @@ import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
 import NavIconBox from "../NavIconBox/NavIconBox";
 
 // icons:
-import linkedin from "../../../assets/images/linkedin.svg";
-import github from "../../../assets/images/github.svg";
+import linkedin from "/linkedin.svg";
+import github from "/github.svg";
 
-export default function NavRightContainer() {
+export default function HeaderRightContainer() {
   const icons = [
     {
       name: "linked-in",
@@ -18,16 +18,16 @@ export default function NavRightContainer() {
   ];
 
   return (
-    <StyledNavRightContainer>
+    <StyledHeaderRightContainer>
       {icons.map(({ name, image, link }) => (
         <NavIconBox key={name} image={image} link={link} />
       ))}
       <DownloadBtn />
       <HamburgerMenu />
-    </StyledNavRightContainer>
+    </StyledHeaderRightContainer>
   );
 }
-const StyledNavRightContainer = styled.span`
+const StyledHeaderRightContainer = styled.nav`
   display: flex;
   width: 100%;
   align-items: center;

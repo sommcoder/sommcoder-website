@@ -1,5 +1,5 @@
 import Overlay from "./components/Navigation/Overlay/Overlay";
-import NavBar from "./components/Navigation/NavBar/NavBar";
+import HeaderBar from "./components/Navigation/HeaderBar/HeaderBar";
 import ContentWrapper from "./components/ContentWrapper/ContentWrapper";
 import Footer from "./components/Navigation/Footer/Footer";
 import styled from "styled-components";
@@ -11,7 +11,7 @@ export default function App() {
       <GlobalStyles />
       <StyledApp className="App">
         {/* <Overlay /> */}
-        <NavBar />
+        <HeaderBar />
         <ContentWrapper />
         <Footer />
       </StyledApp>

@@ -3,13 +3,13 @@
 export default function CarouselArrowLeft() {
   return <StyledCarouselArrowLeft></StyledCarouselArrowLeft>;
 }
-const StyledCarouselArrowLeft = styled.div`
+const StyledCarouselArrowLeft = styled.span`
   display: none;
 
-  @media (min-width: 1280) {
+  @media (min-width: 800) {
     display: inline-block;
-    width: 0;
-    height: 0;
+    width: 0px;
+    height: 0px;
     border-top: 10px solid transparent;
     border-right: 10px solid white;
     border-bottom: 10px solid transparent;
@@ -18,6 +18,7 @@ const StyledCarouselArrowLeft = styled.div`
 
     &:hover {
       cursor: pointer;
+      filter: brightness(70%);
     }
   }
 `;

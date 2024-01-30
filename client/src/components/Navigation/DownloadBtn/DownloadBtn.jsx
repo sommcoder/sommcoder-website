@@ -1,6 +1,6 @@
 ﻿import styled from "styled-components";
-import downloadIcon from "../../../assets/images/download-solid.svg";
-import cv from "../../../assets/pdf/Brian - Resume.pdf";
+import downloadIcon from "/download-solid.svg";
+import cv from "/Brian - Resume.pdf";
 
 export default function DownloadBtn() {
   return (

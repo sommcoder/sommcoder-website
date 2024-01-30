@@ -8,8 +8,8 @@ const StyledCarouselArrowRight = styled.span`
 
   @media (min-width: 800) {
     display: inline-block;
-    width: 0;
-    height: 0;
+    width: 0px;
+    height: 0px;
     border-top: 10px solid transparent;
     border-left: 10px solid white;
     border-bottom: 10px solid transparent;
@@ -18,6 +18,7 @@ const StyledCarouselArrowRight = styled.span`
 
     &:hover {
       cursor: pointer;
+      filter: brightness(70%);
     }
   }
 `;

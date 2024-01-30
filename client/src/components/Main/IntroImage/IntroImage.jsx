@@ -1,5 +1,5 @@
 ﻿import styled from "styled-components";
-import headshot from "../../../assets/images/headshot.png";
+import headshot from "/headshot.png";
 
 export default function IntroImage() {
   return (

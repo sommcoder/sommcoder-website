@@ -3,7 +3,7 @@ import styled, { keyframes } from "styled-components";
 export default function IntroHeader() {
   // turns string into an array of individual characters
   const typedAnimationArr =
-    "AND I'M A FULL-STACK WEB DEVELOPER & SHOPIFY EXPERT".split("");
+    "I'M A FULL-STACK WEB DEVELOPER & SHOPIFY EXPERT".split("");
 
   const typingAnimation = keyframes`
     0% {
@@ -37,9 +37,11 @@ const StyledIntroHeader = styled.span`
 
   h4 {
     line-height: 1.3;
+    font-size: 2rem;
   }
 
   h1 {
+    font-size: 4rem;
     margin-bottom: 1rem;
   }
 

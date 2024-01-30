@@ -29,8 +29,9 @@ const StyledCarouselItem = styled.a`
   text-decoration: none;
   min-height: 10rem;
   height: auto;
+  width: 28rem;
   border-radius: 2rem;
-  background-image: linear-gradient(to top right, #324935, #35573a);
+  background-color: rgb(80, 104, 84);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.12),
     0 4px 4px rgba(0, 0, 0, 0.16), 0 8px 8px rgba(0, 0, 0, 0.2);
 

@@ -1,5 +1,5 @@
 ﻿import styled from "styled-components";
-import wine from "../../../assets/images/wine-stain.svg";
+import wine from "/wine-stain.svg";
 
 export default function HeroGraphic() {
   return (
@@ -10,21 +10,18 @@ export default function HeroGraphic() {
 }
 const StyledHeroGraphic = styled.div`
   display: none;
-  align-self: center;
-
-  img {
-    max-height: 400px;
-    max-width: 400px;
-  }
 
   // only visible on Tablet/Desktop
   @media (min-width: 850px) {
+    align-content: baseline;
     display: inline-block;
     justify-self: center;
-    align-self: center;
+    align-self: start;
 
     img {
       display: inline-block;
+      max-height: 400px;
+      max-width: 400px;
     }
   }
 `;
