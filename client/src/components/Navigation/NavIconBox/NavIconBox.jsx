@@ -12,18 +12,17 @@ const StyledNavIconBox = styled.a`
 
   @media (min-width: 600px) {
     display: inline-block;
-
     margin: 0rem 1rem;
 
     img {
-      height: 55px;
-      width: 55px;
-      filter: brightness(150%);
+      height: 40px;
+      width: 40px;
+      filter: brightness(350%);
     }
 
     &:hover {
       cursor: pointer;
-      filter: brightness(125%);
+      filter: brightness(-100%);
     }
   }
 `;

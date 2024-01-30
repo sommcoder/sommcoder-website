@@ -6,7 +6,7 @@ export default function CarouselArrowRight() {
 const StyledCarouselArrowRight = styled.span`
   display: none;
 
-  @media (min-width: 1280) {
+  @media (min-width: 800) {
     display: inline-block;
     width: 0;
     height: 0;

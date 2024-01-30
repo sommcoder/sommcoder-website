@@ -7,9 +7,18 @@ const GlobalStyles = createGlobalStyle`${css`
   }
 
   html {
-    font-size: 67.5%; // now 1.6 rem should equal 16 pt font
-    height: 100%;
-    overflow: auto;
+    font-size: 62.5%; // allows for: 1rem = 10px
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-weight: inherit;
+    font-style: inherit;
+    font-family: inherit;
+    vertical-align: baseline;
   }
 
   body {
@@ -59,17 +68,10 @@ const GlobalStyles = createGlobalStyle`${css`
     text-align: center;
     border-radius: 10px;
     background: linear-gradient(145deg, #bba6d2, #9e8cb0);
-    box-shadow: 20px 20px 60px #9584a7, -20px -20px 60px #c9b2e1;
-    /* &:active {
-      border-radius: 50px;
-      background: linear-gradient(145deg, #9e8cb0, #bba6d2);
-      box-shadow: 20px 20px 60px #9584a7, -20px -20px 60px #c9b2e1;
-    } */
     padding: 0.5rem;
     text-align: center;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07),
-      0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07),
-      0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.12),
+      0 4px 4px rgba(0, 0, 0, 0.16), 0 8px 8px rgba(0, 0, 0, 0.2);
     animation: fadeInAnimation ease-in-out 1s;
     animation-iteration-count: 1;
 
@@ -87,6 +89,22 @@ const GlobalStyles = createGlobalStyle`${css`
       end {
         opacity: 1;
       }
+    }
+  }
+
+  .button-text {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    vertical-align: middle;
+    text-align: center;
+    text-wrap: wrap; // not working..?
+    pointer-events: none; // NEEDED! Avoids the issue of the form not submitting due to button-text being clicked instead of the button element
+
+    &:active {
+      // move text down slightly as if being pushed
+      transform: translateY(1px);
     }
   }
 `}`;

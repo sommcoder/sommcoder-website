@@ -7,7 +7,7 @@ export default function DownloadBtn() {
     <StyledDownloadBtn onClick={() => {}}>
       <a download="Brian's Resume" href={cv}>
         <img alt="download icon from font-awesome" src={downloadIcon} />
-        Download CV
+        <span className="button-text">Download CV</span>
       </a>
     </StyledDownloadBtn>
   );
@@ -16,17 +16,30 @@ const StyledDownloadBtn = styled.button`
   margin-left: 1rem; // keeps btn away from icons
   display: none;
 
-  a {
-    color: black;
-  }
-
-  img {
-    height: 15px;
-    width: 15px;
-    margin: 0 0.5rem 0 0.5rem;
-  }
-
+  // desktop:
   @media (min-width: 600px) {
-    display: inline-block;
+    display: inline-block; // make it visible
+    width: 12rem;
+
+    a {
+      display: flex;
+      align-items: center;
+      color: black;
+      height: 100%;
+      width: 100%;
+    }
+
+    img {
+      display: inline-block;
+      height: 1.5rem;
+      width: 1.5rem;
+      margin: 0 0.5rem 0 0.5rem;
+    }
+
+    span {
+      display: flex;
+      line-height: 1.5rem;
+      align-items: center;
+    }
   }
 `;

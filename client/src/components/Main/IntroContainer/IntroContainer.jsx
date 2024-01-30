@@ -27,7 +27,6 @@ export default function IntroContainer() {
         src={wineDrip}
       />
       <IntroHeader />
-
       <IntroImage headshot="headshot" />
       <IntroDescription />
       <div

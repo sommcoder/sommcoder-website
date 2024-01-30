@@ -6,7 +6,7 @@ cwd = Path.cwd()
 comp_name = input('Enter React Component Name: ')
 comp_type = input("Enter The Component's HTML Type: ")
 
-react_template = f'''import {{styled}} from 'styled-components';
+react_template = f'''import {styled} from 'styled-components';
 
 export default function {comp_name}() {{
   return (

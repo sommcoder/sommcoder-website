@@ -16,19 +16,17 @@ export default function HeroSection() {
   );
 }
 const StyledHeroSection = styled.div`
-  height: auto;
+  position: relative;
   display: grid;
-  grid-template-columns: 100%;
-  max-width: 1280px;
+  justify-self: center;
+  width: 100%;
   min-height: 350px;
+  z-index: 1;
+  padding-bottom: 2rem;
 
-  margin: 1rem 1rem 0rem 1rem;
-
+  // desktop:
   @media (min-width: 850px) {
     grid-template-columns: 60% 40%;
     margin-top: 0rem;
   }
-
-  // we should only generate the hero-graphic for Desktop, maybe find an alternative smaller image for mobile
-  // min-width is a mobile first approach!!
 `;

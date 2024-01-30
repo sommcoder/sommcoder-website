@@ -10,20 +10,33 @@ export default function ProjectSection() {
   return (
     <Suspense fallback={<LoadingEllipsis />}>
       <StyledProjectSection>
-        <CarouselArrowLeft />
-        <CarouselSection />
-        <CarouselArrowRight />
+        <StyledProjectOverlay>
+          <CarouselArrowLeft />
+          <CarouselSection />
+          <CarouselArrowRight />
+        </StyledProjectOverlay>
       </StyledProjectSection>
     </Suspense>
   );
 }
 const StyledProjectSection = styled.div`
-  display: grid;
-  grid-template-columns: auto;
-  max-width: 1280px;
+  justify-self: center;
+  width: 100%;
+  height: 100%;
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+  box-shadow: inset 20px 30px 30px rgb(80, 104, 84);
+  background-image: linear-gradient(to top, transparent, 85%, #837960),
+    linear-gradient(to bottom, transparent, 85%, #837960),
+    url("../../../../public/code image.png");
+`;
 
-  @media (min-width: 1280) {
-    grid-template-columns: 2.5% auto 2.5%;
-    align-items: center;
-  }
+const StyledProjectOverlay = styled.div`
+  background-color: rgba(80, 70, 92, 0.4);
+  height: 100%;
+  width: 100%;
+  padding: 2rem 1rem;
+  display: grid;
+  align-items: center;
+  align-content: center;
 `;
