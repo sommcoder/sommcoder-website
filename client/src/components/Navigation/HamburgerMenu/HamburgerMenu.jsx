@@ -14,6 +14,7 @@ const StyledHamburgerMenu = styled.span`
   flex-direction: column;
   justify-content: space-around;
   width: 30px;
+  margin-right: 2rem;
   height: 24px;
   background: transparent;
   border: none;

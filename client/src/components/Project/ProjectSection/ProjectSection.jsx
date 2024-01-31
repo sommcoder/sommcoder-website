@@ -3,25 +3,27 @@ import CarouselArrowLeft from "../CarouselArrowLeft/CarouselArrowLeft";
 import CarouselArrowRight from "../CarouselArrowRight/CarouselArrowRight";
 import CarouselSection from "../CarouselSection/CarouselSection";
 
-import { Suspense } from "react";
-import LoadingEllipsis from "../../Utility/LoadingEllipsis/LoadingEllipsis";
+// import { Suspense } from "react";
+// import LoadingEllipsis from "../../Utility/LoadingEllipsis/LoadingEllipsis";
 
 export default function ProjectSection() {
   return (
-    <Suspense fallback={<LoadingEllipsis />}>
-      <StyledProjectSection>
-        <StyledProjectOverlay>
-          <CarouselArrowLeft />
-          <CarouselSection />
-          <CarouselArrowRight />
-        </StyledProjectOverlay>
-      </StyledProjectSection>
-    </Suspense>
+    // <Suspense fallback={<LoadingEllipsis />}>
+    <StyledProjectSection>
+      <StyledProjectOverlay>
+        <CarouselArrowLeft />
+        <CarouselSection />
+        <CarouselArrowRight />
+      </StyledProjectOverlay>
+    </StyledProjectSection>
+    /* </Suspense> */
   );
 }
 const StyledProjectSection = styled.section`
   justify-self: center;
   margin-bottom: 2rem;
+  /* min-width: inherit; // why does inherit do weird stuff here?
+  max-width: inherit; */
   width: 100%;
   height: fit-content;
   border-top: 1px solid grey;
@@ -30,22 +32,23 @@ const StyledProjectSection = styled.section`
   background-image: linear-gradient(to top, transparent, 90%, #837960),
     linear-gradient(to bottom, transparent, 90%, #837960),
     url("/code image.png");
-  animation: spin 2s 0s 0s infinite linear fill-mode;
+  /* animation: spin 2s 0s 0s infinite linear fill-mode; */
 
-  @keyframes spin {
+  /* @keyframes spin {
     0% {
       transform: rotateY(0deg);
     }
     100% {
       transform: rotateY(360deg);
     }
-  }
+  } */
 `;
 
 const StyledProjectOverlay = styled.div`
   background-color: rgba(80, 70, 92, 0.4);
   height: fit-content;
-  width: 100%;
+  min-width: inherit;
+  max-width: inherit;
   min-height: 30rem;
   padding: 4rem 0rem;
   display: grid;

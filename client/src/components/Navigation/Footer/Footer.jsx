@@ -12,7 +12,8 @@ export default function Footer() {
 }
 const StyledFooter = styled.footer`
   z-index: 2;
-  width: 100%;
+  min-width: 32rem;
+  max-width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   height: 6rem;

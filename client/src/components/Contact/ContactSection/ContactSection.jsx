@@ -49,11 +49,12 @@ const StyledContactSection = styled.section`
   display: grid;
   justify-items: center;
   align-items: center;
-  width: 100%;
+  min-width: inherit;
+  max-width: inherit;
   form {
     display: grid;
     background-color: white;
-    min-width: 40rem;
+    min-width: 30rem;
     padding: 2rem;
     border-radius: 0.75rem;
     grid-template-rows: repeat(4, 1fr);

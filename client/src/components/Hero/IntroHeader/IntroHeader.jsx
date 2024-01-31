@@ -34,7 +34,6 @@ const StyledIntroHeader = styled.span`
   display: grid;
   row-gap: 1rem;
   width: 100%;
-  word-break: break-all;
 
   h4 {
     display: flex;
@@ -45,14 +44,12 @@ const StyledIntroHeader = styled.span`
   h1 {
     display: flex;
     flex-wrap: wrap;
-    word-break: break-all;
 
     font-size: 4rem;
   }
   h5 {
     display: flex;
     flex-wrap: wrap;
-    word-break: break-all;
 
     font-size: 1.4rem;
   }

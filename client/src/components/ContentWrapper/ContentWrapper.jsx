@@ -25,18 +25,19 @@ export default function ContentWrapper() {
 }
 
 const StyledContentWrapper = styled.main`
-  display: block;
-  width: 100%;
+  min-width: inherit;
+  max-width: inherit;
   height: 100%;
+  display: block;
   background-image: url("/hero-texture.jpg");
 `;
 
 const StyledOverlay = styled.div`
+  height: 100%;
+  min-width: inherit;
+  max-width: inherit;
   background-color: rgba(80, 104, 84, 0.8);
   z-index: 3;
-  height: 100%;
-  width: 100%;
-  padding: 0rem 0rem;
   height: auto;
   display: grid;
   justify-self: center;
@@ -53,10 +54,13 @@ const StyledCornerDrip = styled.img`
 `;
 
 const StyledTopDrip = styled.img`
-  display: inline;
-  height: 10rem;
-  width: 10rem;
-  transform: rotateX(180deg);
-  justify-self: baseline;
-  margin-left: 20rem;
+  display: none;
+  @media (min-width: 400px) {
+    display: inline;
+    height: 10rem;
+    width: 10rem;
+    transform: rotateX(180deg);
+    justify-self: baseline;
+    margin-left: 20rem;
+  }
 `;

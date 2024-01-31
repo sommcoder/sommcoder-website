@@ -8,6 +8,9 @@ const GlobalStyles = createGlobalStyle`${css`
 
   //! Don't give your sections any padding. This creates weird overflow issues. Components can have padding but sections should be width: 100% of their container right up into the right element
 
+  // * height?: deal with min-height
+  // * width?: deal with max-width
+
   html {
     font-size: 62.5%; // allows for: 1rem = 10px
     -webkit-font-smoothing: antialiased;

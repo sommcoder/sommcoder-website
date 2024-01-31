@@ -24,7 +24,8 @@ const StyledHeaderBar = styled.header`
   position: sticky;
   top: 0;
   height: 6rem;
-  width: 100%; // which is App
+  min-width: 32rem;
+  max-width: 100%; // which is App
   /* visibility: ${(props) => (props.isScrolling ? "visible" : "hidden")}; */
   z-index: 4;
   display: grid;

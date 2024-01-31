@@ -32,10 +32,14 @@ const StyledAboutMeSection = styled.section`
   display: grid;
   align-items: center;
   justify-items: center;
-  padding: 2rem 10rem;
-  width: fit-content;
+  min-width: inherit;
+  max-width: inherit;
+
   // going to need
 
+  div {
+    margin: 2rem 4rem;
+  }
   .about-me-container {
     padding: 2rem;
     color: black;

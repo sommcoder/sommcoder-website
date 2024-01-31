@@ -19,7 +19,8 @@ const StyledHeroSection = styled.section`
   position: relative;
   display: grid;
   justify-self: center;
-  width: 100%;
+  min-width: inherit;
+  max-width: inherit;
   min-height: 350px;
   z-index: 1;
   padding-bottom: 5rem;
@@ -29,7 +30,5 @@ const StyledHeroSection = styled.section`
   // desktop:
   @media (min-width: 850px) {
     grid-template-columns: 60% 40%;
-    margin-top: 0rem;
-    padding-right: 0rem;
   }
 `;
