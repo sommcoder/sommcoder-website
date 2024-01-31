@@ -23,14 +23,13 @@ export default function HeaderBar() {
 const StyledHeaderBar = styled.header`
   position: sticky;
   top: 0;
+  height: 6rem;
+  width: 100%; // which is App
   /* visibility: ${(props) => (props.isScrolling ? "visible" : "hidden")}; */
   z-index: 4;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  padding: 0.5rem 3rem 0.5rem 3rem;
-  height: 6rem;
   background-image: linear-gradient(to top right, #324935, #59755d);
-
   transition: 0.3s ease-in-out;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.12),
     0 4px 4px rgba(0, 0, 0, 0.16), 0 8px 8px rgba(0, 0, 0, 0.2);

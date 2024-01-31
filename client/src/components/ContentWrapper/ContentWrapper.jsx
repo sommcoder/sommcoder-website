@@ -1,7 +1,8 @@
 import styled from "styled-components";
-import HeroSection from "../Main/HeroSection/HeroSection";
+import HeroSection from "../Hero/HeroSection/HeroSection";
 import ProjectSection from "../Project/ProjectSection/ProjectSection";
 import AboutMeSection from "../AboutMe/AboutMeSection";
+import ContactSection from "../Contact/ContactSection/ContactSection";
 
 import wineDrip from "/wine-drips.svg";
 import wineCornerDrip from "/wine-corner-drip.svg";
@@ -17,6 +18,7 @@ export default function ContentWrapper() {
         <HeroSection />
         <ProjectSection />
         <AboutMeSection />
+        <ContactSection />
       </StyledOverlay>
     </StyledContentWrapper>
   );
@@ -25,6 +27,7 @@ export default function ContentWrapper() {
 const StyledContentWrapper = styled.main`
   display: block;
   width: 100%;
+  height: 100%;
   background-image: url("/hero-texture.jpg");
 `;
 

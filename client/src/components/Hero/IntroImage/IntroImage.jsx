@@ -20,9 +20,10 @@ const StyledIntroImageBox = styled.span`
   height: 210px;
   width: 210px;
   // the effect around the pink border
-  box-shadow: 0 1px 1px rgba(255, 192, 203, 0.8),
-    0 2px 2px rgba(255, 192, 203, 0.8), 0 4px 4px rgba(255, 192, 203, 0.2),
-    0 8px 8px rgba(255, 192, 203, 0.2);
+  box-shadow: 0px 0px 2px 2px rgba(255, 192, 203, 0.8),
+    0px 0px 4px 4px rgba(255, 192, 203, 0.8),
+    0px 0px 4px 4px rgba(250, 192, 255, 0.6),
+    0px 0px 8px 8px rgba(255, 192, 203, 0.2);
   border-radius: 50%;
   margin-left: 1rem;
 
@@ -52,14 +53,15 @@ const StyledIntroImageBox = styled.span`
     width: 165px;
     margin-left: 0rem;
     div {
-      width: 160px;
-      height: 160px;
+      width: 165px; // needed
+      height: 165px; // needed
       justify-content: center;
       align-items: center;
       align-content: center;
       justify-items: center;
     }
     img {
+      transform: translateY(-0.1rem); // hack fix
       height: 160px;
       width: 160px;
     }

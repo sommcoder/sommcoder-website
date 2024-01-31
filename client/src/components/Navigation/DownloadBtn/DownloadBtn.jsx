@@ -13,8 +13,8 @@ export default function DownloadBtn() {
   );
 }
 const StyledDownloadBtn = styled.button`
-  margin-left: 1rem; // keeps btn away from icons
   display: none;
+  margin-right: 2rem;
 
   // desktop:
   @media (min-width: 600px) {

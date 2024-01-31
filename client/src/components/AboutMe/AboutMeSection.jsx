@@ -29,7 +29,11 @@ export default function AboutMeSection() {
 }
 
 const StyledAboutMeSection = styled.section`
+  display: grid;
+  align-items: center;
+  justify-items: center;
   padding: 2rem 10rem;
+  width: fit-content;
   // going to need
 
   .about-me-container {

@@ -8,6 +8,8 @@ export default function HeroGraphic() {
     </StyledHeroGraphic>
   );
 }
+// TODO: would love to get this centred in relation to the whole Hero Section. Need to align to top/baseline I think
+
 const StyledHeroGraphic = styled.div`
   display: none;
 

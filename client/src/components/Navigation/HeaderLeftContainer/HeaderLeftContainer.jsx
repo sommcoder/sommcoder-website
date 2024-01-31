@@ -17,8 +17,10 @@ export default function HeaderLeftContainer() {
   );
 }
 const StyledHeaderLeftContainer = styled.span`
-  display: grid;
-  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-items: left;
+  flex-wrap: nowrap;
   justify-content: left;
   width: 100%;
 `;

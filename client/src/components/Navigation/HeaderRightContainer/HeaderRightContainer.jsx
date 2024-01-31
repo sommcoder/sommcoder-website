@@ -33,4 +33,5 @@ const StyledHeaderRightContainer = styled.nav`
   align-items: center;
   flex-wrap: nowrap;
   justify-content: right;
+  gap: 1rem;
 `;

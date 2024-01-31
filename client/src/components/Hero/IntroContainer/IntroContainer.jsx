@@ -25,7 +25,7 @@ export default function IntroContainer() {
 }
 const StyledIntroContainer = styled.div`
   display: grid;
-  padding: 0rem 2rem 0rem 2rem;
+  padding: 0rem 2rem 0rem 3rem;
   grid-template-columns: 1fr 1fr;
   row-gap: 1rem;
 

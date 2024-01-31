@@ -6,6 +6,8 @@ const GlobalStyles = createGlobalStyle`${css`
     padding: 0;
   }
 
+  //! Don't give your sections any padding. This creates weird overflow issues. Components can have padding but sections should be width: 100% of their container right up into the right element
+
   html {
     font-size: 62.5%; // allows for: 1rem = 10px
     -webkit-font-smoothing: antialiased;
@@ -64,7 +66,7 @@ const GlobalStyles = createGlobalStyle`${css`
     height: 3.5rem;
     width: auto; // width of button adjusts based on text content
     min-width: 10rem;
-    padding: 0.5rem;
+    /* padding: 0.5rem; */
     text-align: center;
     border-radius: 10px;
     background: linear-gradient(145deg, #bba6d2, #9e8cb0);

@@ -12,4 +12,5 @@ export default function FooterLeftContainer() {
 const StyledFooterLeftContainer = styled.span`
   display: flex;
   height: 100%;
+  width: 100%;
 `;

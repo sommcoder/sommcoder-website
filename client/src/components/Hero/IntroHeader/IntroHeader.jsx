@@ -23,34 +23,40 @@ export default function IntroHeader() {
   return (
     <StyledIntroHeader>
       <h4>Hi There 👋, I'm</h4>
-      <h1>
-        BRIAN DAVIES
-        <h5>(aka SOMMCODER)</h5>
-      </h1>
+      <h1>BRIAN DAVIES</h1>
+      <h5>(aka SOMMCODER)</h5>
       <h4>{typedAnimationArr.map((char) => char)}</h4>
     </StyledIntroHeader>
   );
 }
 const StyledIntroHeader = styled.span`
   align-self: center;
-  overflow-wrap: wrap;
+  display: grid;
+  row-gap: 1rem;
+  width: 100%;
+  word-break: break-all;
 
   h4 {
+    display: flex;
+    flex-shrink: 1;
     line-height: 1.3;
     font-size: 2rem;
   }
-
   h1 {
+    display: flex;
+    flex-wrap: wrap;
+    word-break: break-all;
+
     font-size: 4rem;
-    margin-bottom: 1rem;
   }
-
   h5 {
-    margin-bottom: 0.5rem;
-    font-size: 1.4rem;
-    font-style: italic;
-  }
+    display: flex;
+    flex-wrap: wrap;
+    word-break: break-all;
 
+    font-size: 1.4rem;
+  }
+  // should adjust to reflective "mobile first" responsiveness
   @media (max-width: 475px) {
     grid-column: span 2;
     justify-content: center;

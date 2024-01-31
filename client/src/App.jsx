@@ -21,7 +21,7 @@ export default function App() {
 
 const StyledApp = styled.div`
   display: grid;
-  width: 100%;
-  grid-template-rows: auto auto auto;
-  overflow-x: hidden;
+  width: 100%; // App should adjust with the ViewPort
+  grid-template-rows: 6rem auto auto;
+  overflow-x: scroll;
 `;

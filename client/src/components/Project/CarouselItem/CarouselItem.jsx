@@ -1,4 +1,6 @@
-﻿import styled from "styled-components";
+﻿import { useState } from "react";
+import styled from "styled-components";
+import CarouselItemOverlay from "../CarouselItemOverlay/CarouselItemOverlay";
 
 export default function CarouselItem({ thumbnail, title, link, short }) {
   function linkToProject(e) {
@@ -6,50 +8,56 @@ export default function CarouselItem({ thumbnail, title, link, short }) {
     window.open(link, "_blank");
   }
 
+  const [hoverState, toggleHoverState] = useState(false);
+  const handleHoverOverlay = () =>
+    hoverState ? toggleHoverState(false) : toggleHoverState(true);
+
   // add a <video> tag for YouTube links
   // create brief tutorial videos on Loom and upload them to YT
 
   return (
-    <StyledCarouselItem onClick={linkToProject} href={link}>
-      <h3>{title}</h3>
-      <img src={thumbnail} />
-
-      <p>{short}</p>
+    <StyledCarouselItem
+      onClick={linkToProject}
+      onMouseEnter={handleHoverOverlay}
+      onMouseLeave={handleHoverOverlay}
+      href={link}
+    >
+      <CarouselItemOverlay hoverState={hoverState} short={short} />
+      <img src={thumbnail} name={title} />
     </StyledCarouselItem>
   );
 }
 
 const StyledCarouselItem = styled.a`
+  position: relative;
   display: grid;
   justify-items: center;
   text-align: center;
-  grid-template-rows: auto auto 33%;
-  row-gap: 1.5rem;
-  padding: 2rem;
-  text-decoration: none;
-  min-height: 10rem;
-  height: auto;
-  width: 28rem;
+  padding: 1rem 0rem;
+  min-height: 27.5rem;
   border-radius: 2rem;
   background-color: rgb(80, 104, 84);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.12),
     0 4px 4px rgba(0, 0, 0, 0.16), 0 8px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 200ms ease-in-out;
 
   /*
-  should adjust this to a gif or short video asset!
+  TODO: should adjust this to a gif or short video asset eventually!
   */
 
   &:hover {
     cursor: pointer;
     transition: 200ms ease-in-out;
-    transform: translateY(-2.5px);
+    transform: translateY(-0.75rem);
   }
 
   img {
+    pointer-events: none;
+
     max-height: 210px;
-    max-width: 210px;
-    height: auto;
-    width: auto;
-    border-radius: 10px;
+    width: 90%;
+    border-radius: 1rem;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.12),
+      0 4px 4px rgba(0, 0, 0, 0.16), 0 8px 8px rgba(0, 0, 0, 0.2);
   }
 `;
