@@ -4,23 +4,48 @@ import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
 import NavIconBox from "../NavIconBox/NavIconBox";
 
 // icons:
-import linkedin from "/linkedin.svg";
-import github from "/github.svg";
+import { FaLinkedinIn } from "react-icons/fa";
+
+import { AiFillGithub } from "react-icons/ai";
+
+import { SiFiverr } from "react-icons/si";
 
 export default function HeaderRightContainer() {
+  const iconStyle = {
+    height: "4rem",
+    width: "4rem",
+  };
+
   const icons = [
     {
+      name: "fiverr",
+      component: (
+        <SiFiverr
+          style={{
+            height: "8rem",
+            width: "8rem",
+            transform: "translateY(-18px)", // hack fix
+          }}
+        />
+      ),
+      link: "https://www.fiverr.com/sommcoder",
+    },
+    {
       name: "linked-in",
-      image: linkedin,
+      component: <FaLinkedinIn style={iconStyle} />,
       link: "https://www.linkedin.com/in/brian-davies-178b0b48/",
     },
-    { name: "github", image: github, link: "https://github.com/sommcoder" },
+    {
+      name: "github",
+      component: <AiFillGithub style={iconStyle} />,
+      link: "https://github.com/sommcoder",
+    },
   ];
 
   return (
     <StyledHeaderRightContainer>
-      {icons.map(({ name, image, link }) => (
-        <NavIconBox key={name} image={image} link={link} />
+      {icons.map(({ name, component, link }) => (
+        <NavIconBox key={name} component={component} link={link} />
       ))}
       <DownloadBtn />
       <HamburgerMenu />
@@ -33,5 +58,5 @@ const StyledHeaderRightContainer = styled.nav`
   align-items: center;
   flex-wrap: nowrap;
   justify-content: right;
-  gap: 1rem;
+  gap: 1.5rem;
 `;

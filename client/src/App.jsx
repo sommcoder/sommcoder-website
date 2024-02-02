@@ -24,7 +24,7 @@ export default function App() {
 const StyledApp = styled.div`
   display: grid;
   min-width: 32rem;
-  max-width: 100%; // App should adjust with the ViewPort
+  max-width: 100%;
   grid-template-rows: 6rem auto auto;
   overflow-x: scroll;
 `;

@@ -40,6 +40,7 @@ const StyledIntroHeader = styled.span`
     flex-shrink: 1;
     line-height: 1.3;
     font-size: 2rem;
+    white-space: collapse balance;
   }
   h1 {
     display: flex;

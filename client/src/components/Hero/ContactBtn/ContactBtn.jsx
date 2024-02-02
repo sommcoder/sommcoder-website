@@ -20,7 +20,7 @@ const StyledContactBtn = styled.a`
 
   // TODO: lets get an icon to go on the left side of the button
   button {
-    width: 14rem;
+    max-width: 14rem;
     font-size: 1.6rem;
   }
 `;

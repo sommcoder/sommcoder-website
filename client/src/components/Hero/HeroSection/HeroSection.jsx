@@ -26,8 +26,7 @@ const StyledHeroSection = styled.section`
   padding-bottom: 5rem;
   opacity: 1;
   transition: opacity 0 0.75s ease-in; // TODO: this isn't working but I want the hero section and each section for that matter to render in smoothly. Background and overlays should generate first and then the components should smoothly appear
-
-  // desktop:
+  // allows room for the HeroGraphic component:
   @media (min-width: 850px) {
     grid-template-columns: 60% 40%;
   }

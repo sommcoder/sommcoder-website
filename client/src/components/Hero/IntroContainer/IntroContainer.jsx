@@ -1,6 +1,5 @@
 ﻿import styled from "styled-components";
 import IntroDescription from "../IntroDescription/IntroDescription";
-// import IntroImage from "../IntroImage/IntroImage";
 import ContactBtn from "../ContactBtn/ContactBtn";
 import IntroHeader from "../IntroHeader/IntroHeader";
 

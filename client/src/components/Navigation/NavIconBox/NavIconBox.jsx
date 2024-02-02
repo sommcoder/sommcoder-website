@@ -1,9 +1,9 @@
 ﻿import styled from "styled-components";
 
-export default function NavIconBox({ link, image }) {
+export default function NavIconBox({ link, component }) {
   return (
     <StyledNavIconBox target="_blank" href={link}>
-      <img src={image} />
+      {component}
     </StyledNavIconBox>
   );
 }
@@ -11,13 +11,9 @@ const StyledNavIconBox = styled.a`
   display: none;
 
   @media (min-width: 600px) {
-    display: inline-block;
-
-    img {
-      height: 40px;
-      width: 40px;
-      filter: brightness(350%);
-    }
+    display: grid;
+    height: 40px;
+    width: fit-content;
 
     &:hover {
       cursor: pointer;

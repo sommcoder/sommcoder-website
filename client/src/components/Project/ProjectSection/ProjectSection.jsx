@@ -21,7 +21,6 @@ export default function ProjectSection() {
 }
 const StyledProjectSection = styled.section`
   justify-self: center;
-  margin-bottom: 2rem;
   /* min-width: inherit; // why does inherit do weird stuff here?
   max-width: inherit; */
   width: 100%;

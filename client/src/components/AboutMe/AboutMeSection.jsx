@@ -6,6 +6,8 @@ export default function AboutMeSection() {
   TODO: this will obviously need to be improvded. Just wanted to get some initial content down
    
   */
+
+  // TODO: create a "more" selection to avoid a long
   return (
     <StyledAboutMeSection>
       <div className="about-me-container">
@@ -13,15 +15,18 @@ export default function AboutMeSection() {
         <p>
           After more than 12 years in the Hospitality industry as a wine
           sommelier, I discovered my passion for web development while building
-          my own wine club subscription business in response to the challenges
-          posed by COVID-19. <br />
-          Proficient in CMS platforms for my business website, I embarked on a
-          journey of self-study, online courses, and personal projects to delve
-          into the intricacies of web development. With extensive applied
-          business experience, I offer a mature perspective, coupled with a
-          diverse background in entrepreneurship, operations management, and
-          e-commerce, underpinned by the determination forged through
-          professional challenges.
+          my own web-based wine subscription business in response to the
+          challenges posed by COVID-19. <br />
+          <br />
+          When I became proficient in CMS platforms for my business, I embarked
+          on a journey of self-study, online courses, and personal projects to
+          delve into the intricacies of web development with HTML, CSS and
+          JavaScript. <br />
+          <br />
+          With extensive applied business experience, I offer a mature
+          perspective, coupled with a diverse background in entrepreneurship,
+          operations management, and e-commerce, underpinned by the
+          determination forged through professional challenges.
         </p>
       </div>
     </StyledAboutMeSection>
@@ -33,15 +38,14 @@ const StyledAboutMeSection = styled.section`
   align-items: center;
   justify-items: center;
   min-width: inherit;
-  max-width: inherit;
 
-  // going to need
-
-  div {
-    margin: 2rem 4rem;
-  }
   .about-me-container {
-    padding: 2rem;
+    display: grid;
+    grid-template-rows: 3rem auto;
+    max-width: 70%;
+    margin: 4rem 4rem;
+    min-height: 30rem;
+    padding: 3rem;
     color: black;
     background-color: whitesmoke;
     border-radius: 1.5rem;

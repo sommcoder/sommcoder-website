@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+import ContactFormItem from "../ContactFormItem/ContactFormItem";
 
 export default function ContactSection() {
   const formInputArr = [
@@ -20,21 +21,18 @@ export default function ContactSection() {
 
   const [inputFocus, toggleInputFocus] = useState(false);
 
-  function handleInputClick(ev) {
-    ev.stopPropagation(); // needed?
-    inputFocus ? toggleInputFocus(false) : toggleInputFocus(true);
-  }
-
   return (
     <StyledContactSection>
       <form>
-        <h4>NEED HELP ON A WEB PROJECT?</h4>
+        <h4>HOW CAN I HELP?</h4>
         {formInputArr.map(({ title, description, errorMsg }, i) => (
-          <div>
-            <input title={description} onFocus={(ev) => handleInputClick(ev)} />
-            <h5 active={inputFocus}>{title}</h5>
-            <label errorMsg={errorMsg} />
-          </div>
+          <ContactFormItem
+            title={title}
+            description={description}
+            errorMsg={errorMsg}
+            inputFocus={inputFocus}
+            toggleInputFocus={toggleInputFocus}
+          />
         ))}
         <button type="submit"></button>
       </form>
@@ -43,18 +41,18 @@ export default function ContactSection() {
 }
 
 const StyledContactSection = styled.section`
-  // mobile and general styling
-  border-top: 1px solid grey;
-  height: 45rem;
   display: grid;
-  justify-items: center;
-  align-items: center;
+  min-height: 45rem;
   min-width: inherit;
   max-width: inherit;
+  justify-items: center;
+  align-items: center;
+
+  border-top: 1px solid grey;
   form {
     display: grid;
     background-color: white;
-    min-width: 30rem;
+    min-width: 20rem;
     padding: 2rem;
     border-radius: 0.75rem;
     grid-template-rows: repeat(4, 1fr);
@@ -65,40 +63,13 @@ const StyledContactSection = styled.section`
 
   h4 {
     color: black;
-    font-size: 2rem;
-  }
-
-  div {
-    display: relative;
-    width: 35rem;
-  }
-
-  h5 {
-    pointer-events: none;
-    display: absolute;
-    top: 0;
-    left: 6;
-    z-index: 3;
-    transform: ${({ active }) =>
-      active ? "translateY(-4rem)" : "translateY(-2.25rem)"};
-    //
-    color: #0000009e;
-    font-size: 1.2rem;
-
-    // TODO: when onFocus() transform: translate x and y so that the label of the input field is just slightly above the top line of the input field. This should also cause a visual "break" in the line of the input field. We can achieve this this a higher z-index and a background on the h5 element. We have to  be sure that this doesn't event the text of the input field however.
+    font-size: 1.8rem;
+    text-align: center;
   }
 
   button {
     margin-top: 1.5rem;
     width: 87.5%;
-  }
-
-  input {
-    display: block;
-    height: 3rem;
-    width: 100%;
-    border-radius: 0.75rem;
-    outline: none;
   }
 
   @media (min-width: 800) {

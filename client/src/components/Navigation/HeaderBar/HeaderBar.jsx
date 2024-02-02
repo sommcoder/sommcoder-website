@@ -1,6 +1,7 @@
 ﻿import styled from "styled-components";
 import HeaderLeftContainer from "../HeaderLeftContainer/HeaderLeftContainer";
 import HeaderRightContainer from "../HeaderRightContainer/HeaderRightContainer";
+
 // import { useState, useEffect } from "react";
 
 export default function HeaderBar() {
@@ -23,11 +24,12 @@ export default function HeaderBar() {
 const StyledHeaderBar = styled.header`
   position: sticky;
   top: 0;
+  /* overflow: hidden; */
+  z-index: 4;
   height: 6rem;
   min-width: 32rem;
   max-width: 100%; // which is App
   /* visibility: ${(props) => (props.isScrolling ? "visible" : "hidden")}; */
-  z-index: 4;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   background-image: linear-gradient(to top right, #324935, #59755d);
