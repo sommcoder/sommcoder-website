@@ -8,6 +8,7 @@ import GlobalStyles from "./GlobalStyles";
 export default function App() {
   // if screen window.screen() is below 32rem/320px then show an error page
   // if user has javascript disabled, show a warning page
+
   return (
     <>
       <GlobalStyles />
@@ -26,5 +27,4 @@ const StyledApp = styled.div`
   min-width: 32rem;
   max-width: 100%;
   grid-template-rows: 6rem auto auto;
-  overflow-x: scroll;
 `;

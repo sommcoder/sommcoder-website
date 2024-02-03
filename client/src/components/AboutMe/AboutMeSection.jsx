@@ -38,13 +38,14 @@ const StyledAboutMeSection = styled.section`
   align-items: center;
   justify-items: center;
   min-width: inherit;
+  background-image: url("/Wine Splatter.svg");
 
   .about-me-container {
     display: grid;
     grid-template-rows: 3rem auto;
     max-width: 70%;
     margin: 4rem 4rem;
-    min-height: 30rem;
+    min-height: 20rem;
     padding: 3rem;
     color: black;
     background-color: whitesmoke;

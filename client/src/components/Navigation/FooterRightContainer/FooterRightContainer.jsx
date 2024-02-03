@@ -23,6 +23,12 @@ const StyledFooterRightContainer = styled.span`
   height: 100%;
   width: 100%;
   margin-bottom: 1rem;
+  z-index: 4;
+
+  grid-column: span 2;
+  @media (min-width: 700px) {
+    grid-column: span 1;
+  }
 
   header {
     font-weight: 600;

@@ -5,47 +5,52 @@ import NavIconBox from "../NavIconBox/NavIconBox";
 
 // icons:
 import { FaLinkedinIn } from "react-icons/fa";
-
 import { AiFillGithub } from "react-icons/ai";
-
 import { SiFiverr } from "react-icons/si";
 
 export default function HeaderRightContainer() {
-  const iconStyle = {
-    height: "4rem",
-    width: "4rem",
-  };
-
   const icons = [
     {
-      name: "fiverr",
       component: (
         <SiFiverr
           style={{
-            height: "8rem",
+            height: "7rem",
             width: "8rem",
-            transform: "translateY(-18px)", // hack fix
+            transform: "translateY(-13px)", // hack fix
           }}
         />
       ),
       link: "https://www.fiverr.com/sommcoder",
     },
     {
-      name: "linked-in",
-      component: <FaLinkedinIn style={iconStyle} />,
+      component: (
+        <FaLinkedinIn
+          style={{
+            height: "4rem",
+            width: "3rem",
+          }}
+        />
+      ),
       link: "https://www.linkedin.com/in/brian-davies-178b0b48/",
     },
     {
-      name: "github",
-      component: <AiFillGithub style={iconStyle} />,
+      component: (
+        <AiFillGithub
+          style={{
+            height: "4rem",
+            width: "3.75rem",
+            transform: "translateY(-2px)", // hack fix
+          }}
+        />
+      ),
       link: "https://github.com/sommcoder",
     },
   ];
 
   return (
     <StyledHeaderRightContainer>
-      {icons.map(({ name, component, link }) => (
-        <NavIconBox key={name} component={component} link={link} />
+      {icons.map(({ component, link }, i) => (
+        <NavIconBox key={i} component={component} link={link} />
       ))}
       <DownloadBtn />
       <HamburgerMenu />

@@ -10,7 +10,9 @@ export default function ContactBtn() {
         })
       }
     >
-      <button>Let's Chat</button>
+      <button>
+        <span className="button-text">Let's Chat</span>
+      </button>
     </StyledContactBtn>
   );
 }
@@ -20,7 +22,10 @@ const StyledContactBtn = styled.a`
 
   // TODO: lets get an icon to go on the left side of the button
   button {
-    max-width: 14rem;
+    min-height: 3rem;
+    min-width: 12rem;
+    max-width: 20rem;
     font-size: 1.6rem;
+    text-align: center;
   }
 `;
