@@ -4,17 +4,18 @@ import HeroGraphic from "../HeroGraphic/HeroGraphic";
 import LoadingEllipsis from "../../Utility/LoadingEllipsis/LoadingEllipsis";
 
 import { Suspense } from "react";
+import { forwardRef } from "react";
 
-export default function HeroSection() {
+export default forwardRef(function HeroSection(props, ref) {
   return (
     <Suspense fallback={<LoadingEllipsis />}>
-      <StyledHeroSection>
+      <StyledHeroSection ref={ref.main}>
         <IntroContainer />
         <HeroGraphic />
       </StyledHeroSection>
     </Suspense>
   );
-}
+});
 const StyledHeroSection = styled.section`
   position: relative;
   display: grid;

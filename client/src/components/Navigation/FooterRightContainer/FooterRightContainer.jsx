@@ -1,19 +1,29 @@
+import { useEffect } from "react";
 import styled from "styled-components";
 
-export default function FooterRightContainer() {
+export default function FooterRightContainer({ refStateObj, navLabelArr }) {
+  //TODO: lets link to the sections on the page
+
+  // Need to get the locations on the page.
+
+  function handleLinkClick(ev) {
+    console.log("footer click");
+    window.scrollTo({
+      top: refStateObj[ev.target.dataset.section].current.offsetTop - 200 || 0, // needs to be minus cause this offsetTop is the pixel distance FROM the top
+      left: 0,
+      behavior: "smooth",
+    });
+  }
+
   return (
     <StyledFooterRightContainer>
       <header>Navigation</header>
       <ul>
-        <li>
-          <a>back to top</a>
-        </li>
-        <li>
-          <a>projects</a>
-        </li>
-        <li>
-          <a>about me</a>
-        </li>
+        {navLabelArr.map((label, i) => (
+          <li data-section={label} onClick={handleLinkClick} key={i}>
+            {label}
+          </li>
+        ))}
       </ul>
     </StyledFooterRightContainer>
   );
@@ -41,7 +51,7 @@ const StyledFooterRightContainer = styled.span`
     flex-direction: row;
     align-items: left;
     justify-items: left;
-    gap: 1.5rem;
+    gap: 2.5rem;
   }
 
   li {

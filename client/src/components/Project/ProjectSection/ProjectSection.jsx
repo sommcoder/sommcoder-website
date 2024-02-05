@@ -3,13 +3,15 @@ import CarouselArrowLeft from "../CarouselArrowLeft/CarouselArrowLeft";
 import CarouselArrowRight from "../CarouselArrowRight/CarouselArrowRight";
 import CarouselSection from "../CarouselSection/CarouselSection";
 
+import { forwardRef } from "react";
+
 // import { Suspense } from "react";
 // import LoadingEllipsis from "../../Utility/LoadingEllipsis/LoadingEllipsis";
 
-export default function ProjectSection() {
+export default forwardRef(function ProjectSection(props, ref) {
   return (
     // <Suspense fallback={<LoadingEllipsis />}>
-    <StyledProjectSection>
+    <StyledProjectSection ref={ref.project}>
       <StyledProjectOverlay>
         <CarouselArrowLeft />
         <CarouselSection />
@@ -18,7 +20,8 @@ export default function ProjectSection() {
     </StyledProjectSection>
     /* </Suspense> */
   );
-}
+});
+
 const StyledProjectSection = styled.section`
   justify-self: center;
   /* min-width: inherit; // why does inherit do weird stuff here?

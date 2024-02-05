@@ -1,8 +1,9 @@
 import { useState } from "react";
 import styled from "styled-components";
 import ContactFormItem from "../ContactFormItem/ContactFormItem";
+import { forwardRef } from "react";
 
-export default function ContactSection() {
+export default forwardRef(function ContactSection(props, ref) {
   const formInputArr = [
     {
       title: "first name",
@@ -22,7 +23,7 @@ export default function ContactSection() {
   const [inputFocus, toggleInputFocus] = useState(false);
 
   return (
-    <StyledContactSection>
+    <StyledContactSection ref={ref.contact}>
       <form>
         <h4>HOW CAN I HELP?</h4>
         {formInputArr.map(({ title, description, errorMsg }, i) => (
@@ -38,7 +39,7 @@ export default function ContactSection() {
       </form>
     </StyledContactSection>
   );
-}
+});
 
 const StyledContactSection = styled.section`
   display: grid;

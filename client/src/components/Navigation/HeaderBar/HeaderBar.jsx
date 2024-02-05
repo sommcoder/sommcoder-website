@@ -2,18 +2,7 @@
 import HeaderLeftContainer from "../HeaderLeftContainer/HeaderLeftContainer";
 import HeaderRightContainer from "../HeaderRightContainer/HeaderRightContainer";
 
-// import { useState, useEffect } from "react";
-
 export default function HeaderBar() {
-  // const [isScrolling, setIsScrolling] = useState(true);
-
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     setIsScrolling(window.scrollY > 0);
-  //   };
-  //   window.requestAnimationFrame(handleScroll);
-  // }, []);
-
   return (
     <StyledHeaderBar>
       <HeaderLeftContainer />
@@ -38,4 +27,9 @@ const StyledHeaderBar = styled.header`
     0 4px 4px rgba(0, 0, 0, 0.16), 0 8px 8px rgba(0, 0, 0, 0.2);
 
   // as the user scrolls we want to create a separation between nav bar and main elements
+
+  .hidden-scroll-watcher {
+    visibility: hidden;
+    height: 0;
+  }
 `;

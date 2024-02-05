@@ -2,13 +2,16 @@
 import FooterLeftContainer from "../FooterLeftContainer/FooterLeftContainer";
 import FooterRightContainer from "../FooterRightContainer/FooterRightContainer";
 
-export default function Footer() {
+export default function Footer({ refStateObj, navLabelArr }) {
   return (
     <StyledFooter>
       <StyledFooterImage />
       <StyledFooterHeader>SOMMCODER</StyledFooterHeader>
       <FooterLeftContainer />
-      <FooterRightContainer />
+      <FooterRightContainer
+        refStateObj={refStateObj}
+        navLabelArr={navLabelArr}
+      />
     </StyledFooter>
   );
 }

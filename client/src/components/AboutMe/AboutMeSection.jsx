@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
-export default function AboutMeSection() {
+import { forwardRef } from "react";
+
+export default forwardRef(function AboutMeSection(props, ref) {
   /*
    
   TODO: this will obviously need to be improvded. Just wanted to get some initial content down
@@ -9,7 +11,7 @@ export default function AboutMeSection() {
 
   // TODO: create a "more" selection to avoid a long
   return (
-    <StyledAboutMeSection>
+    <StyledAboutMeSection ref={ref.about}>
       <div className="about-me-container">
         <h3>About Me:</h3>
         <p>
@@ -31,7 +33,7 @@ export default function AboutMeSection() {
       </div>
     </StyledAboutMeSection>
   );
-}
+});
 
 const StyledAboutMeSection = styled.section`
   display: grid;

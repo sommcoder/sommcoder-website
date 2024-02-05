@@ -62,7 +62,7 @@ const StyledFooterLeftContainer = styled.span`
     flex-direction: row;
     align-items: left;
     justify-items: left;
-    gap: 1.5rem;
+    gap: 2.5rem;
   }
 
   li {
