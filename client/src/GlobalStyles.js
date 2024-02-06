@@ -58,12 +58,14 @@ const GlobalStyles = createGlobalStyle`${css`
     }
   }
 
-  li {
+  li,
+  svg {
     &:hover {
       cursor: pointer;
-      filter: brightness(85%);
+      filter: brightness(85%) !important;
     }
   }
+
   // Want to make the button and overall shape of the web page look 3 dimensional and "textured" / wavy
   button {
     font-family: "PT Serif", sans-serif;

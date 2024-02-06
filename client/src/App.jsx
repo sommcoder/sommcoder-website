@@ -17,6 +17,7 @@ export default function App() {
     main: useRef(null),
     project: useRef(null),
     about: useRef(null),
+    services: useRef(null),
     contact: useRef(null),
   };
   const navLabelArr = Object.keys(refStateObj);

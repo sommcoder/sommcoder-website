@@ -17,7 +17,7 @@ export default function {comp_name}() {{
 const Styled{comp_name} = styled.{comp_type}`
 // mobile and general styling 
 
- @media (min-width: 800) {{
+ @media (min-width: 800px) {{
  // desktop styling here
  
  }}

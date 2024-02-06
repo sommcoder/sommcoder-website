@@ -1,7 +1,7 @@
 ﻿import styled from "styled-components";
 import CarouselArrowLeft from "../CarouselArrowLeft/CarouselArrowLeft";
 import CarouselArrowRight from "../CarouselArrowRight/CarouselArrowRight";
-import CarouselSection from "../CarouselSection/CarouselSection";
+import CarouselContainer from "../CarouselContainer/CarouselContainer";
 
 import { forwardRef } from "react";
 
@@ -14,7 +14,7 @@ export default forwardRef(function ProjectSection(props, ref) {
     <StyledProjectSection ref={ref.project}>
       <StyledProjectOverlay>
         <CarouselArrowLeft />
-        <CarouselSection />
+        <CarouselContainer />
         <CarouselArrowRight />
       </StyledProjectOverlay>
     </StyledProjectSection>
@@ -53,10 +53,13 @@ const StyledProjectOverlay = styled.div`
   max-width: inherit;
   min-height: 30rem;
   padding: 4rem 0rem;
-  display: grid;
-  grid-template-rows: auto;
-  align-items: center;
-  align-content: center;
+  justify-self: center;
+  align-self: center;
+  display: block;
+
+  /* @media (min-width: 600px) {
+    grid-template-rows: 1fr 1fr;
+  } */
 `;
 
 // const StyledProjectSectionTitle = styled.div`

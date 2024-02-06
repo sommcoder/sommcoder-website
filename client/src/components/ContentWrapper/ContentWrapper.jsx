@@ -3,6 +3,7 @@ import HeroSection from "../Hero/HeroSection/HeroSection";
 import ProjectSection from "../Project/ProjectSection/ProjectSection";
 import AboutMeSection from "../AboutMe/AboutMeSection";
 import ContactSection from "../Contact/ContactSection/ContactSection";
+import ServicesSection from "../ServicesSection/ServicesSection";
 
 import wineDrip from "/wine-drips.svg";
 import wineCornerDrip from "/wine-corner-drip.svg";
@@ -20,6 +21,7 @@ export default forwardRef(function ContentWrapper(props, ref) {
         <HeroSection ref={ref} />
         <ProjectSection ref={ref} />
         <AboutMeSection ref={ref} />
+        <ServicesSection ref={ref} />
         <ContactSection ref={ref} />
       </StyledOverlay>
     </StyledContentWrapper>

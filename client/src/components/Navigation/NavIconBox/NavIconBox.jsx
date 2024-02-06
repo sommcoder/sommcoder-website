@@ -14,10 +14,12 @@ const StyledNavIconBox = styled.a`
     display: grid;
     height: 40px;
     width: fit-content;
+    justify-items: center;
+    align-items: center;
 
-    &:hover {
+    /* &:hover {
       cursor: pointer;
-      filter: brightness(-100%);
-    }
+      filter: brightness(75%);
+    } */
   }
 `;

@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 import { forwardRef } from "react";
+import youngme1 from "/me-computer1.jpg";
+import youngme2 from "/me-computer2.jpg";
 
 export default forwardRef(function AboutMeSection(props, ref) {
   /*
@@ -9,27 +11,41 @@ export default forwardRef(function AboutMeSection(props, ref) {
    
   */
 
-  // TODO: create a "more" selection to avoid a long
+  //TODO: create a "more" selection to avoid a long
   return (
     <StyledAboutMeSection ref={ref.about}>
       <div className="about-me-container">
         <h3>About Me:</h3>
         <p>
           After more than 12 years in the Hospitality industry as a wine
-          sommelier, I discovered my passion for web development while building
-          my own web-based wine subscription business in response to the
-          challenges posed by COVID-19. <br />
+          sommelier, I discovered my passion for software development while
+          building my own web-based wine subscription business in response to
+          the challenges posed by COVID-19. <br />
           <br />
-          When I became proficient in CMS platforms for my business, I embarked
-          on a journey of self-study, online courses, and personal projects to
-          delve into the intricacies of web development with HTML, CSS and
-          JavaScript. <br />
+          Once I became proficient in CMS platforms (Squarespace & Shopify) for
+          my business, I embarked on a journey of self-study, online courses,
+          and personal projects to delve into the intricacies of web development
+          with HTML, CSS and JavaScript which grabbed and held my attention.
           <br />
-          With extensive applied business experience, I offer a mature
-          perspective, coupled with a diverse background in entrepreneurship,
-          operations management, and e-commerce, underpinned by the
-          determination forged through professional challenges.
+          <br />
+          Studying the minutiae of the wine industry certainly afforded me the
+          ability to dive deep into the vast subject of web programming.
+          <br />
+          <br />
+          Truthfully, I was always drawn to computers, even at 2 years old when
+          our home computer had a screen that was as large as me.
+          <br />
+          <br />
+          With my extensive Hospitality experience and technical skill set, I
+          offer a highly specialized knowledge base to help scale your online
+          presence and create a tonne of value for your shareholders.
+          <br />
+          <br />- Brian Davies
         </p>
+        <span className="personal-image-grouping">
+          <img className="personal-images personal-image-1" src={youngme1} />
+          <img className="personal-images personal-image-2" src={youngme2} />
+        </span>
       </div>
     </StyledAboutMeSection>
   );
@@ -40,22 +56,78 @@ const StyledAboutMeSection = styled.section`
   align-items: center;
   justify-items: center;
   min-width: inherit;
+  min-height: inherit;
   background-image: url("/Wine Splatter.svg");
 
   .about-me-container {
     display: grid;
-    grid-template-rows: 3rem auto;
+    grid-template-columns: 1fr;
+    grid-template-rows: 3rem auto auto;
+    column-gap: 1.5rem;
+    row-gap: 1rem;
+    min-width: 28rem;
     max-width: 70%;
-    margin: 4rem 4rem;
-    min-height: 20rem;
+    min-height: 35rem;
+    margin: 1rem 1rem;
     padding: 3rem;
     color: black;
     background-color: whitesmoke;
-    border-radius: 1.5rem;
+    border-radius: 2rem;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.12),
       0 4px 4px rgba(0, 0, 0, 0.16), 0 8px 8px rgba(0, 0, 0, 0.2);
+
+    @media (min-width: 875px) {
+      grid-template-rows: 3rem auto;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    h3 {
+      grid-column: span 2;
+    }
+    .personal-image-grouping {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .personal-images {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      max-height: calc(667px / 3);
+      max-width: calc(1064px / 3);
+      flex: 1 1 auto;
+      border-radius: 2rem;
+      // 1064 x 667
+    }
+
+    .personal-image-1 {
+      align-self: center;
+    }
+
+    .personal-image-2 {
+      display: none;
+      @media (min-width: 875px) {
+        display: block;
+        max-height: calc(667px / 3);
+        max-width: calc(1064px / 3);
+        flex: 1 1 auto;
+        border-radius: 2rem;
+        // 1064 x 667
+      }
+    }
+
+    p {
+      display: flex;
+      grid-column: span 2;
+      @media (min-width: 875px) {
+        grid-column: span 1;
+      }
+    }
   }
 
-  @media (min-width: 800) {
+  @media (min-width: 800px) {
   }
 `;
