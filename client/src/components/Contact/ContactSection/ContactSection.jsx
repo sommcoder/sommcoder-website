@@ -9,14 +9,16 @@ export default forwardRef(function ContactSection(props, ref) {
       title: "first name",
       description: "",
       errorMsg: "",
+      type: "text",
     },
-    { title: "last name", description: "", errorMsg: "" },
+    { title: "last name", description: "", errorMsg: "", type: "text" },
 
-    { title: "email address", description: "", errorMsg: "" },
+    { title: "email address", description: "", errorMsg: "", type: "text" },
     {
       title: "what can I help you with?",
       description: "",
       errorMsg: "",
+      type: "text",
     },
   ];
 
@@ -26,9 +28,10 @@ export default forwardRef(function ContactSection(props, ref) {
     <StyledContactSection ref={ref.contact}>
       <form>
         <h4>HOW CAN I HELP?</h4>
-        {formInputArr.map(({ title, description, errorMsg }, i) => (
+        {formInputArr.map(({ title, description, errorMsg, type }, i) => (
           <ContactFormItem
             title={title}
+            type={type}
             description={description}
             errorMsg={errorMsg}
             inputFocus={inputFocus}

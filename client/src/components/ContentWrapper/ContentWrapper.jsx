@@ -3,7 +3,7 @@ import HeroSection from "../Hero/HeroSection/HeroSection";
 import ProjectSection from "../Project/ProjectSection/ProjectSection";
 import AboutMeSection from "../AboutMe/AboutMeSection";
 import ContactSection from "../Contact/ContactSection/ContactSection";
-import ServicesSection from "../ServicesSection/ServicesSection";
+import ServicesSection from "../Service/ServicesSection/ServicesSection";
 
 import wineDrip from "/wine-drips.svg";
 import wineCornerDrip from "/wine-corner-drip.svg";

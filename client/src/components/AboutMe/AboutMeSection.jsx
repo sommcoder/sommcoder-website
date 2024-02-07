@@ -88,7 +88,7 @@ const StyledAboutMeSection = styled.section`
       display: flex;
       flex-direction: column;
       gap: 1rem;
-      flex-wrap: wrap;
+      /* flex-wrap: wrap;  <-- don't use this! */
     }
 
     .personal-images {

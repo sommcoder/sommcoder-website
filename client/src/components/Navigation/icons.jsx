@@ -37,7 +37,7 @@ export const ICON_COMPONENTS = {
         style={{
           height: "3.5rem",
           width: "3.75rem",
-          transform: "translateY(-2px)", // hack fix
+          // transform: "translateY(-2px)", // hack fix
         }}
       />
     ),
@@ -50,7 +50,7 @@ export const ICON_COMPONENTS = {
         style={{
           height: "5rem",
           width: "6rem",
-          transform: "translateY(-2px)", // hack fix
+          // transform: "translateY(-2px)", // hack fix
         }}
       />
     ),
@@ -61,9 +61,9 @@ export const ICON_COMPONENTS = {
       <SiNpm
         data-link="npm"
         style={{
-          height: "3rem",
+          height: "2.8rem",
           width: "3.75rem",
-          transform: "translateY(-2px)", // hack fix
+          // transform: "translateY(-2px)", // hack fix
         }}
       />
     ),

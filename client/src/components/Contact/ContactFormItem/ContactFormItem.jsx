@@ -6,6 +6,7 @@ export default function ContactFormItem({
   title,
   inputFocus,
   toggleInputFocus,
+  type,
 }) {
   function handleInputClick(ev) {
     ev.stopPropagation(); // needed?
@@ -14,6 +15,7 @@ export default function ContactFormItem({
   return (
     <StyledContactFormItem>
       <input
+        type={type}
         title={description}
         onFocus={(ev) => handleInputClick(ev)}
         onBlur={(ev) => handleInputClick(ev)}
