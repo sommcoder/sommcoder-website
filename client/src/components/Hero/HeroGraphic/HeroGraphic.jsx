@@ -22,6 +22,14 @@ const StyledHeroGraphic = styled.div`
 
     img {
       display: inline-block;
+      max-height: 350px;
+      max-width: 350px;
+    }
+  }
+
+  @media (min-width: 1020px) {
+    img {
+      display: inline-block;
       max-height: 400px;
       max-width: 400px;
     }

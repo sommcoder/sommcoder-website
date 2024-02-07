@@ -22,32 +22,18 @@ TODO: maybe have the YouTube shorts appear on desktop only but for mobile provid
   );
 }
 const StyledCarouselContainer = styled.div`
-  display: grid;
+  display: flex;
   width: auto;
-  grid-row-gap: 2rem;
+  gap: 2rem;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* grid-row-gap: 2rem;
   grid-column-gap: 1.5rem;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr; */
   justify-items: center;
   align-items: center;
   justify-self: center;
   align-self: center;
   justify-content: center; /* Center items horizontally */
   align-content: center; /* Center items vertically */
-
-  // TODO: need to center the Items. why does the above not work??
-  // desktop:
-  @media (min-width: 850px) {
-    // ! When auto-fill is given as the repetition number, if the grid container has a definite size or max size in the relevant axis, then the number of repetitions is the largest possible positive integer that does not cause the grid to overflow its grid container.
-    grid-template-columns: repeat(auto-fill, 31rem);
-    /* grid-template-rows: 1fr; */
-    margin-top: 0rem;
-  }
-
-  /*
-   
-  DESKTOP:
-  - we want the carousel items to transition from the right
-  - we want the carousel arrows to actually render
-   
-  */
 `;

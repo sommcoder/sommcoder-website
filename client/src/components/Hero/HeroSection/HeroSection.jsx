@@ -21,7 +21,7 @@ const StyledHeroSection = styled.section`
   display: grid;
   justify-self: center;
   min-width: inherit;
-  max-width: inherit;
+  max-width: 130rem;
   min-height: 350px;
   z-index: 1;
   padding-bottom: 5rem;

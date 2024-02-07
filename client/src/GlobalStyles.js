@@ -30,7 +30,7 @@ const GlobalStyles = createGlobalStyle`${css`
     height: 100%;
     max-width: 100%;
     font-size: 1.6rem;
-    background-color: #506854;
+    background-color: rgb(53, 69, 56);
     color: white;
     font-family: "PT Serif", sans-serif;
   }

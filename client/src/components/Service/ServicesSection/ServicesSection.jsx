@@ -7,9 +7,9 @@ import { servicesArr } from "../services.jsx";
 export default forwardRef(function ServicesSection(props, ref) {
   return (
     <StyledServicesSection ref={ref.services}>
-      <div className="services-table">
+      <div className="services-container">
         <h3 className="services-table-header">✨ My Core Services: ✨</h3>
-        <div className="services-table-card-container">
+        <div className="services-table-container">
           {servicesArr.map((service) => (
             <ServiceCard service={service} />
           ))}
@@ -29,13 +29,13 @@ const StyledServicesSection = styled.section`
   border-top: 1px solid grey;
   background-image: url("/Wine Splatter.svg");
 
-  .services-table {
+  .services-container {
     display: grid;
-    grid-template-rows: 3rem auto;
+    grid-template-rows: 4.5rem auto;
     justify-items: center;
     row-gap: 1rem;
 
-    min-height: 40rem;
+    min-height: 30rem;
     min-width: 28rem;
     max-width: 70%;
 
@@ -48,18 +48,21 @@ const StyledServicesSection = styled.section`
       0 4px 4px rgba(0, 0, 0, 0.16), 0 8px 8px rgba(0, 0, 0, 0.2);
   }
 
-  .services-table-card-container {
+  .services-table-header {
+    font-size: 2.25rem;
+  }
+
+  .services-table-container {
     display: flex;
     flex-wrap: wrap;
+    height: 100%;
     width: 100%;
 
-    @media (min-width: 800) {
-    }
     justify-items: center;
     align-content: center;
     justify-content: center;
     align-items: baseline;
     column-gap: 1.5rem;
-    row-gap: 1rem;
+    row-gap: 2rem;
   }
 `;

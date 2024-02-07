@@ -66,9 +66,9 @@ const StyledAboutMeSection = styled.section`
     column-gap: 1.5rem;
     row-gap: 1rem;
     min-width: 28rem;
-    max-width: 70%;
+    max-width: 75rem;
     min-height: 35rem;
-    margin: 1rem 1rem;
+    margin: 1rem 2rem;
     padding: 3rem;
     color: black;
     background-color: whitesmoke;
@@ -81,13 +81,26 @@ const StyledAboutMeSection = styled.section`
       grid-template-columns: 1fr 1fr;
     }
 
+    @media (min-width: 1500px) {
+      grid-template-rows: 3rem auto;
+      grid-template-columns: 1fr;
+    }
+
     h3 {
       grid-column: span 2;
+      @media (min-width: 1500px) {
+        grid-column: span 1;
+      }
     }
     .personal-image-grouping {
       display: flex;
+      align-items: center;
       flex-direction: column;
       gap: 1rem;
+      @media (min-width: 1500px) {
+        flex-direction: row;
+        justify-content: center;
+      }
       /* flex-wrap: wrap;  <-- don't use this! */
     }
 
@@ -108,6 +121,7 @@ const StyledAboutMeSection = styled.section`
     }
 
     .personal-image-2 {
+      // reduce down to just one image
       display: none;
       @media (min-width: 875px) {
         display: block;

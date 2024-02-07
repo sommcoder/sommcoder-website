@@ -33,7 +33,7 @@ const StyledIntroImageBox = styled.span`
     width: 210px;
     height: 210px;
     clip-path: circle(50% at 50% 50%);
-    background-color: pink;
+    background-color: rgba(255, 192, 203, 1);
   }
 
   img {

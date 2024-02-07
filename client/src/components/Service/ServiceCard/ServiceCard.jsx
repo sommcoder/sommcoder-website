@@ -12,7 +12,9 @@ export default function ServiceCard({ service }) {
   }
   return (
     <StyledServiceCard onClick={handleDropdownClick}>
-      <h3>{service.title}</h3>
+      <span className="service-card-header-container">
+        <h3>{service.title}</h3>
+      </span>
       <span active={cardState} className="service-card-content-container">
         <h5>{service.subtitle}</h5>
         <p>{service.description}</p>
@@ -29,13 +31,11 @@ export default function ServiceCard({ service }) {
 const StyledServiceCard = styled.span`
   // mobile and general styling
   display: grid;
-  grid-template-rows: 2.5rem auto 2rem; // content is auto
-  min-height: 30rem;
-  width: 17.5rem;
-  text-align: left;
+  grid-template-rows: 4rem auto 2.5rem; // content is auto
+  height: 27rem;
+  width: 27.5rem;
   align-items: center;
   justify-items: center;
-  background-color: pink;
   border-radius: 2rem 2rem 2rem 2rem;
 
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.12),
@@ -44,17 +44,22 @@ const StyledServiceCard = styled.span`
   &:hover {
     cursor: pointer;
   }
-  h3 {
+
+  .service-card-header-container {
     border-radius: 2rem 2rem 0rem 0rem;
     width: 100%;
-    height: 2.5rem;
+    height: 4rem;
     background-color: pink;
-    display: grid;
-    justify-content: center;
-    align-content: center;
-    text-align: center;
-    padding: 0.5rem 0rem;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+    h3 {
+      padding-left: 1.25rem;
+      text-align: left;
+    }
   }
+
   .service-card-content-container {
     background-color: whitesmoke;
     grid-template-rows: auto auto auto;
@@ -66,7 +71,8 @@ const StyledServiceCard = styled.span`
     margin: 1rem 0rem;
 
     h5 {
-      text-align: center;
+      font-size: 1.5rem;
+      text-align: left;
       margin: 0.75rem 0rem;
       padding-bottom: 1rem;
       border-bottom: 1px lightgrey solid;
@@ -77,7 +83,7 @@ const StyledServiceCard = styled.span`
   .service-card-arrow-btn {
     background: linear-gradient(145deg, #bba6d2, #9e8cb0);
     width: 100%;
-    height: 2rem;
+    height: 2.5rem;
     margin: 0rem;
     border-radius: 0rem 0rem 2rem 2rem;
     display: grid;

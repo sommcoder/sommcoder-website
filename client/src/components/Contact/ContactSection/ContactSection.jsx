@@ -57,7 +57,7 @@ const StyledContactSection = styled.section`
   form {
     display: grid;
     background-color: white;
-    min-width: 30rem;
+    min-width: 30rem; // 32rem is smaller screen width
     padding: 2rem;
     border-radius: 0.75rem;
     grid-template-rows: repeat(4, 1fr);
