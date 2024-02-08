@@ -41,6 +41,7 @@ const StyledFooterRightContainer = styled.span`
   }
 
   header {
+    font-size: 2rem;
     font-weight: 600;
     margin-bottom: 1rem;
     text-decoration: underline;
@@ -48,6 +49,7 @@ const StyledFooterRightContainer = styled.span`
 
   ul {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     align-items: left;
     justify-items: left;

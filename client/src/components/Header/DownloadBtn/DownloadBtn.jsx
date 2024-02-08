@@ -17,7 +17,7 @@ const StyledDownloadBtn = styled.button`
   margin-right: 4rem;
 
   // desktop:
-  @media (min-width: 60rem) {
+  @media (min-width: 50rem) {
     display: inline-block; // make it visible
     width: 12rem;
 

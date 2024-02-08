@@ -16,36 +16,48 @@ export default function IntroContainer() {
       <IntroImage headshot="headshot" />
       <IntroDescription />
       <StyledFooterSection>
-        <StyledBottomDrip src={wineDrip2} />
         <ContactBtn />
+        <StyledBottomDrip src={wineDrip2} />
       </StyledFooterSection>
     </StyledIntroContainer>
   );
 }
 const StyledIntroContainer = styled.div`
   display: grid;
-  padding-left: 4rem;
-  grid-template-columns: 1fr 1fr;
-  row-gap: 1rem;
+  padding: 0 2.5rem;
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 2.5rem;
+  img {
+    height: 90%;
+    width: 90%;
+  }
 
-  @media (max-width: 47.5rem) {
-    row-gap: 1.5rem;
-
-    img {
-      height: 90%;
-      width: 90%;
-    }
+  @media (min-width: 40rem) {
+    padding-left: 4rem;
+    row-gap: 1rem;
   }
 `;
 
 const StyledFooterSection = styled.div`
-  grid-column: span 2;
+  grid-column: span 3; // takes up two columns of its parent
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  justify-items: left;
+  grid-template-columns: 1fr 1fr;
+  height: 100%;
+
+  @media (min-width: 50rem) {
+    align-items: center;
+  }
 `;
 
+// specified a styled component to not get it mixed up with the above img
 const StyledBottomDrip = styled.img`
-  max-height: 10rem;
+  display: inline;
+  align-self: baseline;
+  justify-self: right;
+  min-height: 5rem;
+  min-width: 8rem;
   max-width: 10rem;
   transform: rotateX(180deg);
 `;

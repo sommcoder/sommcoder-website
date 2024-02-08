@@ -7,8 +7,11 @@ const StyledLogo = styled.header`
   font-family: "Major Mono Display", sans-serif;
   font-size: 2.5rem;
   cursor: default;
-  padding-left: 4.5rem;
+  padding-left: 2rem;
 
+  @media (min-width: 40rem) {
+    padding-left: 4.5rem;
+  }
   @media (min-width: 61rem) {
     font-size: 3.5rem;
   }

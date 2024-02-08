@@ -54,7 +54,10 @@ const StyledCornerDrip = styled.img`
   width: 10.05rem;
   grid-column: span 1;
   align-self: baseline;
-  margin-bottom: 4.25rem;
+  margin-bottom: 0.5rem;
+  @media (min-width: 40rem) {
+    margin-bottom: 4.25rem;
+  }
 `;
 
 const StyledTopDrip = styled.img`

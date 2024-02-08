@@ -33,7 +33,7 @@ const StyledHamburgerMenu = styled.span`
     width: 3rem;
   }
 
-  @media (min-width: 80rem) {
+  @media (min-width: 50rem) {
     // hamburger menu disappears at Tablet+
     // and the Download Button and Sidebar Appear
     display: none;

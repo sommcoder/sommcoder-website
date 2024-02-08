@@ -1,6 +1,6 @@
 ﻿import styled from "styled-components";
-import HeaderLeftContainer from "../../Navigation/HeaderLeftContainer/HeaderLeftContainer";
-import HeaderRightContainer from "../../Navigation/HeaderRightContainer/HeaderRightContainer";
+import HeaderLeftContainer from "../HeaderLeftContainer/HeaderLeftContainer";
+import HeaderRightContainer from "../HeaderRightContainer/HeaderRightContainer";
 
 export default function HeaderBar() {
   return (
@@ -26,11 +26,4 @@ const StyledHeaderBar = styled.header`
   box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.08),
     0 0.2rem 0.2rem rgba(0, 0, 0, 0.12), 0 0.4rem 0.4rem rgba(0, 0, 0, 0.16),
     0 0.8rem 0.8rem rgba(0, 0, 0, 0.2);
-
-  // as the user scrolls we want to create a separation between nav bar and main elements
-
-  .hidden-scroll-watcher {
-    visibility: hidden;
-    height: 0;
-  }
 `;

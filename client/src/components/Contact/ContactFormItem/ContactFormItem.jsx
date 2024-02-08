@@ -26,7 +26,7 @@ export default function ContactFormItem({
         type={type === "longtext" ? "text" : type}
         value=""
         name={id}
-        aria-labelledBy="placeholder-text"
+        aria-labelledby="placeholder-text"
         autoComplete="off"
         title={description}
         onFocus={(ev) => handleInputClick(ev)}

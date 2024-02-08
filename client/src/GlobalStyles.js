@@ -66,6 +66,28 @@ const GlobalStyles = createGlobalStyle`${css`
     }
   }
 
+  .content-section {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    min-width: inherit;
+    min-height: inherit;
+  }
+
+  .content-card {
+    min-width: 28rem;
+    max-width: 75rem;
+    min-height: 35rem;
+    margin: 1rem 2rem;
+    padding: 3rem;
+    color: black;
+    background-color: whitesmoke;
+    border-radius: 2rem;
+    box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.08),
+      0 0.2rem 0.2rem rgba(0, 0, 0, 0.12), 0 0.4rem 0.4rem rgba(0, 0, 0, 0.16),
+      0 0.8rem 0.8rem rgba(0, 0, 0, 0.2);
+  }
+
   // Want to make the button and overall shape of the web page look 3 dimensional and "textured" / wavy
   button {
     font-family: "PT Serif", sans-serif;

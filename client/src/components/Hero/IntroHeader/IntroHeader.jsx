@@ -30,10 +30,11 @@ export default function IntroHeader() {
   );
 }
 const StyledIntroHeader = styled.span`
-  align-self: center;
+  align-self: left;
   display: grid;
   row-gap: 1rem;
   width: 100%;
+  grid-column: span 2;
 
   h4 {
     display: flex;
@@ -45,18 +46,11 @@ const StyledIntroHeader = styled.span`
   h1 {
     display: flex;
     flex-wrap: wrap;
-
     font-size: 4rem;
   }
   h5 {
     display: flex;
     flex-wrap: wrap;
-
     font-size: 1.4rem;
-  }
-  // should adjust to reflective "mobile first" responsiveness
-  @media (max-width: 47.5rem) {
-    grid-column: span 2;
-    justify-content: center;
   }
 `;

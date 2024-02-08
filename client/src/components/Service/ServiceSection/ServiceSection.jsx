@@ -1,12 +1,12 @@
 import { forwardRef } from "react";
 import styled from "styled-components";
 
-import ServiceCard from "../ServiceCard/ServiceCard";
-import { servicesArr } from "../../../menus/serviceMenu";
+import ServiceCard from "../ServiceCard/ServiceCard.jsx";
+import { servicesArr } from "../../../menus/serviceMenu.jsx";
 
 export default forwardRef(function ServiceSection(props, ref) {
   return (
-    <StyledServiceSection ref={ref.services}>
+    <StyledServiceSection ref={ref.services} className="content-section">
       <div className="services-container">
         <h3 className="services-table-header">✨ My Core Services: ✨</h3>
         <div className="services-table-container">
@@ -20,12 +20,6 @@ export default forwardRef(function ServiceSection(props, ref) {
 });
 
 const StyledServiceSection = styled.section`
-  // mobile and general styling
-  display: grid;
-  align-items: center;
-  justify-items: center;
-  min-width: inherit;
-  min-height: inherit;
   background-image: url("/Wine Splatter.svg");
 
   .services-container {
@@ -35,10 +29,10 @@ const StyledServiceSection = styled.section`
     row-gap: 1rem;
 
     min-height: 30rem;
-    min-width: 25rem;
-    max-width: 70%;
+    min-width: 28rem;
+    max-width: 75rem;
 
-    margin: 1rem 1rem;
+    margin: 1rem 2rem;
     padding: 3rem;
     color: black;
     background-color: whitesmoke;

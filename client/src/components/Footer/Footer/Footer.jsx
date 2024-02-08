@@ -34,7 +34,7 @@ const StyledFooter = styled.footer`
   row-gap: 3rem;
   padding: 3rem 3rem 3rem 4rem;
   // desktop: 2 column, 2 rows
-  @media (min-width: 70rem) {
+  @media (min-width: 60rem) {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
   }
@@ -46,8 +46,9 @@ const StyledFooterHeader = styled.div`
   font-family: "Major Mono Display", sans-serif;
   font-size: 2.5rem;
   justify-self: center;
+  align-self: center;
 
-  @media (min-width: 70rem) {
+  @media (min-width: 60rem) {
     justify-self: left;
   }
 `;

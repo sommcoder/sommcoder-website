@@ -10,6 +10,14 @@ import { useRef } from "react";
 export default function App() {
   // TODO: if screen window.screen() is below 32rem/320px then show an error page
   // TODO: if user has javascript disabled, show a warning page
+  //min-width breakpoints for media-queries /1rem is 16px:
+
+  // const breaks = {
+  //   "40rem", = (640px)
+  //   "50rem", = (800px)
+  //   "60rem", = (960px)
+  //   "70rem", = (1120px)
+  // };
 
   // need a reference to each section element on the one page site.
   // this will be passed to the footer (all devices) and the header (mobile)

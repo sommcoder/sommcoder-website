@@ -13,8 +13,8 @@ export default forwardRef(function AboutMeSection(props, ref) {
 
   //TODO: create a "more" selection to avoid a long
   return (
-    <StyledAboutMeSection ref={ref.about}>
-      <div className="about-me-container">
+    <StyledAboutMeSection ref={ref.about} className="content-section">
+      <div className="about-me-container content-card">
         <h3>About Me:</h3>
         <p>
           After more than 12 years in the Hospitality industry as a wine
@@ -52,11 +52,6 @@ export default forwardRef(function AboutMeSection(props, ref) {
 });
 
 const StyledAboutMeSection = styled.section`
-  display: grid;
-  align-items: center;
-  justify-items: center;
-  min-width: inherit;
-  min-height: inherit;
   background-image: url("/Wine Splatter.svg");
 
   .about-me-container {
@@ -65,17 +60,6 @@ const StyledAboutMeSection = styled.section`
     grid-template-rows: 3rem auto auto;
     column-gap: 1.5rem;
     row-gap: 1rem;
-    min-width: 28rem;
-    max-width: 75rem;
-    min-height: 35rem;
-    margin: 1rem 2rem;
-    padding: 3rem;
-    color: black;
-    background-color: whitesmoke;
-    border-radius: 2rem;
-    box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.08),
-      0 0.2rem 0.2rem rgba(0, 0, 0, 0.12), 0 0.4rem 0.4rem rgba(0, 0, 0, 0.16),
-      0 0.8rem 0.8rem rgba(0, 0, 0, 0.2);
 
     h3 {
       grid-column: span 2;
@@ -85,8 +69,6 @@ const StyledAboutMeSection = styled.section`
       align-items: center;
       flex-direction: column;
       gap: 1rem;
-
-      /* flex-wrap: wrap;  <-- don't use this! */
     }
 
     .personal-images {
@@ -113,7 +95,7 @@ const StyledAboutMeSection = styled.section`
       display: flex;
       grid-column: span 2;
     }
-
+    ////////////////////////////////////////
     @media (min-width: 87.5rem) {
       grid-template-rows: 3rem auto;
       grid-template-columns: 1fr 1fr;
@@ -131,7 +113,7 @@ const StyledAboutMeSection = styled.section`
         grid-column: span 1;
       }
     }
-
+    ////////////////////////////////////////////
     @media (min-width: 150rem) {
       grid-template-rows: 3rem auto;
       grid-template-columns: 1fr;

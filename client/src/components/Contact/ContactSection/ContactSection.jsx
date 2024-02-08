@@ -3,13 +3,13 @@ import styled from "styled-components";
 import ContactFormItem from "../ContactFormItem/ContactFormItem";
 import { forwardRef } from "react";
 
-import { formInputArr } from "../../../menus/contactMenu";
+import { formInputArr } from "../../../menus/contactMenu.jsx";
 
 export default forwardRef(function ContactSection(props, ref) {
   const [inputFocus, toggleInputFocus] = useState(false);
 
   return (
-    <StyledContactSection ref={ref.contact}>
+    <StyledContactSection ref={ref.contact} className="content-section">
       <form>
         <h4>HOW CAN I HELP?</h4>
         {formInputArr.map(({ title, description, errorMsg, type, id }, i) => (
@@ -31,20 +31,16 @@ export default forwardRef(function ContactSection(props, ref) {
 });
 
 const StyledContactSection = styled.section`
-  display: grid;
-  min-height: 45rem;
-  min-width: inherit;
-  max-width: inherit;
-  justify-items: center;
-  align-items: center;
   background-image: url("/Wine Splatter.svg");
 
   form {
     display: grid;
     background-color: white;
-    min-width: 30rem; // 32rem is smaller screen width
+    min-width: 28rem;
+    max-width: 75rem;
+    margin: 1rem 2rem;
     padding: 2rem;
-    border-radius: 0.75rem;
+    border-radius: 2rem;
     grid-template-rows: repeat(4, 1fr);
     align-items: center;
     justify-items: center;
@@ -62,10 +58,6 @@ const StyledContactSection = styled.section`
 
   button {
     margin-top: 1.5rem;
-    width: 87.5%;
-  }
-
-  @media (min-width: 80rem) {
-    // desktop styling here
+    width: 87.5%; // change this??
   }
 `;

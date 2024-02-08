@@ -56,7 +56,6 @@ const StyledCarouselItem = styled.div`
   box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.08),
     0 0.2rem 0.2rem rgba(0, 0, 0, 0.12), 0 0.4rem 0.4rem rgba(0, 0, 0, 0.16),
     0 0.8rem 0.8rem rgba(0, 0, 0, 0.2);
-  transition: transform 200ms ease-in-out;
 
   iframe {
     width: 30rem;

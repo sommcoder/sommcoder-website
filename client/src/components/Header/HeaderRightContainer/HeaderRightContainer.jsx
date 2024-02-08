@@ -31,7 +31,7 @@ const StyledHeaderRightContainer = styled.nav`
   gap: 1.75rem;
   .header-icon-container {
     display: none;
-    @media (min-width: 80rem) {
+    @media (min-width: 50rem) {
       display: flex;
       gap: 1.75rem;
       /* border: 1px solid lightgrey;

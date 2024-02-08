@@ -34,12 +34,14 @@ const StyledFooterLeftContainer = styled.span`
   }
 
   header {
+    font-size: 2rem;
     font-weight: 600;
     margin-bottom: 1rem;
     text-decoration: underline;
   }
 
   ul {
+    flex-wrap: wrap;
     display: flex;
     flex-direction: row;
     align-items: left;
