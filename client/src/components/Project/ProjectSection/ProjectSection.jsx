@@ -28,9 +28,9 @@ const StyledProjectSection = styled.section`
   max-width: inherit; */
   width: 100%;
   height: fit-content;
-  border-top: 1px solid grey;
-  border-bottom: 1px solid grey;
-  box-shadow: inset 20px 30px 30px rgb(80, 104, 84);
+  border-top: 0.1rem solid grey;
+  border-bottom: 0.1rem solid grey;
+  box-shadow: inset 2rem 3rem 3rem rgb(80, 104, 84);
   background-image: linear-gradient(to top, transparent, 90%, #837960),
     linear-gradient(to bottom, transparent, 90%, #837960),
     url("/code image.png");
@@ -57,7 +57,7 @@ const StyledProjectOverlay = styled.div`
   align-self: center;
   display: block;
 
-  /* @media (min-width: 600px) {
+  /* @media (min-width: 60rem) {
     grid-template-rows: 1fr 1fr;
   } */
 `;

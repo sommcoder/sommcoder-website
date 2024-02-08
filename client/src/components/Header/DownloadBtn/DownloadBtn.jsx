@@ -14,10 +14,10 @@ export default function DownloadBtn() {
 }
 const StyledDownloadBtn = styled.button`
   display: none;
-  margin-right: 2rem;
+  margin-right: 4rem;
 
   // desktop:
-  @media (min-width: 600px) {
+  @media (min-width: 60rem) {
     display: inline-block; // make it visible
     width: 12rem;
 

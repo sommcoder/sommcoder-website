@@ -1,9 +1,9 @@
 // icons:
-import { SiNpm } from "react-icons/si";
+import { FaNpm } from "react-icons/fa";
 import { AiFillGithub } from "react-icons/ai";
-import { ImYoutube2 } from "react-icons/im";
+import { FaYoutube } from "react-icons/fa";
 import { SiFiverr } from "react-icons/si";
-import { FaLinkedinIn } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
 
 // THESE ARE THE PAGE ICONS and THE GENERAL PROFILE LINKS
 export const ICON_COMPONENTS = {
@@ -11,9 +11,9 @@ export const ICON_COMPONENTS = {
     component: (
       <SiFiverr
         style={{
-          height: "7rem",
-          width: "8rem",
-          transform: "translateY(-13px)", // hack fix
+          height: "6rem",
+          width: "7rem",
+          transform: "translateY(-10px)", // hack fix
         }}
       />
     ),
@@ -21,9 +21,9 @@ export const ICON_COMPONENTS = {
   },
   linkedin: {
     component: (
-      <FaLinkedinIn
+      <FaLinkedin
         style={{
-          height: "4rem",
+          height: "3rem",
           width: "3rem",
         }}
       />
@@ -35,7 +35,7 @@ export const ICON_COMPONENTS = {
       <AiFillGithub
         data-link="github"
         style={{
-          height: "3.5rem",
+          height: "3rem",
           width: "3.75rem",
           // transform: "translateY(-2px)", // hack fix
         }}
@@ -45,28 +45,28 @@ export const ICON_COMPONENTS = {
   },
   youtube: {
     component: (
-      <ImYoutube2
+      <FaYoutube
         data-link="youtube"
         style={{
-          height: "5rem",
-          width: "6rem",
+          height: "3rem",
+          width: "4rem",
           // transform: "translateY(-2px)", // hack fix
         }}
       />
     ),
-    link: "https://github.com/sommcoder",
+    link: "https://www.youtube.com/channel/UC8kgbOV87WVCtgrHqLk2cGg",
   },
   npm: {
     component: (
-      <SiNpm
+      <FaNpm
         data-link="npm"
         style={{
-          height: "2.8rem",
+          height: "3.5rem",
           width: "3.75rem",
           // transform: "translateY(-2px)", // hack fix
         }}
       />
     ),
-    link: "https://github.com/sommcoder",
+    link: "https://www.npmjs.com/~somm-coder",
   },
 };

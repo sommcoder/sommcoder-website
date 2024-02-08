@@ -14,7 +14,7 @@ const StyledHeroGraphic = styled.div`
   display: none;
 
   // only visible on Tablet/Desktop
-  @media (min-width: 850px) {
+  @media (min-width: 85rem) {
     align-content: baseline;
     display: inline-block;
     justify-self: center;
@@ -22,16 +22,16 @@ const StyledHeroGraphic = styled.div`
 
     img {
       display: inline-block;
-      max-height: 350px;
-      max-width: 350px;
+      max-height: 35rem;
+      max-width: 35rem;
     }
   }
 
-  @media (min-width: 1020px) {
+  @media (min-width: 102rem) {
     img {
       display: inline-block;
-      max-height: 400px;
-      max-width: 400px;
+      max-height: 40rem;
+      max-width: 40rem;
     }
   }
 `;

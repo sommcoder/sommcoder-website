@@ -1,6 +1,6 @@
 ﻿import styled from "styled-components";
-import HeaderLeftContainer from "../HeaderLeftContainer/HeaderLeftContainer";
-import HeaderRightContainer from "../HeaderRightContainer/HeaderRightContainer";
+import HeaderLeftContainer from "../../Navigation/HeaderLeftContainer/HeaderLeftContainer";
+import HeaderRightContainer from "../../Navigation/HeaderRightContainer/HeaderRightContainer";
 
 export default function HeaderBar() {
   return (
@@ -23,8 +23,9 @@ const StyledHeaderBar = styled.header`
   grid-template-columns: repeat(2, 1fr);
   background-image: linear-gradient(to top right, #324935, #59755d);
   transition: 0.3s ease-in-out;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.12),
-    0 4px 4px rgba(0, 0, 0, 0.16), 0 8px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.08),
+    0 0.2rem 0.2rem rgba(0, 0, 0, 0.12), 0 0.4rem 0.4rem rgba(0, 0, 0, 0.16),
+    0 0.8rem 0.8rem rgba(0, 0, 0, 0.2);
 
   // as the user scrolls we want to create a separation between nav bar and main elements
 

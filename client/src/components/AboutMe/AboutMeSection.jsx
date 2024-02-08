@@ -73,34 +73,19 @@ const StyledAboutMeSection = styled.section`
     color: black;
     background-color: whitesmoke;
     border-radius: 2rem;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.12),
-      0 4px 4px rgba(0, 0, 0, 0.16), 0 8px 8px rgba(0, 0, 0, 0.2);
-
-    @media (min-width: 875px) {
-      grid-template-rows: 3rem auto;
-      grid-template-columns: 1fr 1fr;
-    }
-
-    @media (min-width: 1500px) {
-      grid-template-rows: 3rem auto;
-      grid-template-columns: 1fr;
-    }
+    box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.08),
+      0 0.2rem 0.2rem rgba(0, 0, 0, 0.12), 0 0.4rem 0.4rem rgba(0, 0, 0, 0.16),
+      0 0.8rem 0.8rem rgba(0, 0, 0, 0.2);
 
     h3 {
       grid-column: span 2;
-      @media (min-width: 1500px) {
-        grid-column: span 1;
-      }
     }
     .personal-image-grouping {
       display: flex;
       align-items: center;
       flex-direction: column;
       gap: 1rem;
-      @media (min-width: 1500px) {
-        flex-direction: row;
-        justify-content: center;
-      }
+
       /* flex-wrap: wrap;  <-- don't use this! */
     }
 
@@ -109,8 +94,8 @@ const StyledAboutMeSection = styled.section`
       width: 100%;
       height: 100%;
       object-fit: cover;
-      max-height: calc(667px / 3);
-      max-width: calc(1064px / 3);
+      max-height: calc(66.7rem / 3);
+      max-width: calc(106.4rem / 3);
       flex: 1 1 auto;
       border-radius: 2rem;
       // 1064 x 667
@@ -121,27 +106,42 @@ const StyledAboutMeSection = styled.section`
     }
 
     .personal-image-2 {
-      // reduce down to just one image
       display: none;
-      @media (min-width: 875px) {
-        display: block;
-        max-height: calc(667px / 3);
-        max-width: calc(1064px / 3);
-        flex: 1 1 auto;
-        border-radius: 2rem;
-        // 1064 x 667
-      }
     }
 
     p {
       display: flex;
       grid-column: span 2;
-      @media (min-width: 875px) {
+    }
+
+    @media (min-width: 87.5rem) {
+      grid-template-rows: 3rem auto;
+      grid-template-columns: 1fr 1fr;
+
+      .personal-image-2 {
+        display: block;
+        max-height: calc(66.7rem / 3);
+        max-width: calc(106.4rem / 3);
+        flex: 1 1 auto;
+        border-radius: 2rem;
+        // 1064 x 667
+      }
+
+      p {
         grid-column: span 1;
       }
     }
-  }
 
-  @media (min-width: 800px) {
+    @media (min-width: 150rem) {
+      grid-template-rows: 3rem auto;
+      grid-template-columns: 1fr;
+      h3 {
+        grid-column: span 1;
+      }
+      .personal-image-grouping {
+        flex-direction: row;
+        justify-content: center;
+      }
+    }
   }
 `;

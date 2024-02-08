@@ -7,11 +7,11 @@ const GlobalStyles = createGlobalStyle`${css`
   }
 
   //! Don't give your sections any padding. This creates weird overflow issues. Components can have padding but sections should be width: 100% of their container right up into the right element
-
   // * height?: deal with min-height
   // * width?: deal with max-width
-
+  // * rem sizes the element relative only to html, while em sizes relative to its nearest parent
   html {
+    /* 62.5% of 16px browser font size is 10px */
     font-size: 62.5%; // allows for: 1rem = 10px
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -29,7 +29,7 @@ const GlobalStyles = createGlobalStyle`${css`
   body {
     height: 100%;
     max-width: 100%;
-    font-size: 1.6rem;
+    font-size: 1.6rem; // equals 16px
     background-color: rgb(53, 69, 56);
     color: white;
     font-family: "PT Serif", sans-serif;
@@ -80,12 +80,13 @@ const GlobalStyles = createGlobalStyle`${css`
     min-width: 10rem;
     /* padding: 0.5rem; */
     text-align: center;
-    border-radius: 10px;
+    border-radius: 1rem;
     background: linear-gradient(145deg, #bba6d2, #9e8cb0);
     padding: 0.5rem;
     text-align: center;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.12),
-      0 4px 4px rgba(0, 0, 0, 0.16), 0 8px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.08),
+      0 0.2rem 0.2rem rgba(0, 0, 0, 0.12), 0 0.4rem 0.4rem rgba(0, 0, 0, 0.16),
+      0 0.8rem 0.8rem rgba(0, 0, 0, 0.2);
     animation: fadeInAnimation ease-in-out 1s;
     animation-iteration-count: 1;
 
@@ -118,7 +119,7 @@ const GlobalStyles = createGlobalStyle`${css`
 
     &:active {
       // move text down slightly as if being pushed
-      transform: translateY(1px);
+      transform: translateY(0.1rem);
     }
   }
 `}`;

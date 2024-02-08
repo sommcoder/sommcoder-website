@@ -10,9 +10,9 @@ const StyledCarouselArrowRight = styled.span`
     display: inline-block;
     width: 0px;
     height: 0px;
-    border-top: 10px solid transparent;
-    border-left: 10px solid white;
-    border-bottom: 10px solid transparent;
+    border-top: 1rem solid transparent;
+    border-left: 1rem solid white;
+    border-bottom: 1rem solid transparent;
 
     margin-right: 1.5rem;
 

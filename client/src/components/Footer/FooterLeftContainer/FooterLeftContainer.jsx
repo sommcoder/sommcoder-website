@@ -1,37 +1,19 @@
 import styled from "styled-components";
 
-export default function FooterLeftContainer() {
-  const contactListArr = [
-    {
-      label: "email",
-      link: "https://www.fiverr.com/sommcoder",
-    },
-    {
-      label: "fiverr",
-      link: "https://www.fiverr.com/sommcoder",
-    },
-    {
-      label: "linkedin",
-      link: "https://www.linkedin.com/in/brian-davies-178b0b48/",
-    },
-    {
-      label: "github",
-      link: "https://github.com/sommcoder",
-    },
-    {
-      label: "npm",
-      link: "https://www.npmjs.com/~somm-coder",
-    },
-  ];
+import { ICON_COMPONENTS } from "../../../menus/iconMenu";
 
+export default function FooterLeftContainer() {
   return (
     <StyledFooterLeftContainer>
       <header>Contact</header>
       <ul>
-        {contactListArr.map(({ label, link }, i) => (
+        <li>
+          <a href={"mailto:brian.davies589@gmail.com"}>email</a>
+        </li>
+        {Object.keys(ICON_COMPONENTS).map((icon, i) => (
           <li key={i}>
-            <a href={link} key={i}>
-              {label}
+            <a href={ICON_COMPONENTS[icon.link]} key={i}>
+              {icon}
             </a>
           </li>
         ))}
@@ -47,7 +29,7 @@ const StyledFooterLeftContainer = styled.span`
   z-index: 4;
 
   grid-column: span 2;
-  @media (min-width: 700px) {
+  @media (min-width: 70rem) {
     grid-column: span 1;
   }
 

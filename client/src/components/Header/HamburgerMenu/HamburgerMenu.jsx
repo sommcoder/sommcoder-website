@@ -13,9 +13,9 @@ const StyledHamburgerMenu = styled.span`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  width: 30px;
+  width: 3rem;
   margin-right: 2rem;
-  height: 24px;
+  height: 2.4rem;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -27,13 +27,13 @@ const StyledHamburgerMenu = styled.span`
   }
 
   span {
-    height: 3px;
+    height: 0.3rem;
     background-color: white;
-    border-radius: 5px;
-    width: 30px;
+    border-radius: 0.5rem;
+    width: 3rem;
   }
 
-  @media (min-width: 800px) {
+  @media (min-width: 80rem) {
     // hamburger menu disappears at Tablet+
     // and the Download Button and Sidebar Appear
     display: none;

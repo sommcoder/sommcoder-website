@@ -12,7 +12,7 @@ const StyledNavIconBox = styled.a`
 
   @media (min-width: 600px) {
     display: grid;
-    height: 40px;
+    height: 4rem;
     width: fit-content;
     justify-items: center;
     align-items: center;

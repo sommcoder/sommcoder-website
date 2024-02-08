@@ -2,31 +2,30 @@ import { forwardRef } from "react";
 import styled from "styled-components";
 
 import ServiceCard from "../ServiceCard/ServiceCard";
-import { servicesArr } from "../services.jsx";
+import { servicesArr } from "../../../menus/serviceMenu";
 
-export default forwardRef(function ServicesSection(props, ref) {
+export default forwardRef(function ServiceSection(props, ref) {
   return (
-    <StyledServicesSection ref={ref.services}>
+    <StyledServiceSection ref={ref.services}>
       <div className="services-container">
         <h3 className="services-table-header">✨ My Core Services: ✨</h3>
         <div className="services-table-container">
-          {servicesArr.map((service) => (
-            <ServiceCard service={service} />
+          {servicesArr.map((service, i) => (
+            <ServiceCard key={`${service.title}-${i}`} service={service} />
           ))}
         </div>
       </div>
-    </StyledServicesSection>
+    </StyledServiceSection>
   );
 });
 
-const StyledServicesSection = styled.section`
+const StyledServiceSection = styled.section`
   // mobile and general styling
   display: grid;
   align-items: center;
   justify-items: center;
   min-width: inherit;
   min-height: inherit;
-  border-top: 1px solid grey;
   background-image: url("/Wine Splatter.svg");
 
   .services-container {
@@ -36,7 +35,7 @@ const StyledServicesSection = styled.section`
     row-gap: 1rem;
 
     min-height: 30rem;
-    min-width: 28rem;
+    min-width: 25rem;
     max-width: 70%;
 
     margin: 1rem 1rem;

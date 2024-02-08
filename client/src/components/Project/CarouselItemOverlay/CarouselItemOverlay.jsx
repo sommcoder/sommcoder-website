@@ -26,7 +26,7 @@ const StyledCarouselItemOverlay = styled.span`
     width: 12rem;
     word-wrap: break-word;
   }
-  @media (min-width: 800) {
+  @media (min-width: 80rem) {
     // desktop styling here
   }
 `;

@@ -2,7 +2,7 @@
 import styled from "styled-components";
 import CarouselItemOverlay from "../CarouselItemOverlay/CarouselItemOverlay";
 
-import { ICON_COMPONENTS } from "../../Navigation/icons";
+import { ICON_COMPONENTS } from "../../../menus/iconMenu";
 
 export default function CarouselItem({ item }) {
   function linkToProject(ev, link) {
@@ -24,7 +24,7 @@ export default function CarouselItem({ item }) {
         src={item.links.youtube}
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen
+        allowFullScreen
       />
       <div className="carousel-item-icon-container">
         {Object.keys(item.links).map((link, i) => {
@@ -53,8 +53,9 @@ const StyledCarouselItem = styled.div`
   height: 56rem;
   border-radius: 2rem;
   background-color: rgb(80, 104, 84);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.12),
-    0 4px 4px rgba(0, 0, 0, 0.16), 0 8px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.08),
+    0 0.2rem 0.2rem rgba(0, 0, 0, 0.12), 0 0.4rem 0.4rem rgba(0, 0, 0, 0.16),
+    0 0.8rem 0.8rem rgba(0, 0, 0, 0.2);
   transition: transform 200ms ease-in-out;
 
   iframe {
@@ -69,7 +70,7 @@ const StyledCarouselItem = styled.div`
     align-items: center;
     justify-items: center;
     column-gap: 1rem;
-    border: 1px solid white;
+    border: 0.1rem solid white;
     border-radius: 2rem;
     padding: 0rem 1rem;
   }
@@ -90,11 +91,11 @@ const StyledCarouselItem = styled.div`
 
   img {
     pointer-events: none;
-
-    max-height: 210px;
+    max-height: 21rem;
     width: 90%;
     border-radius: 1rem;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.12),
-      0 4px 4px rgba(0, 0, 0, 0.16), 0 8px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.08),
+      0 0.2rem 0.2rem rgba(0, 0, 0, 0.12), 0 0.4rem 0.4rem rgba(0, 0, 0, 0.16),
+      0 0.8rem 0.8rem rgba(0, 0, 0, 0.2);
   }
 `;

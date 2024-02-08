@@ -24,11 +24,11 @@ export default function IntroContainer() {
 }
 const StyledIntroContainer = styled.div`
   display: grid;
-  padding: 0rem 2rem 0rem 3rem;
+  padding-left: 4rem;
   grid-template-columns: 1fr 1fr;
   row-gap: 1rem;
 
-  @media (max-width: 475px) {
+  @media (max-width: 47.5rem) {
     row-gap: 1.5rem;
 
     img {
@@ -45,7 +45,7 @@ const StyledFooterSection = styled.div`
 `;
 
 const StyledBottomDrip = styled.img`
-  max-height: 100px;
-  max-width: 100px;
+  max-height: 10rem;
+  max-width: 10rem;
   transform: rotateX(180deg);
 `;

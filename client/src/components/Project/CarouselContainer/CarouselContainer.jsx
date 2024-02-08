@@ -1,17 +1,11 @@
 ﻿import styled from "styled-components";
 import CarouselItem from "../CarouselItem/CarouselItem";
 
-import { carouselItemsArr } from "./carouselIndex";
+import { carouselItemsArr } from "../../../menus/projectMenu";
 
 export default function CarouselContainer() {
   // we should use Firebase's Firestore Document DB to store and fetch this data
   // the long description will get passed to the Page only
-
-  /*
-
-TODO: maybe have the YouTube shorts appear on desktop only but for mobile provide the links when a user clicks on the carouselItem. like: onFocus(showLinks())
-  
-  */
 
   return (
     <StyledCarouselContainer>

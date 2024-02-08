@@ -3,7 +3,7 @@ import DownloadBtn from "../DownloadBtn/DownloadBtn";
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
 import NavIconBox from "../NavIconBox/NavIconBox";
 
-import { ICON_COMPONENTS } from "../icons";
+import { ICON_COMPONENTS } from "../../../menus/iconMenu";
 
 export default function HeaderRightContainer() {
   return (
@@ -31,11 +31,11 @@ const StyledHeaderRightContainer = styled.nav`
   gap: 1.75rem;
   .header-icon-container {
     display: none;
-    @media (min-width: 800px) {
+    @media (min-width: 80rem) {
       display: flex;
       gap: 1.75rem;
-      border: 1px solid lightgrey;
-      border-radius: 2rem;
+      /* border: 1px solid lightgrey;
+      border-radius: 2rem; */
       padding: 0.5rem 1.75rem;
     }
   }

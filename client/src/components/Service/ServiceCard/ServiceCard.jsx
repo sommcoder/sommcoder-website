@@ -37,9 +37,13 @@ const StyledServiceCard = styled.span`
   align-items: center;
   justify-items: center;
   border-radius: 2rem 2rem 2rem 2rem;
+  /* > * {
+    padding: 1.25rem
+  } */
 
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.12),
-    0 4px 4px rgba(0, 0, 0, 0.16), 0 8px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.08),
+    0 0.2rem 0.2rem rgba(0, 0, 0, 0.12), 0 0.4rem 0.4rem rgba(0, 0, 0, 0.16),
+    0 0.8rem 0.8rem rgba(0, 0, 0, 0.2);
 
   &:hover {
     cursor: pointer;
@@ -75,7 +79,7 @@ const StyledServiceCard = styled.span`
       text-align: left;
       margin: 0.75rem 0rem;
       padding-bottom: 1rem;
-      border-bottom: 1px lightgrey solid;
+      border-bottom: 0.1rem lightgrey solid;
     }
     p {
     }
@@ -98,7 +102,7 @@ const StyledServiceCard = styled.span`
     /* transform: rotate(180deg); */
   }
 
-  @media (min-width: 800px) {
+  @media (min-width: 80rem) {
     // desktop styling here
   }
 `;

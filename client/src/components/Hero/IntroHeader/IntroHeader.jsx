@@ -55,7 +55,7 @@ const StyledIntroHeader = styled.span`
     font-size: 1.4rem;
   }
   // should adjust to reflective "mobile first" responsiveness
-  @media (max-width: 475px) {
+  @media (max-width: 47.5rem) {
     grid-column: span 2;
     justify-content: center;
   }

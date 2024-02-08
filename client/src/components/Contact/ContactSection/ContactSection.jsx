@@ -3,37 +3,23 @@ import styled from "styled-components";
 import ContactFormItem from "../ContactFormItem/ContactFormItem";
 import { forwardRef } from "react";
 
+import { formInputArr } from "../../../menus/contactMenu";
+
 export default forwardRef(function ContactSection(props, ref) {
-  const formInputArr = [
-    {
-      title: "first name",
-      description: "",
-      errorMsg: "",
-      type: "text",
-    },
-    { title: "last name", description: "", errorMsg: "", type: "text" },
-
-    { title: "email address", description: "", errorMsg: "", type: "text" },
-    {
-      title: "what can I help you with?",
-      description: "",
-      errorMsg: "",
-      type: "text",
-    },
-  ];
-
   const [inputFocus, toggleInputFocus] = useState(false);
 
   return (
     <StyledContactSection ref={ref.contact}>
       <form>
         <h4>HOW CAN I HELP?</h4>
-        {formInputArr.map(({ title, description, errorMsg, type }, i) => (
+        {formInputArr.map(({ title, description, errorMsg, type, id }, i) => (
           <ContactFormItem
+            key={i}
             title={title}
-            type={type}
             description={description}
             errorMsg={errorMsg}
+            type={type}
+            id={id}
             inputFocus={inputFocus}
             toggleInputFocus={toggleInputFocus}
           />
@@ -53,7 +39,6 @@ const StyledContactSection = styled.section`
   align-items: center;
   background-image: url("/Wine Splatter.svg");
 
-  border-top: 1px solid grey;
   form {
     display: grid;
     background-color: white;
@@ -64,8 +49,9 @@ const StyledContactSection = styled.section`
     align-items: center;
     justify-items: center;
     row-gap: 0.5rem;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.12),
-      0 4px 4px rgba(0, 0, 0, 0.16), 0 8px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.08),
+      0 0.2rem 0.2rem rgba(0, 0, 0, 0.12), 0 0.4rem 0.4rem rgba(0, 0, 0, 0.16),
+      0 0.8rem 0.8rem rgba(0, 0, 0, 0.2);
   }
 
   h4 {
@@ -79,7 +65,7 @@ const StyledContactSection = styled.section`
     width: 87.5%;
   }
 
-  @media (min-width: 800) {
+  @media (min-width: 80rem) {
     // desktop styling here
   }
 `;

@@ -3,7 +3,7 @@ import HeroSection from "../Hero/HeroSection/HeroSection";
 import ProjectSection from "../Project/ProjectSection/ProjectSection";
 import AboutMeSection from "../AboutMe/AboutMeSection";
 import ContactSection from "../Contact/ContactSection/ContactSection";
-import ServicesSection from "../Service/ServicesSection/ServicesSection";
+import ServicesSection from "../Service/ServiceSection/ServiceSection";
 
 import wineDrip from "/wine-drips.svg";
 import wineCornerDrip from "/wine-corner-drip.svg";
@@ -59,7 +59,7 @@ const StyledCornerDrip = styled.img`
 
 const StyledTopDrip = styled.img`
   display: none;
-  @media (min-width: 400px) {
+  @media (min-width: 40rem) {
     display: inline;
     height: 10rem;
     width: 10rem;

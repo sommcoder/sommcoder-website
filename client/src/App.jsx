@@ -1,7 +1,7 @@
-import Overlay from "./components/Navigation/Overlay/Overlay";
-import HeaderBar from "./components/Navigation/HeaderBar/HeaderBar";
+import Overlay from "./components/Overlay/Overlay/Overlay";
+import HeaderBar from "./components/Header/HeaderBar/HeaderBar";
 import ContentWrapper from "./components/ContentWrapper/ContentWrapper";
-import Footer from "./components/Navigation/Footer/Footer";
+import Footer from "./components/Footer/Footer/Footer";
 import styled from "styled-components";
 import GlobalStyles from "./GlobalStyles";
 
