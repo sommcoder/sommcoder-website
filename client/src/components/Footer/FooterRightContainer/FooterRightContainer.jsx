@@ -2,8 +2,6 @@ import { useEffect } from "react";
 import styled from "styled-components";
 
 export default function FooterRightContainer({ refStateObj, navLabelArr }) {
-  //TODO: lets link to the sections on the page
-
   // Need to get the locations on the page.
 
   function handleLinkClick(ev) {

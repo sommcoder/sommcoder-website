@@ -2,15 +2,15 @@
 import HeaderLeftContainer from "../HeaderLeftContainer/HeaderLeftContainer";
 import HeaderRightContainer from "../HeaderRightContainer/HeaderRightContainer";
 
-export default function HeaderBar() {
+export default function HeaderSection() {
   return (
-    <StyledHeaderBar>
+    <StyledHeaderSection>
       <HeaderLeftContainer />
       <HeaderRightContainer />
-    </StyledHeaderBar>
+    </StyledHeaderSection>
   );
 }
-const StyledHeaderBar = styled.header`
+const StyledHeaderSection = styled.header`
   position: sticky;
   top: 0;
   /* overflow: hidden; */

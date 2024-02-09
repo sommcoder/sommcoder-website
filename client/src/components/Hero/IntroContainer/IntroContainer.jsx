@@ -10,15 +10,15 @@ import { lazy } from "react";
 const IntroImage = lazy(() => import("../IntroImage/IntroImage"));
 
 export default function IntroContainer() {
+  // TODO: would look better to have the footer drip graphic align with the introImage component
   return (
     <StyledIntroContainer>
       <IntroHeader />
       <IntroDescription />
       <IntroImage headshot="headshot" />
-      <StyledFooterSection>
-        <ContactBtn />
-        <StyledBottomDrip src={wineDrip2} />
-      </StyledFooterSection>
+
+      <ContactBtn />
+      <StyledBottomDrip src={wineDrip2} />
     </StyledIntroContainer>
   );
 }
@@ -26,6 +26,7 @@ const StyledIntroContainer = styled.div`
   display: grid;
   padding: 0 2.5rem;
   grid-template-columns: repeat(3, auto);
+  // 4 rows on mobile:
   grid-template-rows: repeat(4, auto);
 
   img {
@@ -40,26 +41,15 @@ const StyledIntroContainer = styled.div`
   }
 `;
 
-const StyledFooterSection = styled.div`
-  grid-column: span 3; // takes up two columns of its parent
-  display: grid;
-  align-items: center;
-  justify-items: left;
-  grid-template-columns: 1fr 1fr;
-  height: 100%;
-
-  @media (min-width: 50rem) {
-    align-items: center;
-  }
-`;
-
 // specified a styled component to not get it mixed up with the above img
 const StyledBottomDrip = styled.img`
   display: inline;
-  align-self: baseline;
-  justify-self: right;
   min-height: 5rem;
   min-width: 8rem;
   max-width: 10rem;
   transform: rotateX(180deg);
+  align-self: baseline;
+  justify-self: right;
+  grid-row: 3;
+  grid-column: 3;
 `;

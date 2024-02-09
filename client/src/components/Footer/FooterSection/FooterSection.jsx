@@ -2,9 +2,9 @@
 import FooterLeftContainer from "../FooterLeftContainer/FooterLeftContainer";
 import FooterRightContainer from "../FooterRightContainer/FooterRightContainer";
 
-export default function Footer({ refStateObj, navLabelArr }) {
+export default function FooterSection({ refStateObj, navLabelArr }) {
   return (
-    <StyledFooter>
+    <StyledFooterSection>
       <StyledFooterImage />
       <StyledFooterHeader>SOMMCODER</StyledFooterHeader>
       <FooterLeftContainer />
@@ -12,10 +12,10 @@ export default function Footer({ refStateObj, navLabelArr }) {
         refStateObj={refStateObj}
         navLabelArr={navLabelArr}
       />
-    </StyledFooter>
+    </StyledFooterSection>
   );
 }
-const StyledFooter = styled.footer`
+const StyledFooterSection = styled.footer`
   position: relative;
   z-index: 1;
   min-width: 32rem; // min screen width worrying about

@@ -12,17 +12,15 @@ export default function CarouselItem({ item }) {
   }
 
   // const [hoverState, toggleHoverState] = useState(false);
-  // const handleHoverOverlay = () =>
+  // const handleHoverOverlay = () =  >
   //   hoverState ? toggleHoverState(false) : toggleHoverState(true);
 
-  // TODO: need to break up the CarouselItem into sections. I want the icons of each carousel item BELOW the imbeded YoutTube demo of each item
   return (
     <StyledCarouselItem onClick={(ev) => linkToProject(ev, item.links.youtube)}>
       {/* <CarouselItemOverlay hoverState={hoverState} /> */}
       <iframe
         onClick={(ev) => linkToProject(ev, item.links.youtube)}
         src={item.links.youtube}
-        frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowFullScreen
       />
@@ -58,6 +56,7 @@ const StyledCarouselItem = styled.div`
     0 0.8rem 0.8rem rgba(0, 0, 0, 0.2);
 
   iframe {
+    border: none;
     width: 30rem;
     height: 50rem;
     border-radius: 2rem;

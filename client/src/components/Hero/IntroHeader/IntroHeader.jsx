@@ -5,6 +5,8 @@ export default function IntroHeader() {
   const typedAnimationArr =
     "I'M A FULL-STACK WEB DEVELOPER & SHOPIFY EXPERT".split("");
 
+  // TODO: need to figure out the typing animation! Do we NEED framer motion??
+
   const typingAnimation = keyframes`
     0% {
       transform: RotateX(10deg);

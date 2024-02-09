@@ -2,18 +2,21 @@ import { forwardRef } from "react";
 import styled from "styled-components";
 
 import ServiceCard from "../ServiceCard/ServiceCard.jsx";
+import PricingTable from "../PricingTable/PricingTable.jsx";
+
 import { servicesArr } from "../../../menus/serviceMenu.jsx";
 
-export default forwardRef(function ServiceSection(props, ref) {
+export default forwardRef(function ServiceSection({ refStateObj }, ref) {
   return (
-    <StyledServiceSection ref={ref.services} className="content-section">
+    <StyledServiceSection ref={refStateObj.service} className="content-section">
       <div className="services-container">
         <h3 className="services-table-header">✨ My Core Services: ✨</h3>
         <div className="services-table-container">
-          {servicesArr.map((service, i) => (
-            <ServiceCard key={`${service.title}-${i}`} service={service} />
+          {servicesArr.map((service) => (
+            <ServiceCard key={service.title} service={service} />
           ))}
         </div>
+        <PricingTable />
       </div>
     </StyledServiceSection>
   );

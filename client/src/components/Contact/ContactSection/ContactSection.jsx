@@ -5,11 +5,11 @@ import { forwardRef } from "react";
 
 import { formInputArr } from "../../../menus/contactMenu.jsx";
 
-export default forwardRef(function ContactSection(props, ref) {
+export default forwardRef(function ContactSection({ refStateObj }, ref) {
   const [inputFocus, toggleInputFocus] = useState(false);
 
   return (
-    <StyledContactSection ref={ref.contact} className="content-section">
+    <StyledContactSection ref={refStateObj.contact} className="content-section">
       <form>
         <h4>HOW CAN I HELP?</h4>
         {formInputArr.map(({ title, description, errorMsg, type, id }, i) => (

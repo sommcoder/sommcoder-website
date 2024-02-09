@@ -31,10 +31,11 @@ const StyledIntroImageBox = styled.span`
   justify-content: center;
   justify-items: center;
   align-items: center;
-  grid-column: span 1;
+  grid-column: 1 / span 2;
+  grid-row: 3;
   /* border: 1px solid red; // testing */
-  grid-column: span 3;
-  margin-left: 2rem;
+  /* grid-column: span 3; */
+  margin-left: 0rem;
 
   .wine-stain-border {
     z-index: 3;
@@ -51,7 +52,9 @@ const StyledIntroImageBox = styled.span`
 
   // 480px
   @media (min-width: 30rem) {
-    grid-column: 3 / 4;
+    grid-column: 3;
+    grid-row: 2;
+    margin-left: 2rem;
     .headshot-image {
       height: 16rem;
       width: 16rem;
@@ -61,8 +64,7 @@ const StyledIntroImageBox = styled.span`
   @media (min-width: 48rem) {
     justify-self: center;
     align-self: center;
-    grid-column: 3;
-    grid-row: 2;
+    margin-left: 8rem;
     .headshot-image {
       height: 18rem;
       width: 18rem;
@@ -71,7 +73,6 @@ const StyledIntroImageBox = styled.span`
 
   // 960px
   @media (min-width: 60rem) {
-    margin-left: 3rem;
     .headshot-image {
       height: 23rem;
       width: 23rem;

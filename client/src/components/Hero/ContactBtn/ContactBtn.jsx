@@ -19,7 +19,6 @@ export default function ContactBtn() {
 const StyledContactBtn = styled.a`
   height: auto;
   width: auto;
-  // TODO: lets get an icon to go on the left side of the button
   button {
     display: grid;
     align-content: center;
@@ -28,5 +27,22 @@ const StyledContactBtn = styled.a`
     max-width: 20rem;
     font-size: 1.6rem;
     text-align: center;
+    margin: 3rem 0rem;
+    // row 4 only exists on mobile
+    grid-row: 4;
+    grid-column: span 3;
+
+    align-content: center;
+    // 480px
+    @media (min-width: 30rem) {
+      grid-row: 3;
+      grid-column: 1;
+      margin: 0rem 0rem;
+    }
+    // 768px
+    /* @media (min-width: 48rem) {
+      grid-row: 3;
+      grid-column: 1;
+    } */
   }
 `;

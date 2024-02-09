@@ -1,14 +1,14 @@
 ﻿import styled from "styled-components";
 import OverlayNavList from "../OverlayNavList/OverlayNavList";
 
-export default function Overlay() {
+export default function OverlaySection({ refStateObj }) {
   return (
-    <StyledOverlay>
+    <StyledOverlaySection>
       <OverlayNavList />
-    </StyledOverlay>
+    </StyledOverlaySection>
   );
 }
-const StyledOverlay = styled.nav`
+const StyledOverlaySection = styled.nav`
   z-index: 5;
   position: fixed;
   background-color: #d4c6e4;

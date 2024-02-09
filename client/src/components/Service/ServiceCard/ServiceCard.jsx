@@ -59,7 +59,7 @@ const StyledServiceCard = styled.span`
     align-items: center;
 
     h3 {
-      padding-left: 1.25rem;
+      padding-left: 2rem;
       text-align: left;
     }
   }
@@ -71,7 +71,7 @@ const StyledServiceCard = styled.span`
     text-align: left;
     height: 100%;
     line-height: 1.75rem;
-    padding: 0rem 1.25rem;
+    padding: 0rem 2rem;
     margin: 1rem 0rem;
 
     h5 {

@@ -8,10 +8,13 @@ import { forwardRef } from "react";
 import { Suspense } from "react";
 import LoadingEllipsis from "../../Utility/LoadingEllipsis/LoadingEllipsis";
 
-export default forwardRef(function ProjectSection(props, ref) {
+export default forwardRef(function ProjectSection({ refStateObj }, ref) {
   return (
     <Suspense fallback={<LoadingEllipsis />}>
-      <StyledProjectSection ref={ref.project} className="content-section">
+      <StyledProjectSection
+        ref={refStateObj.project}
+        className="content-section"
+      >
         <StyledProjectOverlay>
           <CarouselArrowLeft />
           <CarouselContainer />

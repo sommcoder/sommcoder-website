@@ -4,16 +4,10 @@ import { forwardRef } from "react";
 import youngme1 from "/me-computer1.jpg";
 import youngme2 from "/me-computer2.jpg";
 
-export default forwardRef(function AboutMeSection(props, ref) {
-  /*
-   
-  TODO: this will obviously need to be improvded. Just wanted to get some initial content down
-   
-  */
-
+export default forwardRef(function AboutMeSection({ refStateObj }, ref) {
   //TODO: create a "more" selection to avoid a long
   return (
-    <StyledAboutMeSection ref={ref.about} className="content-section">
+    <StyledAboutMeSection ref={refStateObj.about} className="content-section">
       <div className="about-me-container content-card">
         <h3>About Me:</h3>
         <p>
