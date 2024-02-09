@@ -13,8 +13,8 @@ export default function IntroContainer() {
   return (
     <StyledIntroContainer>
       <IntroHeader />
-      <IntroImage headshot="headshot" />
       <IntroDescription />
+      <IntroImage headshot="headshot" />
       <StyledFooterSection>
         <ContactBtn />
         <StyledBottomDrip src={wineDrip2} />
@@ -25,16 +25,18 @@ export default function IntroContainer() {
 const StyledIntroContainer = styled.div`
   display: grid;
   padding: 0 2.5rem;
-  grid-template-columns: 1fr 1fr 1fr;
-  row-gap: 2.5rem;
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(4, auto);
+
   img {
     height: 90%;
     width: 90%;
   }
 
-  @media (min-width: 40rem) {
-    padding-left: 4rem;
-    row-gap: 1rem;
+  // 480px
+  @media (min-width: 30rem) {
+    padding: 0 5rem;
+    grid-template-rows: repeat(3, auto);
   }
 `;
 

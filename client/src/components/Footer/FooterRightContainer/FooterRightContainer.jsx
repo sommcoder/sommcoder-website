@@ -36,7 +36,7 @@ const StyledFooterRightContainer = styled.span`
   z-index: 4;
 
   grid-column: span 2;
-  @media (min-width: 70rem) {
+  @media (min-width: 60rem) {
     grid-column: span 1;
   }
 

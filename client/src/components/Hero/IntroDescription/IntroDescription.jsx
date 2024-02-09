@@ -18,9 +18,10 @@ const StyledIntroDescription = styled.p`
   align-self: center;
   grid-column: span 3;
   line-height: 2.2rem;
+  margin-bottom: 4rem;
 
-  // 640px
-  @media (min-width: 40rem) {
+  // 480px
+  @media (min-width: 30rem) {
     grid-column: span 2;
   }
 `;

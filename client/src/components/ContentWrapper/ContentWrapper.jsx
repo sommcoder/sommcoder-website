@@ -14,7 +14,7 @@ export default forwardRef(function ContentWrapper(props, ref) {
   return (
     <StyledContentWrapper>
       <StyledOverlay>
-        <div>
+        <div className="wine-stain-container">
           <StyledCornerDrip src={wineCornerDrip} />
           <StyledTopDrip src={wineDrip} />
         </div>
@@ -34,6 +34,12 @@ const StyledContentWrapper = styled.main`
   height: 100%;
   display: block;
   background-image: url("/hero-texture.jpg");
+
+  .wine-stain-container {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
 `;
 
 const StyledOverlay = styled.div`
@@ -54,20 +60,14 @@ const StyledCornerDrip = styled.img`
   width: 10.05rem;
   grid-column: span 1;
   align-self: baseline;
-  margin-bottom: 0.5rem;
-  @media (min-width: 40rem) {
-    margin-bottom: 4.25rem;
-  }
 `;
 
 const StyledTopDrip = styled.img`
-  display: none;
-  @media (min-width: 40rem) {
-    display: inline;
-    height: 10rem;
-    width: 10rem;
-    transform: rotateX(180deg);
-    justify-self: baseline;
-    margin-left: 20rem;
-  }
+  height: 10rem;
+  width: 10rem;
+  display: inline;
+  align-self: center;
+  justify-content: center;
+  justify-self: center;
+  transform: rotateX(180deg);
 `;

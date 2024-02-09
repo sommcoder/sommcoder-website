@@ -23,7 +23,7 @@ const StyledContactBtn = styled.a`
   button {
     display: grid;
     align-content: center;
-    min-height: 4rem;
+    height: 4rem;
     min-width: 15rem;
     max-width: 20rem;
     font-size: 1.6rem;

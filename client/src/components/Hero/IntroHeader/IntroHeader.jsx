@@ -30,11 +30,13 @@ export default function IntroHeader() {
   );
 }
 const StyledIntroHeader = styled.span`
+  align-content: center;
   align-self: left;
   display: grid;
   row-gap: 1rem;
   width: 100%;
-  grid-column: span 2;
+  grid-column: span 3;
+  margin-bottom: 2rem;
 
   h4 {
     display: flex;
@@ -52,5 +54,10 @@ const StyledIntroHeader = styled.span`
     display: flex;
     flex-wrap: wrap;
     font-size: 1.4rem;
+  }
+
+  // 768px
+  @media (min-width: 48rem) {
+    margin-bottom: 0rem;
   }
 `;
