@@ -1,8 +1,8 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { forwardRef } from "react";
-import youngme1 from "/me-computer1.jpg";
-import youngme2 from "/me-computer2.jpg";
+import { forwardRef } from 'react';
+import youngme1 from '/me-computer1.jpg';
+import youngme2 from '/me-computer2.jpg';
 
 export default forwardRef(function AboutMeSection({ refStateObj }, ref) {
   //TODO: create a "more" selection to avoid a long
@@ -20,22 +20,25 @@ export default forwardRef(function AboutMeSection({ refStateObj }, ref) {
           my business, I embarked on a journey of self-study, online courses,
           and personal projects to delve into the intricacies of web development
           with HTML, CSS and JavaScript which grabbed and held my attention.
-          <br />
-          <br />
-          Studying the minutiae of the wine industry certainly afforded me the
-          ability to dive deep into the vast subject of web programming.
-          <br />
-          <br />
-          Truthfully, I was always drawn to computers, even at 2 years old when
-          our home computer had a screen that was as large as me.
-          <br />
-          <br />
-          With my extensive Hospitality experience and technical skill set, I
-          offer a highly specialized knowledge base to help scale your online
-          presence and create a tonne of value for your shareholders.
-          <br />
-          <br />- Brian Davies
         </p>
+        <div className="about-me-more-btn">more</div>
+        <div className="about-me-more-container">
+          <p>
+            Studying the minutiae of the wine industry certainly afforded me the
+            ability to dive deep into the vast subject of web programming.
+            <br />
+            <br />
+            Truthfully, I was always drawn to computers, even at 2 years old
+            when our home computer had a screen that was as large as me.
+            <br />
+            <br />
+            With my extensive Hospitality experience and technical skill set, I
+            offer a highly specialized knowledge base to help scale your online
+            presence and create a tonne of value for your shareholders.
+            <br />
+            <br />- Brian Davies
+          </p>
+        </div>
         <span className="personal-image-grouping">
           <img className="personal-images personal-image-1" src={youngme1} />
           <img className="personal-images personal-image-2" src={youngme2} />
@@ -46,14 +49,26 @@ export default forwardRef(function AboutMeSection({ refStateObj }, ref) {
 });
 
 const StyledAboutMeSection = styled.section`
-  background-image: url("/Wine Splatter.svg");
+  background-image: url('/Wine Splatter.svg');
 
+  .about-me-more-btn {
+    font-weight: 600;
+    display: grid;
+    grid-column: span 2;
+    align-items: center;
+    justify-items: center;
+  }
+
+  .about-me-more-container {
+    display: none;
+  }
   .about-me-container {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 3rem auto auto;
     column-gap: 1.5rem;
     row-gap: 1rem;
+    margin: 3.5rem;
 
     h3 {
       grid-column: span 2;

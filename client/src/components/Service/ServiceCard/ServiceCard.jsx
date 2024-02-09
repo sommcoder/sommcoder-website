@@ -1,13 +1,13 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { LuArrowUpCircle } from "react-icons/lu";
+import { LuArrowUpCircle } from 'react-icons/lu';
 
-import { useState } from "react";
+import { useState } from 'react';
 
 export default function ServiceCard({ service }) {
   const [cardState, toggleCardState] = useState(false);
   function handleDropdownClick() {
-    console.log("clicked");
+    console.log('clicked');
     console.log(cardState);
     cardState ? toggleCardState(false) : toggleCardState(true);
   }
@@ -22,7 +22,7 @@ export default function ServiceCard({ service }) {
       </span>
       <div className="service-card-arrow-btn">
         <span active={cardState} className="dropdown-button-wrapper">
-          <LuArrowUpCircle style={{ transform: "rotate(180deg)" }} />
+          <LuArrowUpCircle style={{ transform: 'rotate(180deg)' }} />
         </span>
       </div>
     </StyledServiceCard>
@@ -34,7 +34,8 @@ const StyledServiceCard = styled.span`
   display: grid;
   grid-template-rows: 4rem auto 2.5rem; // content is auto
   height: 27rem;
-  width: 27.5rem;
+  min-width: 27.5rem;
+  max-width: 46rem;
   align-items: center;
   justify-items: center;
   border-radius: 2rem 2rem 2rem 2rem;
@@ -96,7 +97,7 @@ const StyledServiceCard = styled.span`
   }
 
   .dropdown-button-wrapper {
-    transform: ${({ active }) => (active ? "rotate(180deg)" : "rotate(0deg)")};
+    transform: ${({ active }) => (active ? 'rotate(180deg)' : 'rotate(0deg)')};
     display: grid;
     justify-items: center;
     align-items: center;

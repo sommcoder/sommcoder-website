@@ -1,10 +1,10 @@
-import { forwardRef } from "react";
-import styled from "styled-components";
+import { forwardRef } from 'react';
+import styled from 'styled-components';
 
-import ServiceCard from "../ServiceCard/ServiceCard.jsx";
-import PricingTable from "../PricingTable/PricingTable.jsx";
+import ServiceCard from '../ServiceCard/ServiceCard.jsx';
+import PricingTable from '../PricingTable/PricingTable.jsx';
 
-import { servicesArr } from "../../../menus/serviceMenu.jsx";
+import { servicesArr } from '../../../menus/serviceMenu.jsx';
 
 export default forwardRef(function ServiceSection({ refStateObj }, ref) {
   return (
@@ -12,7 +12,7 @@ export default forwardRef(function ServiceSection({ refStateObj }, ref) {
       <div className="services-container">
         <h3 className="services-table-header">✨ My Core Services: ✨</h3>
         <div className="services-table-container">
-          {servicesArr.map((service) => (
+          {servicesArr.map(service => (
             <ServiceCard key={service.title} service={service} />
           ))}
         </div>
@@ -23,7 +23,7 @@ export default forwardRef(function ServiceSection({ refStateObj }, ref) {
 });
 
 const StyledServiceSection = styled.section`
-  background-image: url("/Wine Splatter.svg");
+  background-image: url('/Wine Splatter.svg');
 
   .services-container {
     display: grid;
@@ -35,7 +35,7 @@ const StyledServiceSection = styled.section`
     min-width: 28rem;
     max-width: 75rem;
 
-    margin: 1rem 2rem;
+    margin: 0rem 3.5rem;
     padding: 3rem;
     color: black;
     background-color: whitesmoke;

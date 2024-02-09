@@ -1,6 +1,6 @@
-﻿import styled from "styled-components";
-import headshot from "/headshot.png";
-import wine from "/wine-stain2.svg";
+﻿import styled from 'styled-components';
+import headshot from '/headshot.png';
+import wine from '/wine-stain2.svg';
 
 export default function IntroImage() {
   return (
@@ -35,7 +35,7 @@ const StyledIntroImageBox = styled.span`
   grid-row: 3;
   /* border: 1px solid red; // testing */
   /* grid-column: span 3; */
-  margin-left: 0rem;
+  /* margin-left: 1rem; */
 
   .wine-stain-border {
     z-index: 3;

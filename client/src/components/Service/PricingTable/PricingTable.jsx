@@ -1,20 +1,20 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { useState } from "react";
+import { useState } from 'react';
 
-import { pricingMenuArr } from "../../../menus/pricingMenu";
+import { pricingMenuArr } from '../../../menus/pricingMenu';
 
-import PricingItem from "../PricingItem/PricingItem";
+import PricingItem from '../PricingItem/PricingItem';
 
 export default function PricingTable() {
   // TODO: would be cool to make this an accordian style menu, when the user clicks, the detail beneath open up, closing the other menu items but most importantly this will allow the users to view this really easily on mobile
+  console.log('pricingMenuArr:', pricingMenuArr);
+  const initTblStateObj = {};
+  // dynamically populate the
 
-  const [navBarObj, adjustNavBar] = useState({
-    Sales: false,
-    Product: false,
-    Expenses: false,
-    Ordering: false,
-  });
+  pricingMenuArr.forEach(({ id }) => (initTblStateObj[id] = false));
+
+  const [priceTblState, adjustPriceTblState] = useState(initTblStateObj);
 
   /*
    
@@ -34,7 +34,12 @@ export default function PricingTable() {
         </div>
         <div className="pricing-table-content-container">
           {pricingMenuArr.map((item, i) => (
-            <PricingItem item={item} key={i} />
+            <PricingItem
+              item={item}
+              key={i}
+              priceTblState={priceTblState}
+              adjustPriceTblState={adjustPriceTblState}
+            />
           ))}
         </div>
       </ul>
@@ -66,6 +71,7 @@ const StyledPricingTable = styled.div`
   .pricing-table-content-container {
     display: grid;
 
+    text-align: center;
     // TODO: pickup back here!
   }
 

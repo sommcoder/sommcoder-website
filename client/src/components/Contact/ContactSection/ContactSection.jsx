@@ -1,16 +1,16 @@
-import { useState } from "react";
-import styled from "styled-components";
-import ContactFormItem from "../ContactFormItem/ContactFormItem";
-import { forwardRef } from "react";
+import { useState } from 'react';
+import styled from 'styled-components';
+import ContactFormItem from '../ContactFormItem/ContactFormItem';
+import { forwardRef } from 'react';
 
-import { formInputArr } from "../../../menus/contactMenu.jsx";
+import { formInputArr } from '../../../menus/contactMenu.jsx';
 
 export default forwardRef(function ContactSection({ refStateObj }, ref) {
   const [inputFocus, toggleInputFocus] = useState(false);
 
   return (
     <StyledContactSection ref={refStateObj.contact} className="content-section">
-      <form>
+      <form className="content-card">
         <h4>HOW CAN I HELP?</h4>
         {formInputArr.map(({ title, description, errorMsg, type, id }, i) => (
           <ContactFormItem
@@ -31,14 +31,15 @@ export default forwardRef(function ContactSection({ refStateObj }, ref) {
 });
 
 const StyledContactSection = styled.section`
-  background-image: url("/Wine Splatter.svg");
+  background-image: url('/Wine Splatter.svg');
 
   form {
-    display: grid;
-    background-color: white;
+    min-height: 30rem;
     min-width: 28rem;
     max-width: 75rem;
-    margin: 1rem 2rem;
+    display: grid;
+    background-color: white;
+    margin: 3rem;
     padding: 2rem;
     border-radius: 2rem;
     grid-template-rows: repeat(4, 1fr);
