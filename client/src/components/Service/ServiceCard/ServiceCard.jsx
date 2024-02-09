@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
-import { MdOutlineArrowDropDownCircle } from "react-icons/md";
+import { LuArrowUpCircle } from "react-icons/lu";
+
 import { useState } from "react";
 
 export default function ServiceCard({ service }) {
@@ -21,7 +22,7 @@ export default function ServiceCard({ service }) {
       </span>
       <div className="service-card-arrow-btn">
         <span active={cardState} className="dropdown-button-wrapper">
-          <MdOutlineArrowDropDownCircle />
+          <LuArrowUpCircle style={{ transform: "rotate(180deg)" }} />
         </span>
       </div>
     </StyledServiceCard>

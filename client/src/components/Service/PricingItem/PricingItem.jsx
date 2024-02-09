@@ -1,25 +1,27 @@
 import styled from "styled-components";
 
-export default function PricingItem() {
-  // dashis function:
-  //  function handleMenuClick(ev) {
-  //    ev.preventDefault();
-  //    let targetMenu = ev.currentTarget.dataset.menu;
-  //    const newNavBarObj = navBarObj;
-  //    if (newNavBarObj[targetMenu]) {
-  //      newNavBarObj[targetMenu] = false;
-  //    } else {
-  //      newNavBarObj[targetMenu] = true;
-  //      Object.keys(newNavBarObj).forEach((key) => {
-  //        if (key === targetMenu) return;
-  //        newNavBarObj[key] = false;
-  //      });
-  //    }
-  //    // console.log("newNavBarObj:", newNavBarObj);
-  //    adjustNavBar((navBarObj) => ({ ...navBarObj, newNavBarObj }));
-  //  }
+import { LuBadgeMinus } from "react-icons/lu";
+import { LuBadgePlus } from "react-icons/lu";
 
-  /*
+// dashis function:
+//  function handleMenuClick(ev) {
+//    ev.preventDefault();
+//    let targetMenu = ev.currentTarget.dataset.menu;
+//    const newNavBarObj = navBarObj;
+//    if (newNavBarObj[targetMenu]) {
+//      newNavBarObj[targetMenu] = false;
+//    } else {
+//      newNavBarObj[targetMenu] = true;
+//      Object.keys(newNavBarObj).forEach((key) => {
+//        if (key === targetMenu) return;
+//        newNavBarObj[key] = false;
+//      });
+//    }
+//    // console.log("newNavBarObj:", newNavBarObj);
+//    adjustNavBar((navBarObj) => ({ ...navBarObj, newNavBarObj }));
+//  }
+
+/*
    
    <li className="nav-side-bar-menu-header-container">
       <div
@@ -56,15 +58,17 @@ export default function PricingItem() {
     </li>
    
   */
+
+export default function PricingItem({ item }) {
   return (
     <StyledPricingItem>
-      <div className="pricing-menu-item">
-        <h5 className="pricing-menu-item-header">Service</h5>
-        <h5 className="pricing-menu-item-header">Price</h5>
+      <div className="pricing-menu-item-header-container">
+        <h5 className="pricing-menu-item-header">{item.service}</h5>
+        <h5 className="pricing-menu-item-header">{`$${item.price}`}</h5>
+        <LuBadgePlus style={{ gridColumn: "span 2" }} />
       </div>
       <div className="pricing-submenu-container">
-        <p className="pricing-submenu-content">service text</p>
-        <p className="pricing-submenu-content">pricing details?</p>
+        <p className="pricing-submenu-content">{item.description}</p>
       </div>
     </StyledPricingItem>
   );
@@ -72,7 +76,27 @@ export default function PricingItem() {
 
 const StyledPricingItem = styled.li`
   // mobile and general styling
+  /* display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 5rem;
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+  width: 100%; */
 
+  .pricing-menu-item-header-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 5rem;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  .pricing-submenu-content {
+    grid-column: span 2;
+  }
   @media (min-width: 800px) {
     // desktop styling here
   }

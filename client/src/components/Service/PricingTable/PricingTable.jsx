@@ -4,6 +4,8 @@ import { useState } from "react";
 
 import { pricingMenuArr } from "../../../menus/pricingMenu";
 
+import PricingItem from "../PricingItem/PricingItem";
+
 export default function PricingTable() {
   // TODO: would be cool to make this an accordian style menu, when the user clicks, the detail beneath open up, closing the other menu items but most importantly this will allow the users to view this really easily on mobile
 
@@ -22,20 +24,19 @@ export default function PricingTable() {
   */
 
   return (
-    <StyledPricingTable id="pricing-table" className="content-card">
+    <StyledPricingTable id="pricing-table">
       <h3>🫰 Pricing Estimates 🫰</h3>
       <h5>starting at:</h5>
       <ul>
-        <li>
-          <div className="pricing-menu-item">
-            <h5 className="pricing-menu-item-header">Service</h5>
-            <h5 className="pricing-menu-item-header">Price</h5>
-          </div>
-          <div className="pricing-submenu-container">
-            <p className="pricing-submenu-content">service text</p>
-            <p className="pricing-submenu-content">pricing details?</p>
-          </div>
-        </li>
+        <div className="pricing-table-header-container">
+          <h5 className="pricing-menu-item-header">Service</h5>
+          <h5 className="pricing-menu-item-header">Price</h5>
+        </div>
+        <div className="pricing-table-content-container">
+          {pricingMenuArr.map((item, i) => (
+            <PricingItem item={item} key={i} />
+          ))}
+        </div>
       </ul>
     </StyledPricingTable>
   );
@@ -47,18 +48,27 @@ const StyledPricingTable = styled.div`
   min-height: 35rem;
   min-width: 30rem;
   max-width: 80rem;
+
   display: grid;
   justify-items: center;
   align-items: baseline;
   grid-template-rows: 3rem 2rem auto;
-  #pricing-table {
-    margin: 0rem !important;
-    padding: 0rem !important;
+  .pricing-table-header-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 5rem;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+    width: 100%;
   }
-  ul,
-  li {
-    list-style: none;
+
+  .pricing-table-content-container {
+    display: grid;
+
+    // TODO: pickup back here!
   }
+
   h3 {
     height: 3rem;
   }
@@ -68,20 +78,17 @@ const StyledPricingTable = styled.div`
   }
 
   ul {
+    font-size: 1.8rem;
     display: grid;
+    row-gap: 1.5rem;
     justify-items: center;
     align-items: baseline;
+    list-style: none;
     padding: 2rem;
-    border: 0.1rem solid grey;
+    /* border: 0.1rem solid grey; */
     height: 100%;
     width: 100%;
     border-radius: 3rem;
-
-    tr {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      width: 100%;
-    }
   }
 
   @media (min-width: 800px) {

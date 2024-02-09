@@ -14,8 +14,8 @@ const StyledLogo = styled.header`
   cursor: default;
   padding-left: 2rem;
   display: grid;
-  align-items: center;
-  justify-items: center;
+  align-items: left;
+  justify-items: left;
   width: 100%;
   img {
     width: 19rem;
@@ -25,7 +25,6 @@ const StyledLogo = styled.header`
     }
     @media (min-width: 61rem) {
       width: 23rem;
-      font-size: 3.5rem;
     }
   }
 `;
