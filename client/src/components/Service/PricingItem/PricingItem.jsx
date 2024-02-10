@@ -34,8 +34,7 @@ export default function PricingItem({
   const iconStyling = {
     gridColumn: 'span 2',
     top: '4.75rem',
-    right: '50%',
-    left: '50%',
+    left: '49%',
     backgroundColor: 'white',
     'z-index': '3',
     height: '2.25rem',
@@ -104,6 +103,7 @@ const StyledPricingItem = styled.li`
   &:hover {
     background-color: none;
   }
+
   .pricing-menu-item-header-container {
     display: grid;
     z-index: 3;
@@ -132,10 +132,20 @@ const StyledPricingItem = styled.li`
     width: 100%;
     border-bottom: 0.1rem solid grey;
   }
+  .pricing-submenu-container {
+    display: grid;
+    align-items: center;
+    text-align: center;
+    justify-items: center;
+  }
 
   .pricing-submenu-content {
     grid-column: span 2;
     padding: 1rem 0rem;
+    max-width: 45rem;
+    display: grid;
+    text-align: center;
+    justify-content: center;
   }
   @media (min-width: 800px) {
     // desktop styling here

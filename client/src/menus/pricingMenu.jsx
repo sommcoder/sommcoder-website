@@ -5,20 +5,7 @@ export const pricingMenuArr = [
     price: 0,
     description:
       "Always free! Just a quick chat to learn more about your business and what you're looking for!",
-  },
-  {
-    id: 'theme',
-    service: 'Shopify Theme Build',
-    price: 2000,
-    description:
-      'Let us select the best possible theme for your brand and how you want your site to look! Shopify has free and priced themes made by third party developers',
-  },
-  {
-    id: 'customSite',
-    service: 'Shopify Custom Build',
-    price: 2500,
-    description:
-      'Stand out from the crowd and show your best self to the world as your site serves as the hub for your brand identity. Whatever you can dream up is doable here!',
+    details: '',
   },
   {
     id: 'appIntegration',
@@ -26,6 +13,8 @@ export const pricingMenuArr = [
     price: 150,
     description:
       'Spend more time serving customers and generating revenue with less time connecting all of your moving parts manually!',
+    details:
+      'Price will vary if the app is more complex such as a subscription or inventory app',
   },
   {
     id: 'shopifyApp',
@@ -33,6 +22,24 @@ export const pricingMenuArr = [
     price: 1500,
     description:
       'Third party apps can be bloated with unnecessary features. I can create lightweight clones of popular existing solutions or draw up fully custom apps that fit your business and your needs.',
+    details:
+      'Price depends on pages, api integrations and overall workload involved.',
+  },
+  {
+    id: 'theme',
+    service: 'Shopify Theme Build',
+    price: 2000,
+    description:
+      'Let us select the best possible theme for your brand and how you want your site to look! Shopify has free and priced themes made by third party developers',
+    details: '',
+  },
+  {
+    id: 'customSite',
+    service: 'Shopify Custom Build',
+    price: 2500,
+    description:
+      'Stand out from the crowd and show your best self to the world as your site serves as the hub for your brand identity. Whatever you can dream up is doable here!',
+    details: '',
   },
   {
     id: 'customApp',
@@ -40,5 +47,6 @@ export const pricingMenuArr = [
     price: 3000,
     description:
       'A custom app for your unique problems. This is a highly individualized service and Ill work with you to launch a Minimal Viable Product (MVP) by your delivery date.',
+    details: '',
   },
 ];
