@@ -1,52 +1,109 @@
 export const pricingMenuArr = [
   {
-    id: 'discovery',
-    service: 'Discovery Call',
-    price: 0,
+    id: "discovery",
+    service: "Discovery Call",
+    price: "0",
     description:
       "Always free! Just a quick chat to learn more about your business and what you're looking for!",
-    details: '',
+    details: "",
   },
   {
-    id: 'appIntegration',
-    service: 'Shopify App Integration',
-    price: 150,
+    id: "appIntegration",
+    service: "Shopify App Integration",
+    price: "150/app",
     description:
-      'Spend more time serving customers and generating revenue with less time connecting all of your moving parts manually!',
+      "Spend more time serving customers and generating revenue with less time connecting all of your moving parts manually!",
     details:
-      'Price will vary if the app is more complex such as a subscription or inventory app',
+      "Quote will vary if the app is more complex such as a subscription, product bundler or inventory app",
   },
   {
-    id: 'shopifyApp',
-    service: 'Shopify Custom App',
-    price: 1500,
+    id: "seoLaunch",
+    service: "SEO Launch",
+    price: "850",
+    description: [
+      "I'll create and link all of your social media, Meta Business, and Shopify accounts to Google Analytics and Google Search Console. You'll then have access to the most important web reporting/dashboards without having to figure it all out yourself!",
+    ],
+    details: [
+      "2 hour demo on completion",
+      <br />,
+      "1x Instagram account",
+      <br />,
+      "1x Facebook account",
+      <br />,
+      "1x Meta business account",
+      <br />,
+      "1x Google Analytics connections to all of the above",
+      <br />,
+      "1x Google Search Console connection to your website",
+    ],
+  },
+  {
+    id: "theme",
+    service: "Shopify Theme Site",
+    price: "2250",
     description:
-      'Third party apps can be bloated with unnecessary features. I can create lightweight clones of popular existing solutions or draw up fully custom apps that fit your business and your needs.',
+      "Let us select the best possible theme for your brand and how you want your site to look! Shopify has free and priced themes made by third party developers",
+    details: [
+      "fully functioning e-commerce website",
+      <br />,
+      "up to 25 product pages",
+      <br />,
+      "up to 5 non-product pages",
+      <br />,
+      "",
+    ],
+  },
+  {
+    id: "customSite",
+    service: "Shopify Custom Site",
+    price: "3250",
+    description: [
+      "Stand out from the crowd and show your best self to the world as your site serves as the hub for your brand identity.",
+      <wbr />,
+      " Whatever you can dream up is doable here!",
+    ],
+    details: "",
+  },
+  {
+    id: "ecommMgmt",
+    service: "Ecommerce Management",
+    price: "850/month",
+    description: [
+      "Let me run your account for you!",
+      <wbr />,
+      " I will handle site related customer service, updating inventory, products, and notification for up to 20 hours per month.",
+    ],
     details:
-      'Price depends on pages, api integrations and overall workload involved.',
+      "I will handle site related customer service, updating inventory, products, and notification for up to 20 hours per month of management hours.",
   },
   {
-    id: 'theme',
-    service: 'Shopify Theme Build',
-    price: 2000,
-    description:
-      'Let us select the best possible theme for your brand and how you want your site to look! Shopify has free and priced themes made by third party developers',
-    details: '',
+    id: "automate",
+    service: "Workflow Automation",
+    price: "250/solution",
+    description: [
+      "Let me run your account for you!",
+      <wbr />,
+      " I will handle site related customer service, updating inventory, products, and notification for up to 20 hours per month.",
+    ],
+    details:
+      "I will handle site related customer service, updating inventory, products, and notification for up to 20 hours per month of management hours.",
   },
   {
-    id: 'customSite',
-    service: 'Shopify Custom Build',
-    price: 2500,
+    id: "shopifyApp",
+    service: "Shopify Custom App",
+    price: "1500",
     description:
-      'Stand out from the crowd and show your best self to the world as your site serves as the hub for your brand identity. Whatever you can dream up is doable here!',
-    details: '',
+      "Let's create solutions that fit your business and your needs. I can create lightweight clones of existing apps or develop completely custom solutions!",
+    details:
+      "Price depends on pages, api integrations and overall workload involved.",
   },
   {
-    id: 'customApp',
-    service: 'Custom App',
-    price: 3000,
+    id: "seoOptimization",
+    service: "SEO Development",
+    price: "500/month",
     description:
-      'A custom app for your unique problems. This is a highly individualized service and Ill work with you to launch a Minimal Viable Product (MVP) by your delivery date.',
-    details: '',
+      "If you can't measure it, you can't manage it. I will get you set up",
+    details:
+      "Price depends on pages, api integrations and overall workload involved.",
   },
 ];
