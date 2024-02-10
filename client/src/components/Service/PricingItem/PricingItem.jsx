@@ -7,7 +7,11 @@ export default function PricingItem({
   item,
   priceTblState,
   adjustPriceTblState,
+  count,
+  length,
 }) {
+  console.log(count);
+  console.log(length);
   function handleMenuClick(ev) {
     ev.preventDefault();
     let targetMenu = ev.currentTarget.dataset.item;
@@ -36,7 +40,7 @@ export default function PricingItem({
     'z-index': '3',
     height: '2.25rem',
     borderRadius: '50%',
-    width: '3rem',
+    width: '2rem',
     position: 'absolute',
   };
 
@@ -44,30 +48,32 @@ export default function PricingItem({
   console.log('item.id:', item.id);
   return (
     <StyledPricingItem>
-      <div className="pricing-menu-item-header-container">
+      <div
+        data-item={item.id}
+        className="pricing-menu-item-header-container"
+        onClick={ev => handleMenuClick(ev)}
+      >
         <h5 className="pricing-menu-item-header">{item.service}</h5>
         <h5 className="pricing-menu-item-header">{`$${item.price}`}</h5>
-        {priceTblState[item.id] ? (
-          <LuBadgeMinus
-            data-item={item.id}
-            onClick={ev => handleMenuClick(ev)}
-            style={iconStyling}
-          />
-        ) : (
-          <LuBadgePlus
-            data-item={item.id}
-            onClick={ev => handleMenuClick(ev)}
-            style={iconStyling}
-          />
-        )}
       </div>
+      {priceTblState[item.id] ? (
+        <LuBadgeMinus style={iconStyling} />
+      ) : (
+        <LuBadgePlus style={iconStyling} />
+      )}
+
       <div
         data-item={item.id}
         className={`pricing-submenu-container ${
           priceTblState[item.id] ? 'menu-active' : 'menu-inactive'
         }`}
       >
-        <p className="pricing-submenu-content">{item.description}</p>
+        <p
+          className={`pricing-submenu-content
+      ${priceTblState[item.id] ? 'text-active' : 'text-inactive'}`}
+        >
+          {item.description}
+        </p>
       </div>
     </StyledPricingItem>
   );
@@ -77,6 +83,20 @@ export default function PricingItem({
 const StyledPricingItem = styled.li`
   justify-content: center;
   align-content: center;
+  position: relative;
+
+  .last-item-cover {
+    position: absolute;
+    bottom: 1rem;
+    height: 6rem;
+    width: 100%;
+    z-index: 6;
+    background-color: whitesmoke;
+  }
+
+  &:last-child() {
+    margin-bottom: 4rem;
+  }
 
   h5 {
     font-size: 2rem;
@@ -88,7 +108,21 @@ const StyledPricingItem = styled.li`
     display: grid;
     z-index: 3;
     min-height: 6rem;
-    position: relative;
+
+    &:active {
+      filter: brightness(85%);
+    }
+
+    &:hover {
+      cursor: pointer;
+      filter: brightness(95%);
+
+      svg {
+        cursor: pointer;
+        pointer-events: none;
+      }
+    }
+
     background-color: whitesmoke;
     grid-template-columns: 1fr 1fr;
     column-gap: 5rem;
@@ -109,15 +143,28 @@ const StyledPricingItem = styled.li`
 
   .menu-active {
     z-index: 3;
-    max-height: 200px;
-    transition: z-index 1000ms linear;
-    transition: max-height 500ms linear;
+    color: rgba(0, 0, 0, 1);
+    max-height: 7rem;
+    transition: color 500ms linear 250ms;
+    transition: z-index 0ms ease-in-out 0s;
+    transition: max-height 0s ease-in-out 0s;
   }
 
   .menu-inactive {
     z-index: 1;
-    max-height: 0px;
-    transition: z-index 2000ms linear;
-    transition: max-height 500ms linear;
+    color: rgba(0, 0, 0, 0);
+    max-height: 0rem;
+    transition: color 0s linear 0s;
+    transition: z-index 0s ease-in-out 0s;
+    transition: max-height 0s ease-in-out 0s;
+  }
+
+  .text-active {
+    opacity: 1;
+    transition: opacity 500ms linear 250ms;
+  }
+  .text-inactive {
+    opacity: 0;
+    transition: opacity 0ms linear 0ms;
   }
 `;

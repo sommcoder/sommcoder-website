@@ -29,12 +29,14 @@ export default function PricingTable() {
       <h5>starting at:</h5>
       <ul>
         <div className="pricing-table-header-container">
-          <h5 className="pricing-menu-item-header">Service</h5>
-          <h5 className="pricing-menu-item-header">Price</h5>
+          <h5 className="pricing-menu-header">Service</h5>
+          <h5 className="pricing-menu-header">Price</h5>
         </div>
         <div className="pricing-table-content-container">
           {pricingMenuArr.map((item, i) => (
             <PricingItem
+              count={i}
+              length={pricingMenuArr.length - 1}
               item={item}
               key={i}
               priceTblState={priceTblState}
@@ -68,9 +70,12 @@ const StyledPricingTable = styled.div`
     width: 100%;
   }
 
+  .pricing-menu-header {
+    font-size: 2.5rem;
+  }
   .pricing-table-content-container {
     display: grid;
-
+    width: 100%;
     text-align: center;
     // TODO: pickup back here!
   }

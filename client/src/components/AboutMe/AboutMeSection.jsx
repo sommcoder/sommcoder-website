@@ -66,9 +66,9 @@ const StyledAboutMeSection = styled.section`
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 3rem auto auto;
-    column-gap: 1.5rem;
+    /* column-gap: 1.5rem; */
+    // column gap only for larger screen sizes
     row-gap: 1rem;
-    margin: 3.5rem;
 
     h3 {
       grid-column: span 2;

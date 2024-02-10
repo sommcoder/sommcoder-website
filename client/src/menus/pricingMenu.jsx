@@ -32,7 +32,7 @@ export const pricingMenuArr = [
     service: 'Shopify Custom App',
     price: 1500,
     description:
-      "Third party apps can be bloated and filled with features you don't need. This ultimately slows down your site and hampers your user experience. I can create lightweight clones of popular existing solutions or draw up fully custom apps that fit your business and your needs.",
+      'Third party apps can be bloated with unnecessary features. I can create lightweight clones of popular existing solutions or draw up fully custom apps that fit your business and your needs.',
   },
   {
     id: 'customApp',

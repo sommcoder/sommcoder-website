@@ -58,13 +58,13 @@ const GlobalStyles = createGlobalStyle`${css`
     }
   }
 
-  li,
+  /* li,
   svg {
     &:hover {
       cursor: pointer;
       filter: brightness(85%) !important;
     }
-  }
+  } */
 
   .content-section {
     display: grid;
