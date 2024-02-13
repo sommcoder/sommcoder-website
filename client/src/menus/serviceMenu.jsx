@@ -12,17 +12,6 @@ export const servicesArr = [
     ],
   },
   {
-    title: "Maintain",
-    subtitle: "Steady as she goes!",
-    icon: "",
-    description: [
-      `It's one thing to start, it's whole different beast to maintain your new e-commerce store.`,
-      <br />,
-      <br />,
-      `Centralize your knowledge base by having reliable Shopify expertise available on retainer.`,
-    ],
-  },
-  {
     title: "Streamline",
     subtitle: "More time for what's important!",
     icon: "",
@@ -31,6 +20,17 @@ export const servicesArr = [
       <br />,
       <br />,
       `I can help you with app or custom API integrations and even simple csv templating to make all of your different systems 'talk' to each other.`,
+    ],
+  },
+  {
+    title: "Maintain",
+    subtitle: "Steady as she goes!",
+    icon: "",
+    description: [
+      `It's one thing to start, it's whole different beast to maintain your new e-commerce store.`,
+      <br />,
+      <br />,
+      `Centralize your knowledge base by having reliable Shopify expertise available on retainer.`,
     ],
   },
   {

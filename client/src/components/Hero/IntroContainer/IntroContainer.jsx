@@ -24,7 +24,7 @@ export default function IntroContainer() {
 }
 const StyledIntroContainer = styled.div`
   display: grid;
-  padding: 0 2.5rem;
+  margin: 0rem 2.5rem 1rem 2.5rem;
   grid-template-columns: repeat(3, auto);
   // 4 rows on mobile:
   grid-template-rows: repeat(4, auto);
@@ -36,7 +36,7 @@ const StyledIntroContainer = styled.div`
 
   // 480px
   @media (min-width: 30rem) {
-    padding: 0 5rem;
+    margin: 0 5rem;
     grid-template-rows: repeat(3, auto);
   }
 `;

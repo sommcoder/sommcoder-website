@@ -22,7 +22,6 @@ const StyledHeroSection = styled.section`
   max-width: 100rem;
   min-height: 35rem;
   z-index: 1;
-  padding-bottom: 5rem;
   opacity: 1;
   transition: opacity 0 0.75s ease-in;
   // TODO: this isn't working but I want the hero section and each section for that matter to render in smoothly. Background and overlays should generate first and then the components should smoothly appear

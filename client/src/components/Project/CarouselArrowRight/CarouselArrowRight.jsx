@@ -1,24 +1,21 @@
 ﻿import styled from "styled-components";
 
+import { FaArrowAltCircleRight } from "react-icons/fa";
+
 export default function CarouselArrowRight() {
-  return <StyledCarouselArrowRight></StyledCarouselArrowRight>;
+  return (
+    <StyledCarouselArrowRight>
+      <FaArrowAltCircleRight />
+    </StyledCarouselArrowRight>
+  );
 }
 const StyledCarouselArrowRight = styled.span`
-  display: none;
+  justify-self: right;
+  margin-right: 1rem;
+  grid-row: 1;
 
-  @media (min-width: 800) {
-    display: inline-block;
-    width: 0px;
-    height: 0px;
-    border-top: 1rem solid transparent;
-    border-left: 1rem solid white;
-    border-bottom: 1rem solid transparent;
-
-    margin-right: 1.5rem;
-
-    &:hover {
-      cursor: pointer;
-      filter: brightness(70%);
-    }
+  svg {
+    height: 3rem;
+    width: 3rem;
   }
 `;

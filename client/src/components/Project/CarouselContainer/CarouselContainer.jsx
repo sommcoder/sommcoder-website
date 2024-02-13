@@ -1,9 +1,7 @@
 ﻿import styled from "styled-components";
 import CarouselItem from "../CarouselItem/CarouselItem";
 
-import { carouselItemsArr } from "../../../menus/projectMenu";
-
-export default function CarouselContainer() {
+export default function CarouselContainer({ carouselItemsArr }) {
   // we should use Firebase's Firestore Document DB to store and fetch this data
   // the long description will get passed to the Page only
 
@@ -16,18 +14,15 @@ export default function CarouselContainer() {
   );
 }
 const StyledCarouselContainer = styled.div`
-  display: flex;
-  width: auto;
-  gap: 2rem;
-  flex-direction: row;
-  flex-wrap: wrap;
-  /* grid-row-gap: 2rem;
-  grid-column-gap: 1.5rem;
-  grid-template-columns: 1fr; */
+  position: relative;
+  display: grid;
+  grid-template-rows: 1fr; // just one row
+  width: 100%;
+  height: 100%;
+  align-content: center;
+  justify-content: center;
   justify-items: center;
   align-items: center;
   justify-self: center;
   align-self: center;
-  justify-content: center; /* Center items horizontally */
-  align-content: center; /* Center items vertically */
 `;

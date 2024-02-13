@@ -1,9 +1,11 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes } from "styled-components";
 
 export default function IntroHeader() {
   // turns string into an array of individual characters
   const typedAnimationArr =
-    "I'M A FULL-STACK WEB DEVELOPER \n\n & SHOPIFY EXPERT".split('');
+    "I'M A FULL-STACK SOFTWARE DEVELOPER, \n\n SHOPIFY EXPERT AND HOSPITALITY SPECIALIST".split(
+      ""
+    );
 
   // TODO: need to figure out the typing animation! Do we NEED framer motion??
 
@@ -27,7 +29,7 @@ export default function IntroHeader() {
       <h4>Hi There 👋, I'm</h4>
       <h1>BRIAN DAVIES</h1>
       <h5>(aka SOMMCODER)</h5>
-      <h4>{typedAnimationArr.map(char => char)}</h4>
+      <h4>{typedAnimationArr.map((char) => char)}</h4>
     </StyledIntroHeader>
   );
 }

@@ -1,11 +1,14 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import { forwardRef } from 'react';
-import youngme1 from '/me-computer1.jpg';
-import youngme2 from '/me-computer2.jpg';
+import { forwardRef } from "react";
+import youngme1 from "/me-computer1.jpg";
+import youngme2 from "/me-computer2.jpg";
 
 export default forwardRef(function AboutMeSection({ refStateObj }, ref) {
   //TODO: create a "more" selection to avoid a long
+
+  // const []
+
   return (
     <StyledAboutMeSection ref={refStateObj.about} className="content-section">
       <div className="about-me-container content-card">
@@ -49,7 +52,7 @@ export default forwardRef(function AboutMeSection({ refStateObj }, ref) {
 });
 
 const StyledAboutMeSection = styled.section`
-  background-image: url('/Wine Splatter.svg');
+  background-image: url("/Wine Splatter.svg");
 
   .about-me-more-btn {
     font-weight: 600;
@@ -64,6 +67,7 @@ const StyledAboutMeSection = styled.section`
   }
   .about-me-container {
     display: grid;
+    margin: 2rem 2rem 1rem 2rem;
     grid-template-columns: 1fr;
     grid-template-rows: 3rem auto auto;
     /* column-gap: 1.5rem; */

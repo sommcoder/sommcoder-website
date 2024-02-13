@@ -1,6 +1,5 @@
 ﻿import { useState } from "react";
 import styled from "styled-components";
-import CarouselItemOverlay from "../CarouselItemOverlay/CarouselItemOverlay";
 
 import { ICON_COMPONENTS } from "../../../menus/iconMenu";
 
@@ -11,13 +10,8 @@ export default function CarouselItem({ item }) {
     window.open(link, "_blank");
   }
 
-  // const [hoverState, toggleHoverState] = useState(false);
-  // const handleHoverOverlay = () =  >
-  //   hoverState ? toggleHoverState(false) : toggleHoverState(true);
-
   return (
     <StyledCarouselItem onClick={(ev) => linkToProject(ev, item.links.youtube)}>
-      {/* <CarouselItemOverlay hoverState={hoverState} /> */}
       <iframe
         onClick={(ev) => linkToProject(ev, item.links.youtube)}
         src={item.links.youtube}
@@ -42,8 +36,10 @@ export default function CarouselItem({ item }) {
 // TODO: why is active applying to all instead of each
 
 const StyledCarouselItem = styled.div`
+  /* top: 7.5%;
+  right: 100%; */
+  position: absolute;
   display: grid;
-  position: relative;
   justify-items: center;
   text-align: center;
   padding: 1rem 0rem;
@@ -95,5 +91,21 @@ const StyledCarouselItem = styled.div`
     box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.08),
       0 0.2rem 0.2rem rgba(0, 0, 0, 0.12), 0 0.4rem 0.4rem rgba(0, 0, 0, 0.16),
       0 0.8rem 0.8rem rgba(0, 0, 0, 0.2);
+  }
+
+  .prevCard {
+    left: calc(0% + 2rem);
+    opacity: 0;
+  }
+
+  .activeCard {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .nextCard {
+    left: 100%;
+    transform: translateX(calc(-100% - 2rem));
+    opacity: 0;
   }
 `;

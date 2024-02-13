@@ -1,6 +1,6 @@
-﻿import styled from 'styled-components';
+﻿import styled from "styled-components";
 
-import logo from '/logo.svg';
+import logo from "/logo.svg";
 
 export default function Logo() {
   return (
@@ -10,7 +10,7 @@ export default function Logo() {
   );
 }
 const StyledLogo = styled.header`
-  font-family: 'Major Mono Display', sans-serif;
+  font-family: "Major Mono Display", sans-serif;
   cursor: default;
   padding-left: 2rem;
   display: grid;
@@ -18,13 +18,13 @@ const StyledLogo = styled.header`
   justify-items: left;
   width: 100%;
   img {
-    transform: translateY(-0.5rem); // hack fix
     width: 19rem;
     @media (min-width: 40rem) {
       width: 21rem;
       padding-left: 4.5rem;
     }
     @media (min-width: 61rem) {
+      transform: translateY(-0.5rem); // hack fix
       width: 23rem;
     }
   }

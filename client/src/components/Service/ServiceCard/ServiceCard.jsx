@@ -1,16 +1,28 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import { LuArrowUpCircle } from 'react-icons/lu';
+import { LuArrowUpCircle } from "react-icons/lu";
 
-import { useState } from 'react';
+import { useState } from "react";
+import PricingTable from "../PricingTable/PricingTable";
+
+import { pricingMenuObj } from "../../../menus/pricingMenu";
 
 export default function ServiceCard({ service }) {
   const [cardState, toggleCardState] = useState(false);
   function handleDropdownClick() {
-    console.log('clicked');
+    console.log("clicked");
     console.log(cardState);
     cardState ? toggleCardState(false) : toggleCardState(true);
   }
+
+  console.log("service:", service);
+
+  // could also just get rid of Table and map all of the PricingItems here
+  console.log("service.title:", service.title);
+
+  console.log("pricingMenuObj:", pricingMenuObj);
+  console.log("pricingMenuObj[service.title]:", pricingMenuObj[service.title]);
+
   return (
     <StyledServiceCard onClick={handleDropdownClick}>
       <span className="service-card-header-container">
@@ -20,36 +32,35 @@ export default function ServiceCard({ service }) {
         <h5>{service.subtitle}</h5>
         <p>{service.description}</p>
       </span>
+      <PricingTable
+        key={service.title}
+        menu={pricingMenuObj[service.title]}
+        title={service.title}
+      />
       <div className="service-card-arrow-btn">
-        <span active={cardState} className="dropdown-button-wrapper">
-          <LuArrowUpCircle style={{ transform: 'rotate(180deg)' }} />
-        </span>
+        {/* <span active={cardState} className="dropdown-button-wrapper">
+          <LuArrowUpCircle style={{ transform: "rotate(180deg)" }} />
+        </span> */}
       </div>
     </StyledServiceCard>
   );
 }
 
 const StyledServiceCard = styled.span`
-  // mobile and general styling
+  background-color: whitesmoke;
   display: grid;
-  grid-template-rows: 4rem auto 2.5rem; // content is auto
-  height: 27rem;
-  min-width: 27.5rem;
-  max-width: 46rem;
+  grid-template-rows: 4rem auto auto 2.5rem; // content is auto
+
+  row-gap: 1.5rem;
+  width: auto;
+  max-width: 30rem;
   align-items: center;
   justify-items: center;
   border-radius: 2rem 2rem 2rem 2rem;
-  /* > * {
-    padding: 1.25rem
-  } */
 
   box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.08),
     0 0.2rem 0.2rem rgba(0, 0, 0, 0.12), 0 0.4rem 0.4rem rgba(0, 0, 0, 0.16),
     0 0.8rem 0.8rem rgba(0, 0, 0, 0.2);
-
-  &:hover {
-    cursor: pointer;
-  }
 
   .service-card-header-container {
     border-radius: 2rem 2rem 0rem 0rem;
@@ -61,6 +72,7 @@ const StyledServiceCard = styled.span`
     align-items: center;
 
     h3 {
+      font-size: 2.4rem;
       padding-left: 2rem;
       text-align: left;
     }
@@ -71,13 +83,12 @@ const StyledServiceCard = styled.span`
     grid-template-rows: auto auto auto;
     row-gap: 1rem;
     text-align: left;
-    height: 100%;
+    height: auto;
     line-height: 1.75rem;
     padding: 0rem 2rem;
-    margin: 1rem 0rem;
 
     h5 {
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       text-align: left;
       margin: 0.75rem 0rem;
       padding-bottom: 1rem;
@@ -97,7 +108,7 @@ const StyledServiceCard = styled.span`
   }
 
   .dropdown-button-wrapper {
-    transform: ${({ active }) => (active ? 'rotate(180deg)' : 'rotate(0deg)')};
+    transform: ${({ active }) => (active ? "rotate(180deg)" : "rotate(0deg)")};
     display: grid;
     justify-items: center;
     align-items: center;
