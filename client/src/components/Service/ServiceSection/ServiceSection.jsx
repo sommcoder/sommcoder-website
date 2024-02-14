@@ -11,7 +11,6 @@ export default forwardRef(function ServiceSection({ refStateObj }, ref) {
     <StyledServiceSection ref={refStateObj.service} className="content-section">
       <div className="services-container">
         <h3 className="services-table-header">✨ My Core Services: ✨</h3>
-        <h5>prices starting points</h5>
         <div className="services-table-container">
           {servicesArr.map((service) => (
             <ServiceCard key={service.title} service={service} />

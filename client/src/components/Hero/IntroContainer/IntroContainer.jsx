@@ -24,10 +24,12 @@ export default function IntroContainer() {
 }
 const StyledIntroContainer = styled.div`
   display: grid;
+  justify-self: center;
   margin: 0rem 2.5rem 1rem 2.5rem;
   grid-template-columns: repeat(3, auto);
   // 4 rows on mobile:
   grid-template-rows: repeat(4, auto);
+  max-width: 95rem;
 
   img {
     height: 90%;

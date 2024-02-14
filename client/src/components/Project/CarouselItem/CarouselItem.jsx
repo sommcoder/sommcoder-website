@@ -1,9 +1,8 @@
-﻿import { useState } from "react";
-import styled from "styled-components";
+﻿import styled from "styled-components";
 
 import { ICON_COMPONENTS } from "../../../menus/iconMenu";
 
-export default function CarouselItem({ item }) {
+export default function CarouselItem({ item, indexFromCurrent }) {
   function linkToProject(ev, link) {
     console.log("link:", link);
     ev.preventDefault();
@@ -11,11 +10,14 @@ export default function CarouselItem({ item }) {
   }
 
   return (
-    <StyledCarouselItem onClick={(ev) => linkToProject(ev, item.links.youtube)}>
+    <StyledCarouselItem
+      position={indexFromCurrent == 0 ? 0 : indexFromCurrent * 105}
+      activeCard={indexFromCurrent == 0 ? true : false}
+      onClick={(ev) => linkToProject(ev, item.links.youtube)}
+    >
       <iframe
-        onClick={(ev) => linkToProject(ev, item.links.youtube)}
         src={item.links.youtube}
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;  web-share"
         allowFullScreen
       />
       <div className="carousel-item-icon-container">
@@ -36,37 +38,55 @@ export default function CarouselItem({ item }) {
 // TODO: why is active applying to all instead of each
 
 const StyledCarouselItem = styled.div`
-  /* top: 7.5%;
-  right: 100%; */
   position: absolute;
+  top: 7.5%; // hopefully this avoids that glitchy issue we were seeing
   display: grid;
+  grid-template-rows: 50rem 6rem;
   justify-items: center;
   text-align: center;
-  padding: 1rem 0rem;
-  width: 31rem;
+  width: 31rem; // same width as the width of the container
   height: 56rem;
   border-radius: 2rem;
   background-color: rgb(80, 104, 84);
-  box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.08),
+
+  ${(props) => `
+   left: ${props.position}%;
+   box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.08),
     0 0.2rem 0.2rem rgba(0, 0, 0, 0.12), 0 0.4rem 0.4rem rgba(0, 0, 0, 0.16),
     0 0.8rem 0.8rem rgba(0, 0, 0, 0.2);
+   filter: brightness(65%);
+  `}
+
+  ${(props) =>
+    props.activeCard &&
+    `
+  opacity: 1;
+box-shadow: 0 0 0.1rem 0.1rem rgba(255, 255, 255, 0.08),
+    0 0 0.2rem 0.2rem rgba(255, 255, 255, 0.12), 0 0 0.4rem 0.4rem rgba(255, 255, 255, 0.16),
+    0 0 0.8rem 0.8rem rgba(255, 255, 255, 0.2);
+  transition: filter 350ms ease-in-out;
+    transition: box-shadow 350ms ease-in-out;
+  filter: none;
+  `}
 
   iframe {
     border: none;
-    width: 30rem;
-    height: 50rem;
-    border-radius: 2rem;
+    width: 100%;
+    height: 100%;
+    border-radius: 2rem 2rem 0rem 0rem;
   }
 
   .carousel-item-icon-container {
     display: flex;
-    width: fit-content;
+    width: 100%;
+    height: 100%;
+    align-content: center;
+    justify-content: center;
     align-items: center;
     justify-items: center;
     column-gap: 1rem;
-    border: 0.1rem solid white;
-    border-radius: 2rem;
-    padding: 0rem 1rem;
+    border-radius: 0rem 0rem 2rem 2rem;
+    background-color: rgb(80, 104, 84);
   }
 
   .carousel-icon-box {
@@ -75,6 +95,9 @@ const StyledCarouselItem = styled.div`
     justify-items: center;
     width: 8rem;
     height: 100%;
+    /* svg {
+      filter: brightness(10%);
+    } */
   }
 
   &:hover {
@@ -91,21 +114,5 @@ const StyledCarouselItem = styled.div`
     box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.08),
       0 0.2rem 0.2rem rgba(0, 0, 0, 0.12), 0 0.4rem 0.4rem rgba(0, 0, 0, 0.16),
       0 0.8rem 0.8rem rgba(0, 0, 0, 0.2);
-  }
-
-  .prevCard {
-    left: calc(0% + 2rem);
-    opacity: 0;
-  }
-
-  .activeCard {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .nextCard {
-    left: 100%;
-    transform: translateX(calc(-100% - 2rem));
-    opacity: 0;
   }
 `;

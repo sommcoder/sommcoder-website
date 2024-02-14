@@ -3,11 +3,16 @@ import styled from "styled-components";
 import { forwardRef } from "react";
 import youngme1 from "/me-computer1.jpg";
 import youngme2 from "/me-computer2.jpg";
+import { useState } from "react";
 
 export default forwardRef(function AboutMeSection({ refStateObj }, ref) {
   //TODO: create a "more" selection to avoid a long
 
-  // const []
+  const [moreState, toggleMore] = useState(false);
+
+  function handleMoreClick() {
+    moreState ? toggleMore(false) : toggleMore(true);
+  }
 
   return (
     <StyledAboutMeSection ref={refStateObj.about} className="content-section">
@@ -24,7 +29,9 @@ export default forwardRef(function AboutMeSection({ refStateObj }, ref) {
           and personal projects to delve into the intricacies of web development
           with HTML, CSS and JavaScript which grabbed and held my attention.
         </p>
-        <div className="about-me-more-btn">more</div>
+        <div onClick={handleMoreClick} className="about-me-more-btn">
+          more
+        </div>
         <div className="about-me-more-container">
           <p>
             Studying the minutiae of the wine industry certainly afforded me the
@@ -50,6 +57,8 @@ export default forwardRef(function AboutMeSection({ refStateObj }, ref) {
     </StyledAboutMeSection>
   );
 });
+
+// TODO: Get the personal images centered correctly for all screen sizes and figure out a way to create a nice more button functionality that looks like many popular article websites.
 
 const StyledAboutMeSection = styled.section`
   background-image: url("/Wine Splatter.svg");

@@ -37,7 +37,7 @@ export default function ServiceCard({ service }) {
         menu={pricingMenuObj[service.title]}
         title={service.title}
       />
-      <div className="service-card-arrow-btn">
+      <div className="service-card-bottom">
         {/* <span active={cardState} className="dropdown-button-wrapper">
           <LuArrowUpCircle style={{ transform: "rotate(180deg)" }} />
         </span> */}
@@ -97,7 +97,7 @@ const StyledServiceCard = styled.span`
     p {
     }
   }
-  .service-card-arrow-btn {
+  .service-card-bottom {
     background: linear-gradient(145deg, #bba6d2, #9e8cb0);
     width: 100%;
     height: 2.5rem;

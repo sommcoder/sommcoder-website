@@ -1,9 +1,9 @@
-import { useState } from 'react';
-import styled from 'styled-components';
-import ContactFormItem from '../ContactFormItem/ContactFormItem';
-import { forwardRef } from 'react';
+import { useState } from "react";
+import styled from "styled-components";
+import ContactFormItem from "../ContactFormItem/ContactFormItem";
+import { forwardRef } from "react";
 
-import { formInputArr } from '../../../menus/contactMenu.jsx';
+import { formInputArr } from "../../../menus/contactMenu.jsx";
 
 export default forwardRef(function ContactSection({ refStateObj }, ref) {
   const [inputFocus, toggleInputFocus] = useState(false);
@@ -24,14 +24,14 @@ export default forwardRef(function ContactSection({ refStateObj }, ref) {
             toggleInputFocus={toggleInputFocus}
           />
         ))}
-        <button type="submit"></button>
+        <button type="submit">Send</button>
       </form>
     </StyledContactSection>
   );
 });
 
 const StyledContactSection = styled.section`
-  background-image: url('/Wine Splatter.svg');
+  background-image: url("/Wine Splatter.svg");
 
   form {
     min-height: 30rem;
@@ -58,7 +58,8 @@ const StyledContactSection = styled.section`
   }
 
   button {
+    font-size: 1.6rem;
     margin-top: 1.5rem;
-    width: 87.5%; // change this??
+    width: 50%; // change this??
   }
 `;

@@ -12,40 +12,81 @@ import { carouselItemsArr } from "../../../menus/projectMenu";
 import { useState } from "react";
 
 export default forwardRef(function ProjectSection({ refStateObj }, ref) {
-  // starts on index 0
-  const [currentIndex, adjustIndex] = useState(0);
-  const [viewableCardsArr, setViewableCards] = useState(
-    carouselItemsArr.slice()
-  );
-  // TODO: slice the first three elements
+  const [currIndex, adjustCurrIndex] = useState(1);
+  const handleEllipsesClick = (ev) => {
+    //
+    let indexClicked = +ev.target.dataset.index;
+    console.log("indexClicked:", indexClicked);
+    adjustCurrIndex(indexClicked);
+  };
 
-  /* 
-1) use the incoming array as our index references
-2) onClick rightArrow, increment index, max is arr.length - 1
-3) onClick leftArrow, decrement index min is 0
-4)
- 
-*/
-  const lastIndex = carouselItemsArr.length - 1;
+  // these touching states should work for mobile!
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
 
+  // the required distance between touchStart and touchEnd to be detected as a swipe
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e) => {
+    setTouchEnd(null); // otherwise the swipe is fired even with usual touch events
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientX);
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+    if (isLeftSwipe || isRightSwipe)
+      console.log("swipe", isLeftSwipe ? "left" : "right");
+    // add your conditional logic here
+  };
+
+  console.log("currIndex:", currIndex);
   return (
     <Suspense fallback={<LoadingEllipsis />}>
       <StyledProjectSection
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
         ref={refStateObj.project}
         className="content-section"
       >
         <StyledProjectOverlay>
-          <CarouselArrowLeft />
-          <CarouselContainer
-            currentIndex={currentIndex}
-            adjustIndex={adjustIndex}
+          <CarouselArrowLeft
+            currIndex={currIndex}
+            adjustCurrIndex={adjustCurrIndex}
             carouselItemsArr={carouselItemsArr}
           />
-          <CarouselArrowRight />
+          <CarouselContainer
+            currIndex={currIndex}
+            adjustCurrIndex={adjustCurrIndex}
+            carouselItemsArr={carouselItemsArr}
+          />
+          <CarouselArrowRight
+            carouselItemsArr={carouselItemsArr}
+            currIndex={currIndex}
+            adjustCurrIndex={adjustCurrIndex}
+          />
           <div className="carousel-ellipses-container">
-            {carouselItemsArr.map((item) => (
-              <span className="carousel-ellipses-item">O</span>
-            ))}
+            {carouselItemsArr.map((item, i) => {
+              console.log("i:", i);
+              console.log("currIndex:", currIndex);
+              if (i === currIndex) console.log("true");
+              return (
+                <span
+                  style={{
+                    backgroundColor: i === currIndex ? "white" : "transparent",
+                  }}
+                  data-index={i}
+                  onClick={handleEllipsesClick}
+                  key={i}
+                  className="carousel-ellipses-item"
+                ></span>
+              );
+            })}
           </div>
         </StyledProjectOverlay>
       </StyledProjectSection>
@@ -61,24 +102,37 @@ const StyledProjectSection = styled.section`
     linear-gradient(to bottom, transparent, 90%, #837960),
     url("/code image.png");
   height: 70rem;
+  overflow-x: hidden;
 `;
 
 const StyledProjectOverlay = styled.div`
   display: grid;
   width: 100%;
   height: 100%;
-  margin: 0rem 1.5rem;
+  /* margin: 0rem 1.5rem; */
   align-items: center;
   justify-items: center;
   background-color: rgba(80, 70, 92, 0.4);
-  grid-template-columns: 4rem auto 4rem;
-  grid-template-rows: 1fr auto;
+  grid-template-columns: 3.5rem auto 3.5rem;
+  grid-template-rows: auto 4rem;
 
   .carousel-ellipses-container {
     display: flex;
-    align-content: center;
-    justify-content: center;
+    height: 4rem;
+    align-self: center;
+    justify-self: center;
+    align-items: center;
     grid-column: span 3;
     column-gap: 0.5rem;
+  }
+
+  .carousel-ellipses-item {
+    border: 0.1rem solid white;
+    height: 1rem;
+    width: 1rem;
+    border-radius: 50%;
+    &:hover {
+      cursor: pointer;
+    }
   }
 `;

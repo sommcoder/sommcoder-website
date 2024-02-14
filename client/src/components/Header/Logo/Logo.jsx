@@ -24,7 +24,7 @@ const StyledLogo = styled.header`
       padding-left: 4.5rem;
     }
     @media (min-width: 61rem) {
-      transform: translateY(-0.5rem); // hack fix
+      transform: translateY(-0.25rem); // hack fix
       width: 23rem;
     }
   }
