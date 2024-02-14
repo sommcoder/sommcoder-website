@@ -21,10 +21,10 @@ export const formInputArr = [
     id: "email",
   },
   {
-    title: "what can I help you with?",
+    title: "your message",
     description: "",
     errorMsg: "",
     type: "longtext",
-    id: "details",
+    id: "message",
   },
 ];

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 
 export default function ContactFormItem({
@@ -6,34 +7,62 @@ export default function ContactFormItem({
   errorMsg,
   type,
   id,
-  inputFocus,
-  toggleInputFocus,
 }) {
-  function handleInputClick(ev) {
-    ev.stopPropagation(); // needed?
-    inputFocus ? toggleInputFocus(false) : toggleInputFocus(true);
+  const [inputFocus, toggleInputFocus] = useState(false);
+
+  function handleFieldInput(ev) {
+    if (ev.target.value) {
+      // onChange ensures this is changed by autofill
+      toggleInputFocus(true);
+      return;
+    }
+  }
+
+  function handleFieldFocus(ev) {
+    if (!ev.target.value) {
+      toggleInputFocus((prevState) => !prevState);
+      return;
+    }
+    toggleInputFocus(true);
   }
 
   // TODO: error message will stay visually WITHIN the input element
 
   return (
     <StyledContactFormItem
+      inputFocus={inputFocus}
       type={type === "longtext" ? "text" : type}
       longtext={type === "longtext" ? "longtext" : ""}
     >
-      <input
-        id={id}
-        type={type === "longtext" ? "text" : type}
-        value=""
-        name={id}
-        aria-labelledby="placeholder-text"
-        autoComplete="off"
-        title={description}
-        onFocus={(ev) => handleInputClick(ev)}
-        onBlur={(ev) => handleInputClick(ev)}
-      />
+      {type === "longtext" ? (
+        <textarea
+          autoComplete="on"
+          form="contact-form"
+          id={id}
+          type="text"
+          name={id}
+          title={description}
+          onChange={handleFieldInput}
+          onFocus={handleFieldFocus}
+          onBlur={handleFieldFocus}
+        ></textarea>
+      ) : (
+        <input
+          form="contact-form"
+          autoComplete="on"
+          id={id}
+          type="text"
+          name={id}
+          title={description}
+          onChange={handleFieldInput}
+          onFocus={handleFieldFocus}
+          onBlur={handleFieldFocus}
+        />
+      )}
       <label
-        active={inputFocus}
+        form="contact-form"
+        aria-labelledby="placeholder-text"
+        inputFocus
         id={`placeholder-${id}`}
         className="placeholder-text"
       >
@@ -45,39 +74,65 @@ export default function ContactFormItem({
 
 const StyledContactFormItem = styled.div`
   // mobile and general styling
-
-  display: relative;
-  width: 25rem;
-  height: ${({ longtext }) => (longtext === "longtext" ? "6rem" : "3rem")};
-
-  label {
+  position: relative;
+  min-width: 28rem;
+  padding: 1rem;
+  border: 0.1rem solid rgba(123, 123, 123, 0.4);
+  border-radius: 0.75rem;
+  &:focus {
+    border: 0.1rem solid #9e8cb0;
+  }
+  .placeholder-text {
+    position: absolute;
     pointer-events: none;
-    display: absolute;
-    top: 0;
-    left: 6;
+    top: ${({ inputFocus, longtext }) =>
+      inputFocus ? (longtext ? "-5%" : "-15%") : "37.5%"};
+    left: 3%;
+    padding: 0rem 0.2rem;
+    transition: top 150ms linear;
+    background-color: white;
     z-index: 3;
-    /* transform: translateY(-10rem); */
-    transform: ${({ active }) =>
-      active ? "translateY(-4rem)" : "translateY(-2rem)"};
-
     color: #0000009e;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
 
   // TODO: when onFocus() transform: translate x and y so that the label of the input field is just slightly above the top line of the input field. This should also cause a visual "break" in the line of the input field. We can achieve this this a higher z-index and a background on the h5 element. We have to  be sure that this doesn't event the text of the input field however.
 
-  input {
-    display: block;
-    height: ${({ longtext }) => (longtext === "longtext" ? "6rem" : "3rem")};
-    width: 100%;
+  input,
+  textarea {
+    appearance: none; // Removes system-level styling.
+    display: inline-block;
     border-radius: 0.75rem;
+    display: block;
+    font-size: 1.8rem;
+    height: ${({ longtext }) => (longtext === "longtext" ? "20rem" : "3rem")};
+    width: 90%;
+
+    // textarea resets:
     outline: none;
-    border: 0.1rem solid rgba(123, 123, 123, 0.4);
+    border: none;
+    resize: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: inherit;
+    font-style: inherit;
+    font-family: inherit;
+    font-weight: inherit;
+    font-style: inherit;
+    font-family: inherit;
+    line-height: 1;
 
     &:focus {
-      border: 0.1rem solid #9e8cb0;
+      background-color: none;
     }
   }
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+  }
+
   input:last-child {
     height: 6rem;
   }

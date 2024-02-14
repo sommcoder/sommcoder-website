@@ -30,13 +30,20 @@ const StyledFooterSection = styled.footer`
   transition: 0.3s ease-in-out;
   // mobile: 1 column, three rows
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: 4rem 1fr 1fr;
   row-gap: 3rem;
   padding: 3rem 3rem 3rem 4rem;
   // desktop: 2 column, 2 rows
+
   @media (min-width: 60rem) {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
+  }
+
+  li {
+    &:hover {
+      cursor: pointer;
+    }
   }
 `;
 

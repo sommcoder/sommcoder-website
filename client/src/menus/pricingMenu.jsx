@@ -5,7 +5,7 @@ export const pricingMenuObj = {
       service: "SEO Setup",
       price: "850",
       description: [
-        "SEO tool setup, integration and reporting to impress your shareholders to hit the ground running!",
+        "SEO tool setup, integration and reporting to impress your shareholders and hit the ground running!",
       ],
     },
     {
@@ -13,7 +13,7 @@ export const pricingMenuObj = {
       service: "Shopify Theme Site",
       price: "2250",
       description:
-        "Let us select the best possible theme for your brand and how you want your site to look! Shopify has free and priced themes made by third party developers",
+        "A built-in or marketplace theme e-commerce site. First revision complete within 14 days.",
     },
     {
       id: "customSite",

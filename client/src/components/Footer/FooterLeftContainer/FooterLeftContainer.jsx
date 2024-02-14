@@ -27,9 +27,20 @@ const StyledFooterLeftContainer = styled.span`
   width: 100%;
   margin-bottom: 1rem;
   z-index: 4;
-
   grid-column: span 2;
+
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  justify-items: center;
+  row-gap: 1rem;
+
   @media (min-width: 60rem) {
+    justify-content: left;
+    align-content: left;
+    align-items: left;
+    justify-items: left;
     grid-column: span 1;
   }
 

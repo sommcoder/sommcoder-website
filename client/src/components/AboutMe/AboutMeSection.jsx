@@ -11,7 +11,9 @@ export default forwardRef(function AboutMeSection({ refStateObj }, ref) {
   const [moreState, toggleMore] = useState(false);
 
   function handleMoreClick() {
-    moreState ? toggleMore(false) : toggleMore(true);
+    console.log("clicked");
+    console.log(moreState);
+    toggleMore(true);
   }
 
   return (
@@ -24,31 +26,39 @@ export default forwardRef(function AboutMeSection({ refStateObj }, ref) {
           building my own web-based wine subscription business in response to
           the challenges posed by COVID-19. <br />
           <br />
-          Once I became proficient in CMS platforms (Squarespace & Shopify) for
-          my business, I embarked on a journey of self-study, online courses,
-          and personal projects to delve into the intricacies of web development
-          with HTML, CSS and JavaScript which grabbed and held my attention.
+          Once I became proficient in CMS platforms (like Squarespace & Shopify)
+          for my business, I embarked on a journey of self-study, online
+          courses, and personal projects to delve into the intricacies of web
+          development with HTML, CSS and JavaScript which grabbed and held my
+          attention.
         </p>
-        <div onClick={handleMoreClick} className="about-me-more-btn">
-          more
+        <div
+          onClick={handleMoreClick}
+          className={`about-me-more-btn ${moreState ? "hidden" : ""}`}
+        >
+          show more
         </div>
-        <div className="about-me-more-container">
-          <p>
-            Studying the minutiae of the wine industry certainly afforded me the
-            ability to dive deep into the vast subject of web programming.
-            <br />
-            <br />
-            Truthfully, I was always drawn to computers, even at 2 years old
-            when our home computer had a screen that was as large as me.
-            <br />
-            <br />
-            With my extensive Hospitality experience and technical skill set, I
-            offer a highly specialized knowledge base to help scale your online
-            presence and create a tonne of value for your shareholders.
-            <br />
-            <br />- Brian Davies
-          </p>
-        </div>
+
+        <p
+          className={`about-me-more-container ${
+            moreState ? "more-active" : "more-inactive"
+          }`}
+        >
+          Studying the minutiae of the wine industry certainly afforded me the
+          ability to dive deep into the vast subject of web programming.
+          <br />
+          <br />
+          Truthfully, I was always drawn to computers, even at 2 years old when
+          our home computer had a screen that was as large as me.
+          <br />
+          <br />
+          With my extensive Hospitality experience and technical skill set, I
+          offer a highly specialized knowledge base to help scale your online
+          presence and create a tonne of value for your shareholders.
+          <br />
+          <br />- Brian Davies
+        </p>
+
         <span className="personal-image-grouping">
           <img className="personal-images personal-image-1" src={youngme1} />
           <img className="personal-images personal-image-2" src={youngme2} />
@@ -62,7 +72,7 @@ export default forwardRef(function AboutMeSection({ refStateObj }, ref) {
 
 const StyledAboutMeSection = styled.section`
   background-image: url("/Wine Splatter.svg");
-
+  height: auto;
   .about-me-more-btn {
     font-weight: 600;
     display: grid;
@@ -74,16 +84,38 @@ const StyledAboutMeSection = styled.section`
   .about-me-more-container {
     display: none;
   }
+
+  .about-me-more-btn {
+    background-color: rgba(00, 00, 00, 0.1);
+    background: linear-gradient(
+      rgba(255, 255, 255, 0.774),
+      rgba(00, 00, 00, 0.1)
+    );
+    height: 1.6rem;
+    /* min-width: 32rem;
+    max-width: 60rem; */
+    width: 100%;
+    border-bottom: 1px solid grey;
+    opacity: 0.5;
+    box-shadow: 0 4px 3px -3px gray;
+    /* It's actually much simpler, whatever you set the blur to (3rd value), set the spread (4th value) to the negative of it. */
+    &:hover {
+      cursor: pointer;
+    }
+  }
   .about-me-container {
     display: grid;
+    padding: 0rem;
     margin: 2rem 2rem 1rem 2rem;
     grid-template-columns: 1fr;
-    grid-template-rows: 3rem auto auto;
-    /* column-gap: 1.5rem; */
-    // column gap only for larger screen sizes
-    row-gap: 1rem;
+    grid-template-rows: auto auto auto auto;
+    row-gap: 2rem;
 
     h3 {
+      vertical-align: middle;
+      text-align: left;
+      padding: 3rem 3rem 0rem 3rem;
+      width: auto;
       grid-column: span 2;
     }
     .personal-image-grouping {
@@ -91,6 +123,7 @@ const StyledAboutMeSection = styled.section`
       align-items: center;
       flex-direction: column;
       gap: 1rem;
+      padding: 0rem 3rem 3rem 3rem;
     }
 
     .personal-images {
@@ -114,14 +147,22 @@ const StyledAboutMeSection = styled.section`
     }
 
     p {
+      padding: 0rem 3rem;
       display: flex;
       grid-column: span 2;
     }
     ////////////////////////////////////////
-    @media (min-width: 87.5rem) {
-      grid-template-rows: 3rem auto;
-      grid-template-columns: 1fr 1fr;
+    // TODO: something is fucky with this
+    // 960px
 
+    @media (min-width: 52rem) {
+      grid-template-columns: 1fr 1fr;
+      p {
+        grid-column: span 2;
+      }
+      h3 {
+        grid-column: span 2;
+      }
       .personal-image-2 {
         display: block;
         max-height: calc(66.7rem / 3);
@@ -130,22 +171,32 @@ const StyledAboutMeSection = styled.section`
         border-radius: 2rem;
         // 1064 x 667
       }
-
-      p {
-        grid-column: span 1;
-      }
-    }
-    ////////////////////////////////////////////
-    @media (min-width: 150rem) {
-      grid-template-rows: 3rem auto;
-      grid-template-columns: 1fr;
-      h3 {
-        grid-column: span 1;
-      }
       .personal-image-grouping {
+        grid-column: span 2;
         flex-direction: row;
         justify-content: center;
       }
+    }
+
+    .more-active {
+      display: block;
+      z-index: 3;
+      color: rgba(0, 0, 0, 1);
+      max-height: auto;
+      transition: color 500ms linear 250ms;
+      transition: z-index 0ms ease-in-out 0s;
+      transition: max-height 0s ease-in-out 0s;
+    }
+    .hidden {
+      display: none;
+    }
+    .more-inactive {
+      z-index: 1;
+      color: rgba(0, 0, 0, 0);
+      max-height: 0rem;
+      transition: color 0s linear 0s;
+      transition: z-index 0s ease-in-out 0s;
+      transition: max-height 0s ease-in-out 0s;
     }
   }
 `;

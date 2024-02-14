@@ -101,7 +101,7 @@ const StyledProjectSection = styled.section`
   background-image: linear-gradient(to top, transparent, 90%, #837960),
     linear-gradient(to bottom, transparent, 90%, #837960),
     url("/code image.png");
-  height: 70rem;
+  height: 65rem;
   overflow-x: hidden;
 `;
 

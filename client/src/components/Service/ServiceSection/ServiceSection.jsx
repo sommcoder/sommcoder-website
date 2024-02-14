@@ -45,11 +45,12 @@ const StyledServiceSection = styled.section`
   .services-table-header {
     font-size: 2.4rem;
     color: white;
-    background-color: rgba(228, 202, 202, 0.671);
+    background-color: rgba(243, 179, 216, 0.671);
     border-radius: 2rem;
+    padding: 2rem;
     display: grid;
-    align-items: center;
-    justify-items: center;
+    justify-content: center;
+    align-content: center;
   }
 
   .services-table-container {

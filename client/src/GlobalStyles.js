@@ -15,6 +15,13 @@ const GlobalStyles = createGlobalStyle`${css`
     font-size: 62.5%; // allows for: 1rem = 10px
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-weight: inherit;
+    font-style: inherit;
+    font-family: inherit;
+    font-weight: inherit;
+    font-style: inherit;
+    font-family: inherit;
+    vertical-align: baseline;
     line-height: 1;
     margin: 0;
     padding: 0;

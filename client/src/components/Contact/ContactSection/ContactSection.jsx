@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef } from "react";
 import styled from "styled-components";
 import ContactFormItem from "../ContactFormItem/ContactFormItem";
 import { forwardRef } from "react";
@@ -6,11 +6,40 @@ import { forwardRef } from "react";
 import { formInputArr } from "../../../menus/contactMenu.jsx";
 
 export default forwardRef(function ContactSection({ refStateObj }, ref) {
-  const [inputFocus, toggleInputFocus] = useState(false);
+  const formRef = useRef();
 
+  function handleFormSubmit(ev) {
+    ev.preventDefault();
+    console.log("ev.target.form:", ev.target.form);
+    console.log("formRef:", formRef);
+
+    const formData = new FormData(formRef.current);
+    console.log("formData:", formData);
+
+    // Access form values
+    const fname = formData.get("fname");
+    const lname = formData.get("lname");
+    const email = formData.get("email");
+    const message = formData.get("message");
+
+    // Do something with the form data (e.g., log it)
+    console.log("Name:", fname);
+    console.log("Email:", email);
+    console.log("Message:", message);
+    // TODO: send email direct to yourself
+
+    // Clear form fields
+    ev.target.form.reset();
+
+    // need to also change the state f
+  }
   return (
-    <StyledContactSection ref={refStateObj.contact} className="content-section">
-      <form className="content-card">
+    <StyledContactSection
+      length={formInputArr.length - 1}
+      ref={refStateObj.contact}
+      className="content-section"
+    >
+      <form ref={formRef} id="contact-form" className="content-card">
         <h4>HOW CAN I HELP?</h4>
         {formInputArr.map(({ title, description, errorMsg, type, id }, i) => (
           <ContactFormItem
@@ -20,11 +49,11 @@ export default forwardRef(function ContactSection({ refStateObj }, ref) {
             errorMsg={errorMsg}
             type={type}
             id={id}
-            inputFocus={inputFocus}
-            toggleInputFocus={toggleInputFocus}
           />
         ))}
-        <button type="submit">Send</button>
+        <button onClick={handleFormSubmit} form="contact-form" type="submit">
+          Send
+        </button>
       </form>
     </StyledContactSection>
   );
@@ -34,18 +63,18 @@ const StyledContactSection = styled.section`
   background-image: url("/Wine Splatter.svg");
 
   form {
-    min-height: 30rem;
-    min-width: 28rem;
-    max-width: 75rem;
+    min-height: 40rem;
+    min-width: 30rem;
+    width: auto;
+    margin: 1.5rem;
     display: grid;
     background-color: white;
-    margin: 3rem;
-    padding: 2rem;
     border-radius: 2rem;
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-rows: ${({ length }) => `repeat(${length}, "1fr")`};
     align-items: center;
     justify-items: center;
-    row-gap: 0.5rem;
+    justify-content: center;
+    row-gap: 1.5rem;
     box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.08),
       0 0.2rem 0.2rem rgba(0, 0, 0, 0.12), 0 0.4rem 0.4rem rgba(0, 0, 0, 0.16),
       0 0.8rem 0.8rem rgba(0, 0, 0, 0.2);

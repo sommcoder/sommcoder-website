@@ -100,6 +100,7 @@ const StyledPricingItem = styled.li`
     align-items: left;
     width: 100%;
     z-index: 3;
+
     min-height: 4rem;
     background-color: whitesmoke;
     grid-template-columns: 1fr 1fr;
@@ -108,6 +109,8 @@ const StyledPricingItem = styled.li`
     border-bottom: 0.1rem solid lightgrey;
     .price-header {
       justify-self: right;
+      align-self: baseline;
+      align-content: center;
     }
     &:active {
       filter: brightness(85%);
@@ -130,12 +133,12 @@ const StyledPricingItem = styled.li`
 
   .pricing-menu-item-header {
     display: grid;
-    align-content: center; // vertical center
+    align-content: center;
     justify-self: left;
     min-height: 4rem;
     /* width: auto; */
 
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
   .pricing-submenu-container {
     /* width: inherit; */
