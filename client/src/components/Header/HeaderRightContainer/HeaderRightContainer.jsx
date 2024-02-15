@@ -5,7 +5,7 @@ import NavIconBox from "../NavIconBox/NavIconBox";
 
 import { ICON_COMPONENTS } from "../../../menus/iconMenu";
 
-export default function HeaderRightContainer() {
+export default function HeaderRightContainer({ toggleMobileMenu, mobileMenu }) {
   return (
     <StyledHeaderRightContainer>
       <span className="header-icon-container">
@@ -18,7 +18,10 @@ export default function HeaderRightContainer() {
         ))}
       </span>
       <DownloadBtn />
-      <HamburgerMenu />
+      <HamburgerMenu
+        toggleMobileMenu={toggleMobileMenu}
+        mobileMenu={mobileMenu}
+      />
     </StyledHeaderRightContainer>
   );
 }

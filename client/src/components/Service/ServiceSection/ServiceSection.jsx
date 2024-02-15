@@ -30,13 +30,13 @@ const StyledServiceSection = styled.section`
     grid-template-rows: 4.5rem auto;
     justify-items: center;
 
-    row-gap: 1rem;
+    row-gap: 1.5rem;
 
     min-height: 30rem;
     min-width: 28rem;
     max-width: 150rem;
 
-    margin: 1rem 2rem;
+    margin: 3rem;
     /* padding: 2rem; */
     color: black;
     border-radius: 2rem;
@@ -44,8 +44,9 @@ const StyledServiceSection = styled.section`
 
   .services-table-header {
     font-size: 2.4rem;
-    color: white;
-    background-color: rgba(243, 179, 216, 0.671);
+    color: black;
+    border: 0.1rem solid pink;
+    background-color: whitesmoke;
     border-radius: 2rem;
     padding: 2rem;
     display: grid;

@@ -48,6 +48,7 @@ export default function ContactFormItem({
         ></textarea>
       ) : (
         <input
+          required
           form="contact-form"
           autoComplete="on"
           id={id}

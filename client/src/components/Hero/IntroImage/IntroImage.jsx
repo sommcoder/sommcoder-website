@@ -21,7 +21,6 @@ export default function IntroImage() {
   );
 }
 const StyledIntroImageBox = styled.span`
-  // ? The Component has a width and height based on the static contents inside it which is header-image. wine-stain-border is absolutely positioned to the parent component and its sizing will always be 165% of it
   position: relative;
   display: grid;
   max-height: 100%;
@@ -59,6 +58,7 @@ const StyledIntroImageBox = styled.span`
   }
   // 768px
   @media (min-width: 48rem) {
+    grid-row: 1 / span 2;
     justify-self: center;
     align-self: center;
     margin-left: 8rem;

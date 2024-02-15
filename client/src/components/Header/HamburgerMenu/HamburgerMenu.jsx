@@ -1,8 +1,13 @@
 ﻿import styled from "styled-components";
 
-export default function HamburgerMenu() {
+export default function HamburgerMenu({ toggleMobileMenu, mobileMenu }) {
+  function handleMenuClick() {
+    console.log("menu click");
+    toggleMobileMenu((prevState) => !prevState);
+  }
+
   return (
-    <StyledHamburgerMenu>
+    <StyledHamburgerMenu onClick={handleMenuClick} toggleMobileMenu>
       <span></span>
       <span></span>
       <span></span>
@@ -26,6 +31,13 @@ const StyledHamburgerMenu = styled.span`
     filter: brightness(85%);
   }
 
+  ${({ toggleMobileMenu }) =>
+    toggleMobileMenu
+      ? `
+  position: absolute;
+  `
+      : ``};
+
   span {
     height: 0.3rem;
     background-color: white;
@@ -33,6 +45,7 @@ const StyledHamburgerMenu = styled.span`
     width: 3rem;
   }
 
+  // 800px
   @media (min-width: 50rem) {
     // hamburger menu disappears at Tablet+
     // and the Download Button and Sidebar Appear

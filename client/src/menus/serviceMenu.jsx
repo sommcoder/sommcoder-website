@@ -1,3 +1,4 @@
+// might be best if we add an id to these objects and not use the title as the "foreign key" so to speak to our pricingMenu List
 export const servicesArr = [
   {
     title: "Launch",
@@ -42,6 +43,17 @@ export const servicesArr = [
       <br />,
       <br />,
       `I can provide expertise and drive e-commerce revenue without needing a full time team.`,
+    ],
+  },
+  {
+    title: "Contract",
+    subtitle: "Ad Hoc Developer Services",
+    icon: "",
+    description: [
+      `You get a self-taught developer with intermediate-level knowledge of JavaScript, React, HTML and CSS.`,
+      <br />,
+      <br />,
+      `I'm a mature worker with over 20 years of general work experience and can work with a wide range of people and personalities in order to meet your deliverables!`,
     ],
   },
 ];

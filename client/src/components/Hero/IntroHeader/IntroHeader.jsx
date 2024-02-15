@@ -62,7 +62,13 @@ const StyledIntroHeader = styled.span`
   }
 
   // 768px
+  /* @media (min-width: 30rem) {
+    grid-column: span 2;
+  } */
+
+  // 768px
   @media (min-width: 48rem) {
     margin-bottom: 0rem;
+    grid-column: span 2;
   }
 `;

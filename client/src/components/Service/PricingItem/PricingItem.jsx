@@ -46,11 +46,12 @@ export default function PricingItem({
   console.log("priceTblState[item.id]:", priceTblState[item.id]);
   console.log("item.id:", item.id);
   return (
-    <StyledPricingItem
-      data-item={item.id}
-      onClick={(ev) => handleMenuClick(ev)}
-    >
-      <div className="pricing-menu-item-header-container">
+    <StyledPricingItem>
+      <div
+        data-item={item.id}
+        onClick={(ev) => handleMenuClick(ev)}
+        className="pricing-menu-item-header-container"
+      >
         <h5 className="pricing-menu-item-header">{item.service}</h5>
         <h5 className="pricing-menu-item-header price-header">{`$${item.price}`}</h5>
       </div>

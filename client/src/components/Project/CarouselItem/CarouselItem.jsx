@@ -15,11 +15,23 @@ export default function CarouselItem({ item, indexFromCurrent }) {
       activeCard={indexFromCurrent == 0 ? true : false}
       onClick={(ev) => linkToProject(ev, item.links.youtube)}
     >
-      <iframe
-        src={item.links.youtube}
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;  web-share"
-        allowFullScreen
-      />
+      <div className="carousel-content-wrapper">
+        {item.links.youtube ? (
+          <iframe
+            src={item.links.youtube}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; web-share;"
+            allowFullScreen
+          />
+        ) : (
+          <div className="carousel-item-thumbnail-container">
+            <img className="carousel-item-thumbnail" src={item.thumbnail} />
+          </div>
+        )}
+        <div className="carousel-item-banner">
+          <h3>{item.title}</h3>
+          <p>{item.short}</p>
+        </div>
+      </div>
       <div className="carousel-item-icon-container">
         {Object.keys(item.links).map((link, i) => {
           return item.links[link] ? (
@@ -35,13 +47,11 @@ export default function CarouselItem({ item, indexFromCurrent }) {
   );
 }
 
-// TODO: why is active applying to all instead of each
-
 const StyledCarouselItem = styled.div`
   position: absolute;
   top: 7.5%; // hopefully this avoids that glitchy issue we were seeing
   display: grid;
-  grid-template-rows: 50rem 6rem;
+  grid-template-rows: 50rem auto;
   justify-items: center;
   text-align: center;
   width: 31rem; // same width as the width of the container
@@ -69,8 +79,38 @@ box-shadow: 0 0 0.1rem 0.1rem rgba(255, 255, 255, 0.08),
   filter: none;
   `}
 
+.carousel-content-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .carousel-item-banner {
+    display: grid;
+    row-gap: 0.5rem;
+    align-content: center;
+    bottom: 0%;
+    position: absolute;
+    height: 6rem;
+    width: 100%;
+    z-index: 2;
+    font-size: 1.8rem;
+    color: black;
+    font-weight: 800;
+    background-color: rgba(255, 255, 255, 0.9);
+
+    h3 {
+    }
+
+    p {
+      font-size: 1.2rem;
+      font-style: italic;
+    }
+  }
+
   iframe {
     border: none;
+    margin: 0;
     width: 100%;
     height: 100%;
     border-radius: 2rem 2rem 0rem 0rem;
@@ -78,6 +118,7 @@ box-shadow: 0 0 0.1rem 0.1rem rgba(255, 255, 255, 0.08),
 
   .carousel-item-icon-container {
     display: flex;
+    z-index: 2;
     width: 100%;
     height: 100%;
     align-content: center;
@@ -87,6 +128,12 @@ box-shadow: 0 0 0.1rem 0.1rem rgba(255, 255, 255, 0.08),
     column-gap: 1rem;
     border-radius: 0rem 0rem 2rem 2rem;
     background-color: rgb(80, 104, 84);
+  }
+
+  svg {
+    &:hover {
+      filter: brightness(-40%);
+    }
   }
 
   .carousel-icon-box {
@@ -105,14 +152,17 @@ box-shadow: 0 0 0.1rem 0.1rem rgba(255, 255, 255, 0.08),
     transition: 200ms ease-in-out;
     transform: translateY(-0.75rem);
   }
+  .carousel-item-thumbnail-container {
+    width: 100%;
+    height: 100%;
+    border-radius: 2rem 2rem 0rem 0rem;
+  }
 
-  img {
+  .carousel-item-thumbnail {
     pointer-events: none;
-    max-height: 21rem;
-    width: 90%;
-    border-radius: 1rem;
-    box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.08),
-      0 0.2rem 0.2rem rgba(0, 0, 0, 0.12), 0 0.4rem 0.4rem rgba(0, 0, 0, 0.16),
-      0 0.8rem 0.8rem rgba(0, 0, 0, 0.2);
+    height: auto;
+    overflow-y: hidden;
+    width: 100%;
+    border-radius: 2rem 2rem 0rem 0rem;
   }
 `;

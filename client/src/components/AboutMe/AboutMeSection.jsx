@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { IoIosArrowDown } from "react-icons/io";
 
 import { forwardRef } from "react";
 import youngme1 from "/me-computer1.jpg";
@@ -20,7 +21,7 @@ export default forwardRef(function AboutMeSection({ refStateObj }, ref) {
     <StyledAboutMeSection ref={refStateObj.about} className="content-section">
       <div className="about-me-container content-card">
         <h3>About Me:</h3>
-        <p>
+        <p className="relative-paragraph">
           After more than 12 years in the Hospitality industry as a wine
           sommelier, I discovered my passion for software development while
           building my own web-based wine subscription business in response to
@@ -31,14 +32,15 @@ export default forwardRef(function AboutMeSection({ refStateObj }, ref) {
           courses, and personal projects to delve into the intricacies of web
           development with HTML, CSS and JavaScript which grabbed and held my
           attention.
+          <div
+            onClick={handleMoreClick}
+            className={`about-me-more-btn-overlay ${moreState ? "hidden" : ""}`}
+          >
+            <button id="show-more-btn">
+              Show more <IoIosArrowDown />
+            </button>
+          </div>
         </p>
-        <div
-          onClick={handleMoreClick}
-          className={`about-me-more-btn ${moreState ? "hidden" : ""}`}
-        >
-          show more
-        </div>
-
         <p
           className={`about-me-more-container ${
             moreState ? "more-active" : "more-inactive"
@@ -83,32 +85,61 @@ const StyledAboutMeSection = styled.section`
 
   .about-me-more-container {
     display: none;
+    margin: 2rem;
   }
 
-  .about-me-more-btn {
-    background-color: rgba(00, 00, 00, 0.1);
+  .about-me-more-btn-overlay {
     background: linear-gradient(
       rgba(255, 255, 255, 0.774),
       rgba(00, 00, 00, 0.1)
     );
-    height: 1.6rem;
-    /* min-width: 32rem;
-    max-width: 60rem; */
+    position: absolute;
+    display: grid;
+    justify-items: center;
+    align-items: end;
+    bottom: -8%;
+    right: 0%;
+    height: 4rem;
     width: 100%;
-    border-bottom: 1px solid grey;
-    opacity: 0.5;
-    box-shadow: 0 4px 3px -3px gray;
-    /* It's actually much simpler, whatever you set the blur to (3rd value), set the spread (4th value) to the negative of it. */
+    background: linear-gradient(
+      to bottom,
+      rgba(247, 243, 243, 0.404),
+      rgba(00, 00, 00, 0.1)
+    );
+    z-index: 4;
     &:hover {
       cursor: pointer;
     }
+    @media (min-width: 32rem) {
+      // desktop styling here
+      bottom: -18%;
+    }
   }
+  #show-more-btn {
+    display: grid;
+    grid-template-columns: auto 1rem;
+    justify-content: center;
+    column-gap: 0.2rem;
+    align-content: center;
+    align-items: center;
+    color: black;
+    background: #cac5c5;
+    border: 0.1rem solid darkgrey;
+    padding: 0.1rem;
+    height: 2rem;
+    font-size: 1rem;
+    z-index: 4;
+  }
+  .relative-paragraph {
+    position: relative;
+  }
+
   .about-me-container {
     display: grid;
     padding: 0rem;
-    margin: 2rem 2rem 1rem 2rem;
+    margin: 3rem;
     grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto auto;
+    grid-template-rows: auto auto auto;
     row-gap: 2rem;
 
     h3 {
@@ -151,10 +182,7 @@ const StyledAboutMeSection = styled.section`
       display: flex;
       grid-column: span 2;
     }
-    ////////////////////////////////////////
-    // TODO: something is fucky with this
     // 960px
-
     @media (min-width: 52rem) {
       grid-template-columns: 1fr 1fr;
       p {

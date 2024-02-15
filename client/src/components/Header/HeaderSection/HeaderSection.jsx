@@ -2,11 +2,14 @@
 import HeaderLeftContainer from "../HeaderLeftContainer/HeaderLeftContainer";
 import HeaderRightContainer from "../HeaderRightContainer/HeaderRightContainer";
 
-export default function HeaderSection() {
+export default function HeaderSection({ toggleMobileMenu, mobileMenu }) {
   return (
     <StyledHeaderSection>
       <HeaderLeftContainer />
-      <HeaderRightContainer />
+      <HeaderRightContainer
+        toggleMobileMenu={toggleMobileMenu}
+        mobileMenu={mobileMenu}
+      />
     </StyledHeaderSection>
   );
 }

@@ -11,8 +11,7 @@ export default function OverlaySection({ refStateObj }) {
 const StyledOverlaySection = styled.nav`
   z-index: 5;
   position: fixed;
-  background-color: #d4c6e4;
-  opacity: 95%;
+  background-color: rgba(212, 198, 228, 0.9);
   height: 100%;
   width: 45%;
   right: 0;

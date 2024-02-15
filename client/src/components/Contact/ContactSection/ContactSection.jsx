@@ -10,6 +10,11 @@ export default forwardRef(function ContactSection({ refStateObj }, ref) {
 
   function handleFormSubmit(ev) {
     ev.preventDefault();
+    // we should probably provide some clientside validation here right???
+
+    // TODO: there is no ev.target.form
+    console.log("ev:", ev);
+    console.log("ev.target:", ev.target);
     console.log("ev.target.form:", ev.target.form);
     console.log("formRef:", formRef);
 
@@ -26,11 +31,10 @@ export default forwardRef(function ContactSection({ refStateObj }, ref) {
     console.log("Name:", fname);
     console.log("Email:", email);
     console.log("Message:", message);
-    // TODO: send email direct to yourself
+    // TODO: send to Firestore which maybe we can get the server to send you an email notification when they do?
 
     // Clear form fields
     ev.target.form.reset();
-
     // need to also change the state f
   }
   return (
@@ -38,6 +42,7 @@ export default forwardRef(function ContactSection({ refStateObj }, ref) {
       length={formInputArr.length - 1}
       ref={refStateObj.contact}
       className="content-section"
+      onSubmit={handleFormSubmit}
     >
       <form ref={formRef} id="contact-form" className="content-card">
         <h4>HOW CAN I HELP?</h4>
@@ -51,7 +56,7 @@ export default forwardRef(function ContactSection({ refStateObj }, ref) {
             id={id}
           />
         ))}
-        <button onClick={handleFormSubmit} form="contact-form" type="submit">
+        <button onSubmit={handleFormSubmit} form="contact-form" type="submit">
           Send
         </button>
       </form>
@@ -66,7 +71,7 @@ const StyledContactSection = styled.section`
     min-height: 40rem;
     min-width: 30rem;
     width: auto;
-    margin: 1.5rem;
+    margin: 2rem 1.5rem 3rem 1.5rem;
     display: grid;
     background-color: white;
     border-radius: 2rem;
@@ -84,11 +89,14 @@ const StyledContactSection = styled.section`
     color: black;
     font-size: 1.8rem;
     text-align: center;
+    margin-bottom: 1rem;
   }
 
   button {
     font-size: 1.6rem;
-    margin-top: 1.5rem;
     width: 50%; // change this??
+    &:active {
+      filter: brightness(75%);
+    }
   }
 `;

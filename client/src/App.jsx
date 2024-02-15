@@ -6,9 +6,11 @@ import wineCornerDrip from "/wine-corner-drip.svg";
 
 import * as Section from "./components/index.js";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 export default function App() {
+  const [mobileMenu, toggleMobileMenu] = useState(false);
+
   console.log("Section:", Section);
   const refStateObj = {
     main: useRef(null),
@@ -25,8 +27,17 @@ export default function App() {
     <>
       <GlobalStyles />
       <StyledApp className="App">
-        {/* <Section.Overlay refStateObj={refStateObj} /> */}
-        <Section.Header refStateObj={refStateObj} navLabelArr={navLabelArr} />
+        {/* <Section.Overlay
+          refStateObj={refStateObj}
+          mobileMenu={mobileMenu}
+          toggleMobileMenu={toggleMobileMenu}
+        /> */}
+        <Section.Header
+          refStateObj={refStateObj}
+          navLabelArr={navLabelArr}
+          mobileMenu={mobileMenu}
+          toggleMobileMenu={toggleMobileMenu}
+        />
         <StyledContentWrapper>
           <StyledContentOverlay>
             <div className="wine-stain-container">
