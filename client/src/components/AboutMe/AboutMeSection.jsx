@@ -37,7 +37,7 @@ export default forwardRef(function AboutMeSection({ refStateObj }, ref) {
             className={`about-me-more-btn-overlay ${moreState ? "hidden" : ""}`}
           >
             <button id="show-more-btn">
-              Show more <IoIosArrowDown />
+              more <IoIosArrowDown />
             </button>
           </div>
         </p>
@@ -85,7 +85,6 @@ const StyledAboutMeSection = styled.section`
 
   .about-me-more-container {
     display: none;
-    margin: 2rem;
   }
 
   .about-me-more-btn-overlay {
@@ -99,12 +98,12 @@ const StyledAboutMeSection = styled.section`
     align-items: end;
     bottom: -8%;
     right: 0%;
-    height: 4rem;
+    height: 6rem;
     width: 100%;
     background: linear-gradient(
       to bottom,
-      rgba(247, 243, 243, 0.404),
-      rgba(00, 00, 00, 0.1)
+      rgba(247, 243, 243, 0.4),
+      rgba(247, 243, 243, 0.6)
     );
     z-index: 4;
     &:hover {
@@ -123,12 +122,13 @@ const StyledAboutMeSection = styled.section`
     align-content: center;
     align-items: center;
     color: black;
-    background: #cac5c5;
+    background: #d6d5d5;
     border: 0.1rem solid darkgrey;
     padding: 0.1rem;
     height: 2rem;
     font-size: 1rem;
     z-index: 4;
+    min-width: 6.5rem;
   }
   .relative-paragraph {
     position: relative;

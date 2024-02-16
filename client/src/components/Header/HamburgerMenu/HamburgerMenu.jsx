@@ -1,21 +1,43 @@
-﻿import styled from "styled-components";
+﻿import styled, { keyframes } from "styled-components";
 
-export default function HamburgerMenu({ toggleMobileMenu, mobileMenu }) {
+// TODO: need to add an aria-label for all anchor tags and li
+export default function HamburgerMenu({
+  toggleMobileMenu,
+  mobileMenu,
+  menuAnimation,
+  toggleMenuAnimation,
+}) {
   function handleMenuClick() {
     console.log("menu click");
     toggleMobileMenu((prevState) => !prevState);
   }
 
+  // TODO: make the keyframes animation
+  // line goes right and shrinks, then goes down and grows and turns black as it appears now on the pink overlay section and on the overlay it serves as the indicator for where the user is on the website
+  function handleAnimationEnd() {
+    // Going to then reenable pointer-events on the hamburgerMenu
+  }
+
   return (
-    <StyledHamburgerMenu onClick={handleMenuClick} toggleMobileMenu>
-      <span></span>
-      <span></span>
-      <span></span>
+    <StyledHamburgerMenu onClick={handleMenuClick} mobileMenu={mobileMenu}>
+      <span className="top-line"></span>
+      <span className="middle-line-container">
+        <span
+          className="middle-line"
+          onAnimationEnd={handleAnimationEnd}
+        ></span>
+      </span>
+      <span className="bottom-line"></span>
     </StyledHamburgerMenu>
   );
 }
+
 const StyledHamburgerMenu = styled.span`
   display: flex;
+  z-index: 10;
+  position: absolute;
+  top: 30%;
+  right: 0;
   flex-direction: column;
   justify-content: space-around;
   width: 3rem;
@@ -31,18 +53,66 @@ const StyledHamburgerMenu = styled.span`
     filter: brightness(85%);
   }
 
-  ${({ toggleMobileMenu }) =>
-    toggleMobileMenu
-      ? `
-  position: absolute;
-  `
-      : ``};
+  ${({ mobileMenu }) =>
+    mobileMenu &&
+    `
+      .top-line {
+        transform: rotate(45deg) translateY(0.65rem) translateX(0.5rem);
+      }
+        .middle-line {
+    @keyframes middle-line-animation {
+      0% {
+        width: 1.5rem;
+        height: 0.3rem;
+        transform: translate(1rem, 0rem);
+      }
+      25% {
+        width: 0.75rem;
+        height: 0.3rem;
+        transform: translate(3.75rem, 0rem);
+       
+      }
+      50% {
+        width: 0.3rem;
+        height: 1.5rem;
+        transform: translate(3.75rem, 0rem);
+        background-color: white;
+      
+      }
+      75% {
+        width: 0.3rem;
+        height: 2rem;
+        display: block;
+       
+      }
+      100% {
+        width: 0.3rem;
+        height: 2.5rem;
+        transform: translate(3.75rem, 3.5rem);
+        background-color: black;
+        transition: background-color 1ms linear 500ms;
+        display: none;
+      }
+    }
+    animation: middle-line-animation 1000ms forwards;
+  }
+      .bottom-line {
+        transform: rotate(-45deg) translateY(-0.65rem) translateX(0.5rem);
+      }
+    `}
 
   span {
     height: 0.3rem;
     background-color: white;
     border-radius: 0.5rem;
     width: 3rem;
+    transition: all 200ms linear;
+  }
+  .middle-line {
+    position: absolute;
+  }
+  .middle-line-container {
+    background-color: transparent;
   }
 
   // 800px
@@ -52,3 +122,9 @@ const StyledHamburgerMenu = styled.span`
     display: none;
   }
 `;
+
+/*
+ 
+
+ 
+*/

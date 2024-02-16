@@ -7,17 +7,11 @@ export default function PricingItem({
   item,
   priceTblState,
   adjustPriceTblState,
-  count,
-  length,
 }) {
-  // console.log(count);
-  console.log("item:", item);
   function handleMenuClick(ev) {
     ev.preventDefault();
     let targetMenu = ev.currentTarget.dataset.item;
-    console.log("targetMenu:", targetMenu);
     const newTblStateObj = priceTblState;
-    console.log("newTblStateObj:", newTblStateObj);
     if (newTblStateObj[targetMenu]) {
       newTblStateObj[targetMenu] = false;
     } else {
@@ -27,7 +21,6 @@ export default function PricingItem({
         newTblStateObj[key] = false;
       });
     }
-    // console.log("newTblStateObj:", newTblStateObj);
     adjustPriceTblState((tblStateObj) => ({ ...tblStateObj, newTblStateObj }));
   }
 

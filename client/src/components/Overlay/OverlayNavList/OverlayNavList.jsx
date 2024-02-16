@@ -1,18 +1,92 @@
 ﻿import styled from "styled-components";
 import { ICON_COMPONENTS } from "../../../menus/iconMenu";
+import { useState } from "react";
 
-export default function OverlayNavList() {
+export default function OverlayNavList({
+  refStateObj,
+  mobileMenu,
+  toggleMobileMenu,
+  navLabelArr,
+  menuAnimation,
+  toggleMenuAnimation,
+}) {
+  function handleLinkClick(ev) {
+    ev.preventDefault();
+    const section = ev.target.dataset.section;
+    console.log("section:", section);
+    window.scrollTo({
+      top: refStateObj[section].current.offsetTop - 200 || 0, // needs to be minus cause this offsetTop is the pixel distance FROM the top
+      left: 0,
+      behavior: "smooth",
+    });
+    const position = ev.target.dataset.sequence;
+    console.log("position:", position);
+    const newNavMenuState = navMenuState;
+
+    // current remains true:
+    newNavMenuState[section] = true;
+    Object.keys(newNavMenuState).forEach((key) => {
+      if (key === section) return; // skip current
+      newNavMenuState[key] = false;
+    });
+
+    setNavMenuState((prevNavMenuState) => ({
+      ...prevNavMenuState,
+      newNavMenuState,
+    }));
+    adjustLineIndex(position); // record the new currentPosition
+  }
+
+  // tracks the active state, the reference line will need to know where to go. The distance will be fixed. This won't change with the screen width.
+  const iconArr = Object.keys(ICON_COMPONENTS);
+  const iconCount = iconArr.length;
+  const navCount = navLabelArr.length;
+  // each index is 6rem away from the ones next to it
+  const navIconInterval = 27.5 / iconCount + 0.5; // in rem
+  const initNavMenuStateObj = {};
+  // set the state object
+  navLabelArr.forEach((nav) =>
+    nav === "main"
+      ? (initNavMenuStateObj[nav] = true)
+      : (initNavMenuStateObj[nav] = false)
+  );
+  // active / inactive: this state tracks the activity, when one is active, we must deactive the others
+  const [currLineIndex, adjustLineIndex] = useState(null);
+  const [navMenuState, setNavMenuState] = useState(initNavMenuStateObj);
+  console.log("navMenuState:", navMenuState);
+  // will need to find the index difference between the CURRENT and the NEWLY CLICKED list item and multiply that by 6rem
+
   return (
-    <StyledOverlayNavList>
-      <ul className="overlay-footer-menu">
-        {Object.keys(ICON_COMPONENTS).map((title, i) => (
+    <StyledOverlayNavList
+      iconCount={iconCount}
+      navCount={navCount}
+      navIconInterval={navIconInterval}
+      currLineIndex={currLineIndex}
+    >
+      <ul className="overlay-nav-menu">
+        <StyledReferenceLine></StyledReferenceLine>
+        {navLabelArr.map((label, i) => (
+          <StyledOverlayLinkItem
+            data-section={label}
+            data-sequence={i} // should be fine mathematically to keep this as a 0 index
+            active={navMenuState[label]} // will be true if active
+            onClick={handleLinkClick}
+            key={i}
+          >
+            {label}
+          </StyledOverlayLinkItem>
+        ))}
+      </ul>
+      <ul className="overlay-icon-menu">
+        {iconArr.map((title, i) => (
           <li key={i}>
             <a
+              className="icon-link"
               target="_blank"
               rel="noopener noreferrer"
               href={ICON_COMPONENTS[title].link}
             >
-              {title}
+              {ICON_COMPONENTS[title].component}
             </a>
           </li>
         ))}
@@ -25,25 +99,73 @@ const StyledOverlayNavList = styled.div`
   display: grid;
   justify-items: center;
   position: relative; // for the hamburger x
+  grid-template-rows: 27.5rem 27.5rem;
+  row-gap: 2rem;
 
-  ul {
+  .active {
+    // class when the nav reference is active
+  }
+
+  .overlay-nav-menu {
+    position: relative;
+    align-items: center;
     justify-items: center;
     display: grid;
-    row-gap: 2rem;
-    width: auto;
+    row-gap: 0.5rem;
+    width: 100%;
+    padding-bottom: 2rem; // hack fix
+    border-bottom: 0.1rem solid rgba(0, 0, 0, 0.5);
+    ${({ navCount }) =>
+      navCount &&
+      `grid-template-rows: repeat(${navCount}, 1fr);
+    `}
+  }
+
+  .overlay-icon-menu {
+    align-items: center;
+    justify-items: center;
+    display: grid;
+    row-gap: 0.5rem;
+    width: 100%;
+    ${({ iconCount }) =>
+      iconCount &&
+      `grid-template-rows: repeat(${iconCount}, 1fr);
+    `}
   }
   li {
+    display: grid;
+    justify-content: center;
+    align-content: center;
     font-size: 2rem;
     color: black;
     list-style: none;
-    margin-top: 0.5rem;
 
     &:hover {
       cursor: pointer;
     }
-
-    a {
-      color: black;
-    }
   }
+  .icon-link {
+    display: grid;
+    align-items: center;
+    height: 4rem;
+    width: 100%;
+    min-height: 5rem;
+    color: black;
+  }
+`;
+
+const StyledReferenceLine = styled.span`
+  position: absolute;
+  height: 3rem;
+  background-color: black;
+  width: 0.3rem;
+  right: 5%;
+  top: -7%; // starting point
+  border-radius: 0.5rem;
+`;
+
+const StyledOverlayLinkItem = styled.li`
+  justify-self: center;
+  font-weight: 800;
+  font-size: 2.2rem;
 `;

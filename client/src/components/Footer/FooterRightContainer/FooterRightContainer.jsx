@@ -2,8 +2,6 @@ import { useEffect } from "react";
 import styled from "styled-components";
 
 export default function FooterRightContainer({ refStateObj, navLabelArr }) {
-  // Need to get the locations on the page.
-
   function handleLinkClick(ev) {
     console.log("footer click");
     window.scrollTo({

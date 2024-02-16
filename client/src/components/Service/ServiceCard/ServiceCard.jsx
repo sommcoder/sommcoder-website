@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-import { LuArrowUpCircle } from "react-icons/lu";
-
 import { useState } from "react";
 import PricingTable from "../PricingTable/PricingTable";
 
@@ -10,18 +8,8 @@ import { pricingMenuObj } from "../../../menus/pricingMenu";
 export default function ServiceCard({ service }) {
   const [cardState, toggleCardState] = useState(false);
   function handleDropdownClick() {
-    console.log("clicked");
-    console.log(cardState);
-    cardState ? toggleCardState(false) : toggleCardState(true);
+    toggleCardState((prevState) => !prevState);
   }
-
-  console.log("service:", service);
-
-  // could also just get rid of Table and map all of the PricingItems here
-  console.log("service.title:", service.title);
-
-  console.log("pricingMenuObj:", pricingMenuObj);
-  console.log("pricingMenuObj[service.title]:", pricingMenuObj[service.title]);
 
   return (
     <StyledServiceCard onClick={handleDropdownClick}>
@@ -37,11 +25,7 @@ export default function ServiceCard({ service }) {
         menu={pricingMenuObj[service.title]}
         title={service.title}
       />
-      <div className="service-card-bottom">
-        {/* <span active={cardState} className="dropdown-button-wrapper">
-          <LuArrowUpCircle style={{ transform: "rotate(180deg)" }} />
-        </span> */}
-      </div>
+      <div className="service-card-bottom"></div>
     </StyledServiceCard>
   );
 }
@@ -113,9 +97,5 @@ const StyledServiceCard = styled.span`
     justify-items: center;
     align-items: center;
     /* transform: rotate(180deg); */
-  }
-
-  @media (min-width: 80rem) {
-    // desktop styling here
   }
 `;

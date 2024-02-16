@@ -55,6 +55,6 @@ export const carouselItemsArr = [
     },
     title: "SommCoder Website",
     short: "A React Website Hosted on Google's Firebase",
-    long: "The UI is built with React & styled-components and hosted on Google's Firebase",
+    long: "The UI is built with React & styled-components and hosted on Google's Firebase. 100% of the components,transitions and animations are custom made and designed",
   },
 ];

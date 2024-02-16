@@ -2,13 +2,20 @@
 import HeaderLeftContainer from "../HeaderLeftContainer/HeaderLeftContainer";
 import HeaderRightContainer from "../HeaderRightContainer/HeaderRightContainer";
 
-export default function HeaderSection({ toggleMobileMenu, mobileMenu }) {
+export default function HeaderSection({
+  toggleMobileMenu,
+  mobileMenu,
+  menuAnimation,
+  toggleMenuAnimation,
+}) {
   return (
     <StyledHeaderSection>
       <HeaderLeftContainer />
       <HeaderRightContainer
         toggleMobileMenu={toggleMobileMenu}
         mobileMenu={mobileMenu}
+        menuAnimation={menuAnimation}
+        toggleMenuAnimation={toggleMenuAnimation}
       />
     </StyledHeaderSection>
   );
@@ -16,12 +23,10 @@ export default function HeaderSection({ toggleMobileMenu, mobileMenu }) {
 const StyledHeaderSection = styled.header`
   position: sticky;
   top: 0;
-  /* overflow: hidden; */
-  z-index: 4;
+  z-index: 10;
   height: 6rem;
   min-width: 32rem;
   max-width: 100%; // which is App
-  /* visibility: ${(props) => (props.isScrolling ? "visible" : "hidden")}; */
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   background-image: linear-gradient(to top right, #324935, #59755d);

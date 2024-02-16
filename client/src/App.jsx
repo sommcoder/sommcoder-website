@@ -10,7 +10,14 @@ import { useRef, useState } from "react";
 
 export default function App() {
   const [mobileMenu, toggleMobileMenu] = useState(false);
+  const [menuAnimation, toggleMenuAnimation] = useState(false);
+  /* // TODO: 
+  - if animation is default: user can do whatever
+  - if animating, user won't be able to click anything
+  - if animated, user can do whatever, but closing and onBlur will cause another "animating" state before "default" again
 
+  menuAnimation = true = user can't click anything
+  */
   console.log("Section:", Section);
   const refStateObj = {
     main: useRef(null),
@@ -27,16 +34,21 @@ export default function App() {
     <>
       <GlobalStyles />
       <StyledApp className="App">
-        {/* <Section.Overlay
-          refStateObj={refStateObj}
-          mobileMenu={mobileMenu}
-          toggleMobileMenu={toggleMobileMenu}
-        /> */}
         <Section.Header
           refStateObj={refStateObj}
           navLabelArr={navLabelArr}
           mobileMenu={mobileMenu}
           toggleMobileMenu={toggleMobileMenu}
+          menuAnimation={menuAnimation}
+          toggleMenuAnimation={toggleMenuAnimation}
+        />
+        <Section.Overlay
+          refStateObj={refStateObj}
+          mobileMenu={mobileMenu}
+          toggleMobileMenu={toggleMobileMenu}
+          navLabelArr={navLabelArr}
+          menuAnimation={menuAnimation}
+          toggleMenuAnimation={toggleMenuAnimation}
         />
         <StyledContentWrapper>
           <StyledContentOverlay>
@@ -58,6 +70,7 @@ export default function App() {
 }
 
 const StyledApp = styled.div`
+  position: relative;
   display: grid;
   min-width: 32rem;
   max-width: 100%;

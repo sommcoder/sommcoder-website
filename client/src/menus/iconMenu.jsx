@@ -14,6 +14,8 @@ export const ICON_COMPONENTS = {
           height: "6rem",
           width: "7rem",
           transform: "translateY(-10px)", // hack fix
+          viewBox: "0 0 100 100",
+          overflow: "hidden",
         }}
       />
     ),
