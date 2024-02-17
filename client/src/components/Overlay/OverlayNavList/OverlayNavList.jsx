@@ -1,6 +1,6 @@
-﻿import styled from "styled-components";
-import { ICON_COMPONENTS } from "../../../menus/iconMenu";
-import { useState } from "react";
+﻿import styled from 'styled-components';
+import { ICON_COMPONENTS } from '../../../menus/iconMenu';
+import { useState } from 'react';
 
 export default function OverlayNavList({
   refStateObj,
@@ -13,28 +13,27 @@ export default function OverlayNavList({
   function handleLinkClick(ev) {
     ev.preventDefault();
     const section = ev.target.dataset.section;
-    console.log("section:", section);
+    console.log('section:', section);
     window.scrollTo({
       top: refStateObj[section].current.offsetTop - 200 || 0, // needs to be minus cause this offsetTop is the pixel distance FROM the top
       left: 0,
-      behavior: "smooth",
+      behavior: 'smooth',
     });
-    const position = ev.target.dataset.sequence;
-    console.log("position:", position);
     const newNavMenuState = navMenuState;
-
+    const index = ev.target.dataset.sequence;
     // current remains true:
     newNavMenuState[section] = true;
-    Object.keys(newNavMenuState).forEach((key) => {
+    Object.keys(newNavMenuState).forEach(key => {
       if (key === section) return; // skip current
       newNavMenuState[key] = false;
     });
 
-    setNavMenuState((prevNavMenuState) => ({
+    setNavMenuState(prevNavMenuState => ({
       ...prevNavMenuState,
       newNavMenuState,
     }));
-    adjustLineIndex(position); // record the new currentPosition
+    adjustCurrRefLineLocation(sequence);
+    adjustCurrActiveLink(section); // record the new currentPosition
   }
 
   // tracks the active state, the reference line will need to know where to go. The distance will be fixed. This won't change with the screen width.
@@ -45,31 +44,47 @@ export default function OverlayNavList({
   const navIconInterval = 27.5 / iconCount + 0.5; // in rem
   const initNavMenuStateObj = {};
   // set the state object
-  navLabelArr.forEach((nav) =>
-    nav === "main"
+  navLabelArr.forEach(nav =>
+    nav === 'main'
       ? (initNavMenuStateObj[nav] = true)
       : (initNavMenuStateObj[nav] = false)
   );
-  // active / inactive: this state tracks the activity, when one is active, we must deactive the others
-  const [currLineIndex, adjustLineIndex] = useState(null);
+  const [currActiveLink, adjustCurrActiveLink] = useState('main');
+  const [currRefLineLocation, adjustCurrRefLineLocation] = useState(0);
   const [navMenuState, setNavMenuState] = useState(initNavMenuStateObj);
-  console.log("navMenuState:", navMenuState);
+  console.log('navMenuState:', navMenuState);
   // will need to find the index difference between the CURRENT and the NEWLY CLICKED list item and multiply that by 6rem
+
+  console.log(
+    `navMenuState[currActiveLink]
+              ? currRefLineLocation -
+                navLabelArr.findIndex(el => el === currActiveLink)
+              : false:`,
+    navMenuState[currActiveLink]
+      ? currRefLineLocation - navLabelArr.findIndex(el => el === currActiveLink)
+      : false
+  );
 
   return (
     <StyledOverlayNavList
       iconCount={iconCount}
       navCount={navCount}
       navIconInterval={navIconInterval}
-      currLineIndex={currLineIndex}
+      currActiveLink={currActiveLink}
     >
       <ul className="overlay-nav-menu">
-        <StyledReferenceLine></StyledReferenceLine>
+        <StyledReferenceLine
+          active={
+            navMenuState[currActiveLink]
+              ? currRefLineLocation -
+                navLabelArr.findIndex(el => el === currActiveLink)
+              : false
+          } // true if active
+        ></StyledReferenceLine>
         {navLabelArr.map((label, i) => (
           <StyledOverlayLinkItem
             data-section={label}
             data-sequence={i} // should be fine mathematically to keep this as a 0 index
-            active={navMenuState[label]} // will be true if active
             onClick={handleLinkClick}
             key={i}
           >
@@ -101,10 +116,6 @@ const StyledOverlayNavList = styled.div`
   position: relative; // for the hamburger x
   grid-template-rows: 27.5rem 27.5rem;
   row-gap: 2rem;
-
-  .active {
-    // class when the nav reference is active
-  }
 
   .overlay-nav-menu {
     position: relative;

@@ -1,45 +1,80 @@
-﻿import styled from "styled-components";
+﻿import styled from 'styled-components';
 
-import { ICON_COMPONENTS } from "../../../menus/iconMenu";
+import { ICON_COMPONENTS } from '../../../menus/iconMenu';
 
-export default function CarouselItem({ item, indexFromCurrent }) {
+export default function CarouselItem({
+  item,
+  indexFromCurrent,
+  carouselItemsArr,
+  currIndex,
+  adjustCurrIndex,
+  index,
+}) {
+  // MAYBE ONE click is to focus and once in focus the second CLICK will trigger the linToProject function?
   function linkToProject(ev, link) {
-    console.log("link:", link);
     ev.preventDefault();
-    window.open(link, "_blank");
+    if (currIndex === ev.target.dataset.index) window.open(link, '_blank');
+    else {
+      handleItemClick(ev);
+    }
+  }
+
+  function handleItemClick(ev) {
+    console.log('ev:', ev);
+    let indexClicked = +ev.target.dataset.index;
+    console.log('indexClicked:', indexClicked);
+    adjustCurrIndex(indexClicked);
   }
 
   return (
     <StyledCarouselItem
+      onClick={handleItemClick}
+      data-index={index}
       position={indexFromCurrent == 0 ? 0 : indexFromCurrent * 105}
       activeCard={indexFromCurrent == 0 ? true : false}
-      onClick={(ev) => linkToProject(ev, item.links.youtube)}
     >
-      <div className="carousel-content-wrapper">
+      <div
+        className="carousel-content-wrapper"
+        onClick={handleItemClick}
+        data-index={index}
+      >
         {item.links.youtube ? (
           <iframe
+            data-index={index}
+            onClick={handleItemClick}
             src={item.links.youtube}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; web-share;"
             allowFullScreen
           />
         ) : (
-          <div className="carousel-item-thumbnail-container">
+          <div
+            onClick={handleItemClick}
+            data-index={index}
+            className="carousel-item-thumbnail-container"
+          >
             <img className="carousel-item-thumbnail" src={item.thumbnail} />
           </div>
         )}
-        <div className="carousel-item-banner">
+        <div
+          className="carousel-item-banner"
+          onClick={ev => linkToProject(ev, item.links.youtube)}
+        >
           <h3>{item.title}</h3>
           <p>{item.short}</p>
         </div>
       </div>
-      <div className="carousel-item-icon-container">
+      <div
+        className="carousel-item-icon-container"
+        onClick={handleItemClick}
+        data-index={index}
+      >
         {Object.keys(item.links).map((link, i) => {
           return item.links[link] ? (
             <a href={item.links[link]} className="carousel-icon-box" key={i}>
               {ICON_COMPONENTS[link].component}
             </a>
           ) : (
-            ""
+            ''
           );
         })}
       </div>
@@ -59,7 +94,7 @@ const StyledCarouselItem = styled.div`
   border-radius: 2rem;
   background-color: rgb(80, 104, 84);
 
-  ${(props) => `
+  ${props => `
    left: ${props.position}%;
    box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.08),
     0 0.2rem 0.2rem rgba(0, 0, 0, 0.12), 0 0.4rem 0.4rem rgba(0, 0, 0, 0.16),
@@ -67,7 +102,7 @@ const StyledCarouselItem = styled.div`
    filter: brightness(65%);
   `}
 
-  ${(props) =>
+  ${props =>
     props.activeCard &&
     `
   opacity: 1;

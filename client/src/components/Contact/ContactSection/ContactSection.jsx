@@ -1,9 +1,9 @@
-import { useRef } from "react";
-import styled from "styled-components";
-import ContactFormItem from "../ContactFormItem/ContactFormItem";
-import { forwardRef } from "react";
+import { useRef } from 'react';
+import styled from 'styled-components';
+import ContactFormItem from '../ContactFormItem/ContactFormItem';
+import { forwardRef } from 'react';
 
-import { formInputArr } from "../../../menus/contactMenu.jsx";
+import { formInputArr } from '../../../menus/contactMenu.jsx';
 
 export default forwardRef(function ContactSection({ refStateObj }, ref) {
   const formRef = useRef();
@@ -13,24 +13,21 @@ export default forwardRef(function ContactSection({ refStateObj }, ref) {
     // we should probably provide some clientside validation here right???
 
     // TODO: there is no ev.target.form
-    console.log("ev:", ev);
-    console.log("ev.target:", ev.target);
-    console.log("ev.target.form:", ev.target.form);
-    console.log("formRef:", formRef);
+    console.log('ev:', ev);
+    console.log('ev.target:', ev.target);
+    console.log('ev.target.form:', ev.target.form);
+    console.log('formRef:', formRef);
 
     const formData = new FormData(formRef.current);
-    console.log("formData:", formData);
+    console.log('formData:', formData);
 
     // Access form values
-    const fname = formData.get("fname");
-    const lname = formData.get("lname");
-    const email = formData.get("email");
-    const message = formData.get("message");
+    const fname = formData.get('fname');
+    const lname = formData.get('lname');
+    const email = formData.get('email');
+    const message = formData.get('message');
 
     // Do something with the form data (e.g., log it)
-    console.log("Name:", fname);
-    console.log("Email:", email);
-    console.log("Message:", message);
     // TODO: send to Firestore which maybe we can get the server to send you an email notification when they do?
 
     // Clear form fields
@@ -65,7 +62,7 @@ export default forwardRef(function ContactSection({ refStateObj }, ref) {
 });
 
 const StyledContactSection = styled.section`
-  background-image: url("/Wine Splatter.svg");
+  background-image: url('/Wine Splatter.svg');
 
   form {
     min-height: 40rem;

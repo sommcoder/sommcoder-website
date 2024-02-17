@@ -1,5 +1,5 @@
-﻿import styled from "styled-components";
-import OverlayNavList from "../OverlayNavList/OverlayNavList";
+﻿import styled from 'styled-components';
+import OverlayNavList from '../OverlayNavList/OverlayNavList';
 
 export default function OverlaySection({
   refStateObj,
@@ -11,8 +11,8 @@ export default function OverlaySection({
 }) {
   // TODO: create an onBlur to exit if the user clicks outside the overla menu
   function handleBlur() {
-    console.log("BLURRRRR");
-    toggleMobileMenu((prevState) => !prevState);
+    console.log('BLURRRRR');
+    toggleMobileMenu(prevState => !prevState);
   }
 
   return (
@@ -36,7 +36,7 @@ const StyledOverlaySection = styled.nav`
   background-color: rgba(212, 198, 228, 0.95);
   height: 100%;
   width: 20rem;
-  right: ${({ mobileMenu }) => (mobileMenu ? "0rem" : "-20rem")};
+  right: ${({ mobileMenu }) => (mobileMenu ? '0rem' : '-20rem')};
   transition: all 500ms ease-in-out;
   display: flex;
   flex-direction: column;

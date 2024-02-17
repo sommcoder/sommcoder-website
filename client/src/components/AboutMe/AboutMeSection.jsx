@@ -1,19 +1,15 @@
-import styled from "styled-components";
-import { IoIosArrowDown } from "react-icons/io";
+import styled from 'styled-components';
+import { IoIosArrowDown } from 'react-icons/io';
 
-import { forwardRef } from "react";
-import youngme1 from "/me-computer1.jpg";
-import youngme2 from "/me-computer2.jpg";
-import { useState } from "react";
+import { forwardRef } from 'react';
+import youngme1 from '/me-computer1.jpg';
+import youngme2 from '/me-computer2.jpg';
+import { useState } from 'react';
 
 export default forwardRef(function AboutMeSection({ refStateObj }, ref) {
-  //TODO: create a "more" selection to avoid a long
-
   const [moreState, toggleMore] = useState(false);
 
   function handleMoreClick() {
-    console.log("clicked");
-    console.log(moreState);
     toggleMore(true);
   }
 
@@ -34,7 +30,7 @@ export default forwardRef(function AboutMeSection({ refStateObj }, ref) {
           attention.
           <div
             onClick={handleMoreClick}
-            className={`about-me-more-btn-overlay ${moreState ? "hidden" : ""}`}
+            className={`about-me-more-btn-overlay ${moreState ? 'hidden' : ''}`}
           >
             <button id="show-more-btn">
               more <IoIosArrowDown />
@@ -43,7 +39,7 @@ export default forwardRef(function AboutMeSection({ refStateObj }, ref) {
         </p>
         <p
           className={`about-me-more-container ${
-            moreState ? "more-active" : "more-inactive"
+            moreState ? 'more-active' : 'more-inactive'
           }`}
         >
           Studying the minutiae of the wine industry certainly afforded me the
@@ -70,10 +66,8 @@ export default forwardRef(function AboutMeSection({ refStateObj }, ref) {
   );
 });
 
-// TODO: Get the personal images centered correctly for all screen sizes and figure out a way to create a nice more button functionality that looks like many popular article websites.
-
 const StyledAboutMeSection = styled.section`
-  background-image: url("/Wine Splatter.svg");
+  background-image: url('/Wine Splatter.svg');
   height: auto;
   .about-me-more-btn {
     font-weight: 600;

@@ -1,16 +1,24 @@
-﻿import styled from "styled-components";
-import CarouselItem from "../CarouselItem/CarouselItem";
+﻿import styled from 'styled-components';
+import CarouselItem from '../CarouselItem/CarouselItem';
 
-export default function CarouselContainer({ carouselItemsArr, currIndex }) {
+export default function CarouselContainer({
+  carouselItemsArr,
+  currIndex,
+  adjustCurrIndex,
+}) {
   const lastIndex = carouselItemsArr.length - 1;
   return (
     <StyledCarouselContainer>
       {carouselItemsArr.map((item, i) => (
         <CarouselItem
           item={item}
+          index={i}
           indexFromCurrent={i - currIndex}
           key={i}
           lastIndex={lastIndex}
+          currIndex={currIndex}
+          adjustCurrIndex={adjustCurrIndex}
+          carouselItemsArr={carouselItemsArr}
         />
       ))}
     </StyledCarouselContainer>
