@@ -15,6 +15,7 @@ export default function ServiceCard({ service }) {
     <StyledServiceCard onClick={handleDropdownClick}>
       <span className="service-card-header-container">
         <h3>{service.title}</h3>
+        <span>{service.component}</span>
       </span>
       <span active={cardState} className="service-card-content-container">
         <h5>{service.subtitle}</h5>
@@ -53,6 +54,7 @@ const StyledServiceCard = styled.span`
     background-color: pink;
     display: flex;
     justify-content: left;
+    gap: 1rem;
     align-items: center;
 
     h3 {

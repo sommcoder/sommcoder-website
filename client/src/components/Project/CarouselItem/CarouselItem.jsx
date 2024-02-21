@@ -1,80 +1,50 @@
-﻿import styled from 'styled-components';
+﻿import styled from "styled-components";
 
-import { ICON_COMPONENTS } from '../../../menus/iconMenu';
+import { ICON_COMPONENTS } from "../../../menus/iconMenu";
 
 export default function CarouselItem({
   item,
   indexFromCurrent,
-  carouselItemsArr,
-  currIndex,
   adjustCurrIndex,
   index,
 }) {
-  // MAYBE ONE click is to focus and once in focus the second CLICK will trigger the linToProject function?
-  function linkToProject(ev, link) {
-    ev.preventDefault();
-    if (currIndex === ev.target.dataset.index) window.open(link, '_blank');
-    else {
-      handleItemClick(ev);
-    }
-  }
-
-  function handleItemClick(ev) {
-    console.log('ev:', ev);
-    let indexClicked = +ev.target.dataset.index;
-    console.log('indexClicked:', indexClicked);
-    adjustCurrIndex(indexClicked);
-  }
+  const handleItemClick = (ev) => adjustCurrIndex(+ev.target.dataset.index);
 
   return (
     <StyledCarouselItem
-      onClick={handleItemClick}
       data-index={index}
+      onClick={handleItemClick}
+      // calculates each items absolute positioning based on it's index. 0 is the center.
+      // A +/- indexFromCurrent determines where in relation to 0 the item will be positioned
       position={indexFromCurrent == 0 ? 0 : indexFromCurrent * 105}
       activeCard={indexFromCurrent == 0 ? true : false}
     >
-      <div
-        className="carousel-content-wrapper"
-        onClick={handleItemClick}
-        data-index={index}
-      >
-        {item.links.youtube ? (
-          <iframe
-            data-index={index}
-            onClick={handleItemClick}
-            src={item.links.youtube}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; web-share;"
-            allowFullScreen
-          />
-        ) : (
-          <div
-            onClick={handleItemClick}
-            data-index={index}
-            className="carousel-item-thumbnail-container"
-          >
-            <img className="carousel-item-thumbnail" src={item.thumbnail} />
-          </div>
-        )}
+      <div className="carousel-content-wrapper" data-index={index}>
+        <div data-index={index} className="carousel-item-thumbnail-container">
+          <img className="carousel-item-thumbnail" src={item.thumbnail} />
+        </div>
         <div
+          data-index={index}
           className="carousel-item-banner"
-          onClick={ev => linkToProject(ev, item.links.youtube)}
+          onClick={handleItemClick}
         >
           <h3>{item.title}</h3>
           <p>{item.short}</p>
         </div>
       </div>
-      <div
-        className="carousel-item-icon-container"
-        onClick={handleItemClick}
-        data-index={index}
-      >
+      <div className="carousel-item-icon-container" data-index={index}>
         {Object.keys(item.links).map((link, i) => {
           return item.links[link] ? (
-            <a href={item.links[link]} className="carousel-icon-box" key={i}>
+            <a
+              target="_blank"
+              href={item.links[link]}
+              className="carousel-icon-box"
+              key={i}
+            >
               {ICON_COMPONENTS[link].component}
             </a>
           ) : (
-            ''
+            ""
           );
         })}
       </div>
@@ -86,41 +56,44 @@ const StyledCarouselItem = styled.div`
   position: absolute;
   top: 7.5%; // hopefully this avoids that glitchy issue we were seeing
   display: grid;
-  grid-template-rows: 50rem auto;
+  grid-template-rows: 37rem 5rem; // content, icon container
   justify-items: center;
   text-align: center;
   width: 31rem; // same width as the width of the container
-  height: 56rem;
   border-radius: 2rem;
   background-color: rgb(80, 104, 84);
 
-  ${props => `
-   left: ${props.position}%;
+  ${(props) => `
+   z-index: 1;
+   transform: translateX(${props.position}%);
    box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.08),
     0 0.2rem 0.2rem rgba(0, 0, 0, 0.12), 0 0.4rem 0.4rem rgba(0, 0, 0, 0.16),
     0 0.8rem 0.8rem rgba(0, 0, 0, 0.2);
    filter: brightness(65%);
+   transition: transform 350ms linear;
   `}
-
-  ${props =>
+  ${(props) =>
     props.activeCard &&
     `
+    z-index: 3;
   opacity: 1;
 box-shadow: 0 0 0.1rem 0.1rem rgba(255, 255, 255, 0.08),
     0 0 0.2rem 0.2rem rgba(255, 255, 255, 0.12), 0 0 0.4rem 0.4rem rgba(255, 255, 255, 0.16),
     0 0 0.8rem 0.8rem rgba(255, 255, 255, 0.2);
-  transition: filter 350ms ease-in-out;
-    transition: box-shadow 350ms ease-in-out;
+  transition: filter 200ms ease-in-out;
+    transition: box-shadow 200ms ease-in-out;
   filter: none;
   `}
 
-.carousel-content-wrapper {
+  // wrapper allows for the banner to hover over the thumbnail
+    .carousel-content-wrapper {
     position: relative;
     width: 100%;
     height: 100%;
   }
 
   .carousel-item-banner {
+    pointer-events: none;
     display: grid;
     row-gap: 0.5rem;
     align-content: center;
@@ -134,33 +107,22 @@ box-shadow: 0 0 0.1rem 0.1rem rgba(255, 255, 255, 0.08),
     font-weight: 800;
     background-color: rgba(255, 255, 255, 0.9);
 
-    h3 {
-    }
-
     p {
       font-size: 1.2rem;
       font-style: italic;
     }
   }
 
-  iframe {
-    border: none;
-    margin: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 2rem 2rem 0rem 0rem;
-  }
-
   .carousel-item-icon-container {
     display: flex;
     z-index: 2;
     width: 100%;
-    height: 100%;
+    height: 5rem;
     align-content: center;
     justify-content: center;
     align-items: center;
     justify-items: center;
-    column-gap: 1rem;
+    column-gap: 3rem;
     border-radius: 0rem 0rem 2rem 2rem;
     background-color: rgb(80, 104, 84);
   }
@@ -175,18 +137,18 @@ box-shadow: 0 0 0.1rem 0.1rem rgba(255, 255, 255, 0.08),
     display: grid;
     align-items: center;
     justify-items: center;
-    width: 8rem;
-    height: 100%;
+    width: auto;
+    height: auto;
     /* svg {
       filter: brightness(10%);
     } */
   }
 
-  &:hover {
+  /* &:hover {
     cursor: pointer;
     transition: 200ms ease-in-out;
     transform: translateY(-0.75rem);
-  }
+  } */
   .carousel-item-thumbnail-container {
     width: 100%;
     height: 100%;

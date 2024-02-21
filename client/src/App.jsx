@@ -11,7 +11,7 @@ import { useRef, useState } from "react";
 export default function App() {
   const [mobileMenu, toggleMobileMenu] = useState(false);
   const [menuAnimation, toggleMenuAnimation] = useState(false);
-  /* // TODO: 
+  /* // TODO: Handle mobile menu animation
   - if animation is default: user can do whatever
   - if animating, user won't be able to click anything
   - if animated, user can do whatever, but closing and onBlur will cause another "animating" state before "default" again

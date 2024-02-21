@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-import { LuBadgeMinus } from "react-icons/lu";
-import { LuBadgePlus } from "react-icons/lu";
+import { FiMinusCircle } from "react-icons/fi";
+import { FiPlusCircle } from "react-icons/fi";
 
 export default function PricingItem({
   item,
@@ -36,8 +36,6 @@ export default function PricingItem({
     position: "absolute",
   };
 
-  console.log("priceTblState[item.id]:", priceTblState[item.id]);
-  console.log("item.id:", item.id);
   return (
     <StyledPricingItem>
       <div
@@ -49,11 +47,10 @@ export default function PricingItem({
         <h5 className="pricing-menu-item-header price-header">{`$${item.price}`}</h5>
       </div>
       {priceTblState[item.id] ? (
-        <LuBadgeMinus style={iconStyling} />
+        <FiMinusCircle style={iconStyling} />
       ) : (
-        <LuBadgePlus style={iconStyling} />
+        <FiPlusCircle style={iconStyling} />
       )}
-
       <div
         data-item={item.id}
         className={`pricing-submenu-container ${
@@ -158,10 +155,10 @@ const StyledPricingItem = styled.li`
   .menu-active {
     z-index: 3;
     color: rgba(0, 0, 0, 1);
-    max-height: auto;
+    max-height: 35rem;
     transition: color 500ms linear 250ms;
     transition: z-index 0ms ease-in-out 0s;
-    transition: max-height 0s ease-in-out 0s;
+    transition: max-height 500ms ease-in-out 0s;
   }
 
   .menu-inactive {
@@ -170,7 +167,7 @@ const StyledPricingItem = styled.li`
     max-height: 0rem;
     transition: color 0s linear 0s;
     transition: z-index 0s ease-in-out 0s;
-    transition: max-height 0s ease-in-out 0s;
+    transition: max-height 500ms ease-in-out 0s;
   }
 
   .text-active {

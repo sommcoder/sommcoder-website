@@ -36,11 +36,11 @@ export default function ContactFormItem({
     >
       {type === "longtext" ? (
         <textarea
+          name={id}
+          id={id}
           autoComplete="on"
           form="contact-form"
-          id={id}
           type="text"
-          name={id}
           title={description}
           onChange={handleFieldInput}
           onFocus={handleFieldFocus}
@@ -48,12 +48,12 @@ export default function ContactFormItem({
         ></textarea>
       ) : (
         <input
+          name={id}
+          id={id}
           required
           form="contact-form"
           autoComplete="on"
-          id={id}
           type="text"
-          name={id}
           title={description}
           onChange={handleFieldInput}
           onFocus={handleFieldFocus}
@@ -61,10 +61,12 @@ export default function ContactFormItem({
         />
       )}
       <label
+        name={title}
+        for={id}
+        id={`placeholder-${id}`}
         form="contact-form"
         aria-labelledby="placeholder-text"
         inputFocus
-        id={`placeholder-${id}`}
         className="placeholder-text"
       >
         <div className="label-text">{title}</div>
@@ -88,7 +90,7 @@ const StyledContactFormItem = styled.div`
     pointer-events: none;
     top: ${({ inputFocus, longtext }) =>
       inputFocus ? (longtext ? "-5%" : "-15%") : "37.5%"};
-    left: 3%;
+    left: 4%; // 3% blocks the caret
     padding: 0rem 0.2rem;
     transition: top 150ms linear;
     background-color: white;

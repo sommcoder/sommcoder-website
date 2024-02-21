@@ -37,7 +37,7 @@ export const pricingMenuObj = {
       service: ["Workflow", <br />, " Automation"],
       price: "250/solve",
       description: [
-        " Spreadsheet templates, plugins, integrations, third party apps, whatever the solution may call for.",
+        "Spreadsheet templates, plugins, integrations, third party apps, whatever the solution may call for.",
       ],
     },
   ],
@@ -45,16 +45,21 @@ export const pricingMenuObj = {
     {
       id: "ecommMgmt",
       service: ["Ecommerce", <br />, " Management"],
-      price: "850/month",
+      price: "750/month",
       description: [
-        "Customer service, inventory and products updates, notification and promotions",
+        "Customer service, inventory and product management, notification and promotions. All the heavy lifting without needing dedicated staffing.",
       ],
     },
     {
       id: "seoReporting",
       service: ["SEO", <br />, " Reporting"],
-      price: "250/month",
-      description: ["Good data = great decisions."],
+      price: "350/month",
+      description: [
+        "Good analytics = great decisions!",
+        <br />,
+        <br />,
+        "Accurate, normalized analytics and business intelligence provided in a consistent format for managers and shareholders to make the best possible decisions.",
+      ],
     },
   ],
   Grow: [
@@ -75,7 +80,7 @@ export const pricingMenuObj = {
   ],
   Contract: [
     {
-      id: "contract",
+      id: "freelancing",
       service: ["General Freelancing"],
       price: "65/hour",
       description: [
@@ -83,6 +88,14 @@ export const pricingMenuObj = {
         <br />,
         <br />,
         "I also have working experience with Google Cloud Platform, Python and TypeScript but I can learn any technologies needed to fill in the gaps on a per project basis!",
+      ],
+    },
+    {
+      id: "poc-app",
+      service: ["Proof of Concept App"],
+      price: "3500",
+      description: [
+        "Launch your SaaS business idea! Want an asset you can take to prospective investors to launch your business? I can build a Proof-of-Concept application based on the Minimal Viable Product (MVP) of your idea.",
       ],
     },
   ],

@@ -1,4 +1,11 @@
-// might be best if we add an id to these objects and not use the title as the "foreign key" so to speak to our pricingMenu List
+import { LuRocket } from "react-icons/lu";
+import { LuCable } from "react-icons/lu";
+import { LuWrench } from "react-icons/lu";
+import { PiPlant } from "react-icons/pi";
+import { LiaFileContractSolid } from "react-icons/lia";
+
+const iconStyling = { height: "2rem", width: "2rem" };
+
 export const servicesArr = [
   {
     title: "Launch",
@@ -11,6 +18,7 @@ export const servicesArr = [
       `You've got more important things to worry about than spending the 5 days to several weeks it may take to launch your Shopify store. 
       `,
     ],
+    component: <LuRocket style={iconStyling} />,
   },
   {
     title: "Streamline",
@@ -22,6 +30,7 @@ export const servicesArr = [
       <br />,
       `I can help you with app or custom API integrations and even simple csv templating to make all of your different systems 'talk' to each other.`,
     ],
+    component: <LuCable style={iconStyling} />,
   },
   {
     title: "Maintain",
@@ -33,6 +42,7 @@ export const servicesArr = [
       <br />,
       `Centralize your knowledge base by having reliable Shopify expertise available on retainer.`,
     ],
+    component: <LuWrench style={iconStyling} />,
   },
   {
     title: "Grow",
@@ -44,16 +54,18 @@ export const servicesArr = [
       <br />,
       `I can provide expertise and drive e-commerce revenue without needing a full time team.`,
     ],
+    component: <PiPlant style={iconStyling} />,
   },
   {
     title: "Contract",
     subtitle: "Ad Hoc Developer Services",
     icon: "",
     description: [
-      `You get a self-taught developer with intermediate-level knowledge of JavaScript, React, HTML and CSS.`,
+      `You get a resourceful, self-taught developer with intermediate-level knowledge of JavaScript, React, HTML and CSS.`,
       <br />,
       <br />,
-      `I'm a mature worker with over 20 years of general work experience and can work with a wide range of people and personalities in order to meet your deliverables!`,
+      `I have over 20 years of applied business experience and can work with a wide range of people and personalities in order to produce your deliverables in a timely fashion!`,
     ],
+    component: <LiaFileContractSolid style={iconStyling} />,
   },
 ];

@@ -12,22 +12,25 @@ export default function HamburgerMenu({
     toggleMobileMenu((prevState) => !prevState);
   }
 
-  // TODO: make the keyframes animation
-  // line goes right and shrinks, then goes down and grows and turns black as it appears now on the pink overlay section and on the overlay it serves as the indicator for where the user is on the website
   function handleAnimationEnd() {
     // Going to then reenable pointer-events on the hamburgerMenu
   }
 
   return (
-    <StyledHamburgerMenu onClick={handleMenuClick} mobileMenu={mobileMenu}>
-      <span className="top-line"></span>
-      <span className="middle-line-container">
+    <StyledHamburgerMenu
+      data-component="mobile-menu"
+      onClick={handleMenuClick}
+      mobileMenu={mobileMenu}
+    >
+      <span data-component="mobile-menu" className="top-line"></span>
+      <span data-component="mobile-menu" className="middle-line-container">
         <span
+          data-component="mobile-menu"
           className="middle-line"
           onAnimationEnd={handleAnimationEnd}
         ></span>
       </span>
-      <span className="bottom-line"></span>
+      <span data-component="mobile-menu" className="bottom-line"></span>
     </StyledHamburgerMenu>
   );
 }
@@ -69,26 +72,23 @@ const StyledHamburgerMenu = styled.span`
       25% {
         width: 0.75rem;
         height: 0.3rem;
-        transform: translate(3.75rem, 0rem);
-       
+        transform: translate(3.7rem, 0rem);
       }
       50% {
         width: 0.3rem;
         height: 1.5rem;
-        transform: translate(3.75rem, 0rem);
+        transform: translate(3.7rem, 0rem);
         background-color: white;
-      
       }
       75% {
         width: 0.3rem;
         height: 2rem;
         display: block;
-       
       }
       100% {
         width: 0.3rem;
         height: 2.5rem;
-        transform: translate(3.75rem, 3.5rem);
+        transform: translate(3.7rem, 3.5rem);
         background-color: black;
         transition: background-color 1ms linear 500ms;
         display: none;

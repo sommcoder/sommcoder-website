@@ -1,5 +1,5 @@
-﻿import styled from 'styled-components';
-import CarouselItem from '../CarouselItem/CarouselItem';
+﻿import styled from "styled-components";
+import CarouselItem from "../CarouselItem/CarouselItem";
 
 export default function CarouselContainer({
   carouselItemsArr,
@@ -16,9 +16,7 @@ export default function CarouselContainer({
           indexFromCurrent={i - currIndex}
           key={i}
           lastIndex={lastIndex}
-          currIndex={currIndex}
           adjustCurrIndex={adjustCurrIndex}
-          carouselItemsArr={carouselItemsArr}
         />
       ))}
     </StyledCarouselContainer>
