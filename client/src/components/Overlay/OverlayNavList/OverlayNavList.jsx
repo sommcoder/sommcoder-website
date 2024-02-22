@@ -180,7 +180,7 @@ const StyledReferenceLine = styled.span`
   /* transform: rotate(180deg); */
   background-color: black;
   width: 0.3rem;
-  left: 35%;
+  left: 25%;
   height: 3rem;
   ${({ position }) =>
     position &&

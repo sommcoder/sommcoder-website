@@ -9,15 +9,17 @@ import * as Section from "./components/index.js";
 import { useRef, useState } from "react";
 
 export default function App() {
+  // mobile overlay menu switch:
   const [mobileMenu, toggleMobileMenu] = useState(false);
-  const [menuAnimation, toggleMenuAnimation] = useState(false);
-  /* // TODO: Handle mobile menu animation
-  - if animation is default: user can do whatever
-  - if animating, user won't be able to click anything
-  - if animated, user can do whatever, but closing and onBlur will cause another "animating" state before "default" again
+  // header's hamburger menu animation switch:
+  // middle line EXITS then triggers toggleOverlayAnimation
+  // Overlay list items CANNOT be clicked until this completes:
+  const [headerAnimation, toggleHeaderAnimation] = useState(false);
+  // overlay's reference line animation switch:
+  // line enters on TRUE and exists on FALSE
+  // hamburger menu CANNOT be clicked until this completes:
+  const [overlayAnimation, toggleOverlayAnimation] = useState(false);
 
-  menuAnimation = true = user can't click anything
-  */
   console.log("Section:", Section);
   const refStateObj = {
     main: useRef(null),
@@ -39,16 +41,20 @@ export default function App() {
           navLabelArr={navLabelArr}
           mobileMenu={mobileMenu}
           toggleMobileMenu={toggleMobileMenu}
-          menuAnimation={menuAnimation}
-          toggleMenuAnimation={toggleMenuAnimation}
+          headerAnimation={headerAnimation}
+          toggleHeaderAnimation={toggleHeaderAnimation}
+          overlayAnimation={overlayAnimation}
+          toggleOverlayAnimation={toggleOverlayAnimation}
         />
         <Section.Overlay
           refStateObj={refStateObj}
           mobileMenu={mobileMenu}
           toggleMobileMenu={toggleMobileMenu}
           navLabelArr={navLabelArr}
-          menuAnimation={menuAnimation}
-          toggleMenuAnimation={toggleMenuAnimation}
+          headerAnimation={headerAnimation}
+          toggleHeaderAnimation={toggleHeaderAnimation}
+          overlayAnimation={overlayAnimation}
+          toggleOverlayAnimation={toggleOverlayAnimation}
         />
         <StyledContentWrapper>
           <StyledContentOverlay>

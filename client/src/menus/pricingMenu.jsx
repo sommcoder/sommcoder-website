@@ -1,26 +1,34 @@
 export const pricingMenuObj = {
   Launch: [
     {
-      id: "seoSetup",
-      service: "SEO Setup",
+      id: "seoLaunch",
+      service: "SEO Launch",
       price: "850",
       description: [
-        "SEO tool setup, integration and reporting to impress your shareholders and hit the ground running!",
+        "SEO tooling, social media integration and reporting infrastructure gift wrapped for you to impress your shareholders and hit the ground running!",
+      ],
+    },
+    {
+      id: "squarespace",
+      service: "Squarespace Website",
+      price: "1750",
+      description: [
+        "Not ready for e-commerce quite yet? Squarespace is a great starting point to launch your online brand presence.",
       ],
     },
     {
       id: "themeSite",
-      service: "Shopify Theme Site",
+      service: "Shopify Theme Website",
       price: "2250",
       description:
         "A built-in or marketplace theme e-commerce site. First revision complete within 14 days.",
     },
     {
       id: "customSite",
-      service: "Shopify Custom Site",
-      price: "3250",
+      service: "Shopify Custom Website",
+      price: "3500",
       description: [
-        "Stand out from the crowd and show your best self to the world as your site serves as the hub for your brand identity.",
+        "Break out of the cookie-cutter experience of templating/themes and create a unique user experience for your customers. Built with Shopify's proprietary Hydrogen JavaScript framework and integrated with your merchant admin.",
       ],
     },
   ],
@@ -44,10 +52,18 @@ export const pricingMenuObj = {
   Maintain: [
     {
       id: "ecommMgmt",
-      service: ["Ecommerce", <br />, " Management"],
-      price: "750/month",
+      service: ["E-commerce", <br />, " Management"],
+      price: "550/month",
       description: [
-        "Customer service, inventory and product management, notification and promotions. All the heavy lifting without needing dedicated staffing.",
+        "Customer service, inventory and product management, notification and promotions. All the heavy lifting without needing dedicated, specialized staff.",
+      ],
+    },
+    {
+      id: "ecommPlusMgmt",
+      service: ["E-commerce+", <br />, " Management"],
+      price: "850/month",
+      description: [
+        "Same service and care as my base e-commerce management service but with up to 20 hours available per month.",
       ],
     },
     {
@@ -59,6 +75,9 @@ export const pricingMenuObj = {
         <br />,
         <br />,
         "Accurate, normalized analytics and business intelligence provided in a consistent format for managers and shareholders to make the best possible decisions.",
+        <br />,
+        <br />,
+        "Prerequisite service = SEO Launch",
       ],
     },
   ],
@@ -88,14 +107,17 @@ export const pricingMenuObj = {
         <br />,
         <br />,
         "I also have working experience with Google Cloud Platform, Python and TypeScript but I can learn any technologies needed to fill in the gaps on a per project basis!",
+        <br />,
+        <br />,
+        "Need a hand on a project without the need for a full-time employee? Let's chat!",
       ],
     },
     {
       id: "poc-app",
       service: ["Proof of Concept App"],
-      price: "3500",
+      price: "4000",
       description: [
-        "Launch your SaaS business idea! Want an asset you can take to prospective investors to launch your business? I can build a Proof-of-Concept application based on the Minimal Viable Product (MVP) of your idea.",
+        "Launch your SaaS business idea! Want an asset you can take to prospective investors? I can build a Proof-of-Concept application based on the Minimal Viable Product (MVP) of your idea and we can build from there as your business grows!",
       ],
     },
   ],

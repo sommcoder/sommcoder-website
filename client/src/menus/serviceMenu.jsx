@@ -12,10 +12,10 @@ export const servicesArr = [
     subtitle: "Get off the ground!",
     icon: "",
     description: [
-      `Need to take your restaurant, bar or wine agency online?`,
+      `Need to take your restaurant, bar or wine agency into the e-commerce space?`,
       <br />,
       <br />,
-      `You've got more important things to worry about than spending the 5 days to several weeks it may take to launch your Shopify store. 
+      `You've got more important things to worry about than launching your Shopify store. 
       `,
     ],
     component: <LuRocket style={iconStyling} />,
@@ -40,7 +40,7 @@ export const servicesArr = [
       `It's one thing to start, it's whole different beast to maintain your new e-commerce store.`,
       <br />,
       <br />,
-      `Centralize your knowledge base by having reliable Shopify expertise available on retainer.`,
+      `Centralize your knowledge base by having reliable Shopify expertise available on retainer for up to 12 hours of service per month.`,
     ],
     component: <LuWrench style={iconStyling} />,
   },

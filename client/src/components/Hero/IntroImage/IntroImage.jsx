@@ -30,8 +30,9 @@ const StyledIntroImageBox = styled.span`
   justify-content: center;
   justify-items: center;
   align-items: center;
-  grid-column: 1 / span 2;
+  grid-column: 1;
   grid-row: 3;
+  margin-left: 2rem; // match the paragraph margin above
 
   .wine-stain-border {
     z-index: 3;

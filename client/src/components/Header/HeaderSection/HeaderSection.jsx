@@ -1,6 +1,14 @@
 ﻿import styled from "styled-components";
-import HeaderLeftContainer from "../HeaderLeftContainer/HeaderLeftContainer";
-import HeaderRightContainer from "../HeaderRightContainer/HeaderRightContainer";
+
+import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
+import logo from "/SOMMCODER-logo.svg";
+import logoNoSubtitle from "/SOMMCODER-logo-no-subtitle.svg";
+import downloadIcon from "/download-solid.svg";
+import cv from "/Brian - Resume.pdf";
+
+import { useEffect, useState } from "react";
+
+import { ICON_COMPONENTS } from "../../../menus/iconMenu";
 
 export default function HeaderSection({
   toggleMobileMenu,
@@ -8,15 +16,55 @@ export default function HeaderSection({
   menuAnimation,
   toggleMenuAnimation,
 }) {
+  const [screenWidth, setWindowWidth] = useState();
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize); // Cleanup
+    };
+  }, []);
   return (
     <StyledHeaderSection>
-      <HeaderLeftContainer />
-      <HeaderRightContainer
-        toggleMobileMenu={toggleMobileMenu}
-        mobileMenu={mobileMenu}
-        menuAnimation={menuAnimation}
-        toggleMenuAnimation={toggleMenuAnimation}
-      />
+      <StyledHeaderLeftContainer
+        onClick={() =>
+          window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "smooth",
+          })
+        }
+      >
+        <StyledLogo>
+          <img src={screenWidth < 480 ? logoNoSubtitle : logo} />
+        </StyledLogo>
+      </StyledHeaderLeftContainer>
+      <StyledHeaderRightContainer>
+        <span className="header-icon-container">
+          {Object.keys(ICON_COMPONENTS).map((name, i) => (
+            <StyledNavIconBox
+              key={i}
+              target="_blank"
+              href={ICON_COMPONENTS[name].link}
+            >
+              {ICON_COMPONENTS[name].component}
+            </StyledNavIconBox>
+          ))}
+        </span>
+        <StyledDownloadBtn onClick={() => {}}>
+          <a download="Brian's Resume" href={cv}>
+            <img alt="download icon from font-awesome" src={downloadIcon} />
+            <span className="button-text">Download CV</span>
+          </a>
+        </StyledDownloadBtn>
+        <HamburgerMenu
+          toggleMobileMenu={toggleMobileMenu}
+          mobileMenu={mobileMenu}
+          menuAnimation={menuAnimation}
+          toggleMenuAnimation={toggleMenuAnimation}
+        />
+      </StyledHeaderRightContainer>
     </StyledHeaderSection>
   );
 }
@@ -34,4 +82,95 @@ const StyledHeaderSection = styled.header`
   box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.08),
     0 0.2rem 0.2rem rgba(0, 0, 0, 0.12), 0 0.4rem 0.4rem rgba(0, 0, 0, 0.16),
     0 0.8rem 0.8rem rgba(0, 0, 0, 0.2);
+`;
+
+const StyledHeaderLeftContainer = styled.span`
+  display: flex;
+  align-items: center;
+  justify-items: left;
+  flex-wrap: nowrap;
+  justify-content: left;
+  width: 100%;
+`;
+
+const StyledHeaderRightContainer = styled.nav`
+  display: flex;
+  width: 100%;
+  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: right;
+  gap: 1.75rem;
+  .header-icon-container {
+    display: none;
+    @media (min-width: 50rem) {
+      display: flex;
+      gap: 1.75rem;
+      /* border: 1px solid lightgrey;
+      border-radius: 2rem; */
+      padding: 0.5rem 1.75rem;
+    }
+  }
+`;
+
+const StyledLogo = styled.header`
+  font-family: "Major Mono Display", sans-serif;
+  cursor: default;
+  padding-left: 2rem;
+  display: grid;
+  align-items: left;
+  justify-items: left;
+  width: 100%;
+  img {
+    width: 22rem;
+    @media (min-width: 30rem) {
+      padding-left: 2.5rem;
+    }
+  }
+`;
+
+const StyledNavIconBox = styled.a`
+  display: none;
+
+  @media (min-width: 600px) {
+    display: grid;
+    height: 4rem;
+    width: fit-content;
+    justify-items: center;
+    align-items: center;
+
+    /* &:hover {
+      cursor: pointer;
+      filter: brightness(75%);
+    } */
+  }
+`;
+
+const StyledDownloadBtn = styled.button`
+  display: none;
+  margin-right: 4rem;
+
+  // desktop:
+  @media (min-width: 50rem) {
+    display: inline-block; // make it visible
+    width: 12rem;
+
+    a {
+      display: flex;
+      align-items: center;
+      color: black;
+      height: 100%;
+      width: 100%;
+    }
+    img {
+      display: inline-block;
+      height: 1.5rem;
+      width: 1.5rem;
+      margin: 0 0.5rem 0 0.5rem;
+    }
+    span {
+      display: flex;
+      line-height: 1.5rem;
+      align-items: center;
+    }
+  }
 `;

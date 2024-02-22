@@ -26,8 +26,6 @@ export default function OverlaySection({
       console.log("ev handleClickOutside Fn:", ev);
     };
     // TODO: mousedown may work differently across mobile browsers. may need to use touch events instead
-
-    // TODO: need to include hamburger menu as the only OTHER permitted click option
     document.addEventListener("mousedown", handleClickOutside);
 
     // unsubscribe/cleanup:
