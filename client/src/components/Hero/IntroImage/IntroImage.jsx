@@ -1,6 +1,6 @@
 ﻿import styled from "styled-components";
-// import headshot from "/headshot.png";
-import headshot from "/Brian-headshot-white-background-square-more-margin.jpg";
+import headshot from "/Brian-headshot.jpg";
+
 import wine from "/wine-stain2.svg";
 
 export default function IntroImage() {

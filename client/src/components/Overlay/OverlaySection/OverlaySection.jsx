@@ -3,6 +3,8 @@ import OverlayNavList from "../OverlayNavList/OverlayNavList";
 import { useRef } from "react";
 import { useEffect } from "react";
 
+import ResumeBtn from "../../Header/ResumeBtn/ResumeBtn";
+
 export default function OverlaySection({
   refStateObj,
   mobileMenu,
@@ -48,6 +50,7 @@ export default function OverlaySection({
         overlayAnimation={overlayAnimation}
         toggleOverlayAnimation={toggleOverlayAnimation}
       />
+      <ResumeBtn />
     </StyledOverlaySection>
   );
 }
