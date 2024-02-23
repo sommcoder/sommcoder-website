@@ -51,7 +51,7 @@ const StyledBottomDrip = styled.img`
   max-width: 10rem;
   transform: rotateX(180deg);
   align-self: baseline;
-  justify-self: left;
+  justify-self: center;
   grid-row: 3;
   grid-column: 2 / span 2;
   // 480px

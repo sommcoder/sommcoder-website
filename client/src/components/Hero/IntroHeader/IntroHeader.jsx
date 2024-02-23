@@ -14,6 +14,7 @@ const blink = keyframes`
     `;
 
 const TypingContainer = styled.h4`
+  margin-top: 1rem;
   font-family: Arial, sans-serif;
   font-size: 16px;
   white-space: pre-wrap;
@@ -35,7 +36,7 @@ const TypingCursor = styled.span`
 `;
 
 // Needs to be declared OUTSIDE of the component
-const text = "I'M A FULLSTACK REACT DEVELOPER & SHOPIFY EXPERT";
+const text = "I'M A REACT DEVELOPER, WINE SOMMELIER & SHOPIFY EXPERT.";
 
 export default function IntroHeader() {
   // we will use useEffect to incrementally add sliced characters and set them using this useState hook
@@ -53,7 +54,7 @@ export default function IntroHeader() {
       } else {
         clearInterval(interval);
       }
-    }, 100);
+    }, 50);
 
     return () => clearInterval(interval);
   }, [text]);
@@ -79,7 +80,7 @@ const StyledIntroHeader = styled.span`
   row-gap: 1rem;
   width: 100%;
   grid-column: span 3;
-  margin-bottom: 1rem;
+  margin-bottom: 2.25rem;
 
   h4 {
     display: flex;
@@ -95,6 +96,7 @@ const StyledIntroHeader = styled.span`
     font-size: 4rem;
   }
   h5 {
+    margin-bottom: 0.5rem;
     display: flex;
     flex-wrap: wrap;
     font-size: 1.4rem;

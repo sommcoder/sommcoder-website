@@ -1,31 +1,29 @@
-import { useRef } from 'react';
-import styled from 'styled-components';
-import ContactFormItem from '../ContactFormItem/ContactFormItem';
-import { forwardRef } from 'react';
+import { useRef } from "react";
+import styled from "styled-components";
+import ContactFormItem from "../ContactFormItem/ContactFormItem";
+import { forwardRef } from "react";
 
-import { formInputArr } from '../../../menus/contactMenu.jsx';
+import { GrPowerReset } from "react-icons/gr";
+
+import { formInputArr } from "../../../menus/contactMenu.jsx";
 
 export default forwardRef(function ContactSection({ refStateObj }, ref) {
   const formRef = useRef();
+  function handleResetForm(ev) {}
 
   function handleFormSubmit(ev) {
     ev.preventDefault();
     // we should probably provide some clientside validation here right???
 
-    // TODO: there is no ev.target.form
-    console.log('ev:', ev);
-    console.log('ev.target:', ev.target);
-    console.log('ev.target.form:', ev.target.form);
-    console.log('formRef:', formRef);
-
+    // TODO: there is no ev.target.form?
     const formData = new FormData(formRef.current);
-    console.log('formData:', formData);
+    console.log("formData:", formData);
 
     // Access form values
-    const fname = formData.get('fname');
-    const lname = formData.get('lname');
-    const email = formData.get('email');
-    const message = formData.get('message');
+    const fname = formData.get("fname");
+    const lname = formData.get("lname");
+    const email = formData.get("email");
+    const message = formData.get("message");
 
     // Do something with the form data (e.g., log it)
     // TODO: send to Firestore which maybe we can get the server to send you an email notification when they do?
@@ -42,6 +40,9 @@ export default forwardRef(function ContactSection({ refStateObj }, ref) {
       onSubmit={handleFormSubmit}
     >
       <form ref={formRef} id="contact-form" className="content-card">
+        <button type="reset" className="reset-button" onClick={handleResetForm}>
+          <GrPowerReset style={{ height: "2rem", color: "black" }} />
+        </button>
         <h4>HOW CAN I HELP?</h4>
         {formInputArr.map(({ title, description, errorMsg, type, id }, i) => (
           <ContactFormItem
@@ -62,12 +63,13 @@ export default forwardRef(function ContactSection({ refStateObj }, ref) {
 });
 
 const StyledContactSection = styled.section`
-  background-image: url('/Wine Splatter.svg');
+  background-image: url("/Wine Splatter.svg");
 
   form {
     min-height: 40rem;
     min-width: 30rem;
     width: auto;
+    position: relative;
     margin: 2rem 1.5rem 3rem 1.5rem;
     display: grid;
     background-color: white;
@@ -80,6 +82,27 @@ const StyledContactSection = styled.section`
     box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.08),
       0 0.2rem 0.2rem rgba(0, 0, 0, 0.12), 0 0.4rem 0.4rem rgba(0, 0, 0, 0.16),
       0 0.8rem 0.8rem rgba(0, 0, 0, 0.2);
+  }
+
+  .reset-button {
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    min-width: 3rem;
+    width: 3rem;
+    height: 3rem;
+    position: absolute;
+    right: 7.5%;
+    top: 4%;
+    background-color: purple;
+    border-radius: 50%;
+    &:hover {
+      cursor: pointer !important;
+    }
+    svg,
+    path {
+      pointer-events: none;
+    }
   }
 
   h4 {

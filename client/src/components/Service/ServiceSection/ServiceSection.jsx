@@ -6,7 +6,6 @@ import ServiceCard from "../ServiceCard/ServiceCard.jsx";
 import { servicesArr } from "../../../menus/serviceMenu.jsx";
 
 export default forwardRef(function ServiceSection({ refStateObj }, ref) {
-  console.log("servicesArr:", servicesArr);
   return (
     <StyledServiceSection ref={refStateObj.service} className="content-section">
       <div className="services-container">

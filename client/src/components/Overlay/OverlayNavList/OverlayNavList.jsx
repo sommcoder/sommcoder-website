@@ -7,50 +7,62 @@ export default function OverlayNavList({
   mobileMenu,
   toggleMobileMenu,
   navLabelArr,
-  menuAnimation,
-  toggleMenuAnimation,
+  headerAnimation,
+  toggleHeaderAnimation,
+  overlayAnimation,
+  toggleOverlayAnimation,
 }) {
-  // TODO: when mobileMenu goes false, we need to ensure that the currActive link
-
   const [isAnimating, setIsAnimating] = useState(false);
+
   const lineRef = useRef();
+
+  // Nav Click Change:
   function handleLinkClick(ev) {
     ev.preventDefault();
     const section = ev.target.dataset.section;
-
     window.scrollTo({
-      top: refStateObj[section].current.offsetTop - 200 || 0, // needs to be minus cause this offsetTop is the pixel distance FROM the top
+      top: refStateObj[section].current.offsetTop - 200 || 0,
       left: 0,
       behavior: "smooth",
     });
-
     setIsAnimating(true);
     setTimeout(() => {
       setIsAnimating(false);
     }, 250);
-
+    adjustPrevActiveLink(currActiveLink); // record prev
     adjustCurrActiveLink(section); // record the new currentPosition
   }
 
-  // tracks the active state, the reference line will need to know where to go. The distance will be fixed. This won't change with the screen width.
+  function handleLineAnimationEnd() {
+    // this will trigger on EACH and EVERY animation end. Every nav movement and the enter and exit animations
+    // add class to line. it can not be moved based on the position variable:
+    // did it enter or exit?
+    // if (headerAnimation && mobileMenu === "open") {
+    //   // if true, turn off and add class
+    //   console.log("header animation now FALSE, line entered class applied");
+    toggleHeaderAnimation(false);
+    //   lineRef.current.classList.add("line-entered");
+    // }
+  }
+
   const iconArr = Object.keys(ICON_COMPONENTS);
   const iconCount = iconArr.length;
   const navCount = navLabelArr.length;
 
-  // interval: 6rem. just multiply
   const [currActiveLink, adjustCurrActiveLink] = useState("main");
+  const [prevActiveLink, adjustPrevActiveLink] = useState(null);
 
-  const position = navLabelArr.findIndex((el) => el === currActiveLink);
-  console.log("active:", position);
-  console.log("position:", position === 0 ? 0 : position * 5, "rem");
+  const newposition = navLabelArr.findIndex((el) => el === currActiveLink);
+  const prevPosition = navLabelArr.findIndex((el) => el === prevActiveLink);
+  console.log("active:", newposition);
+  console.log("newposition:", newposition === 0 ? 0 : newposition * 5, "rem");
 
+  // menu state changes, adjust to main
   useEffect(() => {
-    // if mobileMenu state changes, revert back to main
-    adjustCurrActiveLink("main");
-
-    // have line element make its entrance from top
-    // TODO: should maybe distinguish between enter and exit with a conditional statement here
-    lineRef.current.classList.add("line-enter");
+    if (mobileMenu === "open") {
+      adjustPrevActiveLink(currActiveLink);
+      adjustCurrActiveLink("main");
+    }
   }, [mobileMenu]);
 
   return (
@@ -64,9 +76,22 @@ export default function OverlayNavList({
           <span className="ref-line-track">
             <StyledReferenceLine
               ref={lineRef}
-              className={isAnimating ? "animate" : ""}
-              // want these values to be strings so they're always positive
-              position={position === 0 ? "0" : `${position * 5}`}
+              enteranimation={
+                mobileMenu === "open" && headerAnimation ? true : false
+              }
+              exitanimation={
+                mobileMenu === "closed" && !headerAnimation ? true : false
+              }
+              onAnimationEnd={handleLineAnimationEnd}
+              className={`${isAnimating ? "animate" : ""} 
+              `}
+              // want these values to be strings so they're always positive and animatable
+              lineposition={newposition === 0 ? "0" : `${newposition * 5}`}
+              distance={
+                (newposition <= prevPosition
+                  ? newposition / prevPosition
+                  : prevPosition / newposition) + 0.6
+              }
             ></StyledReferenceLine>
           </span>
         </span>
@@ -153,6 +178,9 @@ const StyledOverlayNavList = styled.div`
     width: 100%;
     min-height: 5rem;
     color: black;
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   .ref-line-track-wrapper {
@@ -177,33 +205,68 @@ const StyledOverlayNavList = styled.div`
 
 const StyledReferenceLine = styled.span`
   position: absolute;
-  /* transform: rotate(180deg); */
   background-color: black;
   width: 0.3rem;
   left: 25%;
   height: 3rem;
-  ${({ position }) =>
-    position &&
+  transition: top 500ms ease-in-out;
+  border-radius: 0.5rem;
+
+  ${({ enteranimation }) =>
+    enteranimation &&
     `
-  top: ${position}rem;
-  @keyframes line-shrink {
-    0% {
-      height: 3rem;
+      @keyframes line-entering {
+      0% {
+        
+        height: 2rem;
+        top: -4rem;
+      }
+      50% {
+       top: -2.5rem;
+      }
+      100% {
+       
+        height: 3rem;
+        top: 0rem;
+      }
     }
-    50% {
-      height: .25rem;
+    animation: line-entering 550ms ease-out forwards;
+`}
+
+  ${({ exitanimation }) =>
+    exitanimation &&
+    `
+      @keyframes line-exiting {
+      0% {
+        height: 3rem;  
+      }
+      100% {
+        height: 1.5rem;
+        top: -5rem;
+      }
+    }
+    animation: line-exiting 550ms ease-out forwards;
+`}
+ 
+    ${({ lineposition, distance }) =>
+    lineposition &&
+    `
+      background-color: red;
+    top: ${lineposition}rem;
+
+    @keyframes line-shrink {
+    0% {
+      height: ${distance}rem;
     }
     100% {
-      height: 1rem;
+      height: 2rem;
     }
   }
   `};
 
   &.animate {
-    animation: line-shrink 800ms ease-in-out;
+    animation: line-shrink 1500ms ease-in;
   }
-  transition: top 500ms ease-in-out;
-  border-radius: 0.5rem;
 `;
 
 const StyledOverlayLinkItem = styled.li`
@@ -211,28 +274,3 @@ const StyledOverlayLinkItem = styled.li`
   font-weight: 800;
   font-size: 2.2rem;
 `;
-
-/* transform: translateY(-11.5rem); // 0
-  transform: translateY(-6.5rem); // 1
-  transform: translateY(-1.5rem); // 2
-  transform: translateY(4.5rem); // 3
-  transform: translateY(9.5rem); // 4 */
-
-/*
-   
-    @keyframes line-movement {
-      0% {
-        height: 1.5rem;         
-      }
-      50% {
-        height: 1.5rem;
-      }
-      100% {
-        height: 3rem;
-        top: ${position}rem;
-      }
-  }
-
-    animation: line-movement 500ms forwards;
-   
-  */

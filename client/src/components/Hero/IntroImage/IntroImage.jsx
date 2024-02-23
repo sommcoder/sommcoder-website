@@ -1,5 +1,6 @@
 ﻿import styled from "styled-components";
-import headshot from "/headshot.png";
+// import headshot from "/headshot.png";
+import headshot from "/Brian-headshot-white-smirk.jpg";
 import wine from "/wine-stain2.svg";
 
 export default function IntroImage() {
@@ -37,13 +38,14 @@ const StyledIntroImageBox = styled.span`
   .wine-stain-border {
     z-index: 3;
     position: absolute;
-    height: 125%;
-    width: 125%; // just outside the box & surrounding the headshot
+    height: 127.5%;
+    width: 127.5%; // just outside the box & surrounding the headshot
   }
 
   .headshot-image {
-    height: 15rem;
-    width: 15rem;
+    margin-right: 1rem;
+    height: 16rem;
+    width: 16rem;
     clip-path: circle(50% at 50% 50%);
   }
 

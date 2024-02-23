@@ -8,22 +8,24 @@ export default function OverlaySection({
   mobileMenu,
   toggleMobileMenu,
   navLabelArr,
-  menuAnimation,
-  toggleMenuAnimation,
+  headerAnimation,
+  toggleHeaderAnimation,
+  overlayAnimation,
+  toggleOverlayAnimation,
 }) {
   const overlayRef = useRef();
 
   useEffect(() => {
     overlayRef.current.focus();
-
     const handleClickOutside = (ev) => {
       if (overlayRef.current && !overlayRef.current.contains(ev.target)) {
         // if NOT hamburger menu and it's children
-        if (ev.target.dataset.component !== "mobile-menu") {
-          toggleMobileMenu(false);
-        }
+        if (
+          ev.target.dataset.component !== "mobile-menu" &&
+          mobileMenu === "open"
+        )
+          toggleMobileMenu("closed");
       }
-      console.log("ev handleClickOutside Fn:", ev);
     };
     // TODO: mousedown may work differently across mobile browsers. may need to use touch events instead
     document.addEventListener("mousedown", handleClickOutside);
@@ -33,7 +35,6 @@ export default function OverlaySection({
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [mobileMenu]);
-  console.log("overlayRef:", overlayRef);
 
   return (
     <StyledOverlaySection mobileMenu={mobileMenu} ref={overlayRef}>
@@ -42,28 +43,33 @@ export default function OverlaySection({
         mobileMenu={mobileMenu}
         toggleMobileMenu={toggleMobileMenu}
         navLabelArr={navLabelArr}
-        menuAnimation={menuAnimation}
-        toggleMenuAnimation={toggleMenuAnimation}
+        headerAnimation={headerAnimation}
+        toggleHeaderAnimation={toggleHeaderAnimation}
+        overlayAnimation={overlayAnimation}
+        toggleOverlayAnimation={toggleOverlayAnimation}
       />
     </StyledOverlaySection>
   );
 }
 
-// TODO: would be really cool to have a hamburger menu that has it's middle line transform and move to the overlay menu and serve as the users VISUAL reference for where they are on the single page site. The line would need to move based on the users location to the section elements across the page. The user would also be able to click these nav items to scroll to them.
 const StyledOverlaySection = styled.nav`
   z-index: 8;
   position: fixed;
   background-color: rgba(212, 198, 228, 0.95);
   height: 100%;
   width: 20rem;
-  right: ${({ mobileMenu }) => (mobileMenu ? "0rem" : "-20rem")};
+  right: ${({ mobileMenu }) =>
+    mobileMenu === "init" || mobileMenu === "closed" ? "-20rem" : "0rem"};
   transition: all 500ms ease-in-out;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: left;
   padding-top: 8rem;
-  /* &:focus {
-    background-color: red;
-  } */
+
+  // overlay section needs to close automatically if the screen width is too large
+  @media (min-width: 50rem) {
+    display: none;
+    gap: 1.75rem;
+  }
 `;

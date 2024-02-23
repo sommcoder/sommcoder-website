@@ -1,6 +1,15 @@
 import { createGlobalStyle, css } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`${css`
+  @keyframes fadeInAnimation {
+    start {
+      opacity: 0;
+    }
+    end {
+      opacity: 1;
+    }
+  }
+
   * {
     margin: 0;
     padding: 0;
@@ -23,8 +32,6 @@ const GlobalStyles = createGlobalStyle`${css`
     font-family: inherit;
     vertical-align: baseline;
     line-height: 1;
-    margin: 0;
-    padding: 0;
     border: 0;
     outline: 0;
     font-weight: inherit;
@@ -54,15 +61,6 @@ const GlobalStyles = createGlobalStyle`${css`
   div {
     animation: fadeInAnimation ease-in-out 1s;
     animation-iteration-count: 1;
-
-    @keyframes fadeInAnimation {
-      start {
-        opacity: 0;
-      }
-      end {
-        opacity: 1;
-      }
-    }
   }
 
   /* li,
@@ -124,15 +122,6 @@ const GlobalStyles = createGlobalStyle`${css`
       filter: brightness(85%);
       transition: 200ms ease-in-out;
       transform: translateY(-2.5px);
-    }
-
-    @keyframes fadeInAnimation {
-      start {
-        opacity: 0;
-      }
-      end {
-        opacity: 1;
-      }
     }
   }
 

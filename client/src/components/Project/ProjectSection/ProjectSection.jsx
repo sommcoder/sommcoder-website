@@ -68,20 +68,17 @@ export default forwardRef(function ProjectSection({ refStateObj }, ref) {
             adjustCurrIndex={adjustCurrIndex}
           />
           <div className="carousel-ellipses-container">
-            {carouselItemsArr.map((_, i) => {
-              if (i === currIndex) console.log("true");
-              return (
-                <span
-                  style={{
-                    backgroundColor: i === currIndex ? "white" : "transparent",
-                  }}
-                  data-index={i}
-                  onClick={handleEllipsesClick}
-                  key={i}
-                  className="carousel-ellipses-item"
-                ></span>
-              );
-            })}
+            {carouselItemsArr.map((_, i) => (
+              <span
+                style={{
+                  backgroundColor: i === currIndex ? "white" : "transparent",
+                }}
+                data-index={i}
+                onClick={handleEllipsesClick}
+                key={i}
+                className="carousel-ellipses-item"
+              ></span>
+            ))}
           </div>
         </StyledProjectOverlay>
       </StyledProjectSection>

@@ -11,10 +11,13 @@ import { useEffect, useState } from "react";
 import { ICON_COMPONENTS } from "../../../menus/iconMenu";
 
 export default function HeaderSection({
-  toggleMobileMenu,
+  navLabelArr,
   mobileMenu,
-  menuAnimation,
-  toggleMenuAnimation,
+  toggleMobileMenu,
+  headerAnimation,
+  toggleHeaderAnimation,
+  overlayAnimation,
+  toggleOverlayAnimation,
 }) {
   const [screenWidth, setWindowWidth] = useState();
 
@@ -59,10 +62,13 @@ export default function HeaderSection({
           </a>
         </StyledDownloadBtn>
         <HamburgerMenu
-          toggleMobileMenu={toggleMobileMenu}
+          navLabelArr={navLabelArr}
           mobileMenu={mobileMenu}
-          menuAnimation={menuAnimation}
-          toggleMenuAnimation={toggleMenuAnimation}
+          toggleMobileMenu={toggleMobileMenu}
+          headerAnimation={headerAnimation}
+          toggleHeaderAnimation={toggleHeaderAnimation}
+          overlayAnimation={overlayAnimation}
+          toggleOverlayAnimation={toggleOverlayAnimation}
         />
       </StyledHeaderRightContainer>
     </StyledHeaderSection>
@@ -72,6 +78,7 @@ const StyledHeaderSection = styled.header`
   position: sticky;
   top: 0;
   z-index: 10;
+  overflow-y: hidden;
   height: 6rem;
   min-width: 32rem;
   max-width: 100%; // which is App

@@ -10,17 +10,18 @@ import { useRef, useState } from "react";
 
 export default function App() {
   // mobile overlay menu switch:
-  const [mobileMenu, toggleMobileMenu] = useState(false);
+  // can be closed to switch or user clicks somewhere other than OverlaySection
+  // ! "init", "open", "closed" states:
+  const [mobileMenu, toggleMobileMenu] = useState("init");
   // header's hamburger menu animation switch:
   // middle line EXITS then triggers toggleOverlayAnimation
   // Overlay list items CANNOT be clicked until this completes:
-  const [headerAnimation, toggleHeaderAnimation] = useState(false);
+  const [headerAnimation, toggleHeaderAnimation] = useState(false); // true: complete, false: incomplete
   // overlay's reference line animation switch:
   // line enters on TRUE and exists on FALSE
   // hamburger menu CANNOT be clicked until this completes:
-  const [overlayAnimation, toggleOverlayAnimation] = useState(false);
+  const [overlayAnimation, toggleOverlayAnimation] = useState(false); // true: complete, false: incomplete
 
-  console.log("Section:", Section);
   const refStateObj = {
     main: useRef(null),
     project: useRef(null),
@@ -30,14 +31,12 @@ export default function App() {
   };
   const navLabelArr = Object.keys(refStateObj);
 
-  console.log("refStateObj:", refStateObj);
-
+  console.log("headerAnimation TRIGGERED:", headerAnimation);
   return (
     <>
       <GlobalStyles />
       <StyledApp className="App">
         <Section.Header
-          refStateObj={refStateObj}
           navLabelArr={navLabelArr}
           mobileMenu={mobileMenu}
           toggleMobileMenu={toggleMobileMenu}
