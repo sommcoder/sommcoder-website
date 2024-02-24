@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { IoIosArrowDown } from 'react-icons/io';
+// import { IoIosArrowDown } from 'react-icons/io';
 
 import { forwardRef } from 'react';
 import youngme1 from '/me-computer1.jpg';
@@ -33,7 +33,7 @@ export default forwardRef(function AboutMeSection({ refStateObj }, ref) {
             className={`about-me-more-btn-overlay ${moreState ? 'hidden' : ''}`}
           >
             <button id="show-more-btn">
-              more <IoIosArrowDown />
+              <span className="button-text">show more</span>
             </button>
           </div>
         </p>
@@ -110,7 +110,7 @@ const StyledAboutMeSection = styled.section`
   }
   #show-more-btn {
     display: grid;
-    grid-template-columns: auto 1rem;
+    justify-items: center;
     justify-content: center;
     column-gap: 0.2rem;
     align-content: center;

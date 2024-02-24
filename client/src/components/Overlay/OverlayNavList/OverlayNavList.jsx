@@ -1,6 +1,6 @@
-﻿import styled from "styled-components";
-import { ICON_COMPONENTS } from "../../../menus/iconMenu";
-import { useState, useEffect, useRef } from "react";
+﻿import styled from 'styled-components';
+import { ICON_COMPONENTS } from '../../../menus/iconMenu';
+import { useState, useEffect, useRef } from 'react';
 
 export default function OverlayNavList({
   refStateObj,
@@ -23,7 +23,7 @@ export default function OverlayNavList({
     window.scrollTo({
       top: refStateObj[section].current.offsetTop - 200 || 0,
       left: 0,
-      behavior: "smooth",
+      behavior: 'smooth',
     });
     setIsAnimating(true);
     setTimeout(() => {
@@ -33,14 +33,26 @@ export default function OverlayNavList({
     adjustCurrActiveLink(section); // record the new currentPosition
   }
 
-  function handleLineAnimationEnd() {
+  function handleLineAnimationEnd(ev) {
+    console.log('ev:', ev);
+    console.log('ev.animationName:', ev.animationName);
+
+    // do nothing:
+    if (ev.animationName === 'line-shrink') return;
     // this will trigger on EACH and EVERY animation end. Every nav movement and the enter and exit animations
     // add class to line. it can not be moved based on the position variable:
     // did it enter or exit?
     // if (headerAnimation && mobileMenu === "open") {
     //   // if true, turn off and add class
     //   console.log("header animation now FALSE, line entered class applied");
-    toggleHeaderAnimation(false);
+    if (ev.animationName === 'line-entering') {
+      // reset the HeaderAnimation state
+      toggleHeaderAnimation(false);
+    }
+    if (ev.animationName === 'line-exiting') {
+      // trigger the OverlayAnimation state
+      toggleOverlayAnimation(true);
+    }
     //   lineRef.current.classList.add("line-entered");
     // }
   }
@@ -49,19 +61,19 @@ export default function OverlayNavList({
   const iconCount = iconArr.length;
   const navCount = navLabelArr.length;
 
-  const [currActiveLink, adjustCurrActiveLink] = useState("main");
+  const [currActiveLink, adjustCurrActiveLink] = useState('main');
   const [prevActiveLink, adjustPrevActiveLink] = useState(null);
 
-  const newposition = navLabelArr.findIndex((el) => el === currActiveLink);
-  const prevPosition = navLabelArr.findIndex((el) => el === prevActiveLink);
-  console.log("active:", newposition);
-  console.log("newposition:", newposition === 0 ? 0 : newposition * 5, "rem");
+  const newposition = navLabelArr.findIndex(el => el === currActiveLink);
+  const prevPosition = navLabelArr.findIndex(el => el === prevActiveLink);
+  console.log('active:', newposition);
+  console.log('newposition:', newposition === 0 ? 0 : newposition * 5, 'rem');
 
   // menu state changes, adjust to main
   useEffect(() => {
-    if (mobileMenu === "open") {
+    if (mobileMenu === 'open') {
       adjustPrevActiveLink(currActiveLink);
-      adjustCurrActiveLink("main");
+      adjustCurrActiveLink('main');
     }
   }, [mobileMenu]);
 
@@ -76,17 +88,15 @@ export default function OverlayNavList({
           <span className="ref-line-track">
             <StyledReferenceLine
               ref={lineRef}
-              enteranimation={
-                mobileMenu === "open" && headerAnimation ? true : false
-              }
+              enteranimation={mobileMenu === 'open' ? true : false}
               exitanimation={
-                mobileMenu === "closed" && !headerAnimation ? true : false
+                mobileMenu === 'closed' && !headerAnimation ? true : false
               }
               onAnimationEnd={handleLineAnimationEnd}
-              className={`${isAnimating ? "animate" : ""} 
+              className={`${isAnimating ? 'animate' : ''} 
               `}
               // want these values to be strings so they're always positive and animatable
-              lineposition={newposition === 0 ? "0" : `${newposition * 5}`}
+              lineposition={newposition === 0 ? '0' : `${newposition * 5}`}
               distance={
                 (newposition <= prevPosition
                   ? newposition / prevPosition
@@ -100,7 +110,7 @@ export default function OverlayNavList({
             data-section={label}
             data-sequence={i} // should be fine mathematically to keep this as a 0 index
             data-indexfromcurrent={
-              i - navLabelArr.findIndex((el) => el === currActiveLink)
+              i - navLabelArr.findIndex(el => el === currActiveLink)
             }
             onClick={handleLinkClick}
             key={i}
@@ -272,5 +282,5 @@ const StyledReferenceLine = styled.span`
 const StyledOverlayLinkItem = styled.li`
   justify-self: center;
   font-weight: 800;
-  font-size: 2.2rem;
+  font-size: 2.5rem;
 `;
