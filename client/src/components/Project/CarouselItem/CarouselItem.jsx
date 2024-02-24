@@ -1,6 +1,6 @@
-﻿import styled from "styled-components";
+﻿import styled from 'styled-components';
 
-import { ICON_COMPONENTS } from "../../../menus/iconMenu";
+import { ICON_COMPONENTS } from '../../../menus/iconMenu';
 
 export default function CarouselItem({
   item,
@@ -8,7 +8,7 @@ export default function CarouselItem({
   adjustCurrIndex,
   index,
 }) {
-  const handleItemClick = (ev) => adjustCurrIndex(+ev.target.dataset.index);
+  const handleItemClick = ev => adjustCurrIndex(+ev.target.dataset.index);
 
   return (
     <StyledCarouselItem
@@ -44,7 +44,7 @@ export default function CarouselItem({
               {ICON_COMPONENTS[link].component}
             </a>
           ) : (
-            ""
+            ''
           );
         })}
       </div>
@@ -63,21 +63,21 @@ const StyledCarouselItem = styled.div`
   border-radius: 2rem;
   background-color: rgb(80, 104, 84);
 
-  ${(props) => `
+  ${props => `
    z-index: 1;
    transform: translateX(${props.position}%);
    box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.08),
     0 0.2rem 0.2rem rgba(0, 0, 0, 0.12), 0 0.4rem 0.4rem rgba(0, 0, 0, 0.16),
     0 0.8rem 0.8rem rgba(0, 0, 0, 0.2);
    filter: brightness(65%);
-   transition: transform 350ms linear;
+   transition: transform 250ms linear;
   `}
-  ${(props) =>
+  ${props =>
     props.activeCard &&
     `
     z-index: 3;
-  opacity: 1;
-box-shadow: 0 0 0.1rem 0.1rem rgba(255, 255, 255, 0.08),
+   opacity: 1;
+   box-shadow: 0 0 0.1rem 0.1rem rgba(255, 255, 255, 0.08),
     0 0 0.2rem 0.2rem rgba(255, 255, 255, 0.12), 0 0 0.4rem 0.4rem rgba(255, 255, 255, 0.16),
     0 0 0.8rem 0.8rem rgba(255, 255, 255, 0.2);
   transition: filter 200ms ease-in-out;

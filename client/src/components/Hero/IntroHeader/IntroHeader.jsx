@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import styled, { keyframes } from "styled-components";
+import { useEffect, useState } from 'react';
+import styled, { keyframes } from 'styled-components';
 
 const blink = keyframes`
    0% {
@@ -27,12 +27,12 @@ const TypingText = styled.span`
 
 const TypingCursor = styled.span`
   display: inline-block;
-  height: 2rem;
-  width: 0.2rem;
+  height: 1.75rem;
+  width: 0.75rem;
   background-color: white;
   line-height: 1;
   margin-left: 0.5rem;
-  animation: ${blink} 1s infinite;
+  animation: ${blink} 1s ease infinite;
 `;
 
 // Needs to be declared OUTSIDE of the component
@@ -40,10 +40,10 @@ const text = "I'M A REACT DEVELOPER, WINE SOMMELIER & SHOPIFY EXPERT.";
 
 export default function IntroHeader() {
   // we will use useEffect to incrementally add sliced characters and set them using this useState hook
-  const [displayText, setDisplayText] = useState("");
+  const [displayText, setDisplayText] = useState('');
 
   useEffect(() => {
-    let currentText = "";
+    let currentText = '';
     let index = 0;
 
     const interval = setInterval(() => {

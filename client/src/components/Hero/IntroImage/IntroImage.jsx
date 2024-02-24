@@ -1,7 +1,7 @@
-﻿import styled from "styled-components";
-import headshot from "/Brian-headshot.jpg";
+﻿import styled from 'styled-components';
+import headshot from '/Brian-headshot.jpg';
 
-import wine from "/wine-stain2.svg";
+import wine from '/wine-stain2.svg';
 
 export default function IntroImage() {
   return (
@@ -55,7 +55,9 @@ const StyledIntroImageBox = styled.span`
   // 480px
   @media (min-width: 30rem) {
     grid-column: 3;
+    align-self: baseline;
     grid-row: 2;
+    margin-top: 3rem;
     margin-left: 2rem;
     .headshot-image {
       height: 16rem;

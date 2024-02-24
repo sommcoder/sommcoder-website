@@ -1,4 +1,4 @@
-import { createGlobalStyle, css } from "styled-components";
+import { createGlobalStyle, css } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`${css`
   @keyframes fadeInAnimation {
@@ -46,7 +46,7 @@ const GlobalStyles = createGlobalStyle`${css`
     font-size: 1.6rem; // equals 16px
     background-color: rgb(53, 69, 56);
     color: white;
-    font-family: "PT Serif", sans-serif;
+    font-family: monospace;
   }
 
   h5 {
@@ -95,7 +95,7 @@ const GlobalStyles = createGlobalStyle`${css`
 
   // Want to make the button and overall shape of the web page look 3 dimensional and "textured" / wavy
   button {
-    font-family: "PT Serif", sans-serif;
+    font-family: 'PT Serif', sans-serif;
     display: inline-block;
     position: relative;
     font-weight: 600;

@@ -1,13 +1,13 @@
-﻿import styled from "styled-components";
-import IntroDescription from "../IntroDescription/IntroDescription";
-import ContactBtn from "../ContactBtn/ContactBtn";
-import IntroHeader from "../IntroHeader/IntroHeader";
+﻿import styled from 'styled-components';
+import IntroDescription from '../IntroDescription/IntroDescription';
+import ContactBtn from '../ContactBtn/ContactBtn';
+import IntroHeader from '../IntroHeader/IntroHeader';
 
-import wineDrip2 from "/wine-drips2.svg";
+import wineDrip2 from '/wine-drips2.svg';
 
-import { lazy } from "react";
-
-const IntroImage = lazy(() => import("../IntroImage/IntroImage"));
+import { lazy } from 'react';
+// TODO: adjust the container to merge the header image at a higher minimum screen width. no point in having a tiny header image while the image is still adjacent to the content. Too much whitespace.
+const IntroImage = lazy(() => import('../IntroImage/IntroImage'));
 
 export default function IntroContainer() {
   // TODO: would look better to have the footer drip graphic align with the introImage component
