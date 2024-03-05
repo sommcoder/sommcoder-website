@@ -24,7 +24,7 @@ export default forwardRef(function ProjectSection({ refStateObj }, ref) {
   const [touchEnd, setTouchEnd] = useState(null);
 
   // the required distance between touchStart and touchEnd to be detected as a swipe
-  const minSwipeDistance = 20;
+  const minSwipeDistance = 10;
 
   const onTouchStart = (e) => {
     setTouchEnd(null); // otherwise the swipe is fired even with usual touch events
@@ -32,7 +32,7 @@ export default forwardRef(function ProjectSection({ refStateObj }, ref) {
   };
 
   const onTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientX);
-
+  // TODO: the currIndex must be getting set to null or undefined because on mobile when swiping vertical the project section disables. Elipses goes blank and no projectItems are highlighted!
   const onTouchEnd = () => {
     if (!touchStart || !touchEnd) return;
     const isLeftSwipe = touchStart - touchEnd > minSwipeDistance;
