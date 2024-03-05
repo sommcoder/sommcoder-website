@@ -1,4 +1,4 @@
-import { createGlobalStyle, css } from 'styled-components';
+import { createGlobalStyle, css } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`${css`
   @keyframes fadeInAnimation {
@@ -15,10 +15,6 @@ const GlobalStyles = createGlobalStyle`${css`
     padding: 0;
   }
 
-  //! Don't give your sections any padding. This creates weird overflow issues. Components can have padding but sections should be width: 100% of their container right up into the right element
-  // * height?: deal with min-height
-  // * width?: deal with max-width
-  // * rem sizes the element relative only to html, while em sizes relative to its nearest parent
   html {
     /* 62.5% of 16px browser font size is 10px */
     font-size: 62.5%; // allows for: 1rem = 10px
@@ -46,7 +42,6 @@ const GlobalStyles = createGlobalStyle`${css`
     font-size: 1.6rem; // equals 16px
     background-color: rgb(53, 69, 56);
     color: white;
-    font-family: monospace;
   }
 
   h5 {
@@ -95,7 +90,7 @@ const GlobalStyles = createGlobalStyle`${css`
 
   // Want to make the button and overall shape of the web page look 3 dimensional and "textured" / wavy
   button {
-    font-family: 'PT Serif', sans-serif;
+    font-family: "PT Serif", sans-serif;
     display: inline-block;
     position: relative;
     font-weight: 600;
