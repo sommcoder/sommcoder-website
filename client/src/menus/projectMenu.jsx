@@ -1,6 +1,6 @@
 // thumbnails:
 import wordle from "/wordle.svg";
-import markey from "/mar-key.svg";
+import markey from "/Mar-Key-new.png";
 import sommcoder from "/sommcoder-thumbnail.png";
 import jssx from "/jssx.png";
 

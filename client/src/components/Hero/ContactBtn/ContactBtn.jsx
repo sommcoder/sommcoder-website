@@ -3,12 +3,12 @@
 export default function ContactBtn() {
   return (
     <StyledContactBtn
-      // href="mailto:brian.davies589@gmail.com?subject=General Inquiry"
-      onClick={() =>
-        Calendly.initPopupWidget({
-          url: "https://calendly.com/brian-davies589/15minchat",
-        })
-      }
+      href="mailto:brian.davies589@gmail.com?subject=General Inquiry"
+      // onClick={() =>
+      //   Calendly.initPopupWidget({
+      //     url: "https://calendly.com/brian-davies589/15minchat",
+      //   })
+      // }
     >
       <button>
         <span className="button-text">Let's Chat!</span>

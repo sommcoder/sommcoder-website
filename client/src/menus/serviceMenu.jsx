@@ -64,7 +64,7 @@ export const servicesArr = [
       `You get a resourceful, self-taught developer with intermediate-level knowledge of JavaScript, React, HTML and CSS.`,
       <br />,
       <br />,
-      `I have over 20 years of applied business experience and can work with a wide range of people and personalities in order to produce your deliverables in a timely fashion!`,
+      `I have over 20 years of applied business experience and can work with a wide range of people and personalities in order to produce your deliverables on time!`,
     ],
     component: <LiaFileContractSolid style={iconStyling} />,
   },
