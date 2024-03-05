@@ -1,10 +1,10 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 // import { IoIosArrowDown } from 'react-icons/io';
 
-import { forwardRef } from 'react';
-import youngme1 from '/me-computer1.jpg';
-import youngme2 from '/me-computer2.jpg';
-import { useState } from 'react';
+import { forwardRef } from "react";
+import youngme1 from "/me-computer1.jpg";
+import youngme2 from "/me-computer2.jpg";
+import { useState } from "react";
 
 export default forwardRef(function AboutMeSection({ refStateObj }, ref) {
   const [moreState, toggleMore] = useState(false);
@@ -30,7 +30,7 @@ export default forwardRef(function AboutMeSection({ refStateObj }, ref) {
           attention.
           <div
             onClick={handleMoreClick}
-            className={`about-me-more-btn-overlay ${moreState ? 'hidden' : ''}`}
+            className={`about-me-more-btn-overlay ${moreState ? "hidden" : ""}`}
           >
             <button id="show-more-btn">
               <span className="button-text">show more</span>
@@ -39,11 +39,12 @@ export default forwardRef(function AboutMeSection({ refStateObj }, ref) {
         </p>
         <p
           className={`about-me-more-container ${
-            moreState ? 'more-active' : 'more-inactive'
+            moreState ? "more-active" : "more-inactive"
           }`}
         >
-          Studying the minutiae of the wine industry certainly afforded me the
-          ability to dive deep into the vast subject of web programming.
+          Looking back, having studied the minutiae of the wine industry
+          certainly afforded me the ability to dive deep into the esoteric
+          subject of web development.
           <br />
           <br />
           Truthfully, I was always drawn to computers, even at 2 years old when
@@ -52,7 +53,8 @@ export default forwardRef(function AboutMeSection({ refStateObj }, ref) {
           <br />
           With my extensive Hospitality experience and technical skill set, I
           offer a highly specialized knowledge base to help scale your online
-          presence and create a tonne of value for your shareholders.
+          presence and create a tonne of value for you in the food and beverage
+          industry.
           <br />
           <br />- Brian Davies
         </p>
@@ -67,7 +69,7 @@ export default forwardRef(function AboutMeSection({ refStateObj }, ref) {
 });
 
 const StyledAboutMeSection = styled.section`
-  background-image: url('/Wine Splatter.svg');
+  background-image: url("/Wine Splatter.svg");
   height: auto;
   .about-me-more-btn {
     font-weight: 600;
@@ -130,6 +132,7 @@ const StyledAboutMeSection = styled.section`
 
   .about-me-container {
     display: grid;
+    border: 0.1rem solid #9e8cb0;
     padding: 0rem;
     margin: 3rem;
     grid-template-columns: 1fr;
