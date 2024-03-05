@@ -17,7 +17,7 @@ export default function FooterSection({ refStateObj, navLabelArr }) {
       <StyledFooterImage />
       <StyledFooterHeader>SOMMCODER</StyledFooterHeader>
       <span>
-        <header>Contact</header>
+        <header>Connect</header>
         <ul>
           <li>
             <a href={"mailto:brian.davies589@gmail.com"}>email</a>
@@ -32,7 +32,7 @@ export default function FooterSection({ refStateObj, navLabelArr }) {
         </ul>
       </span>
       <span>
-        <header>Navigation</header>
+        <header>Navigate</header>
         <ul>
           {navLabelArr.map((label, i) => (
             <li data-section={label} onClick={handleLinkClick} key={i}>

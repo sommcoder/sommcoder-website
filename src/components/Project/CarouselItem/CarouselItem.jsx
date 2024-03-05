@@ -1,6 +1,6 @@
-﻿import styled from 'styled-components';
+﻿import styled from "styled-components";
 
-import { ICON_COMPONENTS } from '../../../menus/iconMenu';
+import { ICON_COMPONENTS } from "../../../menus/iconMenu";
 
 export default function CarouselItem({
   item,
@@ -8,7 +8,7 @@ export default function CarouselItem({
   adjustCurrIndex,
   index,
 }) {
-  const handleItemClick = ev => adjustCurrIndex(+ev.target.dataset.index);
+  const handleItemClick = (ev) => adjustCurrIndex(+ev.target.dataset.index);
 
   return (
     <StyledCarouselItem
@@ -44,7 +44,7 @@ export default function CarouselItem({
               {ICON_COMPONENTS[link].component}
             </a>
           ) : (
-            ''
+            ""
           );
         })}
       </div>
@@ -63,7 +63,11 @@ const StyledCarouselItem = styled.div`
   border-radius: 2rem;
   background-color: rgb(80, 104, 84);
 
-  ${props => `
+  &:hover {
+    cursor: pointer;
+  }
+
+  ${(props) => `
    z-index: 1;
    transform: translateX(${props.position}%);
    box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.08),
@@ -72,7 +76,7 @@ const StyledCarouselItem = styled.div`
    filter: brightness(65%);
    transition: transform 250ms linear;
   `}
-  ${props =>
+  ${(props) =>
     props.activeCard &&
     `
     z-index: 3;
