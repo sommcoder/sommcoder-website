@@ -1,11 +1,20 @@
-import { useRef } from "react";
+import { useRef, forwardRef } from "react";
 import styled from "styled-components";
 import ContactFormItem from "../ContactFormItem/ContactFormItem";
-import { forwardRef } from "react";
-
 import { GrPowerReset } from "react-icons/gr";
-
 import { formInputArr } from "../../../menus/contactMenu.jsx";
+
+import { database } from "../../../../firebase-sdk.js";
+import { ref, set } from "firebase/database";
+
+function writeUserFormData(formData) {
+  set(ref(database, "forms/" + Date.now()), {
+    fname: formData.get("fname"),
+    lname: formData.get("lname"),
+    email: formData.get("email"),
+    message: formData.get("message"),
+  });
+}
 
 export default forwardRef(function ContactSection({ refStateObj }, ref) {
   const formRef = useRef();
@@ -13,24 +22,12 @@ export default forwardRef(function ContactSection({ refStateObj }, ref) {
 
   function handleFormSubmit(ev) {
     ev.preventDefault();
-    // we should probably provide some clientside validation here right???
 
-    // TODO: there is no ev.target.form?
     const formData = new FormData(formRef.current);
-    console.log("formData:", formData);
-
-    // Access form values
-    const fname = formData.get("fname");
-    const lname = formData.get("lname");
-    const email = formData.get("email");
-    const message = formData.get("message");
-
-    // Do something with the form data (e.g., log it)
-    // TODO: send to Firestore which maybe we can get the server to send you an email notification when they do?
-
-    // Clear form fields
-    ev.target.form.reset();
-    // need to also change the state f
+    // write data:
+    writeUserFormData(formData);
+    // Clear form fields:
+    formRef.current.reset();
   }
   return (
     <StyledContactSection
@@ -40,7 +37,7 @@ export default forwardRef(function ContactSection({ refStateObj }, ref) {
       onSubmit={handleFormSubmit}
     >
       <form ref={formRef} id="contact-form" className="content-card">
-        <button type="reset" className="reset-button" onClick={handleResetForm}>
+        <button type="reset" id="reset-button" onClick={handleResetForm}>
           <GrPowerReset style={{ height: "2rem", color: "black" }} />
         </button>
         <h4>HOW CAN I HELP?</h4>
@@ -66,6 +63,7 @@ const StyledContactSection = styled.section`
   background-image: url("/Wine Splatter.svg");
 
   form {
+    z-index: 5;
     min-height: 40rem;
     min-width: 30rem;
     width: auto;
@@ -84,7 +82,7 @@ const StyledContactSection = styled.section`
       0 0.8rem 0.8rem rgba(0, 0, 0, 0.2);
   }
 
-  .reset-button {
+  #reset-button {
     display: grid;
     align-content: center;
     justify-content: center;
@@ -94,10 +92,10 @@ const StyledContactSection = styled.section`
     position: absolute;
     right: 7.5%;
     top: 4%;
-    background-color: purple;
+    background-color: #ff0000;
     border-radius: 50%;
     &:hover {
-      cursor: pointer !important;
+      cursor: pointer;
     }
     svg,
     path {

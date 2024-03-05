@@ -28,7 +28,7 @@ export default function PricingItem({
     gridColumn: "span 2",
     top: "3rem",
     left: "46.5%", // can't be 50% cause have to consider CENTER of item
-    backgroundColor: "white",
+    backgroundColor: "whitesmoke",
     zIndex: "3",
     height: "2.25rem",
     borderRadius: "50%",
@@ -68,7 +68,6 @@ export default function PricingItem({
     </StyledPricingItem>
   );
 }
-// we don't want to display we want the container to increase in height
 
 const StyledPricingItem = styled.li`
   display: grid;
@@ -83,25 +82,21 @@ const StyledPricingItem = styled.li`
   .pricing-menu-item-header-container {
     display: grid;
     grid-column: span 2;
-    /* justify-content: left;
-    align-items: center;
-    justify-items: left;
-    text-align: left; */
     text-align: left;
     align-items: left;
+    align-content: center;
+
     width: 100%;
     z-index: 3;
-
     min-height: 4rem;
     background-color: whitesmoke;
     grid-template-columns: 1fr 1fr;
     column-gap: 1.5rem;
     width: auto;
     border-bottom: 0.1rem solid lightgrey;
+
     .price-header {
       justify-self: right;
-      align-self: baseline;
-      align-content: center;
     }
     &:active {
       filter: brightness(85%);

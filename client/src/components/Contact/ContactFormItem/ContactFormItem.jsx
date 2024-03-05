@@ -38,6 +38,7 @@ export default function ContactFormItem({
         <textarea
           name={id}
           id={id}
+          required
           autoComplete="on"
           form="contact-form"
           type="text"
@@ -109,7 +110,7 @@ const StyledContactFormItem = styled.div`
     display: block;
     font-size: 1.8rem;
     height: ${({ longtext }) => (longtext === "longtext" ? "20rem" : "3rem")};
-    width: 90%;
+    width: 100%;
 
     // textarea resets:
     outline: none;
