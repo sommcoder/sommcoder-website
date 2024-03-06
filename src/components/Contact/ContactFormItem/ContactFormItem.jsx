@@ -4,33 +4,19 @@ import styled from "styled-components";
 export default function ContactFormItem({
   title,
   description,
+  formInputState,
+  handleFieldInput,
   errorMsg,
+  position,
   type,
   id,
 }) {
-  const [inputFocus, toggleInputFocus] = useState(false);
-
-  function handleFieldInput(ev) {
-    if (ev.target.value) {
-      // onChange ensures this is changed by autofill
-      toggleInputFocus(true);
-      return;
-    }
-  }
-
-  function handleFieldFocus(ev) {
-    if (!ev.target.value) {
-      toggleInputFocus((prevState) => !prevState);
-      return;
-    }
-    toggleInputFocus(true);
-  }
-
   // TODO: error message will stay visually WITHIN the input element
 
   return (
     <StyledContactFormItem
-      inputFocus={inputFocus}
+      data-position={formInputState[position]}
+      position={formInputState[position]}
       type={type === "longtext" ? "text" : type}
       longtext={type === "longtext" ? "longtext" : ""}
     >
@@ -44,8 +30,8 @@ export default function ContactFormItem({
           type="text"
           title={description}
           onChange={handleFieldInput}
-          onFocus={handleFieldFocus}
-          onBlur={handleFieldFocus}
+          // onFocus={handleFieldFocus}
+          // onBlur={handleFieldFocus}
         ></textarea>
       ) : (
         <input
@@ -57,8 +43,8 @@ export default function ContactFormItem({
           type="text"
           title={description}
           onChange={handleFieldInput}
-          onFocus={handleFieldFocus}
-          onBlur={handleFieldFocus}
+          // onFocus={handleFieldFocus}
+          // onBlur={handleFieldFocus}
         />
       )}
       <label
@@ -67,7 +53,7 @@ export default function ContactFormItem({
         id={`placeholder-${id}`}
         form="contact-form"
         aria-labelledby="placeholder-text"
-        inputFocus
+        formInputState
         className="placeholder-text"
       >
         <div className="label-text">{title}</div>
@@ -89,8 +75,8 @@ const StyledContactFormItem = styled.div`
   .placeholder-text {
     position: absolute;
     pointer-events: none;
-    top: ${({ inputFocus, longtext }) =>
-      inputFocus ? (longtext ? "-5%" : "-15%") : "37.5%"};
+    top: ${({ position, longtext }) =>
+      position ? (longtext ? "-5%" : "-15%") : "37.5%"};
     left: 4%; // 3% blocks the caret
     padding: 0rem 0.2rem;
     transition: top 150ms linear;

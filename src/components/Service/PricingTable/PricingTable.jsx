@@ -4,7 +4,12 @@ import { useState } from "react";
 
 import PricingItem from "../PricingItem/PricingItem";
 
-export default function PricingTable({ menu, title }) {
+export default function PricingTable({
+  menu,
+  title,
+  toggleCardState,
+  cardState,
+}) {
   if (!menu) return; // hack fix.. not sure why I even had to do this... for some reason we're passing a menu with an undefined value
   const initTblStateObj = {};
   // dynamically populate the State for accordion menu
@@ -12,7 +17,7 @@ export default function PricingTable({ menu, title }) {
   const [priceTblState, adjustPriceTblState] = useState(initTblStateObj);
 
   return (
-    <StyledPricingTable className="pricing-table-content-container">
+    <StyledPricingTable cardState={cardState}>
       {menu.map((item, i) => (
         <PricingItem
           count={i}
@@ -37,12 +42,25 @@ const StyledPricingTable = styled.ul`
   align-items: baseline;
   list-style: none;
   width: 100%;
+  overflow: hidden; // hides contents
 
   border-top: 0.1rem lightgrey solid;
-  padding: 1.5rem 2rem 1.5rem 2rem;
+
   display: grid;
   list-style: none;
-  /* grid-template-rows: auto-fit; */
+  ${({ cardState }) =>
+    cardState
+      ? `
+  max-height: 40rem;
+  padding: 1.5rem 2rem 1.5rem 2rem;
+  `
+      : `
+      max-height: 0rem;
+      padding: 0rem 2rem 0rem 2rem;
+      `};
+  transition: max-height 200ms linear;
+  transition: padding 200ms linear;
+
   width: inherit;
   text-align: center;
 

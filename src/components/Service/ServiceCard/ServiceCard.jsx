@@ -7,12 +7,14 @@ import { pricingMenuObj } from "../../../menus/pricingMenu";
 
 export default function ServiceCard({ service }) {
   const [cardState, toggleCardState] = useState(false);
-  function handleDropdownClick() {
-    toggleCardState((prevState) => !prevState);
-  }
 
   return (
-    <StyledServiceCard onClick={handleDropdownClick}>
+    <StyledServiceCard
+      onMouseEnter={() => toggleCardState(true)}
+      onMouseLeave={() => toggleCardState(false)}
+      onFocus={() => toggleCardState(true)}
+      onBlur={() => toggleCardState(false)}
+    >
       <span className="service-card-header-container">
         <h3>{service.title}</h3>
         <span>{service.component}</span>
@@ -24,6 +26,8 @@ export default function ServiceCard({ service }) {
       <PricingTable
         key={service.title}
         menu={pricingMenuObj[service.title]}
+        cardState={cardState}
+        toggleCardState={toggleCardState}
         title={service.title}
       />
       <div className="service-card-bottom"></div>
@@ -34,7 +38,7 @@ export default function ServiceCard({ service }) {
 const StyledServiceCard = styled.span`
   background-color: whitesmoke;
   display: grid;
-  grid-template-rows: 4rem auto auto 2.5rem; // content is auto
+  /* grid-template-rows: 4rem auto auto 2.5rem; // content is auto */
 
   row-gap: 1.5rem;
   width: auto;
@@ -46,7 +50,9 @@ const StyledServiceCard = styled.span`
   box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.08),
     0 0.2rem 0.2rem rgba(0, 0, 0, 0.12), 0 0.4rem 0.4rem rgba(0, 0, 0, 0.16),
     0 0.8rem 0.8rem rgba(0, 0, 0, 0.2);
-
+  &:hover {
+    cursor: pointer;
+  }
   .service-card-header-container {
     border-radius: 2rem 2rem 0rem 0rem;
     width: 100%;

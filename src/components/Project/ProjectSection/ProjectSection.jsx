@@ -32,7 +32,7 @@ export default forwardRef(function ProjectSection({ refStateObj }, ref) {
   };
 
   const onTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientX);
-  // TODO: the currIndex must be getting set to null or undefined because on mobile when swiping vertical the project section disables. Elipses goes blank and no projectItems are highlighted!
+
   const onTouchEnd = () => {
     if (!touchStart || !touchEnd) return;
     const isLeftSwipe = touchStart - touchEnd > minSwipeDistance;
@@ -44,12 +44,14 @@ export default forwardRef(function ProjectSection({ refStateObj }, ref) {
           return prevState;
         }
         return prevState + 1;
-      }
-      if (isRightSwipe) {
+      } else if (isRightSwipe) {
         if (prevState === 0) {
           return prevState;
         }
         return prevState - 1;
+      } else {
+        // default is to do nothing:
+        return prevState;
       }
     });
   };

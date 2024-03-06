@@ -1,4 +1,4 @@
-import { useRef, forwardRef } from "react";
+import { useRef, forwardRef, useState } from "react";
 import styled from "styled-components";
 import ContactFormItem from "../ContactFormItem/ContactFormItem";
 import { GrPowerReset } from "react-icons/gr";
@@ -17,8 +17,32 @@ function writeUserFormData(formData) {
 }
 
 export default forwardRef(function ContactSection({ refStateObj }, ref) {
+  const initFormInputState = {};
+
+  // dynamically populate the f
+  formInputArr.forEach((input, i) => {
+    initFormInputState[i] = false;
+  });
+  const [formInputState, setFormInputState] = useState(initFormInputState);
+  console.log("initFormInputState:", initFormInputState);
+
   const formRef = useRef();
-  function handleResetForm(ev) {}
+
+  function handleFieldInput(ev) {
+    if (ev.target.dataset.position) {
+      // onChange ensures this is changed by autofill
+      setFormInputState(() => {
+        // use init state that way we don't have to worry about switching any true values back to false. Just start fresh
+        const newState = initFormInputState;
+        return (newState[ev.target.dataset.position] = true);
+      });
+    }
+  }
+
+  function handleResetForm(ev) {
+    // return to initial state:
+    setFormInputState(() => initFormInputState);
+  }
 
   function handleFormSubmit(ev) {
     ev.preventDefault();
@@ -44,7 +68,10 @@ export default forwardRef(function ContactSection({ refStateObj }, ref) {
         {formInputArr.map(({ title, description, errorMsg, type, id }, i) => (
           <ContactFormItem
             key={i}
+            position={i}
             title={title}
+            formInputState={formInputState}
+            handleFieldInput={handleFieldInput}
             description={description}
             errorMsg={errorMsg}
             type={type}
