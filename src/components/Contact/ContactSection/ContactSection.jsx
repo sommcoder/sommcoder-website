@@ -20,11 +20,10 @@ export default forwardRef(function ContactSection({ refStateObj }, ref) {
   const initFormInputState = {};
 
   // dynamically populate the f
-  formInputArr.forEach((input, i) => {
-    initFormInputState[i] = false;
-  });
+  formInputArr.forEach((_, i) => (initFormInputState[i] = false));
+
   const [formInputState, setFormInputState] = useState(initFormInputState);
-  console.log("initFormInputState:", initFormInputState);
+  // console.log("initFormInputState:", initFormInputState);
 
   const formRef = useRef();
 

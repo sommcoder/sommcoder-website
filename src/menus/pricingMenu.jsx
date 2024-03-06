@@ -113,7 +113,7 @@ export const pricingMenuObj = {
       ],
     },
     {
-      id: "poc-app",
+      id: "pocApp",
       service: ["Proof of Concept App"],
       price: "4000",
       description: [

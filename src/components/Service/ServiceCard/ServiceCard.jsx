@@ -4,14 +4,17 @@ import { pricingMenuObj } from "../../../menus/pricingMenu";
 import PricingItem from "../PricingItem/PricingItem";
 
 export default function ServiceCard({ service }) {
+  // !Open Card's Pricing Table:
   const [cardState, toggleCardState] = useState(false);
-  console.log("service:", service);
-  // dynamically populate the State for accordion menu
+
+  // dynamically populate the State for accordion menu:
   const initTblStateObj = {};
   Object.keys(pricingMenuObj[service.title]).forEach(
-    ({ id }) => (initTblStateObj[id] = false)
+    (_, i) => (initTblStateObj[pricingMenuObj[service.title][i].id] = false)
   );
   console.log("initTblStateObj:", initTblStateObj);
+
+  // ! the state of each individual pricingItem
   const [priceTblState, adjustPriceTblState] = useState(initTblStateObj);
 
   return (
@@ -33,7 +36,7 @@ export default function ServiceCard({ service }) {
         {Object.keys(pricingMenuObj[service.title]).map((item, i) => (
           <PricingItem
             count={i}
-            item={item.id}
+            item={item}
             key={`${item.id}-i`}
             cardState={cardState}
             priceTblState={priceTblState}
