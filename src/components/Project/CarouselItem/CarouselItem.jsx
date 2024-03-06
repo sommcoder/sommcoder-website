@@ -1,5 +1,8 @@
 ﻿import styled from "styled-components";
 
+import { Suspense } from "react";
+import LoadingEllipsis from "../../Utility/LoadingEllipsis/LoadingEllipsis";
+
 import { ICON_COMPONENTS } from "../../../menus/iconMenu";
 
 export default function CarouselItem({
@@ -21,7 +24,9 @@ export default function CarouselItem({
     >
       <div className="carousel-content-wrapper" data-index={index}>
         <div data-index={index} className="carousel-item-thumbnail-container">
-          <img className="carousel-item-thumbnail" src={item.thumbnail} />
+          <Suspense fallback={<LoadingEllipsis />}>
+            <img className="carousel-item-thumbnail" src={item.thumbnail} />
+          </Suspense>
         </div>
         <div
           data-index={index}

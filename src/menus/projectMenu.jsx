@@ -1,8 +1,8 @@
 // thumbnails:
-import wordle from "/wordle.svg";
-import markey from "/Mar-Key-new.png";
-import sommcoder from "/sommcoder-thumbnail.png";
-import jssx from "/jssx.png";
+import wordle from "/wordle.jpg";
+import markey from "/markey-app.jpeg";
+import sommcoder from "/sommcoder-site.jpg";
+import jssx from "/jssx.jpg";
 
 // we should use Firebase's Firestore Document DB to store and fetch this data
 // the long description will get passed to the Page only

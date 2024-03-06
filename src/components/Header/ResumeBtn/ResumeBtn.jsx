@@ -1,12 +1,13 @@
 import styled from "styled-components";
-import downloadIcon from "/download-solid.svg";
+import { IoMdDownload } from "react-icons/io";
+
 import cv from "/Brian - resume.pdf";
 
 export default function ResumeBtn() {
   return (
     <StyledResumeBtn onClick={() => {}}>
       <a download="Brian's Resume" href={cv}>
-        <img alt="download icon from font-awesome" src={downloadIcon} />
+        <IoMdDownload style={{ height: "2rem", width: "2rem" }} />
         <span className="button-text">Download CV</span>
       </a>
     </StyledResumeBtn>
@@ -23,17 +24,14 @@ const StyledResumeBtn = styled.button`
     width: 12rem;
 
     a {
-      display: flex;
+      display: grid;
+      justify-items: center;
+      align-items: center;
+      grid-template-columns: 20% 80%;
       align-items: center;
       color: black;
       height: 100%;
       width: 100%;
-    }
-    img {
-      display: inline-block;
-      height: 1.5rem;
-      width: 1.5rem;
-      margin: 0 0.5rem 0 0.5rem;
     }
     span {
       display: flex;

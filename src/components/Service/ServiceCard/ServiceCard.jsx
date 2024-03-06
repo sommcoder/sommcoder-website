@@ -1,12 +1,18 @@
 import styled from "styled-components";
-
 import { useState } from "react";
-import PricingTable from "../PricingTable/PricingTable";
-
 import { pricingMenuObj } from "../../../menus/pricingMenu";
+import PricingItem from "../PricingItem/PricingItem";
 
 export default function ServiceCard({ service }) {
   const [cardState, toggleCardState] = useState(false);
+  console.log("service:", service);
+  // dynamically populate the State for accordion menu
+  const initTblStateObj = {};
+  Object.keys(pricingMenuObj[service.title]).forEach(
+    ({ id }) => (initTblStateObj[id] = false)
+  );
+  console.log("initTblStateObj:", initTblStateObj);
+  const [priceTblState, adjustPriceTblState] = useState(initTblStateObj);
 
   return (
     <StyledServiceCard
@@ -23,13 +29,18 @@ export default function ServiceCard({ service }) {
         <h5>{service.subtitle}</h5>
         <p>{service.description}</p>
       </span>
-      <PricingTable
-        key={service.title}
-        menu={pricingMenuObj[service.title]}
-        cardState={cardState}
-        toggleCardState={toggleCardState}
-        title={service.title}
-      />
+      <StyledPricingTable>
+        {Object.keys(pricingMenuObj[service.title]).map((item, i) => (
+          <PricingItem
+            count={i}
+            item={item.id}
+            key={`${item.id}-i`}
+            cardState={cardState}
+            priceTblState={priceTblState}
+            adjustPriceTblState={adjustPriceTblState}
+          />
+        ))}
+      </StyledPricingTable>
       <div className="service-card-bottom"></div>
     </StyledServiceCard>
   );
@@ -38,8 +49,6 @@ export default function ServiceCard({ service }) {
 const StyledServiceCard = styled.span`
   background-color: whitesmoke;
   display: grid;
-  /* grid-template-rows: 4rem auto auto 2.5rem; // content is auto */
-
   row-gap: 1.5rem;
   width: auto;
   max-width: 30rem;
@@ -86,8 +95,6 @@ const StyledServiceCard = styled.span`
       padding-bottom: 1rem;
       border-bottom: 0.1rem lightgrey solid;
     }
-    p {
-    }
   }
   .service-card-bottom {
     background: linear-gradient(145deg, #bba6d2, #9e8cb0);
@@ -98,12 +105,41 @@ const StyledServiceCard = styled.span`
     display: grid;
     justify-items: center;
   }
+`;
 
-  .dropdown-button-wrapper {
-    transform: ${({ active }) => (active ? "rotate(180deg)" : "rotate(0deg)")};
-    display: grid;
-    justify-items: center;
-    align-items: center;
-    /* transform: rotate(180deg); */
+const StyledPricingTable = styled.ul`
+  /* min-height: 35rem; */
+  font-size: 1.8rem;
+  row-gap: 1.5rem;
+  justify-items: center;
+  justify-content: center;
+  align-content: baseline;
+  align-items: baseline;
+  list-style: none;
+  width: 100%;
+  overflow: hidden; // hides contents
+
+  border-top: 0.1rem lightgrey solid;
+
+  display: grid;
+  list-style: none;
+  ${({ cardState }) =>
+    cardState
+      ? `
+  max-height: 40rem;
+  padding: 1.5rem 2rem 1.5rem 2rem;
+  `
+      : `
+      max-height: 0rem;
+      padding: 0rem 2rem 0rem 2rem;
+      `};
+  transition: max-height 200ms linear;
+  transition: padding 200ms linear;
+
+  width: inherit;
+  text-align: center;
+
+  @media (min-width: 800px) {
+    // desktop styling here
   }
 `;

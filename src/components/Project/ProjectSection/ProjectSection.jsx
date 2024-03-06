@@ -5,9 +5,6 @@ import CarouselContainer from "../CarouselContainer/CarouselContainer";
 
 import { forwardRef } from "react";
 
-import { Suspense } from "react";
-import LoadingEllipsis from "../../Utility/LoadingEllipsis/LoadingEllipsis";
-
 import { carouselItemsArr } from "../../../menus/projectMenu";
 import { useState } from "react";
 
@@ -57,46 +54,44 @@ export default forwardRef(function ProjectSection({ refStateObj }, ref) {
   };
 
   return (
-    <Suspense fallback={<LoadingEllipsis />}>
-      <StyledProjectSection
-        onTouchStart={onTouchStart}
-        onTouchMove={onTouchMove}
-        onTouchEnd={onTouchEnd}
-        ref={refStateObj.project}
-        className="content-section"
-      >
-        <StyledProjectOverlay>
-          <CarouselArrowLeft
-            currIndex={currIndex}
-            adjustCurrIndex={adjustCurrIndex}
-            carouselItemsArr={carouselItemsArr}
-          />
-          <CarouselContainer
-            currIndex={currIndex}
-            adjustCurrIndex={adjustCurrIndex}
-            carouselItemsArr={carouselItemsArr}
-          />
-          <CarouselArrowRight
-            carouselItemsArr={carouselItemsArr}
-            currIndex={currIndex}
-            adjustCurrIndex={adjustCurrIndex}
-          />
-          <div className="carousel-ellipses-container">
-            {carouselItemsArr.map((_, i) => (
-              <span
-                style={{
-                  backgroundColor: i === currIndex ? "white" : "transparent",
-                }}
-                data-index={i}
-                onClick={handleEllipsesClick}
-                key={i}
-                className="carousel-ellipses-item"
-              ></span>
-            ))}
-          </div>
-        </StyledProjectOverlay>
-      </StyledProjectSection>
-    </Suspense>
+    <StyledProjectSection
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEnd}
+      ref={refStateObj.project}
+      className="content-section"
+    >
+      <StyledProjectOverlay>
+        <CarouselArrowLeft
+          currIndex={currIndex}
+          adjustCurrIndex={adjustCurrIndex}
+          carouselItemsArr={carouselItemsArr}
+        />
+        <CarouselContainer
+          currIndex={currIndex}
+          adjustCurrIndex={adjustCurrIndex}
+          carouselItemsArr={carouselItemsArr}
+        />
+        <CarouselArrowRight
+          carouselItemsArr={carouselItemsArr}
+          currIndex={currIndex}
+          adjustCurrIndex={adjustCurrIndex}
+        />
+        <div className="carousel-ellipses-container">
+          {carouselItemsArr.map((_, i) => (
+            <span
+              style={{
+                backgroundColor: i === currIndex ? "white" : "transparent",
+              }}
+              data-index={i}
+              onClick={handleEllipsesClick}
+              key={i}
+              className="carousel-ellipses-item"
+            ></span>
+          ))}
+        </div>
+      </StyledProjectOverlay>
+    </StyledProjectSection>
   );
 });
 

@@ -1,6 +1,9 @@
 ﻿import styled from "styled-components";
 import headshot from "/Brian-headshot.jpg";
 
+import { Suspense } from "react";
+import LoadingEllipsis from "../../Utility/LoadingEllipsis/LoadingEllipsis";
+
 import wine from "/wine-stain2.svg";
 
 export default function IntroImage() {
@@ -12,12 +15,14 @@ export default function IntroImage() {
         alt="Wine Stain Border"
         src={wine}
       />
-      <img
-        className="headshot-image"
-        image
-        alt="Brian Davies Headshot"
-        src={headshot}
-      />
+      <Suspense fallback={<LoadingEllipsis />}>
+        <img
+          className="headshot-image"
+          image
+          alt="Brian Davies Headshot"
+          src={headshot}
+        />
+      </Suspense>
     </StyledIntroImageBox>
   );
 }
