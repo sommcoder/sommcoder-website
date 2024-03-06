@@ -53,6 +53,8 @@ export default forwardRef(function ContactSection({ refStateObj }, ref) {
     // Clear form fields:
     formRef.current.reset();
   }
+
+  // TODO: should definitely extract the form into it's own component. doesn't make sense to couple the form with the section. These things should be independent of eachother!
   return (
     <StyledContactSection
       length={formInputArr.length - 1}
