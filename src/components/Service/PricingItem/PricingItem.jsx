@@ -3,27 +3,9 @@ import styled from "styled-components";
 import { FiMinusCircle } from "react-icons/fi";
 import { FiPlusCircle } from "react-icons/fi";
 
-export default function PricingItem({
-  item,
-  priceTblState,
-  adjustPriceTblState,
-}) {
-  function handleMenuClick(ev) {
-    ev.preventDefault();
-    let targetMenu = ev.currentTarget.dataset.item;
-    const newTblStateObj = priceTblState;
-    if (newTblStateObj[targetMenu]) {
-      newTblStateObj[targetMenu] = false;
-    } else {
-      newTblStateObj[targetMenu] = true;
-      Object.keys(newTblStateObj).forEach((key) => {
-        if (key === targetMenu) return;
-        newTblStateObj[key] = false;
-      });
-    }
-    adjustPriceTblState((tblStateObj) => ({ ...tblStateObj, newTblStateObj }));
-  }
+import { useState } from "react";
 
+export default function PricingItem({ item, priceTblState, handleMenuClick }) {
   const iconStyling = {
     gridColumn: "span 2",
     top: "3rem",
@@ -35,6 +17,8 @@ export default function PricingItem({
     width: "2rem",
     position: "absolute",
   };
+
+  console.log("priceTblState:", priceTblState);
 
   return (
     <StyledPricingItem>

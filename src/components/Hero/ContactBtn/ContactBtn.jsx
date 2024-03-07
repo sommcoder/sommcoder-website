@@ -27,8 +27,8 @@ const StyledContactBtn = styled.a`
     max-width: 20rem;
     font-size: 1.6rem;
     text-align: center;
-    margin: 3rem 0rem;
-    margin-left: 2rem; // match the IntroImage component
+    margin: 3rem 0rem 2rem 2.75rem;
+    /* margin-left: 2rem; // match the IntroImage component */
 
     // row 4 only exists on mobile
     grid-row: 4;

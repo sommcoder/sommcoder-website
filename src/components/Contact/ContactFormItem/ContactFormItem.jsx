@@ -1,4 +1,3 @@
-import { useState } from "react";
 import styled from "styled-components";
 
 export default function ContactFormItem({
@@ -11,8 +10,6 @@ export default function ContactFormItem({
   type,
   id,
 }) {
-  // TODO: error message will stay visually WITHIN the input element
-
   return (
     <StyledContactFormItem
       data-position={formInputState[position]}

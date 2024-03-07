@@ -47,14 +47,15 @@ export default forwardRef(function AboutMeSection({ refStateObj }, ref) {
           subject of web development.
           <br />
           <br />
-          Truthfully, I was always drawn to computers, even at 2 years old when
-          our home computer had a screen that was as large as me.
+          Truthfully, I was always drawn to computers. Even at 2 years old when
+          our home computer had a screen that was as large as me, I loved
+          playing video games and "surfing the web".🏄‍♂️
           <br />
           <br />
-          With my extensive Hospitality experience and technical skill set, I
-          offer a highly specialized knowledge base to help scale your online
-          presence and create a tonne of value for you in the food and beverage
-          industry.
+          With my extensive Hospitality experience, entrepreneurship and
+          technical skill set, I offer a specialized knowledge base to help
+          scale your online business and create value for your brand in the food
+          and beverage industry.
           <br />
           <br />- Brian Davies
         </p>
@@ -164,6 +165,9 @@ const StyledAboutMeSection = styled.section`
       flex: 1 1 auto;
       border-radius: 2rem;
       // 1064 x 667
+      box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.08),
+        0 0.2rem 0.2rem rgba(0, 0, 0, 0.12), 0 0.4rem 0.4rem rgba(0, 0, 0, 0.16),
+        0 0.8rem 0.8rem rgba(0, 0, 0, 0.2);
     }
 
     .personal-image-1 {

@@ -1,21 +1,40 @@
 import styled from "styled-components";
 import { useState } from "react";
-import { pricingMenuObj } from "../../../menus/pricingMenu";
 import PricingItem from "../PricingItem/PricingItem";
 
+import { IoIosMore } from "react-icons/io";
+
 export default function ServiceCard({ service }) {
-  // !Open Card's Pricing Table:
+  console.log("service:", service);
+
+  // !Open/Close Card's Pricing Table to reveal pricing items:
   const [cardState, toggleCardState] = useState(false);
 
   // dynamically populate the State for accordion menu:
   const initTblStateObj = {};
-  Object.keys(pricingMenuObj[service.title]).forEach(
-    (_, i) => (initTblStateObj[pricingMenuObj[service.title][i].id] = false)
-  );
+  service.pricing.forEach(({ id }, i) => (initTblStateObj[id] = false));
+
   console.log("initTblStateObj:", initTblStateObj);
 
-  // ! the state of each individual pricingItem
+  // ! the state of each individual pricing items details:
+  // ! Only one detail content can be opened at a time
   const [priceTblState, adjustPriceTblState] = useState(initTblStateObj);
+
+  function handleMenuClick(ev) {
+    ev.preventDefault();
+    let targetMenu = ev.currentTarget.dataset.item;
+    const newTblStateObj = priceTblState;
+    if (newTblStateObj[targetMenu]) {
+      newTblStateObj[targetMenu] = false;
+    } else {
+      newTblStateObj[targetMenu] = true;
+      Object.keys(newTblStateObj).forEach((key) => {
+        if (key === targetMenu) return;
+        newTblStateObj[key] = false;
+      });
+    }
+    adjustPriceTblState((tblStateObj) => ({ ...tblStateObj, newTblStateObj }));
+  }
 
   return (
     <StyledServiceCard
@@ -26,25 +45,27 @@ export default function ServiceCard({ service }) {
     >
       <span className="service-card-header-container">
         <h3>{service.title}</h3>
-        <span>{service.component}</span>
+        {service.component}
       </span>
       <span active={cardState} className="service-card-content-container">
         <h5>{service.subtitle}</h5>
         <p>{service.description}</p>
       </span>
-      <StyledPricingTable>
-        {Object.keys(pricingMenuObj[service.title]).map((item, i) => (
+      <StyledPricingTable cardState={cardState}>
+        {service.pricing.map((item, i) => (
           <PricingItem
             count={i}
             item={item}
             key={`${item.id}-i`}
             cardState={cardState}
             priceTblState={priceTblState}
-            adjustPriceTblState={adjustPriceTblState}
+            handleMenuClick={handleMenuClick}
           />
         ))}
       </StyledPricingTable>
-      <div className="service-card-bottom"></div>
+      <div className="service-card-bottom">
+        <IoIosMore style={{ height: "2rem", width: "2rem" }} />
+      </div>
     </StyledServiceCard>
   );
 }
@@ -70,14 +91,15 @@ const StyledServiceCard = styled.span`
     width: 100%;
     height: 4rem;
     background-color: pink;
-    display: flex;
-    justify-content: left;
+    display: grid;
     gap: 1rem;
     align-items: center;
+    grid-template-columns: 1fr 1fr;
 
     h3 {
       font-size: 2.4rem;
       padding-left: 2rem;
+      justify-self: left;
       text-align: left;
     }
   }
@@ -107,11 +129,11 @@ const StyledServiceCard = styled.span`
     border-radius: 0rem 0rem 2rem 2rem;
     display: grid;
     justify-items: center;
+    align-items: center;
   }
 `;
 
 const StyledPricingTable = styled.ul`
-  /* min-height: 35rem; */
   font-size: 1.8rem;
   row-gap: 1.5rem;
   justify-items: center;
@@ -120,24 +142,25 @@ const StyledPricingTable = styled.ul`
   align-items: baseline;
   list-style: none;
   width: 100%;
-  overflow: hidden; // hides contents
-
+  overflow: hidden; // hides contents, padding needs to be 0rem when inactive though!
   border-top: 0.1rem lightgrey solid;
-
   display: grid;
   list-style: none;
   ${({ cardState }) =>
     cardState
       ? `
-  max-height: 40rem;
-  padding: 1.5rem 2rem 1.5rem 2rem;
-  `
+      max-height: 40rem;
+      padding: 1.5rem 2rem 1.5rem 2rem;
+      opacity: 1;
+        `
       : `
       max-height: 0rem;
       padding: 0rem 2rem 0rem 2rem;
-      `};
-  transition: max-height 200ms linear;
-  transition: padding 200ms linear;
+      opacity: .2;
+        `};
+  // opacity has a delay to smoothly render:
+  transition: max-height 300ms ease-in-out, padding 200ms ease-in-out 50ms,
+    opacity 200ms ease-in-out 100ms;
 
   width: inherit;
   text-align: center;
