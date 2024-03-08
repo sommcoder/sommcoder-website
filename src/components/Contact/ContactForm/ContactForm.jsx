@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useMemo, useEffect } from "react";
 
 import ContactFormItem from "../ContactFormItem/ContactFormItem";
 // icon:
@@ -14,39 +14,70 @@ import { ref, set } from "firebase/database";
 export default function ContactForm() {
   const initFormInputState = {};
 
-  // dynamically populate the f
-  formInputArr.forEach((_, i) => (initFormInputState[i] = false));
+  useEffect(() => {
+    formInputArr.forEach((_, i) => (initFormInputState[i] = false));
+  }, []);
 
   const [formInputState, setFormInputState] = useState(initFormInputState);
-  // console.log("initFormInputState:", initFormInputState);
 
   const formRef = useRef();
 
   function handleFieldInput(ev) {
+    console.log("ev:", ev);
     if (ev.target.dataset.position) {
       // onChange ensures this is changed by autofill
-      setFormInputState(() => {
-        // use init state that way we don't have to worry about switching any true values back to false. Just start fresh
-        const newState = initFormInputState;
-        return (newState[ev.target.dataset.position] = true);
+
+      setFormInputState((prevState) => {
+        // if: field value is 0, prevState[ev.target.dataset.position] = false
+        return (prevState[ev.target.dataset.position] = true);
+      });
+    }
+  }
+
+  function handleFieldClick(ev) {
+    // when user clicks on fields
+    console.log("ev:", ev);
+    console.log("ev.target.dataset.position:", ev.target.dataset.position);
+
+    // if input field has value
+
+    if (ev.target.dataset.position) {
+      setFormInputState((prevState) => {
+        const newState = prevState;
+        newState[ev.target.dataset.position] = true;
+        return newState;
       });
     }
   }
 
   function handleResetForm(ev) {
-    // return to initial state:
+    // reset fields:
+    formRef.current.reset();
+    // reset positions:
     setFormInputState(() => initFormInputState);
   }
 
   function handleFormSubmit(ev) {
     ev.preventDefault();
-
+    // get form data:
     const formData = new FormData(formRef.current);
+
+    /*
+ 
+put clientside validation here. Right now there's just the native browser check that each field is filled out
+ 
+*/
+
     // write data:
     writeUserFormData(formData);
-    // Clear form fields:
+    // reset fields:
     formRef.current.reset();
+    // reset positions:
+    setFormInputState(() => initFormInputState);
+    // Create form submission notification
   }
+
+  console.log("formInputState:", formInputState);
 
   return (
     <StyledContactForm
@@ -62,10 +93,11 @@ export default function ContactForm() {
       {formInputArr.map(({ title, description, errorMsg, type, id }, i) => (
         <ContactFormItem
           key={i}
-          position={i}
+          position={`${i}`}
           title={title}
           formInputState={formInputState}
           handleFieldInput={handleFieldInput}
+          handleFieldClick={handleFieldClick}
           description={description}
           errorMsg={errorMsg}
           type={type}

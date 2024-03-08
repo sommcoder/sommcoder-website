@@ -1,4 +1,4 @@
-export { default as AboutMe } from "./AboutMe/AboutMeSection";
+export { default as AboutMe } from "./AboutMe/AboutMeSection/AboutMeSection";
 export { default as Contact } from "./Contact/ContactSection/ContactSection";
 export { default as Footer } from "./Footer/FooterSection";
 export { default as Header } from "./Header/HeaderSection/HeaderSection";

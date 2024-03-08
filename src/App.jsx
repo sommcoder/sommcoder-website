@@ -57,7 +57,7 @@ export default function App() {
         />
         <StyledContentWrapper>
           <StyledContentOverlay>
-            <div className="wine-stain-container">
+            <div className="wine-stain-section">
               <StyledCornerDrip src={wineCornerDrip} />
               <StyledTopDrip src={wineDrip} />
             </div>
@@ -87,9 +87,8 @@ const StyledContentWrapper = styled.main`
   max-width: inherit;
   height: 100%;
   display: block;
-  background-image: url("/hero-texture.jpg");
 
-  .wine-stain-container {
+  .wine-stain-section {
     display: grid;
     grid-template-rows: 1fr;
     grid-template-columns: 1fr 1fr;
@@ -97,12 +96,13 @@ const StyledContentWrapper = styled.main`
 `;
 
 const StyledContentOverlay = styled.div`
-  height: 100%;
   min-width: inherit;
   max-width: inherit;
   background-color: rgba(80, 104, 84, 0.8);
+  /* background-image: url("/Wine Splatter.svg"); */
   z-index: 3;
-  height: auto;
+  /* height: 100%;
+  width: 100%; */
   display: grid;
   justify-self: center;
   grid-template-columns: 1fr;

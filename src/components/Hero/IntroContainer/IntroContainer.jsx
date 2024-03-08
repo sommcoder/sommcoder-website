@@ -1,22 +1,17 @@
-﻿import styled from 'styled-components';
-import IntroDescription from '../IntroDescription/IntroDescription';
-import ContactBtn from '../ContactBtn/ContactBtn';
-import IntroHeader from '../IntroHeader/IntroHeader';
+﻿import styled from "styled-components";
+import IntroDescription from "../IntroDescription/IntroDescription";
+import ContactBtn from "../ContactBtn/ContactBtn";
+import IntroHeader from "../IntroHeader/IntroHeader";
+import IntroImage from "../IntroImage/IntroImage";
 
-import wineDrip2 from '/wine-drips2.svg';
-
-import { lazy } from 'react';
-// TODO: adjust the container to merge the header image at a higher minimum screen width. no point in having a tiny header image while the image is still adjacent to the content. Too much whitespace.
-const IntroImage = lazy(() => import('../IntroImage/IntroImage'));
+import wineDrip2 from "/wine-drips2.svg";
 
 export default function IntroContainer() {
-  // TODO: would look better to have the footer drip graphic align with the introImage component
   return (
     <StyledIntroContainer>
       <IntroHeader />
       <IntroDescription />
       <IntroImage headshot="headshot" />
-
       <ContactBtn />
       <StyledBottomDrip src={wineDrip2} />
     </StyledIntroContainer>
@@ -25,9 +20,12 @@ export default function IntroContainer() {
 const StyledIntroContainer = styled.div`
   display: grid;
   justify-self: center;
-  margin: 0rem 2.5rem 1rem 2.5rem;
   grid-template-columns: repeat(3, auto);
   // 4 rows on mobile:
+  background-color: rgba(61, 80, 64, 0.9);
+  border-radius: 2rem;
+  margin: 1rem 2.5rem 2.5rem 2.5rem;
+  padding: 2.5rem;
   grid-template-rows: repeat(4, auto);
   max-width: 95rem;
 
@@ -38,7 +36,8 @@ const StyledIntroContainer = styled.div`
 
   // 480px
   @media (min-width: 30rem) {
-    margin: 0 5rem;
+    margin: 0 5rem 4rem 5rem;
+    padding: 4rem 6rem 0rem 4rem;
     grid-template-rows: repeat(3, auto);
   }
 `;

@@ -10,9 +10,6 @@ const iconStyling = {
   justifySelf: "right",
   marginRight: "2rem",
   paddingLeft: "1.5rem",
-  borderLeft: ".25rem solid whitesmoke",
-  // boxShadow:
-  //   "0 0.1rem 0.1rem rgba(0, 0, 0, 0.08),0 0.2rem 0.2rem rgba(0, 0, 0, 0.12), 0 0.4rem 0.4rem rgba(0, 0, 0, 0.16),0 0.8rem 0.8rem rgba(0, 0, 0, 0.2)",
 };
 
 export const servicesArr = [
@@ -79,7 +76,7 @@ export const servicesArr = [
         service: ["Shopify App", <br />, " Integration"],
         price: "150/app",
         description:
-          "Spend more time serving customers and generating revenue with less time connecting all of your moving parts manually!",
+          "Spend more time serving customers and generating revenue with less time app shopping and app set up",
       },
       {
         id: "automate",
@@ -158,8 +155,12 @@ export const servicesArr = [
         id: "seoDevelopment",
         service: "SEO Development",
         price: "750/month",
-        description:
+        description: [
           "Increase web traffic, drive conversions and grow your top line revenue.",
+          <br />,
+          <br />,
+          "Prerequisite service: Seo Launch",
+        ],
       },
     ],
   },

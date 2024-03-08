@@ -56,7 +56,6 @@ export default function HeaderSection({
           ))}
         </span>
         <ResumeBtn />
-
         <HamburgerMenu
           navLabelArr={navLabelArr}
           mobileMenu={mobileMenu}

@@ -21,8 +21,6 @@ export default forwardRef(function ServiceSection({ refStateObj }, ref) {
 });
 
 const StyledServiceSection = styled.section`
-  background-image: url("/Wine Splatter.svg");
-
   // min-width: 32rem
   .services-container {
     display: grid;

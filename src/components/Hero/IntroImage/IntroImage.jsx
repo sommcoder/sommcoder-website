@@ -8,22 +8,22 @@ import wine from "/wine-stain2.svg";
 
 export default function IntroImage() {
   return (
-    <StyledIntroImageBox>
-      <img
-        className="wine-stain-border"
-        image
-        alt="Wine Stain Border"
-        src={wine}
-      />
-      <Suspense fallback={<LoadingEllipsis />}>
+    <Suspense fallback={<LoadingEllipsis />}>
+      <StyledIntroImageBox>
+        <img
+          className="wine-stain-border"
+          image
+          alt="Wine Stain Border"
+          src={wine}
+        />
         <img
           className="headshot-image"
           image
           alt="Brian Davies Headshot"
           src={headshot}
         />
-      </Suspense>
-    </StyledIntroImageBox>
+      </StyledIntroImageBox>
+    </Suspense>
   );
 }
 const StyledIntroImageBox = styled.span`

@@ -12,6 +12,4 @@ export default forwardRef(function ContactSection({ refStateObj }, ref) {
   );
 });
 
-const StyledContactSection = styled.section`
-  background-image: url("/Wine Splatter.svg");
-`;
+const StyledContactSection = styled.section``;

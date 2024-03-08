@@ -5,15 +5,20 @@ export default function ContactFormItem({
   description,
   formInputState,
   handleFieldInput,
+  handleFieldClick,
   errorMsg,
   position,
   type,
   id,
 }) {
+  console.log("position:", position);
+  console.log("formInputState:", formInputState);
   return (
     <StyledContactFormItem
-      data-position={formInputState[position]}
-      position={formInputState[position]}
+      data-position={position}
+      active={formInputState[position]}
+      onClick={(ev) => handleFieldClick(ev)}
+      onChange={(ev) => handleFieldInput(ev)}
       type={type === "longtext" ? "text" : type}
       longtext={type === "longtext" ? "longtext" : ""}
     >
@@ -72,12 +77,12 @@ const StyledContactFormItem = styled.div`
   .placeholder-text {
     position: absolute;
     pointer-events: none;
-    top: ${({ position, longtext }) =>
-      position ? (longtext ? "-5%" : "-15%") : "37.5%"};
+    top: ${({ active, longtext }) =>
+      active ? (longtext ? "-5%" : "-15%") : "37.5%"};
     left: 4%; // 3% blocks the caret
     padding: 0rem 0.2rem;
     transition: top 150ms linear;
-    background-color: white;
+    background-color: transparent;
     z-index: 3;
     color: #0000009e;
     font-size: 1.5rem;
@@ -94,7 +99,8 @@ const StyledContactFormItem = styled.div`
     font-size: 1.8rem;
     height: ${({ longtext }) => (longtext === "longtext" ? "20rem" : "3rem")};
     width: 100%;
-
+    background-color: transparent;
+    pointer-events: none;
     // textarea resets:
     outline: none;
     border: none;
