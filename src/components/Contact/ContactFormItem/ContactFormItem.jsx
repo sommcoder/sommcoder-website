@@ -4,8 +4,9 @@ export default function ContactFormItem({
   title,
   description,
   formInputState,
-  handleFieldInput,
+  handleFieldChange,
   handleFieldClick,
+  handleFieldBlur,
   errorMsg,
   position,
   type,
@@ -17,41 +18,39 @@ export default function ContactFormItem({
     <StyledContactFormItem
       data-position={position}
       active={formInputState[position]}
+      onChange={(ev) => handleFieldChange(ev)}
       onClick={(ev) => handleFieldClick(ev)}
-      onChange={(ev) => handleFieldInput(ev)}
+      onBlur={(ev) => handleFieldBlur(ev)}
       type={type === "longtext" ? "text" : type}
       longtext={type === "longtext" ? "longtext" : ""}
     >
       {type === "longtext" ? (
         <textarea
           name={id}
+          data-position={position}
           id={id}
           required
           autoComplete="on"
           form="contact-form"
           type="text"
           title={description}
-          onChange={handleFieldInput}
-          // onFocus={handleFieldFocus}
-          // onBlur={handleFieldFocus}
         ></textarea>
       ) : (
         <input
           name={id}
+          data-position={position}
           id={id}
           required
           form="contact-form"
           autoComplete="on"
           type="text"
           title={description}
-          onChange={handleFieldInput}
-          // onFocus={handleFieldFocus}
-          // onBlur={handleFieldFocus}
         />
       )}
       <label
         name={title}
         for={id}
+        data-position={position}
         id={`placeholder-${id}`}
         form="contact-form"
         aria-labelledby="placeholder-text"
@@ -66,6 +65,7 @@ export default function ContactFormItem({
 
 const StyledContactFormItem = styled.div`
   // mobile and general styling
+
   position: relative;
   min-width: 28rem;
   padding: 1rem;
@@ -82,13 +82,11 @@ const StyledContactFormItem = styled.div`
     left: 4%; // 3% blocks the caret
     padding: 0rem 0.2rem;
     transition: top 150ms linear;
-    background-color: transparent;
+    background-color: whitesmoke;
     z-index: 3;
     color: #0000009e;
     font-size: 1.5rem;
   }
-
-  // TODO: when onFocus() transform: translate x and y so that the label of the input field is just slightly above the top line of the input field. This should also cause a visual "break" in the line of the input field. We can achieve this this a higher z-index and a background on the h5 element. We have to  be sure that this doesn't event the text of the input field however.
 
   input,
   textarea {
@@ -100,7 +98,7 @@ const StyledContactFormItem = styled.div`
     height: ${({ longtext }) => (longtext === "longtext" ? "20rem" : "3rem")};
     width: 100%;
     background-color: transparent;
-    pointer-events: none;
+    /* pointer-events: none; */
     // textarea resets:
     outline: none;
     border: none;

@@ -22,11 +22,14 @@ export default function ContactForm() {
 
   const formRef = useRef();
 
-  function handleFieldInput(ev) {
+  function handleFieldChange(ev) {
     console.log("ev:", ev);
-    if (ev.target.dataset.position) {
-      // onChange ensures this is changed by autofill
+    console.log("ev.target.value:", ev.target.value);
+    console.log("ev.target.dataset.position:", ev.target.dataset.position);
 
+    // TODO: everything else seems to work aside from using the auto-fill function. Would onChange() be triggering each time a field is changed
+    // if (ev.target.dataset.position) {
+    if (!formInputState[ev.target.dataset.position]) {
       setFormInputState((prevState) => {
         // if: field value is 0, prevState[ev.target.dataset.position] = false
         return (prevState[ev.target.dataset.position] = true);
@@ -35,17 +38,21 @@ export default function ContactForm() {
   }
 
   function handleFieldClick(ev) {
-    // when user clicks on fields
     console.log("ev:", ev);
+    console.log("ev.target.value:", ev.target.value);
     console.log("ev.target.dataset.position:", ev.target.dataset.position);
-
-    // if input field has value
-
+    // when user clicks on fields = they become true
     if (ev.target.dataset.position) {
       setFormInputState((prevState) => {
-        const newState = prevState;
-        newState[ev.target.dataset.position] = true;
-        return newState;
+        return { ...prevState, [ev.target.dataset.position]: true };
+      });
+    }
+  }
+
+  function handleFieldBlur(ev) {
+    if (!ev.target.value) {
+      setFormInputState((prevState) => {
+        return { ...prevState, [ev.target.dataset.position]: false };
       });
     }
   }
@@ -96,8 +103,9 @@ put clientside validation here. Right now there's just the native browser check 
           position={`${i}`}
           title={title}
           formInputState={formInputState}
-          handleFieldInput={handleFieldInput}
+          handleFieldChange={handleFieldChange}
           handleFieldClick={handleFieldClick}
+          handleFieldBlur={handleFieldBlur}
           description={description}
           errorMsg={errorMsg}
           type={type}
@@ -119,7 +127,7 @@ const StyledContactForm = styled.form`
   position: relative;
   margin: 2rem 1.5rem 3rem 1.5rem;
   display: grid;
-  background-color: white;
+  background-color: whitesmoke;
   border-radius: 2rem;
   grid-template-rows: ${({ length }) => `repeat(${length}, "1fr")`};
   align-items: center;
