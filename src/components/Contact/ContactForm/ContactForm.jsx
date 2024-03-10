@@ -125,7 +125,7 @@ const StyledContactForm = styled.form`
   min-width: 30rem;
   width: auto;
   position: relative;
-  margin: 2rem 1.5rem 3rem 1.5rem;
+  margin: 2rem 1.5rem 2rem 1.5rem;
   display: grid;
   background-color: whitesmoke;
   border-radius: 2rem;

@@ -11,6 +11,4 @@ export default forwardRef(function AboutMeSection({ refStateObj }, ref) {
   );
 });
 
-const StyledAboutMeSection = styled.section`
-  height: auto;
-`;
+const StyledAboutMeSection = styled.section``;

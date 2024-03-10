@@ -11,9 +11,11 @@ export default function AboutMeCard() {
 
   function handleMoreClick() {
     // toggleMore(true);
+    console.log("test");
     toggleMore((prevState) => !prevState); // TODO: Testing ONLY
   }
 
+  console.log(moreState);
   return (
     <StyledAboutMeCard className="content-card">
       <h3>About Me:</h3>
@@ -44,7 +46,7 @@ export default function AboutMeCard() {
 const StyledAboutMeCard = styled.div`
   display: grid;
   border: 0.1rem solid #9e8cb0;
-  padding: 0rem;
+  /* padding: 0rem; */
   margin: 3rem;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto auto;
@@ -53,7 +55,7 @@ const StyledAboutMeCard = styled.div`
   h3 {
     vertical-align: middle;
     text-align: left;
-    padding: 3rem 3rem 0rem 3rem;
+    /* padding: 3rem 3rem 0rem 3rem; */
     width: auto;
     grid-column: span 2;
   }
@@ -61,7 +63,7 @@ const StyledAboutMeCard = styled.div`
 
 const StyledAboutMeTopParagraph = styled.p`
   position: relative;
-  padding: 0rem 3rem;
+  /* padding: 0rem 3rem; */
   display: flex;
 
   // 960px
@@ -90,7 +92,7 @@ const StyledMoreOverlay = styled.div`
   );
   z-index: 4;
 
-  .hidden {
+  &.hidden {
     display: none;
   }
 
@@ -122,14 +124,13 @@ const StyledMoreOverlay = styled.div`
 
 const StyledAboutMeBottomParagraph = styled.p`
   display: none;
-  padding: 0rem 3rem;
   display: flex;
   grid-column: span 2;
   z-index: 1;
   color: rgba(0, 0, 0, 0);
   max-height: 0rem;
 
-  .more-active {
+  &.more-active {
     display: block;
     z-index: 3;
     color: rgba(0, 0, 0, 1);
@@ -144,7 +145,6 @@ const StyledImageContainer = styled.span`
   align-items: center;
   flex-direction: column;
   gap: 1rem;
-  padding: 0rem 3rem 3rem 3rem;
 
   img {
     display: block;

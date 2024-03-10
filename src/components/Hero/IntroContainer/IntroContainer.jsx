@@ -35,10 +35,10 @@ const StyledIntroContainer = styled.div`
   }
 
   // 480px
-  @media (min-width: 30rem) {
-    margin: 0 5rem 4rem 5rem;
+  @media (min-width: 34rem) {
+    /* margin: 0 5rem 4rem 5rem; */
     padding: 4rem 6rem 0rem 4rem;
-    grid-template-rows: repeat(3, auto);
+    /* grid-template-rows: repeat(3, auto); */
   }
 `;
 

@@ -11,7 +11,9 @@ export default function CarouselItem({
   adjustCurrIndex,
   index,
 }) {
-  const handleItemClick = (ev) => adjustCurrIndex(+ev.target.dataset.index);
+  const handleItemClick = (ev) => {
+    if (ev.target.dataset.index) adjustCurrIndex(+ev.target.dataset.index);
+  };
 
   return (
     <StyledCarouselItem
