@@ -55,7 +55,7 @@ export default function OverlaySection({
   );
 }
 
-const StyledOverlaySection = styled.nav`
+const StyledOverlaySection = styled.aside`
   z-index: 8;
   position: fixed;
   background-color: rgba(212, 198, 228, 0.95);

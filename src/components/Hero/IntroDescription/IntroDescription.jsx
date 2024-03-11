@@ -5,9 +5,8 @@ export default function IntroDescription() {
     <StyledIntroDescription>
       I'm a wine sommelier <wbr /> turned web developer based in Toronto with
       over 12 years of progressive experience in the hospitality industry.
-      <wbr /> I now specialize in Shopify development for the Food & Beverage
-      industry!
-      <br />
+      <br />I now specialize in Shopify website and app development for the Food
+      & Beverage industry!
       <br /> Whether you need a custom theme, app, new feature or store launch,
       <wbr /> I'll help you "uncork" your business's web potential! 🍾
     </StyledIntroDescription>

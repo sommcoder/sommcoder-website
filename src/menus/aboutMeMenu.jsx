@@ -12,7 +12,7 @@ export const aboutMeContentObj = {
     "Today, I combine my extensive background in hospitality, my entrepreneurial journey, and my technical expertise to offer tailored solutions that enhance online businesses, particularly within the food and beverage industry. Whether you're looking to scale your brand or create a unique digital presence, I bring a specialized knowledge base and a fresh perspective to help your business thrive.",
     <br />,
     <br />,
-    "Let's connect and explore how we can create value for your brand together. :)",
+    "Let's connect and explore how we can create value for your brand together!",
     <br />,
     <br />,
     "- Brian Davies",

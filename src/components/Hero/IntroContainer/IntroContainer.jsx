@@ -24,10 +24,11 @@ const StyledIntroContainer = styled.div`
   // 4 rows on mobile:
   background-color: rgba(61, 80, 64, 0.9);
   border-radius: 2rem;
-  margin: 1rem 2.5rem 2.5rem 2.5rem;
+  margin: 1rem 2rem 2rem 2rem;
   padding: 2.5rem;
   grid-template-rows: repeat(4, auto);
   max-width: 95rem;
+  height: auto;
 
   img {
     height: 90%;
@@ -54,7 +55,7 @@ const StyledBottomDrip = styled.img`
   grid-row: 3;
   grid-column: 2 / span 2;
   // 480px
-  @media (min-width: 30rem) {
+  @media (min-width: 34rem) {
     justify-self: right;
   }
 `;

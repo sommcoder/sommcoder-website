@@ -10,9 +10,7 @@ export default function AboutMeCard() {
   const [moreState, toggleMore] = useState(false);
 
   function handleMoreClick() {
-    // toggleMore(true);
-    console.log("test");
-    toggleMore((prevState) => !prevState); // TODO: Testing ONLY
+    toggleMore(true);
   }
 
   const charCountBreakPoint = 60;
@@ -27,7 +25,7 @@ export default function AboutMeCard() {
         {aboutMeContentObj.topSection}
         <StyledMoreOverlay
           onClick={handleMoreClick}
-          // className={`${moreState ? "hidden" : ""}`}
+          className={`${moreState ? "hidden" : ""}`}
         >
           <button>
             <span className="button-text">show more</span>
