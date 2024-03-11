@@ -4,9 +4,9 @@
 export default function HamburgerMenu({
   mobileMenu,
   toggleMobileMenu,
-  headerAnimation,
-  toggleHeaderAnimation,
-  overlayAnimation,
+  // headerAnimation,
+  // toggleHeaderAnimation,
+  // overlayAnimation,
   toggleOverlayAnimation,
 }) {
   function handleMenuClick() {
@@ -24,22 +24,11 @@ export default function HamburgerMenu({
     }
   }
 
-  function handleAnimationEnd() {
-    console.log("animation end triggered");
-    // header animation true = hamburger menu has completed it's animation
-    // meaning the reference line should now ENTER the OverlaySection
-    if (mobileMenu === "open") {
-      // this is trigger AFTER animation complete
-      toggleHeaderAnimation(true);
-    }
-  }
-
   return (
     <StyledHamburgerMenu
       data-component="mobile-menu"
       mobileMenu={mobileMenu}
       onClick={handleMenuClick}
-      onAnimationEnd={handleAnimationEnd}
     >
       <span data-component="mobile-menu" className="top-line"></span>
       <span data-component="mobile-menu" className="middle-line-container">
@@ -72,7 +61,6 @@ const StyledHamburgerMenu = styled.span`
   }
 
   // if true start animation, if false, reverse animation
-  // ! problem is that this is triggering initially. We could change the state from boolean to some String states like "init", "open", "close"
   ${({ mobileMenu }) => {
     if (mobileMenu === "open") {
       return `
@@ -181,9 +169,3 @@ const StyledHamburgerMenu = styled.span`
     display: none;
   }
 `;
-
-/*
- 
-
- 
-*/

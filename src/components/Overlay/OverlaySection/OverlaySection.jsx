@@ -63,6 +63,7 @@ const StyledOverlaySection = styled.aside`
   width: 20rem;
   right: ${({ mobileMenu }) =>
     mobileMenu === "init" || mobileMenu === "closed" ? "-20rem" : "0rem"};
+  // Overlay menu takes 500ms to open
   transition: all 500ms ease-in-out;
   display: flex;
   flex-direction: column;

@@ -1,20 +1,19 @@
-﻿import styled from 'styled-components';
-import { ICON_COMPONENTS } from '../../../menus/iconMenu';
-import { useState, useEffect, useRef } from 'react';
+﻿import styled from "styled-components";
+import { ICON_COMPONENTS } from "../../../menus/iconMenu";
+import { useState, useEffect, useRef } from "react";
+import { CSSTransition } from "react-transition-group";
 
 export default function OverlayNavList({
   refStateObj,
   mobileMenu,
-  toggleMobileMenu,
   navLabelArr,
-  headerAnimation,
-  toggleHeaderAnimation,
-  overlayAnimation,
-  toggleOverlayAnimation,
 }) {
-  const [isAnimating, setIsAnimating] = useState(false);
+  const iconArr = Object.keys(ICON_COMPONENTS);
+  const iconCount = iconArr.length;
+  const navCount = navLabelArr.length;
 
-  const lineRef = useRef();
+  const [currActiveLink, adjustCurrActiveLink] = useState("main");
+  const [currActivePosition, adjustCurrActivePosition] = useState(0);
 
   // Nav Click Change:
   function handleLinkClick(ev) {
@@ -23,59 +22,13 @@ export default function OverlayNavList({
     window.scrollTo({
       top: refStateObj[section].current.offsetTop - 200 || 0,
       left: 0,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
-    setIsAnimating(true);
-    setTimeout(() => {
-      setIsAnimating(false);
-    }, 250);
-    adjustPrevActiveLink(currActiveLink); // record prev
-    adjustCurrActiveLink(section); // record the new currentPosition
+    // Curr Name
+    adjustCurrActiveLink(section);
+    // Curr Position
+    adjustCurrActivePosition(navLabelArr.findIndex((el) => el === section));
   }
-
-  function handleLineAnimationEnd(ev) {
-    console.log('ev:', ev);
-    console.log('ev.animationName:', ev.animationName);
-
-    // do nothing:
-    if (ev.animationName === 'line-shrink') return;
-    // this will trigger on EACH and EVERY animation end. Every nav movement and the enter and exit animations
-    // add class to line. it can not be moved based on the position variable:
-    // did it enter or exit?
-    // if (headerAnimation && mobileMenu === "open") {
-    //   // if true, turn off and add class
-    //   console.log("header animation now FALSE, line entered class applied");
-    if (ev.animationName === 'line-entering') {
-      // reset the HeaderAnimation state
-      toggleHeaderAnimation(false);
-    }
-    if (ev.animationName === 'line-exiting') {
-      // trigger the OverlayAnimation state
-      toggleOverlayAnimation(true);
-    }
-    //   lineRef.current.classList.add("line-entered");
-    // }
-  }
-
-  const iconArr = Object.keys(ICON_COMPONENTS);
-  const iconCount = iconArr.length;
-  const navCount = navLabelArr.length;
-
-  const [currActiveLink, adjustCurrActiveLink] = useState('main');
-  const [prevActiveLink, adjustPrevActiveLink] = useState(null);
-
-  const newposition = navLabelArr.findIndex(el => el === currActiveLink);
-  const prevPosition = navLabelArr.findIndex(el => el === prevActiveLink);
-  console.log('active:', newposition);
-  console.log('newposition:', newposition === 0 ? 0 : newposition * 5, 'rem');
-
-  // menu state changes, adjust to main
-  useEffect(() => {
-    if (mobileMenu === 'open') {
-      adjustPrevActiveLink(currActiveLink);
-      adjustCurrActiveLink('main');
-    }
-  }, [mobileMenu]);
 
   return (
     <StyledOverlayNavList
@@ -86,23 +39,20 @@ export default function OverlayNavList({
       <ul className="overlay-nav-menu">
         <span className="ref-line-track-wrapper">
           <span className="ref-line-track">
-            <StyledReferenceLine
-              ref={lineRef}
-              enteranimation={mobileMenu === 'open' ? true : false}
-              exitanimation={
-                mobileMenu === 'closed' && !headerAnimation ? true : false
-              }
-              onAnimationEnd={handleLineAnimationEnd}
-              className={`${isAnimating ? 'animate' : ''} 
-              `}
-              // want these values to be strings so they're always positive and animatable
-              lineposition={newposition === 0 ? '0' : `${newposition * 5}`}
-              distance={
-                (newposition <= prevPosition
-                  ? newposition / prevPosition
-                  : prevPosition / newposition) + 0.6
-              }
-            ></StyledReferenceLine>
+            <CSSTransition
+              in={mobileMenu === "open"}
+              timeout={1000} // Match this with your longest animation duration
+              onEntered={() => console.log("Entered!")}
+              onExited={() => console.log("Exited!")}
+              unmountOnExit // This will remove the component from the DOM after it has finished exiting
+            >
+              <StyledReferenceLine
+                classNames="line"
+                lineposition={
+                  currActivePosition === 0 ? "0" : `${currActivePosition * 5}`
+                }
+              ></StyledReferenceLine>
+            </CSSTransition>
           </span>
         </span>
         {navLabelArr.map((label, i) => (
@@ -110,7 +60,7 @@ export default function OverlayNavList({
             data-section={label}
             data-sequence={i} // should be fine mathematically to keep this as a 0 index
             data-indexfromcurrent={
-              i - navLabelArr.findIndex(el => el === currActiveLink)
+              i - navLabelArr.findIndex((el) => el === currActiveLink)
             }
             onClick={handleLinkClick}
             key={i}
@@ -203,13 +153,10 @@ const StyledOverlayNavList = styled.div`
   }
 
   .ref-line-track {
-    // track houses the reference line
-    // track allows the reference to have a consistent baseline
     position: relative;
     height: 3rem;
     width: 1rem;
     display: block;
-    /* border: 1px solid black; */
   }
 `;
 
@@ -219,69 +166,52 @@ const StyledReferenceLine = styled.span`
   width: 0.3rem;
   left: 25%;
   height: 3rem;
-  transition: top 500ms ease-in-out;
   border-radius: 0.5rem;
+  display: block;
 
-  ${({ enteranimation }) =>
-    enteranimation &&
-    `
-      @keyframes line-entering {
+  &.enter {
+    ${({ lineposition }) =>
+      lineposition &&
+      `
+    @keyframes line-entering {
       0% {
-        
-        height: 2rem;
-        top: -4rem;
-      }
-      50% {
-       top: -2.5rem;
+       height: 1.5rem;
+      top: -5rem;
       }
       100% {
-       
         height: 3rem;
-        top: 0rem;
+        top: ${lineposition}rem;
       }
     }
-    animation: line-entering 550ms ease-out forwards;
-`}
+    `}
 
-  ${({ exitanimation }) =>
-    exitanimation &&
-    `
-      @keyframes line-exiting {
+    animation: line-entering 550ms ease-out 500ms;
+  }
+
+  &.exit {
+    @keyframes line-exiting {
       0% {
-        height: 3rem;  
+        height: 3rem;
       }
       100% {
         height: 1.5rem;
         top: -5rem;
       }
     }
-    animation: line-exiting 550ms ease-out forwards;
-`}
- 
-    ${({ lineposition, distance }) =>
+    animation: line-exiting 1 150ms ease-out;
+  }
+
+  ${({ lineposition }) =>
     lineposition &&
     `
-      background-color: red;
     top: ${lineposition}rem;
-
-    @keyframes line-shrink {
-    0% {
-      height: ${distance}rem;
-    }
-    100% {
-      height: 2rem;
-    }
-  }
+    transition: top 300ms ease-in-out;
   `};
-
-  &.animate {
-    animation: line-shrink 1500ms ease-in;
-  }
 `;
 
 const StyledOverlayLinkItem = styled.li`
   justify-self: center;
-  /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-weight: 1000;
   font-size: 2.5rem;
 `;
