@@ -16,7 +16,6 @@ export const servicesArr = [
   {
     title: "Launch",
     subtitle: "Get off the ground!",
-    icon: "",
     description: [
       `Need to take your restaurant, bar or wine agency into the e-commerce space?`,
       <br />,
@@ -29,7 +28,7 @@ export const servicesArr = [
       {
         id: "seoLaunch",
         service: "SEO Launch",
-        price: "850",
+        price: "295",
         description: [
           "SEO tooling, social media integration and reporting infrastructure gift wrapped for you to impress your shareholders and hit the ground running!",
         ],
@@ -62,7 +61,6 @@ export const servicesArr = [
   {
     title: "Streamline",
     subtitle: "More time for what's important!",
-    icon: "",
     description: [
       `Got bottlenecks, redundant steps or excessive manual data entry?`,
       <br />,
@@ -91,29 +89,23 @@ export const servicesArr = [
   {
     title: "Maintain",
     subtitle: "Steady as she goes!",
-    icon: "",
     description: [
       `It's one thing to start, it's whole different beast to maintain your new e-commerce store.`,
       <br />,
       <br />,
-      `Centralize your knowledge base by having reliable Shopify expertise available on retainer for up to 12 hours of service per month.`,
+      `Centralize your knowledge base by having reliable Shopify expertise available on a monthly retainer.`,
     ],
     component: <LuWrench style={iconStyling} />,
     pricing: [
       {
         id: "ecommMgmt",
         service: ["E-commerce", <br />, " Management"],
-        price: "550/month",
+        price: "475/month",
         description: [
-          "Customer service, inventory and product management, notification and promotions. All the heavy lifting without needing dedicated, specialized staff.",
-        ],
-      },
-      {
-        id: "ecommPlusMgmt",
-        service: ["E-commerce+", <br />, " Management"],
-        price: "850/month",
-        description: [
-          "Same service and care as my base e-commerce management service but with up to 20 hours available per month.",
+          "Customer service, inventory and product management, notification and promotions for up to 20 hours/month.",
+          <br />,
+          <br />,
+          "All the heavy lifting without needing dedicated, specialized staff.",
         ],
       },
       {
@@ -135,7 +127,6 @@ export const servicesArr = [
   {
     title: "Grow",
     subtitle: "Now let's build your business!",
-    icon: "",
     description: [
       `Need someone to drive e-commerce sales when you don't have the means to employ your own e-commerce staff? `,
       <br />,
@@ -159,7 +150,7 @@ export const servicesArr = [
           "Increase web traffic, drive conversions and grow your top line revenue.",
           <br />,
           <br />,
-          "Prerequisite service: Seo Launch",
+          "Prerequisite services: SEO Launch and SEO Reporting",
         ],
       },
     ],
@@ -167,7 +158,6 @@ export const servicesArr = [
   {
     title: "Contract",
     subtitle: "Ad Hoc Developer Services",
-    icon: "",
     description: [
       `You get a resourceful, self-taught developer with intermediate-level knowledge of JavaScript, React, HTML and CSS.`,
       <br />,
