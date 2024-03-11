@@ -20,13 +20,13 @@ export default function IntroContainer() {
 const StyledIntroContainer = styled.div`
   display: grid;
   justify-self: center;
-  grid-template-columns: repeat(3, auto);
   // 4 rows on mobile:
+  grid-template-rows: repeat(4, auto);
+  grid-template-columns: repeat(3, auto);
   background-color: rgba(61, 80, 64, 0.9);
   border-radius: 2rem;
   margin: 1rem 2rem 2rem 2rem;
   padding: 2.5rem;
-  grid-template-rows: repeat(4, auto);
   max-width: 95rem;
   height: auto;
 
@@ -37,9 +37,9 @@ const StyledIntroContainer = styled.div`
 
   // 480px
   @media (min-width: 34rem) {
-    /* margin: 0 5rem 4rem 5rem; */
     padding: 4rem 6rem 0rem 4rem;
-    /* grid-template-rows: repeat(3, auto); */
+    // 4 rows on > mobile:
+    grid-template-rows: repeat(3, auto);
   }
 `;
 
@@ -50,7 +50,6 @@ const StyledBottomDrip = styled.img`
   min-width: 8rem;
   max-width: 10rem;
   transform: rotateX(180deg);
-  align-self: baseline;
   justify-self: center;
   grid-row: 3;
   grid-column: 2 / span 2;

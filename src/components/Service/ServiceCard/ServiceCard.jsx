@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useState, useEffect } from "react";
 
-import { IoIosMore } from "react-icons/io";
+import { FaAngleDown } from "react-icons/fa";
 import { FiMinusCircle } from "react-icons/fi";
 import { FiPlusCircle } from "react-icons/fi";
 
@@ -94,8 +94,8 @@ export default function ServiceCard({ service }) {
           </StyledPricingItem>
         ))}
       </StyledPricingTable>
-      <StyledServiceCardBottom>
-        <IoIosMore style={{ height: "2rem", width: "2rem" }} />
+      <StyledServiceCardBottom cardState={cardState}>
+        <FaAngleDown style={{ height: "1.75rem", width: "1.75rem" }} />
       </StyledServiceCardBottom>
     </StyledServiceCard>
   );
@@ -296,4 +296,14 @@ const StyledServiceCardBottom = styled.div`
   display: grid;
   justify-items: center;
   align-items: center;
+
+  svg {
+    transition: transform 300ms ease-in-out 0s;
+    ${({ cardState }) =>
+      cardState &&
+      `
+      transform: rotate(180deg);
+     
+    `};
+  }
 `;

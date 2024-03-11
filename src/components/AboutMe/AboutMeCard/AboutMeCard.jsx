@@ -71,10 +71,7 @@ const StyledAboutMeTopParagraph = styled.p`
 `;
 
 const StyledMoreOverlay = styled.div`
-  background: linear-gradient(
-    rgba(255, 255, 255, 0.774),
-    rgba(00, 00, 00, 0.1)
-  );
+  background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(00, 00, 00, 0.1));
   position: absolute;
   display: grid;
   justify-items: center;

@@ -20,7 +20,11 @@ export default function FooterSection({ refStateObj, navLabelArr }) {
         <header>Connect</header>
         <ul>
           <li>
-            <a href={"mailto:brian.davies589@gmail.com"}>email</a>
+            <a
+              href={"mailto:brian.davies@sommcoder.com?subject=General Inquiry"}
+            >
+              email
+            </a>
           </li>
           {Object.keys(ICON_COMPONENTS).map((icon, i) => (
             <li key={i}>
