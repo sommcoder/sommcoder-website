@@ -4,7 +4,7 @@ export default function ContactFormItem({
   title,
   description,
   formInputState,
-  handleFieldChange,
+  handleInput,
   handleFieldClick,
   handleFieldBlur,
   errorMsg,
@@ -12,13 +12,11 @@ export default function ContactFormItem({
   type,
   id,
 }) {
-  console.log("position:", position);
-  console.log("formInputState:", formInputState);
   return (
     <StyledContactFormItem
       data-position={position}
       active={formInputState[position]}
-      onChange={(ev) => handleFieldChange(ev)}
+      onInput={(ev) => handleInput(ev)} // handles Chrome's autofill, onChange doesn't trigger
       onClick={(ev) => handleFieldClick(ev)}
       onBlur={(ev) => handleFieldBlur(ev)}
       type={type === "longtext" ? "text" : type}
@@ -98,7 +96,7 @@ const StyledContactFormItem = styled.div`
     height: ${({ longtext }) => (longtext === "longtext" ? "20rem" : "3rem")};
     width: 100%;
     background-color: transparent;
-    /* pointer-events: none; */
+
     // textarea resets:
     outline: none;
     border: none;
@@ -117,18 +115,23 @@ const StyledContactFormItem = styled.div`
       background-color: none;
     }
   }
+
   input:-webkit-autofill,
   input:-webkit-autofill:hover,
   input:-webkit-autofill:focus,
   input:-webkit-autofill:active {
-    -webkit-box-shadow: 0 0 0 30px white inset !important;
+    -webkit-box-shadow: 0 0 0 30px whitesmoke inset !important;
+  }
+
+  input[type="text"]:-webkit-autofill,
+  input[type="text"]:-webkit-autofill:hover,
+  input[type="text"]:-webkit-autofill:focus,
+  input[type="text"]:-webkit-autofill:active {
+    /* Your custom styles to override browser-specific autofill styles */
+    transition: background-color 5000s ease-in-out 0s; /* This is a trick used to change the background color */
   }
 
   input:last-child {
     height: 6rem;
-  }
-
-  @media (min-width: 80rem) {
-    // desktop styling here
   }
 `;

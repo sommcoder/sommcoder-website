@@ -15,6 +15,10 @@ export default function AboutMeCard() {
     toggleMore((prevState) => !prevState); // TODO: Testing ONLY
   }
 
+  const charCountBreakPoint = 60;
+
+  // TODO: would be much more responsive and portable if I setup the about me button to be dynamically rendered after a certain amount of characters after the end of the upcoming sentence. Much more dynamic than intentionally setting the overlay and button!
+
   console.log(moreState);
   return (
     <StyledAboutMeCard className="content-card">
@@ -23,7 +27,7 @@ export default function AboutMeCard() {
         {aboutMeContentObj.topSection}
         <StyledMoreOverlay
           onClick={handleMoreClick}
-          className={`${moreState ? "hidden" : ""}`}
+          // className={`${moreState ? "hidden" : ""}`}
         >
           <button>
             <span className="button-text">show more</span>
@@ -47,7 +51,8 @@ const StyledAboutMeCard = styled.div`
   display: grid;
   border: 0.1rem solid #9e8cb0;
   /* padding: 0rem; */
-  margin: 3rem;
+  max-height: 250rem;
+  margin: 3rem 2rem;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto auto;
   row-gap: 2rem;
@@ -63,13 +68,8 @@ const StyledAboutMeCard = styled.div`
 
 const StyledAboutMeTopParagraph = styled.p`
   position: relative;
-  /* padding: 0rem 3rem; */
   display: flex;
-
-  // 960px
-  @media (min-width: 52rem) {
-    grid-column: span 2;
-  }
+  grid-column: span 2;
 `;
 
 const StyledMoreOverlay = styled.div`
@@ -81,7 +81,7 @@ const StyledMoreOverlay = styled.div`
   display: grid;
   justify-items: center;
   align-items: end;
-  bottom: -8%;
+  bottom: -3%;
   right: 0%;
   height: 6rem;
   width: 100%;
@@ -118,23 +118,22 @@ const StyledMoreOverlay = styled.div`
   }
 
   @media (min-width: 32rem) {
-    bottom: -18%;
+    bottom: -10%;
   }
 `;
 
 const StyledAboutMeBottomParagraph = styled.p`
   display: none;
-  display: flex;
   grid-column: span 2;
   z-index: 1;
   color: rgba(0, 0, 0, 0);
   max-height: 0rem;
 
   &.more-active {
-    display: block;
+    display: flex;
     z-index: 3;
     color: rgba(0, 0, 0, 1);
-    max-height: auto;
+    max-height: 60rem; // can't use auto, it can be transitioned into from 0rem.
     transition: color 500ms linear 250ms, z-index 0ms ease-in-out 0s,
       max-height 0s ease-in-out 0s;
   }

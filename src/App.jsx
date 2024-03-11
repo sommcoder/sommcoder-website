@@ -99,7 +99,7 @@ const StyledContentOverlay = styled.div`
   min-width: inherit;
   max-width: inherit;
   background-color: rgba(80, 104, 84, 0.8);
-  /* background-image: url("/Wine Splatter.svg"); */
+  background-image: url("/Wine Splatter.svg");
   z-index: 3;
   /* height: 100%;
   width: 100%; */

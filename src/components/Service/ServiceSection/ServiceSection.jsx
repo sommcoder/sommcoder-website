@@ -9,7 +9,7 @@ export default forwardRef(function ServiceSection({ refStateObj }, ref) {
   return (
     <StyledServiceSection ref={refStateObj.service} className="content-section">
       <div className="services-container">
-        <h3 className="services-table-header">✨ My Core Services: ✨</h3>
+        <h3 className="services-table-header">✨ Freelance Services: ✨</h3>
         <div className="services-table-container">
           {servicesArr.map((service) => (
             <ServiceCard key={service.title} service={service} />
@@ -49,6 +49,9 @@ const StyledServiceSection = styled.section`
     display: grid;
     justify-content: center;
     align-content: center;
+    box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.08),
+      0 0.2rem 0.2rem rgba(0, 0, 0, 0.12), 0 0.4rem 0.4rem rgba(0, 0, 0, 0.16),
+      0 0.8rem 0.8rem rgba(0, 0, 0, 0.2);
   }
 
   .services-table-container {

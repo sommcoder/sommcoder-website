@@ -1,18 +1,18 @@
 export const aboutMeContentObj = {
   topSection: [
-    " After more than 12 years in the Hospitality industry as a wine sommelier, I discovered my passion for software development while building my own web-based wine subscription business in response to the challenges posed by COVID-19.",
+    "With over a decade of experience in the hospitality industry, I bring a unique blend of expertise and passion to the tech world. My journey into software development began during the challenging times of COVID-19, when I initiated a web-based wine subscription service. This venture not only demonstrated my entrepreneurial spirit but also ignited my interest in technology and web development.",
     <br />,
     <br />,
-    "Once I became proficient in CMS platforms (like Squarespace & Shopify) for my business, I embarked on a journey of self-study, online courses, and personal projects to delve into the intricacies of web development with HTML, CSS and JavaScript which grabbed and held my attention.",
+    "My proficiency with CMS platforms such as Squarespace and Shopify was just the beginning. Motivated by my business needs, I embarked on a self-directed learning path, diving deep into web technologies including HTML, CSS, and JavaScript. The complexity and creativity of web development resonated with me, reminiscent of the intricate details and depth I appreciated in the wine industry.",
   ],
   bottomSection: [
-    "Looking back, having studied the minutiae of the wine industry certainly afforded me the ability to dive deep into the esoteric subject of web development.",
+    `Reflecting on my career, I recognize how the analytical and autodidactic skills I honed from years as a wine sommelier seamlessly transitioned into a fervor for coding and web development. My early fascination with computers — from being mesmerized by video games at just two years old — has come full circle, shaping my path in the digital realm.`,
     <br />,
     <br />,
-    `Truthfully, I was always drawn to computers. Even at 2 years old when our home computer had a screen that was as large as me, I loved playing video games and "surfing the web".🏄‍♂️`,
+    "Today, I combine my extensive background in hospitality, my entrepreneurial journey, and my technical expertise to offer tailored solutions that enhance online businesses, particularly within the food and beverage industry. Whether you're looking to scale your brand or create a unique digital presence, I bring a specialized knowledge base and a fresh perspective to help your business thrive.",
     <br />,
     <br />,
-    "With my extensive Hospitality experience, entrepreneurship and technical skill set, I offer a specialized knowledge base to help scaleyour online business and create value for your brand in the foodand beverage industry.",
+    "Let's connect and explore how we can create value for your brand together. :)",
     <br />,
     <br />,
     "- Brian Davies",

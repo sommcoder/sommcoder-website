@@ -12,43 +12,34 @@ import { database } from "../../../../firebase-sdk.js";
 import { ref, set } from "firebase/database";
 
 export default function ContactForm() {
-  const initFormInputState = {};
-
-  useEffect(() => {
-    formInputArr.forEach((_, i) => (initFormInputState[i] = false));
-  }, []);
+  const initFormInputState = {
+    0: false,
+    1: false,
+    2: false,
+    3: false,
+  };
 
   const [formInputState, setFormInputState] = useState(initFormInputState);
 
   const formRef = useRef();
 
-  function handleFieldChange(ev) {
-    console.log("ev:", ev);
-    console.log("ev.target.value:", ev.target.value);
-    console.log("ev.target.dataset.position:", ev.target.dataset.position);
-
-    // TODO: everything else seems to work aside from using the auto-fill function. Would onChange() be triggering each time a field is changed
-    // if (ev.target.dataset.position) {
-    if (!formInputState[ev.target.dataset.position]) {
-      setFormInputState((prevState) => {
-        // if: field value is 0, prevState[ev.target.dataset.position] = false
-        return (prevState[ev.target.dataset.position] = true);
-      });
-    }
-  }
-
   function handleFieldClick(ev) {
-    console.log("ev:", ev);
-    console.log("ev.target.value:", ev.target.value);
-    console.log("ev.target.dataset.position:", ev.target.dataset.position);
-    // when user clicks on fields = they become true
     if (ev.target.dataset.position) {
       setFormInputState((prevState) => {
         return { ...prevState, [ev.target.dataset.position]: true };
       });
     }
   }
-
+  // auto-fill:
+  function handleInput(ev) {
+    // if not true, make true
+    if (!formInputState[ev.target.dataset.position]) {
+      setFormInputState((prevState) => {
+        return { ...prevState, [ev.target.dataset.position]: true };
+      });
+    }
+  }
+  // if leave, no value? make false
   function handleFieldBlur(ev) {
     if (!ev.target.value) {
       setFormInputState((prevState) => {
@@ -61,7 +52,7 @@ export default function ContactForm() {
     // reset fields:
     formRef.current.reset();
     // reset positions:
-    setFormInputState(() => initFormInputState);
+    setFormInputState(initFormInputState);
   }
 
   function handleFormSubmit(ev) {
@@ -83,9 +74,6 @@ put clientside validation here. Right now there's just the native browser check 
     setFormInputState(() => initFormInputState);
     // Create form submission notification
   }
-
-  console.log("formInputState:", formInputState);
-
   return (
     <StyledContactForm
       ref={formRef}
@@ -103,7 +91,7 @@ put clientside validation here. Right now there's just the native browser check 
           position={`${i}`}
           title={title}
           formInputState={formInputState}
-          handleFieldChange={handleFieldChange}
+          handleInput={handleInput}
           handleFieldClick={handleFieldClick}
           handleFieldBlur={handleFieldBlur}
           description={description}
