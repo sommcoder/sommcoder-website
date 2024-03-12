@@ -77,10 +77,11 @@ export default function ContactForm() {
   useEffect(() => {
     if (formSubmitState) {
       setTimeout(() => {
-        formSubmitState(false);
-      }, 500);
+        setFormSubmitState(false);
+      }, 1750);
     }
   }, [formSubmitState]);
+
   return (
     <StyledContactForm
       ref={formRef}
