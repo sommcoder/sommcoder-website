@@ -25,7 +25,7 @@ const StyledIntroContainer = styled.div`
   grid-template-columns: repeat(3, auto);
   background-color: rgba(61, 80, 64, 0.9);
   border-radius: 2rem;
-  margin: 1rem 2rem 2rem 2rem;
+  margin: 1rem 2rem 6rem 2rem;
   padding: 2.5rem;
   max-width: 95rem;
   height: auto;
