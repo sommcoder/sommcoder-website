@@ -1,19 +1,8 @@
 ﻿import styled, { keyframes } from "styled-components";
 
 // TODO: need to add an aria-label for all anchor tags and li
-export default function HamburgerMenu({
-  mobileMenu,
-  toggleMobileMenu,
-  // headerAnimation,
-  // toggleHeaderAnimation,
-  // overlayAnimation,
-  toggleOverlayAnimation,
-}) {
+export default function HamburgerMenu({ mobileMenu, toggleMobileMenu }) {
   function handleMenuClick() {
-    console.log("hamburger menu click");
-    // why do we need both of these???
-    toggleOverlayAnimation((prevState) => !prevState);
-
     // needed an init state so that the animation doesn't trigger onLoad()
     if (mobileMenu === "init") {
       toggleMobileMenu("open");

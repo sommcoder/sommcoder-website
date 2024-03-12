@@ -17,7 +17,6 @@ export default function AboutMeCard() {
 
   // TODO: would be much more responsive and portable if I setup the about me button to be dynamically rendered after a certain amount of characters after the end of the upcoming sentence. Much more dynamic than intentionally setting the overlay and button!
 
-  console.log(moreState);
   return (
     <StyledAboutMeCard className="content-card">
       <h3>About Me:</h3>

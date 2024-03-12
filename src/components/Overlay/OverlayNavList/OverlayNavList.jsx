@@ -1,6 +1,6 @@
 ﻿import styled from "styled-components";
 import { ICON_COMPONENTS } from "../../../menus/iconMenu";
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import { CSSTransition } from "react-transition-group";
 
 export default function OverlayNavList({
@@ -12,8 +12,7 @@ export default function OverlayNavList({
   const iconCount = iconArr.length;
   const navCount = navLabelArr.length;
 
-  const [currActiveLink, adjustCurrActiveLink] = useState("main");
-  const [currActivePosition, adjustCurrActivePosition] = useState(0);
+  const [currActivePosition, adjustCurrActivePosition] = useState(0); // the position of the active link in rem
 
   // Nav Click Change:
   function handleLinkClick(ev) {
@@ -24,33 +23,30 @@ export default function OverlayNavList({
       left: 0,
       behavior: "smooth",
     });
-    // Curr Name
-    adjustCurrActiveLink(section);
-    // Curr Position
-    adjustCurrActivePosition(navLabelArr.findIndex((el) => el === section));
+
+    adjustCurrActivePosition(() => {
+      let index = navLabelArr.findIndex((el) => el === section);
+      return index === 0 ? "0" : `${index * 5}`;
+    });
   }
 
+  console.log("currActivePosition:", currActivePosition);
+
   return (
-    <StyledOverlayNavList
-      iconCount={iconCount}
-      navCount={navCount}
-      currActiveLink={currActiveLink}
-    >
+    <StyledOverlayNavList iconCount={iconCount} navCount={navCount}>
       <ul className="overlay-nav-menu">
         <span className="ref-line-track-wrapper">
           <span className="ref-line-track">
             <CSSTransition
               in={mobileMenu === "open"}
-              timeout={1000} // Match this with your longest animation duration
+              timeout={400} // Match this with your longest animation duration
               onEntered={() => console.log("Entered!")}
               onExited={() => console.log("Exited!")}
               unmountOnExit // This will remove the component from the DOM after it has finished exiting
             >
               <StyledReferenceLine
                 classNames="line"
-                lineposition={
-                  currActivePosition === 0 ? "0" : `${currActivePosition * 5}`
-                }
+                lineposition={currActivePosition}
               ></StyledReferenceLine>
             </CSSTransition>
           </span>
@@ -58,10 +54,6 @@ export default function OverlayNavList({
         {navLabelArr.map((label, i) => (
           <StyledOverlayLinkItem
             data-section={label}
-            data-sequence={i} // should be fine mathematically to keep this as a 0 index
-            data-indexfromcurrent={
-              i - navLabelArr.findIndex((el) => el === currActiveLink)
-            }
             onClick={handleLinkClick}
             key={i}
           >
@@ -167,25 +159,9 @@ const StyledReferenceLine = styled.span`
   left: 25%;
   height: 3rem;
   border-radius: 0.5rem;
-  display: block;
 
-  &.enter {
-    ${({ lineposition }) =>
-      lineposition &&
-      `
-    @keyframes line-entering {
-      0% {
-       height: 1.5rem;
-      top: -5rem;
-      }
-      100% {
-        height: 3rem;
-        top: ${lineposition}rem;
-      }
-    }
-    `}
-
-    animation: line-entering 550ms ease-out 500ms;
+  &.enter-active {
+    top: -8rem;
   }
 
   &.exit {
@@ -205,7 +181,7 @@ const StyledReferenceLine = styled.span`
     lineposition &&
     `
     top: ${lineposition}rem;
-    transition: top 300ms ease-in-out;
+    transition: top 500ms ease-in-out 50ms;
   `};
 `;
 

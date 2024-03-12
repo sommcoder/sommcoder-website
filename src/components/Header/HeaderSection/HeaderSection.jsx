@@ -14,10 +14,6 @@ export default function HeaderSection({
   navLabelArr,
   mobileMenu,
   toggleMobileMenu,
-  headerAnimation,
-  toggleHeaderAnimation,
-  overlayAnimation,
-  toggleOverlayAnimation,
 }) {
   const [screenWidth, setWindowWidth] = useState();
 
@@ -60,10 +56,6 @@ export default function HeaderSection({
           navLabelArr={navLabelArr}
           mobileMenu={mobileMenu}
           toggleMobileMenu={toggleMobileMenu}
-          headerAnimation={headerAnimation}
-          toggleHeaderAnimation={toggleHeaderAnimation}
-          overlayAnimation={overlayAnimation}
-          toggleOverlayAnimation={toggleOverlayAnimation}
         />
       </StyledHeaderRightContainer>
     </StyledHeaderSection>

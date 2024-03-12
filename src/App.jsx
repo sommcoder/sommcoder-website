@@ -13,14 +13,6 @@ export default function App() {
   // can be closed to switch or user clicks somewhere other than OverlaySection
   // ! "init", "open", "closed" states:
   const [mobileMenu, toggleMobileMenu] = useState("init");
-  // header's hamburger menu animation switch:
-  // middle line EXITS then triggers toggleOverlayAnimation
-  // Overlay list items CANNOT be clicked until this completes:
-  const [headerAnimation, toggleHeaderAnimation] = useState(false); // true: complete, false: incomplete
-  // overlay's reference line animation switch:
-  // line enters on TRUE and exists on FALSE
-  // hamburger menu CANNOT be clicked until this completes:
-  const [overlayAnimation, toggleOverlayAnimation] = useState(false); // true: complete, false: incomplete
 
   const refStateObj = {
     main: useRef(null),
@@ -31,7 +23,6 @@ export default function App() {
   };
   const navLabelArr = Object.keys(refStateObj);
 
-  console.log("headerAnimation TRIGGERED:", headerAnimation);
   return (
     <>
       <GlobalStyles />
@@ -40,20 +31,12 @@ export default function App() {
           navLabelArr={navLabelArr}
           mobileMenu={mobileMenu}
           toggleMobileMenu={toggleMobileMenu}
-          headerAnimation={headerAnimation}
-          toggleHeaderAnimation={toggleHeaderAnimation}
-          overlayAnimation={overlayAnimation}
-          toggleOverlayAnimation={toggleOverlayAnimation}
         />
         <Section.Overlay
-          refStateObj={refStateObj}
+          navLabelArr={navLabelArr}
           mobileMenu={mobileMenu}
           toggleMobileMenu={toggleMobileMenu}
-          navLabelArr={navLabelArr}
-          headerAnimation={headerAnimation}
-          toggleHeaderAnimation={toggleHeaderAnimation}
-          overlayAnimation={overlayAnimation}
-          toggleOverlayAnimation={toggleOverlayAnimation}
+          refStateObj={refStateObj}
         />
         <StyledContentWrapper>
           <StyledContentOverlay>
