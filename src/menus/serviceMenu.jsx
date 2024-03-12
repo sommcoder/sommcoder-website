@@ -174,7 +174,7 @@ export const servicesArr = [
         service: ["General Freelancing"],
         price: "65/hour",
         description: [
-          "I'm comfortable building MERN (MongoDB, Express, React, Node) and PERN (PostgreSQL et al above) tech stack with SPA/MPA, and SSR and JAM stack website architecture.",
+          "I'm comfortable building MERN (MongoDB, Express, React, Node) and PERN (PostgreSQL et al above) tech stack with SPA/MPA, SSR and JAM stack website architecture.",
           <br />,
           <br />,
           "I also have working experience with Google Cloud Platform, Python and TypeScript but I can learn any technologies needed to fill in the gaps on a per project basis!",

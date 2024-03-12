@@ -9,7 +9,7 @@ import { carouselItemsArr } from "../../../menus/projectMenu";
 import { useState } from "react";
 
 export default forwardRef(function ProjectSection({ refStateObj }, ref) {
-  const [currIndex, adjustCurrIndex] = useState(0);
+  const [currIndex, adjustCurrIndex] = useState(1);
 
   const handleEllipsesClick = (ev) => {
     let indexClicked = +ev.target.dataset.index;
