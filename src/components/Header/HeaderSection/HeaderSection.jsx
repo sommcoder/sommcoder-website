@@ -125,6 +125,12 @@ const StyledLogo = styled.header`
 const StyledNavIconBox = styled.a`
   display: none;
 
+  svg {
+    &:hover {
+      filter: brightness(0%);
+    }
+  }
+
   @media (min-width: 600px) {
     display: grid;
     height: 4rem;

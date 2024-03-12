@@ -87,6 +87,7 @@ const StyledFooterSection = styled.footer`
     align-items: center;
     justify-items: center;
     row-gap: 1rem;
+
     @media (min-width: 60rem) {
       justify-content: left;
       align-content: left;
@@ -114,6 +115,7 @@ const StyledFooterSection = styled.footer`
     list-style: none;
     &:hover {
       cursor: pointer;
+      filter: brightness(0%);
     }
   }
 `;

@@ -22,6 +22,9 @@ export const servicesArr = [
       <br />,
       `You've got more important things to worry about than launching your Shopify store. 
       `,
+      <br />,
+      <br />,
+      `Onboarding and staff training included!`,
     ],
     component: <LuRocket style={iconStyling} />,
     pricing: [

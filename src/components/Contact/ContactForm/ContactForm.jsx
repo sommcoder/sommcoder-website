@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { useRef, useState, useMemo, useEffect } from "react";
+import { useRef, useState, useEffect } from "react";
 
 import ContactFormItem from "../ContactFormItem/ContactFormItem";
 // icon:
@@ -11,6 +11,10 @@ import { formInputArr } from "../../../menus/contactMenu.jsx";
 import { database } from "../../../../firebase-sdk.js";
 import { ref, set } from "firebase/database";
 
+function writeUserFormData() {
+  //
+}
+
 export default function ContactForm() {
   const initFormInputState = {
     0: false,
@@ -20,6 +24,7 @@ export default function ContactForm() {
   };
 
   const [formInputState, setFormInputState] = useState(initFormInputState);
+  const [formSubmitState, setFormSubmitState] = useState(false);
 
   const formRef = useRef();
 
@@ -59,13 +64,6 @@ export default function ContactForm() {
     ev.preventDefault();
     // get form data:
     const formData = new FormData(formRef.current);
-
-    /*
- 
-put clientside validation here. Right now there's just the native browser check that each field is filled out
- 
-*/
-
     // write data:
     writeUserFormData(formData);
     // reset fields:
@@ -73,13 +71,23 @@ put clientside validation here. Right now there's just the native browser check 
     // reset positions:
     setFormInputState(() => initFormInputState);
     // Create form submission notification
+    setFormSubmitState(true);
   }
+
+  useEffect(() => {
+    if (formSubmitState) {
+      setTimeout(() => {
+        formSubmitState(false);
+      }, 500);
+    }
+  }, [formSubmitState]);
   return (
     <StyledContactForm
       ref={formRef}
       id="contact-form"
       className="content-card"
       length={formInputArr.length - 1}
+      onSubmit={handleFormSubmit}
     >
       <button type="reset" id="reset-button" onClick={handleResetForm}>
         <GrPowerReset style={{ height: "2rem", color: "black" }} />
@@ -100,7 +108,12 @@ put clientside validation here. Right now there's just the native browser check 
           id={id}
         />
       ))}
-      <button onSubmit={handleFormSubmit} form="contact-form" type="submit">
+      {formSubmitState ? (
+        <StyledNotificationPopup>Form sent!</StyledNotificationPopup>
+      ) : (
+        ""
+      )}
+      <button form="contact-form" type="submit">
         Send
       </button>
     </StyledContactForm>
@@ -147,6 +160,9 @@ const StyledContactForm = styled.form`
     }
   }
 
+  #loading {
+  }
+
   h4 {
     color: black;
     font-size: 1.8rem;
@@ -161,4 +177,25 @@ const StyledContactForm = styled.form`
       filter: brightness(75%);
     }
   }
+`;
+
+const StyledNotificationPopup = styled.div`
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  bottom: 10rem;
+  @keyframes notification-pop-up {
+    0% {
+      bottom: 8rem;
+      opacity: 0;
+    }
+    100% {
+      bottom: 10rem;
+      opacity: 1;
+    }
+  }
+
+  animation: notification-pop-up 500ms ease-in-out;
 `;
