@@ -12,14 +12,14 @@ import {
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyBC8z_nougryTMcAs4lcIpfLhznaUgnwMU",
+  apiKey: import.meta.ev.PROD_API_KEY,
   authDomain: "sommcoder.firebaseapp.com",
   projectId: "sommcoder",
   storageBucket: "sommcoder.appspot.com",
-  messagingSenderId: "968925151126",
-  appId: "1:968925151126:web:add66175c5ab0a37a3a7b7",
-  measurementId: "G-E26RXWTNY7",
-  databaseURL: "https://sommcoder-default-rtdb.firebaseio.com/",
+  messagingSenderId: import.meta.env.PROD_MSG_SENDER_ID,
+  appId: import.meta.env.PROD_APP_ID,
+  measurementId: import.meta.env.MEASUREMENT_ID,
+  databaseURL: import.meta.env.PROD_DB_URL,
 };
 
 const app = initializeApp(firebaseConfig);
