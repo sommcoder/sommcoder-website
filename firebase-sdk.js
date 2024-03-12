@@ -18,7 +18,7 @@ const firebaseConfig = {
   storageBucket: "sommcoder.appspot.com",
   messagingSenderId: import.meta.env.VITE_PROD_MSG_SENDER_ID,
   appId: import.meta.env.VITE_PROD_APP_ID,
-  measurementId: import.meta.env.MEASUREMENT_ID,
+  measurementId: import.meta.env.VITE_PROD_MEASUREMENT_ID,
   databaseURL: import.meta.env.VITE_PROD_DB_URL,
 };
 
