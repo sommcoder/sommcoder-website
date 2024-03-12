@@ -53,7 +53,7 @@ const StyledAboutMeCard = styled.div`
   grid-template-columns: 1fr;
   grid-template-rows: auto auto auto;
   row-gap: 2rem;
-  margin-top: 2rem;
+  margin-top: 3rem;
 
   h3 {
     vertical-align: middle;

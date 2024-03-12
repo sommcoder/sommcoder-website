@@ -30,16 +30,12 @@ export default function CarouselItem({
             <img className="carousel-item-thumbnail" src={item.thumbnail} />
           </Suspense>
         </div>
-        <div
-          data-index={index}
-          className="carousel-item-banner"
-          onClick={handleItemClick}
-        >
+        <StyledCarouselItemBanner data-index={index} onClick={handleItemClick}>
           <h3>{item.title}</h3>
           <p>{item.short}</p>
-        </div>
+        </StyledCarouselItemBanner>
       </div>
-      <div className="carousel-item-icon-container" data-index={index}>
+      <StyledCarouselItemIconContainer data-index={index}>
         {Object.keys(item.links).map((link, i) => {
           return item.links[link] ? (
             <a
@@ -54,7 +50,7 @@ export default function CarouselItem({
             ""
           );
         })}
-      </div>
+      </StyledCarouselItemIconContainer>
     </StyledCarouselItem>
   );
 }
@@ -103,41 +99,6 @@ const StyledCarouselItem = styled.div`
     height: 100%;
   }
 
-  .carousel-item-banner {
-    pointer-events: none;
-    display: grid;
-    row-gap: 0.5rem;
-    align-content: center;
-    bottom: 0%;
-    position: absolute;
-    height: 6rem;
-    width: 100%;
-    z-index: 2;
-    font-size: 1.8rem;
-    color: black;
-    font-weight: 800;
-    background-color: rgba(255, 255, 255, 0.9);
-
-    p {
-      font-size: 1.2rem;
-      font-style: italic;
-    }
-  }
-
-  .carousel-item-icon-container {
-    display: flex;
-    z-index: 2;
-    width: 100%;
-    height: 5rem;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-    justify-items: center;
-    column-gap: 3rem;
-    border-radius: 0rem 0rem 2rem 2rem;
-    background-color: rgb(80, 104, 84);
-  }
-
   svg {
     &:hover {
       filter: brightness(-40%);
@@ -173,4 +134,39 @@ const StyledCarouselItem = styled.div`
     width: 100%;
     border-radius: 2rem 2rem 0rem 0rem;
   }
+`;
+
+const StyledCarouselItemBanner = styled.div`
+  pointer-events: none;
+  display: grid;
+  row-gap: 0.5rem;
+  align-content: center;
+  bottom: 0%;
+  position: absolute;
+  height: 6rem;
+  width: 100%;
+  z-index: 2;
+  font-size: 1.8rem;
+  color: black;
+  font-weight: 800;
+  background-color: rgba(255, 255, 255, 0.9);
+
+  p {
+    font-size: 1.2rem;
+    font-style: italic;
+  }
+`;
+
+const StyledCarouselItemIconContainer = styled.div`
+  display: flex;
+  z-index: 2;
+  width: 100%;
+  height: 5rem;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  column-gap: 3rem;
+  border-radius: 0rem 0rem 2rem 2rem;
+  background-color: rgb(80, 104, 84);
 `;

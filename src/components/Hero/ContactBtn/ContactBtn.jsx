@@ -2,14 +2,7 @@
 
 export default function ContactBtn() {
   return (
-    <StyledContactBtn
-      href="mailto:brian.davies@sommcoder.com?subject=General Inquiry"
-      // onClick={() =>
-      //   Calendly.initPopupWidget({
-      //     url: "https://calendly.com/brian-davies589/15minchat",
-      //   })
-      // }
-    >
+    <StyledContactBtn href="mailto:brian.davies@sommcoder.com?subject=General Inquiry">
       <button>
         <span className="button-text">Let's Chat!</span>
       </button>

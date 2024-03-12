@@ -4,7 +4,6 @@ import { ICON_COMPONENTS } from "../../menus/iconMenu";
 
 export default function FooterSection({ refStateObj, navLabelArr }) {
   function handleLinkClick(ev) {
-    console.log("footer click");
     window.scrollTo({
       top: refStateObj[ev.target.dataset.section].current.offsetTop - 200 || 0, // needs to be minus cause this offsetTop is the pixel distance FROM the top
       left: 0,
