@@ -31,7 +31,7 @@ export const servicesArr = [
       {
         id: "seoLaunch",
         service: "SEO Launch",
-        price: "295",
+        price: "195",
         description: [
           "SEO tooling, social media integration and reporting infrastructure gift wrapped for you to impress your shareholders and hit the ground running!",
         ],
@@ -141,7 +141,7 @@ export const servicesArr = [
       {
         id: "shopifyApp",
         service: ["Shopify Custom", <br />, " App"],
-        price: "1500",
+        price: "2250",
         description:
           "Solutions that fit your business and your needs. Lightweight clones of existing apps or develop completely custom solutions!",
       },
@@ -186,7 +186,7 @@ export const servicesArr = [
       {
         id: "pocApp",
         service: ["Proof of Concept App"],
-        price: "4000",
+        price: "3500",
         description: [
           "Launch your SaaS business idea! Want an asset you can take to prospective investors? I can build a Proof-of-Concept application based on the Minimal Viable Product (MVP) of your idea and we can build from there as your business grows!",
         ],

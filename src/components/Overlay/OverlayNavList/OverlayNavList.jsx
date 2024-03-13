@@ -30,8 +30,6 @@ export default function OverlayNavList({
     });
   }
 
-  console.log("currActivePosition:", currActivePosition);
-
   return (
     <StyledOverlayNavList iconCount={iconCount} navCount={navCount}>
       <ul className="overlay-nav-menu">

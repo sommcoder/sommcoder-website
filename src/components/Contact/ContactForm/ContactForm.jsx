@@ -8,11 +8,17 @@ import { GrPowerReset } from "react-icons/gr";
 // data:
 import { formInputArr } from "../../../menus/contactMenu.jsx";
 // db:
-import { database } from "../../../../firebase-sdk.js";
+import { db } from "../../../../firebase-sdk.js";
 import { ref, set } from "firebase/database";
 
-function writeUserFormData() {
-  //
+function writeUserFormData(formData) {
+  console.log("formData:", formData);
+  set(ref(db, "forms/" + Date.now()), {
+    fname: formData.get("fname"),
+    lname: formData.get("lname"),
+    email: formData.get("email"),
+    message: formData.get("message"),
+  });
 }
 
 export default function ContactForm() {

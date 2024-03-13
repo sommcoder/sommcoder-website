@@ -152,8 +152,8 @@ const StyledCarouselItemBanner = styled.div`
   background-color: rgba(255, 255, 255, 0.9);
 
   p {
-    font-size: 1.2rem;
-    font-style: italic;
+    font-size: 1.4rem;
+    /* font-style: italic; */
   }
 `;
 

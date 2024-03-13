@@ -32,4 +32,4 @@ const app = initializeApp(firebaseConfig);
 
 // Initialize Firebase
 const analytics = getAnalytics(app);
-export const database = getDatabase(app);
+export const db = getDatabase(app);
