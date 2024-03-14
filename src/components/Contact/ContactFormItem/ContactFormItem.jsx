@@ -52,7 +52,6 @@ export default function ContactFormItem({
         id={`placeholder-${id}`}
         form="contact-form"
         aria-labelledby="placeholder-text"
-        formInputState
         className="placeholder-text"
       >
         <div className="label-text">{title}</div>

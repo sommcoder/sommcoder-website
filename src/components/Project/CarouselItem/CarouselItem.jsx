@@ -1,7 +1,7 @@
 ﻿import styled from "styled-components";
 
 import { Suspense } from "react";
-import LoadingEllipsis from "../../Utility/LoadingEllipsis/LoadingEllipsis";
+import LoadingEllipsis from "../../LoadingEllipsis/LoadingEllipsis";
 
 import { ICON_COMPONENTS } from "../../../menus/iconMenu";
 

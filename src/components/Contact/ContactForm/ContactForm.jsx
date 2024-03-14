@@ -102,7 +102,7 @@ export default function ContactForm() {
       <h4>HOW CAN I HELP?</h4>
       {formInputArr.map(({ title, description, errorMsg, type, id }, i) => (
         <ContactFormItem
-          key={i}
+          key={`${id}-${i}`}
           position={`${i}`}
           title={title}
           formInputState={formInputState}

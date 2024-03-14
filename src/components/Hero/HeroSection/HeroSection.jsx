@@ -1,6 +1,6 @@
 ﻿import styled from "styled-components";
 import IntroContainer from "../IntroContainer/IntroContainer";
-import LoadingEllipsis from "../../Utility/LoadingEllipsis/LoadingEllipsis";
+import LoadingEllipsis from "../../LoadingEllipsis/LoadingEllipsis";
 
 import { Suspense } from "react";
 import { forwardRef } from "react";

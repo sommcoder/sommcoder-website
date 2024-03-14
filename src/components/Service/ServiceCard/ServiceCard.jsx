@@ -181,8 +181,8 @@ const StyledPricingTable = styled.ul`
       opacity: .2;
         `};
   // opacity has a delay to smoothly render:
-  transition: max-height 300ms ease-in-out, padding 200ms ease-in-out 50ms,
-    opacity 200ms ease-in-out 100ms;
+  transition: max-height 200ms ease-in-out, padding 200ms ease-in-out 50ms,
+    opacity 100ms ease-in-out 50ms;
 
   width: inherit;
   text-align: center;

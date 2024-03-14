@@ -2,7 +2,7 @@
 import headshot from "/Brian-headshot.jpg";
 
 import { Suspense } from "react";
-import LoadingEllipsis from "../../Utility/LoadingEllipsis/LoadingEllipsis";
+import LoadingEllipsis from "../../LoadingEllipsis/LoadingEllipsis";
 
 import wine from "/wine-stain2.svg";
 
