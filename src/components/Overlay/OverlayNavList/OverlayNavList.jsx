@@ -12,7 +12,8 @@ export default function OverlayNavList({
   const iconCount = iconArr.length;
   const navCount = navLabelArr.length;
 
-  const [currActivePosition, adjustCurrActivePosition] = useState(0); // the position of the active link in rem
+  // the position state of the active link in rem:
+  const [currActivePosition, adjustCurrActivePosition] = useState(0);
 
   // Nav Click Change:
   function handleLinkClick(ev) {

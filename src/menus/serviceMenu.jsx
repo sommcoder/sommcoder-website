@@ -31,7 +31,7 @@ export const servicesArr = [
       {
         id: "seoLaunch",
         service: "SEO Launch",
-        price: "195",
+        price: "200",
         description: [
           "SEO tooling, social media integration and reporting infrastructure gift wrapped for you to impress your shareholders and hit the ground running!",
         ],
@@ -39,7 +39,7 @@ export const servicesArr = [
       {
         id: "squarespace",
         service: "Squarespace Website",
-        price: "1750",
+        price: "1500",
         description: [
           "Not ready for e-commerce quite yet? Squarespace is a great starting point to launch your online brand presence.",
         ],
@@ -47,16 +47,15 @@ export const servicesArr = [
       {
         id: "themeSite",
         service: "Shopify Theme Website",
-        price: "2250",
-        description:
-          "A built-in or marketplace theme e-commerce site. First revision complete within 14 days.",
+        price: "2000",
+        description: "A built-in or marketplace theme e-commerce site.",
       },
       {
         id: "customSite",
         service: "Shopify Custom Website",
-        price: "3500",
+        price: "3000",
         description: [
-          "Break out of the cookie-cutter experience of templating/themes with a unique user experience for your customers. Built with Shopify's proprietary Hydrogen JavaScript framework and integrated with your merchant admin.",
+          "Break out of the cookie-cutter experience of templating/themes with a unique user experience for your customers. Built with Shopify's proprietary Hydrogen React.js framework that's seamlessly integrated with your merchant admin.",
         ],
       },
     ],
@@ -114,7 +113,7 @@ export const servicesArr = [
       {
         id: "seoReporting",
         service: ["SEO", <br />, " Reporting"],
-        price: "350/month",
+        price: "175/month",
         description: [
           "Good analytics = great decisions!",
           <br />,
@@ -141,9 +140,13 @@ export const servicesArr = [
       {
         id: "shopifyApp",
         service: ["Shopify Custom", <br />, " App"],
-        price: "2250",
-        description:
-          "Solutions that fit your business and your needs. Lightweight clones of existing apps or develop completely custom solutions!",
+        price: "1750",
+        description: [
+          "Solutions that fit your business and your needs. Whether that's lightweight clones of existing apps or  custom solutions!",
+          <br />,
+          <br />,
+          "* Ongoing hosting and maintenance is additional based on server usage and your needs.",
+        ],
       },
       {
         id: "seoDevelopment",
@@ -165,7 +168,7 @@ export const servicesArr = [
       `You get a resourceful, self-taught developer with intermediate-level knowledge of JavaScript, React, HTML and CSS.`,
       <br />,
       <br />,
-      `I have over 20 years of applied business experience and can work with a wide range of people and personalities in order to produce your deliverables on time!`,
+      `I have over 20 years of applied business experience and can thrive on a team or work independently in order to produce your deliverables on time!`,
     ],
     component: <LiaFileContractSolid style={iconStyling} />,
     pricing: [
@@ -186,9 +189,12 @@ export const servicesArr = [
       {
         id: "pocApp",
         service: ["Proof of Concept App"],
-        price: "3500",
+        price: "2500",
         description: [
           "Launch your SaaS business idea! Want an asset you can take to prospective investors? I can build a Proof-of-Concept application based on the Minimal Viable Product (MVP) of your idea and we can build from there as your business grows!",
+          <br />,
+          <br />,
+          "* Ongoing hosting and maintenance is additional depending on server usage and your needs.",
         ],
       },
     ],
