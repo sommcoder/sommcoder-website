@@ -151,9 +151,9 @@ export const servicesArr = [
       {
         id: "seoDevelopment",
         service: "SEO Development",
-        price: "750/month",
+        price: "475/month",
         description: [
-          "Increase web traffic, drive conversions and grow your top line revenue.",
+          "Increase web traffic, drive conversions and grow your top line revenue. I'm available to you for up to 20 hours per month and will provide regular check-ins and comprehensive data analysis to ensure your brand is on track!",
           <br />,
           <br />,
           "Prerequisite services: SEO Launch and SEO Reporting",
