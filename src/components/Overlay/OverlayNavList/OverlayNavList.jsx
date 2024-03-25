@@ -1,19 +1,22 @@
 ﻿import styled from "styled-components";
 import { ICON_COMPONENTS } from "../../../menus/iconMenu";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
+import { useEffect } from "react";
 
 export default function OverlayNavList({
   refStateObj,
   mobileMenu,
   navLabelArr,
 }) {
+  const lineRef = useRef(null);
+
   const iconArr = Object.keys(ICON_COMPONENTS);
   const iconCount = iconArr.length;
   const navCount = navLabelArr.length;
 
   // the position state of the active link in rem:
-  const [currActivePosition, adjustCurrActivePosition] = useState(0);
+  const [currActivePosition, adjustCurrActivePosition] = useState("0");
 
   // Nav Click Change:
   function handleLinkClick(ev) {
@@ -31,6 +34,8 @@ export default function OverlayNavList({
     });
   }
 
+  console.log("currActivePosition:", currActivePosition);
+
   return (
     <StyledOverlayNavList iconCount={iconCount} navCount={navCount}>
       <ul className="overlay-nav-menu">
@@ -38,13 +43,18 @@ export default function OverlayNavList({
           <span className="ref-line-track">
             <CSSTransition
               in={mobileMenu === "open"}
+              nodeRef={lineRef}
+              classNames="line"
               timeout={400} // Match this with your longest animation duration
+              onEntering={() => console.log("Entering!")}
               onEntered={() => console.log("Entered!")}
+              onExiting={() => console.log("Exiting!")}
               onExited={() => console.log("Exited!")}
-              unmountOnExit // This will remove the component from the DOM after it has finished exiting
+              mountOnEnter
+              unmountOnExit
             >
               <StyledReferenceLine
-                classNames="line"
+                ref={lineRef}
                 lineposition={currActivePosition}
               ></StyledReferenceLine>
             </CSSTransition>
@@ -159,11 +169,21 @@ const StyledReferenceLine = styled.span`
   height: 3rem;
   border-radius: 0.5rem;
 
-  &.enter-active {
-    top: -8rem;
+  &.line-enter {
+    @keyframes line-entering {
+      0% {
+        height: 1.5rem;
+        top: -5rem;
+      }
+      100% {
+        height: 3rem;
+        top: ${({ lineposition }) => `${lineposition}rem`};
+      }
+    }
+    animation: line-entering 150ms ease-out;
   }
 
-  &.exit {
+  &.line-exit {
     @keyframes line-exiting {
       0% {
         height: 3rem;
@@ -173,15 +193,13 @@ const StyledReferenceLine = styled.span`
         top: -5rem;
       }
     }
-    animation: line-exiting 1 150ms ease-out;
+    animation: line-exiting 150ms ease-out;
   }
 
-  ${({ lineposition }) =>
-    lineposition &&
-    `
-    top: ${lineposition}rem;
-    transition: top 500ms ease-in-out 50ms;
-  `};
+  // controls position transition:
+  top: ${({ lineposition }) => `${lineposition}rem`};
+  transition: top 400ms ease-in-out;
+  animation: none;
 `;
 
 const StyledOverlayLinkItem = styled.li`
