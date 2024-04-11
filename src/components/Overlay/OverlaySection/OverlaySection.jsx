@@ -50,7 +50,7 @@ export default function OverlaySection({
         overlayAnimation={overlayAnimation}
         toggleOverlayAnimation={toggleOverlayAnimation}
       />
-      <ResumeBtn />
+      <ResumeBtn type={"overlay"} />
     </StyledOverlaySection>
   );
 }

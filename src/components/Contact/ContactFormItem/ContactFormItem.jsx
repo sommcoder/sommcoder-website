@@ -16,7 +16,7 @@ export default function ContactFormItem({
     <StyledContactFormItem
       data-position={position}
       active={formInputState[position]}
-      onInput={(ev) => handleInput(ev)} // handles Chrome's autofill, onChange doesn't trigger
+      onInput={(ev) => handleInput(ev)} // for Chrome's autofill
       onClick={(ev) => handleFieldClick(ev)}
       onBlur={(ev) => handleFieldBlur(ev)}
       type={type === "longtext" ? "text" : type}

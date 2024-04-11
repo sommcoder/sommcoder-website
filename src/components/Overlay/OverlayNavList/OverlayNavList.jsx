@@ -1,8 +1,7 @@
 ﻿import styled from "styled-components";
 import { ICON_COMPONENTS } from "../../../menus/iconMenu";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { CSSTransition } from "react-transition-group";
-import { useEffect } from "react";
 
 export default function OverlayNavList({
   refStateObj,
@@ -16,7 +15,7 @@ export default function OverlayNavList({
   const navCount = navLabelArr.length;
 
   // the position state of the active link in rem:
-  const [currActivePosition, adjustCurrActivePosition] = useState("0");
+  const [currActivePosition, adjustCurrActivePosition] = useState(0);
 
   // Nav Click Change:
   function handleLinkClick(ev) {
@@ -30,11 +29,12 @@ export default function OverlayNavList({
 
     adjustCurrActivePosition(() => {
       let index = navLabelArr.findIndex((el) => el === section);
-      return index === 0 ? "0" : `${index * 5}`;
+      return index === 0 ? 0 : index * 5;
     });
   }
 
   console.log("currActivePosition:", currActivePosition);
+  console.log("mobileMenu:", mobileMenu);
 
   return (
     <StyledOverlayNavList iconCount={iconCount} navCount={navCount}>
@@ -43,7 +43,6 @@ export default function OverlayNavList({
           <span className="ref-line-track">
             <CSSTransition
               in={mobileMenu === "open"}
-              nodeRef={lineRef}
               classNames="line"
               timeout={400} // Match this with your longest animation duration
               onEntering={() => console.log("Entering!")}
@@ -54,7 +53,6 @@ export default function OverlayNavList({
               unmountOnExit
             >
               <StyledReferenceLine
-                ref={lineRef}
                 lineposition={currActivePosition}
               ></StyledReferenceLine>
             </CSSTransition>
@@ -93,6 +91,7 @@ const StyledOverlayNavList = styled.div`
   justify-items: center;
   grid-template-rows: auto 27.5rem;
   row-gap: 2rem;
+  margin-bottom: 2rem;
 
   .overlay-nav-menu {
     align-items: center;
@@ -180,7 +179,7 @@ const StyledReferenceLine = styled.span`
         top: ${({ lineposition }) => `${lineposition}rem`};
       }
     }
-    animation: line-entering 150ms ease-out;
+    animation: line-entering 150ms ease-out 1;
   }
 
   &.line-exit {
@@ -193,11 +192,13 @@ const StyledReferenceLine = styled.span`
         top: -5rem;
       }
     }
-    animation: line-exiting 150ms ease-out;
+    animation: line-exiting 150ms ease-out 1;
   }
 
-  // controls position transition:
+  // ! The problem is that the class is being removed when currActivePosition is updated
   top: ${({ lineposition }) => `${lineposition}rem`};
+
+  // controls position transition:
   transition: top 400ms ease-in-out;
   animation: none;
 `;

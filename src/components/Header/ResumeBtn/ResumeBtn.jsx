@@ -3,9 +3,9 @@ import { IoMdDownload } from "react-icons/io";
 
 import cv from "/Brian - resume.pdf";
 
-export default function ResumeBtn() {
+export default function ResumeBtn({ type }) {
   return (
-    <StyledResumeBtn onClick={() => {}}>
+    <StyledResumeBtn type={type} onClick={() => {}}>
       <a download="Brian's Resume" href={cv}>
         <IoMdDownload
           style={{
@@ -20,9 +20,16 @@ export default function ResumeBtn() {
 }
 
 const StyledResumeBtn = styled.button`
-  display: none;
-  margin-right: 4rem;
+  // mobile:
+  display: ${({ type }) => (type === "overlay" ? "inline-block" : "none")};
+  margin-right: ${({ type }) => (type === "overlay" ? "0rem" : "4rem")};
+  width: ${({ type }) => (type === "overlay" ? "12rem" : "")};
   padding: 1rem;
+
+  a {
+    display: ${({ type }) => (type === "overlay" ? "flex" : "grid")};
+    color: ${({ type }) => (type === "overlay" ? "black" : "white")};
+  }
 
   // desktop:
   @media (min-width: 50rem) {
