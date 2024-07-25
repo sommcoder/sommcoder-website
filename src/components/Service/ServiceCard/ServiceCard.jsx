@@ -102,6 +102,7 @@ export default function ServiceCard({ service }) {
 }
 
 const StyledServiceCard = styled.span`
+  color: var(--dark-font);
   background-color: whitesmoke;
   display: grid;
   row-gap: 1.5rem;
@@ -145,6 +146,9 @@ const StyledServiceCardContentContainer = styled.span`
   height: auto;
   line-height: 1.75rem;
   padding: 0rem 2rem;
+  p {
+    padding: 1rem 0rem;
+  }
 
   h5 {
     font-size: 1.8rem;
@@ -204,7 +208,6 @@ const StyledPricingItem = styled.li`
 
   .menu-active {
     z-index: 3;
-    color: rgba(0, 0, 0, 1);
     max-height: 35rem;
     transition: color 500ms linear 250ms;
     transition: z-index 0ms ease-in-out 0s;

@@ -171,7 +171,6 @@ const StyledContactForm = styled.form`
   }
 
   h4 {
-    color: black;
     font-size: 1.8rem;
     text-align: center;
     margin-bottom: 1rem;

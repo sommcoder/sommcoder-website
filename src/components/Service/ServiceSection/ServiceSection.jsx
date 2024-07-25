@@ -35,13 +35,12 @@ const StyledServiceSection = styled.section`
 
     margin: 3rem;
     /* padding: 2rem; */
-    color: black;
+    color: var(--dark-font);
     border-radius: 2rem;
   }
 
   .services-table-header {
     font-size: 2.4rem;
-    color: black;
     border: 0.1rem solid pink;
     background-color: whitesmoke;
     border-radius: 2rem;

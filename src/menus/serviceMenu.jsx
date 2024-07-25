@@ -37,18 +37,11 @@ export const servicesArr = [
         ],
       },
       {
-        id: "squarespace",
-        service: "Squarespace Website",
-        price: "1500",
-        description: [
-          "Not ready for e-commerce quite yet? Squarespace is a great starting point to launch your online brand presence.",
-        ],
-      },
-      {
         id: "themeSite",
         service: "Shopify Theme Website",
-        price: "2000",
-        description: "A built-in or marketplace theme e-commerce site.",
+        price: "1500",
+        description:
+          "A free or marketplace theme site build for your brand. Includes product and collection setup, DNS configuration, ",
       },
       {
         id: "customSite",
@@ -83,7 +76,7 @@ export const servicesArr = [
         service: ["Workflow", <br />, " Automation"],
         price: "250/solve",
         description: [
-          "Spreadsheet templates, plugins, integrations, third party apps, whatever the solution may call for. I'm a developer who",
+          "Spreadsheet templates, plugins, integrations, third party apps, whatever the solution may call for. I'm a developer with over 6 years of operations management experience who can help you achieve your business goals!",
         ],
       },
     ],
@@ -119,9 +112,6 @@ export const servicesArr = [
           <br />,
           <br />,
           "Accurate, normalized analytics and business intelligence provided in a consistent format for managers and shareholders to make the best possible decisions.",
-          <br />,
-          <br />,
-          "Prerequisite service = SEO Launch",
         ],
       },
     ],
@@ -140,12 +130,9 @@ export const servicesArr = [
       {
         id: "shopifyApp",
         service: ["Shopify Custom", <br />, " App"],
-        price: "1750",
+        price: "500",
         description: [
-          "Solutions that fit your business and your needs. Whether that's lightweight clones of existing apps or  custom solutions!",
-          <br />,
-          <br />,
-          "* Ongoing hosting and maintenance is additional based on server usage and your needs.",
+          "Shopify App Store applications can slow down your website and the recurring costs can stack overtime. Allow me to build you lightweight clones of existing solutions complete with what you need with less bulk than store apps.",
         ],
       },
       {
@@ -175,12 +162,12 @@ export const servicesArr = [
       {
         id: "freelancing",
         service: ["General Freelancing"],
-        price: "65/hour",
+        price: "55/hour",
         description: [
           "I'm comfortable building MERN (MongoDB, Express, React, Node) and PERN (PostgreSQL et al above) tech stack with SPA/MPA, SSR and JAM stack website architecture.",
           <br />,
           <br />,
-          "I also have working experience with Google Cloud Platform, Python and TypeScript but I can learn any technologies needed to fill in the gaps on a per project basis!",
+          "I also have working experience with Google Cloud Platform and Python but I can learn any technologies needed to fill in the gaps on a per project basis!",
           <br />,
           <br />,
           "Need a hand on a project without the need for a full-time employee? Let's chat!",
@@ -189,7 +176,7 @@ export const servicesArr = [
       {
         id: "pocApp",
         service: ["Proof of Concept App"],
-        price: "2500",
+        price: "895",
         description: [
           "Launch your SaaS business idea! Want an asset you can take to prospective investors? I can build a Proof-of-Concept application based on the Minimal Viable Product (MVP) of your idea and we can build from there as your business grows!",
           <br />,

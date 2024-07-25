@@ -147,7 +147,7 @@ const StyledCarouselItemBanner = styled.div`
   width: 100%;
   z-index: 2;
   font-size: 1.8rem;
-  color: black;
+  color: var(--dark-font);
   font-weight: 800;
   background-color: rgba(255, 255, 255, 0.9);
 

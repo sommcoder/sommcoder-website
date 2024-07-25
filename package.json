@@ -6,11 +6,11 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "npm run build && firebase deploy"
   },
   "dependencies": {
-    "firebase": "^10.8.0",
-    "firebase-tools": "^13.3.1",
+    "firebase": "^10.12.4",
     "framer-motion": "^10.16.16",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -23,6 +23,7 @@
     "@types/react": "^18.0.24",
     "@types/react-dom": "^18.0.8",
     "@vitejs/plugin-react": "^2.2.0",
+    "firebase-tools": "^13.14.1",
     "vite": "^3.2.3"
   },
   "description": "a portfolio website for Toronto-based react web developer Brian Davies",

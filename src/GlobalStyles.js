@@ -37,6 +37,8 @@ const GlobalStyles = createGlobalStyle`${css`
   }
 
   body {
+    --dark-font: rgb(24, 24, 24);
+    --light-font: whitesmoke;
     height: 100%;
     max-width: 100%;
     font-size: 1.6rem; // equals 16px
@@ -80,7 +82,7 @@ const GlobalStyles = createGlobalStyle`${css`
     min-height: 35rem;
     margin: 1rem 2rem;
     padding: 3rem;
-    color: black;
+    color: var(--dark-font);
     background-color: whitesmoke;
     border-radius: 2rem;
     box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.08),
@@ -95,7 +97,7 @@ const GlobalStyles = createGlobalStyle`${css`
     position: relative;
     font-weight: 600;
     font-size: 1.2rem;
-    color: black;
+    color: var(--dark-font);
     border: none;
     height: 3.5rem;
     width: auto; // width of button adjusts based on text content
